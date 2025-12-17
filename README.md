@@ -56,6 +56,11 @@ Tips, techniques, and patterns for maximizing productivity with GitHub Copilot.
 - **Reference**: Use as a quick reference guide for specific features
 - **Exercises**: Complete hands-on exercises to build practical skills
 
+## 📑 Additional Resources
+
+- **[Quick Reference Guide](./QUICK_REFERENCE.md)** - Keyboard shortcuts, commands, and quick tips
+- **[Additional Resources](./RESOURCES.md)** - Comprehensive list of external resources, videos, and documentation
+
 ## 🤝 Contributing
 
 This is a training repository. For issues or suggestions, please open an issue in the repository.
