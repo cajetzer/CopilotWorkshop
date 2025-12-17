@@ -5,6 +5,7 @@ Welcome to the GitHub Copilot Training Repository! This comprehensive resource p
 ## 🎯 About This Repository
 
 This repository is designed for developers, teams, and organizations looking to:
+
 - Learn GitHub Copilot from basics to advanced features
 - Practice with hands-on exercises and real-world scenarios
 - Access up-to-date documentation and best practices
@@ -14,25 +15,44 @@ This repository is designed for developers, teams, and organizations looking to:
 
 Each module is self-contained with theory, exercises, and links to official documentation.
 
+### [Module 0: Orientation — The Markdown Whisperer Philosophy](./modules/00-orientation/README.md)
+
+Understand the evolution of enterprise programming and why clarity of thought is your superpower.
+
 ### [Module 1: Getting Started with GitHub Copilot](./modules/01-getting-started/README.md)
-Introduction to GitHub Copilot, licensing, setup, and basic concepts.
 
-### [Module 2: Copilot in Visual Studio Code](./modules/02-copilot-vscode/README.md)
-Deep dive into using Copilot in VSCode, including code completions, chat, and inline features.
+Introduction to GitHub Copilot, licensing, setup, and your first experiences with AI-assisted coding.
 
-### [Module 3: Copilot on the Web (GitHub.com)](./modules/03-copilot-web/README.md)
+### [Module 2: Context and Configuration](./modules/02-context-and-configuration/README.md)
+
+Learn how Copilot reads context, configure custom instructions, and create documentation that makes Copilot smarter.
+
+### [Module 3: Prompt Engineering](./modules/03-prompt-engineering/README.md)
+
+Master the CRISPE framework, build reusable prompt libraries stored in your repository, and create prompt workflows.
+
+### [Module 4: Agents and Tools](./modules/04-agents-and-tools/README.md)
+
+Deep dive into chat participants (@workspace, @vscode, @terminal), slash commands, and building team agent playbooks.
+
+### [Module 5: Copilot on the Web (GitHub.com)](./modules/05-copilot-web/README.md)
+
 Learn to use Copilot directly in your browser on GitHub.com for code reviews and discussions.
 
-### [Module 4: GitHub Copilot CLI](./modules/04-copilot-cli/README.md)
+### [Module 6: GitHub Copilot CLI](./modules/06-copilot-cli/README.md)
+
 Master the command-line interface for GitHub Copilot, including shell commands and script generation.
 
-### [Module 5: Copilot in Other IDEs](./modules/05-copilot-other-ides/README.md)
+### [Module 7: Copilot in Other IDEs](./modules/07-copilot-other-ides/README.md)
+
 Using Copilot in JetBrains IDEs, Visual Studio, Neovim, and other development environments.
 
-### [Module 6: Advanced Features and New Capabilities](./modules/06-advanced-features/README.md)
+### [Module 8: Advanced Features and New Capabilities](./modules/08-advanced-features/README.md)
+
 Explore cutting-edge features like Copilot Workspace, background agents, working trees, and multi-file editing.
 
-### [Module 7: Best Practices and Real-World Applications](./modules/07-best-practices/README.md)
+### [Module 9: Best Practices and Real-World Applications](./modules/09-best-practices/README.md)
+
 Tips, techniques, and patterns for maximizing productivity with GitHub Copilot.
 
 ## 🔗 Official Resources
@@ -44,18 +64,30 @@ Tips, techniques, and patterns for maximizing productivity with GitHub Copilot.
 
 ## 🚀 Getting Started
 
-1. **Choose Your Path**: Check out [Learning Paths](./LEARNING_PATHS.md) to find the best route based on your role and goals
-2. **Prerequisites**: Ensure you have a GitHub Copilot license (Individual, Business, or Enterprise)
-3. **Start Learning**: Begin with Module 1 or jump to specific modules based on your needs
-4. **Practice**: Complete exercises in each module to reinforce learning
-5. **Explore**: Try features in your actual development workflow
+1. **Fork or Clone This Repo First**
+
+   - Recommended: Fork this repository into your company’s GitHub organization (or your personal account) so you can commit changes and track progress
+   - Then clone locally and open in VS Code:
+
+     ```bash
+     git clone https://github.com/<your-org-or-user>/CopilotTraining.git
+     cd CopilotTraining
+     code .
+     ```
+
+2. **Choose Your Path**: Check out [Learning Paths](./LEARNING_PATHS.md) to find the best route based on your role and goals
+3. **Prerequisites**: Ensure you have a GitHub Copilot license (Individual, Business, or Enterprise)
+4. **Start Learning**: Begin with Module 1 or jump to specific modules based on your needs
+5. **Practice**: Complete exercises in each module to reinforce learning
+6. **Explore**: Try features in your actual development workflow
 
 ## 📖 How to Use This Repository
 
-- **Sequential Learning**: Work through modules 1-7 in order for a comprehensive understanding
+- **Sequential Learning**: Work through modules 0-9 in order for a comprehensive understanding
 - **Topic-Specific**: Jump to specific modules based on your immediate needs
 - **Reference**: Use as a quick reference guide for specific features
 - **Exercises**: Complete hands-on exercises to build practical skills
+- **Team Adoption**: Store prompt libraries and agent configs in your own repos using patterns from Modules 3-4
 
 ## 📑 Additional Resources
 

@@ -3,17 +3,21 @@
 ## Quick Links to Official Resources
 
 ### Essential Documentation
+
 - [GitHub Copilot Docs](https://docs.github.com/en/copilot) - Official documentation
 - [Copilot Trust Center](https://resources.github.com/copilot-trust-center/) - Privacy and security
 - [Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/introduction-to-github-copilot/) - Training courses
 - [GitHub Blog](https://github.blog/tag/github-copilot/) - Latest updates and features
 
 ### Getting Started
+
+- Fork/Clone: See [Module 1 setup](./modules/01-getting-started/README.md#before-you-begin-repository-setup)
 - [Quickstart Guide](https://docs.github.com/en/copilot/quickstart)
 - [Subscription Plans](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot)
 - [Installation Guide](https://docs.github.com/en/copilot/setting-up-github-copilot)
 
 ### Platform-Specific Guides
+
 - [VS Code](https://code.visualstudio.com/docs/copilot/overview)
 - [JetBrains IDEs](https://plugins.jetbrains.com/plugin/17718-github-copilot)
 - [Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.copilotvs)
@@ -21,6 +25,7 @@
 - [CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
 
 ### Advanced Features
+
 - [Copilot Workspace](https://githubnext.com/projects/copilot-workspace)
 - [Multi-file Editing](https://code.visualstudio.com/docs/copilot/copilot-edits)
 - [PR Summaries](https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-pull-request-summaries)
@@ -29,6 +34,7 @@
 ## Keyboard Shortcuts
 
 ### VS Code
+
 - **Accept suggestion**: `Tab`
 - **Reject**: `Esc`
 - **Next suggestion**: `Alt+]` / `Option+]`
@@ -38,12 +44,14 @@
 - **View all suggestions**: `Ctrl+Enter` / `Cmd+Enter`
 
 ### JetBrains
+
 - **Accept**: `Tab`
 - **Next**: `Alt+]` / `Option+]`
 - **Previous**: `Alt+[` / `Option+[`
 - **View all**: `Alt+\` / `Option+\`
 
 ### Visual Studio
+
 - **Accept**: `Tab`
 - **Next**: `Alt+.`
 - **Previous**: `Alt+,`
@@ -81,6 +89,7 @@ gh copilot explain "command to explain"
 ## Best Practices Checklist
 
 ### Before Accepting Suggestions
+
 - [ ] Understand what the code does
 - [ ] Verify it meets requirements
 - [ ] Check for security issues
@@ -88,6 +97,7 @@ gh copilot explain "command to explain"
 - [ ] Confirm it matches code style
 
 ### When Writing Prompts
+
 - [ ] Be specific and clear
 - [ ] Provide context
 - [ ] Include requirements
@@ -95,6 +105,7 @@ gh copilot explain "command to explain"
 - [ ] Mention testing expectations
 
 ### Code Review
+
 - [ ] Review all generated code
 - [ ] Test thoroughly
 - [ ] Check security implications
@@ -104,6 +115,7 @@ gh copilot explain "command to explain"
 ## Quick Troubleshooting
 
 ### Copilot Not Working
+
 1. Check status bar icon
 2. Verify authentication: Sign out and back in
 3. Check network connection
@@ -111,6 +123,7 @@ gh copilot explain "command to explain"
 5. Check subscription status
 
 ### Poor Suggestions
+
 1. Provide more context in comments
 2. Keep relevant files open
 3. Use more specific prompts
@@ -118,6 +131,7 @@ gh copilot explain "command to explain"
 5. Iterate with follow-up prompts
 
 ### No Suggestions Appearing
+
 1. Check if Copilot is enabled
 2. Verify file type is supported
 3. Check settings for that language
@@ -127,16 +141,19 @@ gh copilot explain "command to explain"
 ## Module Quick Access
 
 1. [Getting Started](./modules/01-getting-started/README.md) - Installation and basics
-2. [VS Code](./modules/02-copilot-vscode/README.md) - Full VS Code features
-3. [Web/GitHub.com](./modules/03-copilot-web/README.md) - Browser-based usage
-4. [CLI](./modules/04-copilot-cli/README.md) - Command-line interface
-5. [Other IDEs](./modules/05-copilot-other-ides/README.md) - JetBrains, VS, Neovim
-6. [Advanced Features](./modules/06-advanced-features/README.md) - Workspace, agents, multi-file
-7. [Best Practices](./modules/07-best-practices/README.md) - Tips and real-world usage
+2. [Context & Configuration](./modules/02-context-and-configuration/README.md) - Teach Copilot your conventions
+3. [Prompt Engineering](./modules/03-prompt-engineering/README.md) - Reusable prompts and patterns
+4. [Agents & Tools](./modules/04-agents-and-tools/README.md) - @workspace, @vscode, @terminal
+5. [Web/GitHub.com](./modules/05-copilot-web/README.md) - Browser-based usage
+6. [CLI](./modules/06-copilot-cli/README.md) - Command-line interface
+7. [Other IDEs](./modules/07-copilot-other-ides/README.md) - JetBrains, VS, Neovim
+8. [Advanced Features](./modules/08-advanced-features/README.md) - Workspace, agents, multi-file
+9. [Best Practices](./modules/09-best-practices/README.md) - Tips and real-world usage
 
 ## Common Use Cases
 
 ### Writing New Code
+
 ```javascript
 // Describe what you want clearly
 // function to validate email addresses using regex
@@ -145,12 +162,14 @@ gh copilot explain "command to explain"
 ```
 
 ### Refactoring
+
 ```javascript
 // Select code + Ctrl+I / Cmd+I
 // Prompt: "Convert to async/await and add error handling"
 ```
 
 ### Testing
+
 ```javascript
 // In chat or inline
 // /tests for this function
@@ -158,6 +177,7 @@ gh copilot explain "command to explain"
 ```
 
 ### Documentation
+
 ```javascript
 // Select function
 // /doc to generate documentation
@@ -165,6 +185,7 @@ gh copilot explain "command to explain"
 ```
 
 ### Debugging
+
 ```javascript
 // Select problematic code
 // Ask: "What could be wrong with this code?"
@@ -174,6 +195,7 @@ gh copilot explain "command to explain"
 ## Security Reminders
 
 ⚠️ **Always Review:**
+
 - Authentication/authorization code
 - Input validation
 - SQL queries
@@ -182,6 +204,7 @@ gh copilot explain "command to explain"
 - Encryption/decryption
 
 🚫 **Never Commit:**
+
 - API keys or secrets
 - Passwords
 - Private keys
@@ -189,6 +212,7 @@ gh copilot explain "command to explain"
 - Personal information
 
 ✅ **Best Practices:**
+
 - Use environment variables
 - Validate all inputs
 - Use parameterized queries

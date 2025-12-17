@@ -1,8 +1,132 @@
-# Module 6: Advanced Features and New Capabilities
+# Module 8: Advanced Features — Extensions, MCP, and Workflows
+
+## 📖 Overview
+
+Level up with advanced patterns: multi‑file edits, refactor plans, repo‑wide searches, and extend Copilot safely with MCP tools.
+
+## Prerequisites
+
+- Modules 0–7
+
+## Estimated Time
+
+- 35–45 minutes
+
+---
+
+## 🎯 Learning Objectives
+
+- Orchestrate multi‑step changes with small, reviewable diffs
+- Use @workspace for repo‑wide analysis and planning
+- Understand MCP capabilities and guardrails for custom tools
+
+---
+
+## 📚 Content
+
+### Planning Refactors with Copilot
+
+- Ask for a short plan: files to touch, steps, and test strategy
+- Execute in small patches; keep each diff self‑contained
+- Use `/tests` to maintain safety net as you proceed
+
+### Repo‑Wide Searches
+
+- Ask @workspace to find patterns, TODOs, dead code, or risky APIs
+- Generate an issue list with owners and suggested fixes
+
+### MCP Deep‑Dive (Safety First)
+
+- Start read‑only, staging‑only; add logs and timeouts
+- Keep interfaces small and explicit; document inputs/outputs
+- Review like production code; version config
+
+Docs:
+
+- MCP overview: https://modelcontextprotocol.io/
+- VS Code MCP: https://code.visualstudio.com/docs/copilot/chat/mcp-servers
+
+---
+
+## 🔨 Exercises
+
+### Exercise 1: “Two‑File Refactor Plan” (David)
+
+#### 🎯 Objective
+
+Plan and execute a small refactor across two files.
+
+#### 📋 Steps
+
+1. Ask @workspace for a step‑by‑step plan with tests.
+2. Apply step 1 as a small patch; run tests.
+3. Proceed only if green; repeat.
+
+#### ✅ Success Criteria
+
+- [ ] Each diff is small and reviewable
+- [ ] Tests pass after each step
+
+#### 💭 David
+
+“The plan kept changes safe and easy to review.”
+
+---
+
+### Exercise 2: “Design a Read‑Only MCP Tool” (Marcus)
+
+#### 🎯 Objective
+
+Specify a minimal tool that fetches a staging‑only status.
+
+#### 📋 Steps
+
+1. Define inputs/outputs and a timeout.
+2. Describe logging and error handling.
+3. Write a short validation checklist.
+
+#### ✅ Success Criteria
+
+- [ ] Contract is explicit and small
+- [ ] Guardrails prevent risky use
+
+#### 📚 Official Docs
+
+- MCP docs: https://modelcontextprotocol.io/
+
+#### 💭 Marcus
+
+“Clear contracts made me confident to wire this in later.”
+
+---
+
+## 🧠 Key Takeaways
+
+- Plan first; ship in small, green steps
+- Repo‑wide insights help prioritize real work
+- Treat tools like product features with safety from day one
+
+---
+
+## ➡️ Next Steps
+
+Go to Module 9: modules/09-best-practices/README.md
+
+# Module 8: Advanced Features and New Capabilities
 
 ## 📖 Overview
 
 This module explores cutting-edge GitHub Copilot features including Copilot Workspace, background agents, working trees, multi-file editing, code review assistance, and other advanced capabilities. Learn how to leverage these tools for complex development workflows.
+
+## Prerequisites
+
+- Completed Modules 2–4
+- Visual Studio Code with Copilot Edits enabled (for multi-file editing)
+- Optional: Copilot Enterprise access for Workspace, PR summaries, knowledge bases
+
+## Estimated time
+
+- 40–60 minutes
 
 ## 🎯 Learning Objectives
 
@@ -23,6 +147,7 @@ This module explores cutting-edge GitHub Copilot features including Copilot Work
 Copilot Workspace is a development environment that combines natural language planning, code generation, and execution in an integrated experience. It's designed for tackling issues and features from concept to implementation.
 
 **Key Features:**
+
 - Natural language issue specification
 - Automated implementation planning
 - Multi-file code generation
@@ -30,11 +155,13 @@ Copilot Workspace is a development environment that combines natural language pl
 - Collaboration features
 
 **Access:**
+
 - Available for GitHub Copilot Enterprise users
 - Access via GitHub.com
 - Integrated with Issues and Pull Requests
 
 **Workflow:**
+
 1. Start from a GitHub Issue
 2. Describe what you want to build
 3. Review generated plan
@@ -43,6 +170,7 @@ Copilot Workspace is a development environment that combines natural language pl
 6. Create pull request
 
 **📖 Official Documentation:**
+
 - [GitHub Copilot Workspace](https://githubnext.com/projects/copilot-workspace)
 - [GitHub Next Projects](https://githubnext.com/)
 - [Copilot Workspace announcement](https://github.blog/2024-04-29-github-copilot-workspace/)
@@ -52,6 +180,7 @@ Copilot Workspace is a development environment that combines natural language pl
 **What are Background Agents?**
 
 Background agents are AI assistants that work autonomously in the background while you code, performing tasks like:
+
 - Code analysis and suggestions
 - Security scanning
 - Test generation
@@ -59,18 +188,21 @@ Background agents are AI assistants that work autonomously in the background whi
 - Refactoring opportunities
 
 **Types of Background Work:**
+
 - **Continuous Analysis**: Ongoing code quality checks
 - **Proactive Suggestions**: Improvements without explicit prompts
 - **Contextual Learning**: Adapts to your codebase patterns
 - **Automated Tasks**: Tests, docs, cleanup
 
 **How They Work:**
+
 - Monitor your codebase continuously
 - Analyze patterns and potential issues
 - Suggest improvements at appropriate times
 - Work alongside your active development
 
 **Example Use Cases:**
+
 - Suggesting missing tests for new functions
 - Identifying security vulnerabilities
 - Recommending performance optimizations
@@ -78,6 +210,7 @@ Background agents are AI assistants that work autonomously in the background whi
 - Finding code duplication
 
 **📖 Official Documentation:**
+
 - [GitHub Copilot Enterprise features](https://docs.github.com/en/copilot/github-copilot-enterprise)
 - [Proactive Copilot suggestions](https://github.blog/2024-07-29-github-copilot-chat-evolves-from-assistant-to-collaborator/)
 
@@ -88,6 +221,7 @@ Background agents are AI assistants that work autonomously in the background whi
 A feature that enables coordinated multi-file changes with AI assistance.
 
 **Key Capabilities:**
+
 - Add multiple files to a working set
 - Make coordinated changes across files
 - Review all changes before applying
@@ -95,11 +229,13 @@ A feature that enables coordinated multi-file changes with AI assistance.
 - Maintain consistency across files
 
 **Opening Copilot Edits:**
+
 - VS Code: Click Copilot icon → "Open Copilot Edits"
 - Command Palette: "GitHub Copilot: Open Copilot Edits"
 - Keyboard shortcut (configurable)
 
 **Workflow:**
+
 1. Open Copilot Edits panel
 2. Add files to working set
 3. Describe desired changes
@@ -108,12 +244,14 @@ A feature that enables coordinated multi-file changes with AI assistance.
 6. Apply to codebase
 
 **Working Set Management:**
+
 - Add files manually
 - Auto-detect related files
 - Remove files from set
 - Save working sets for later
 
 **📖 Official Documentation:**
+
 - [Multi-file editing with Copilot](https://code.visualstudio.com/docs/copilot/copilot-edits)
 - [Copilot Edits announcement](https://code.visualstudio.com/updates/v1_86#_copilot-edits)
 
@@ -122,29 +260,34 @@ A feature that enables coordinated multi-file changes with AI assistance.
 **Use Cases for Multi-File Changes:**
 
 **1. Refactoring:**
+
 - Rename classes/interfaces used across files
 - Change function signatures
 - Extract shared logic
 - Reorganize code structure
 
 **2. Feature Implementation:**
+
 - Add new endpoints (API + controller + service)
 - Implement across layers (frontend + backend)
 - Update related tests
 
 **3. API Changes:**
+
 - Modify interface contracts
 - Update all implementations
 - Adjust consumers
 - Update documentation
 
 **4. Consistency Updates:**
+
 - Apply coding standards
 - Update error handling patterns
 - Standardize logging
 - Fix similar issues across files
 
 **Best Practices:**
+
 - Start with a clear description
 - Review changes carefully
 - Test after applying
@@ -152,6 +295,7 @@ A feature that enables coordinated multi-file changes with AI assistance.
 - Use version control
 
 **Example Prompt:**
+
 ```
 Add authentication middleware to all API routes:
 - Create middleware in auth.js
@@ -161,6 +305,7 @@ Add authentication middleware to all API routes:
 ```
 
 **📖 Official Documentation:**
+
 - [Working with multiple files](https://code.visualstudio.com/docs/copilot/copilot-edits)
 
 ### Code Review with Copilot
@@ -170,6 +315,7 @@ Add authentication middleware to all API routes:
 Automatically generate comprehensive pull request descriptions.
 
 **What's Generated:**
+
 - Overview of changes
 - File-by-file breakdown
 - Key modifications
@@ -178,6 +324,7 @@ Automatically generate comprehensive pull request descriptions.
 - Migration guide (if needed)
 
 **How to Use:**
+
 1. Create pull request
 2. Click "Generate" with Copilot icon
 3. Review and edit summary
@@ -186,24 +333,28 @@ Automatically generate comprehensive pull request descriptions.
 **Review Assistance:**
 
 Copilot helps reviewers understand changes:
+
 - Explain code modifications
 - Identify potential issues
 - Suggest improvements
 - Answer questions about changes
 
 **For Reviewers:**
+
 - Click on code sections
 - Ask Copilot questions
 - Get context and explanations
 - Identify edge cases
 
 **For Authors:**
+
 - Use Copilot to self-review
 - Generate test cases
 - Add documentation
 - Address feedback
 
 **📖 Official Documentation:**
+
 - [Copilot pull request summaries](https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-pull-request-summaries)
 - [Using Copilot in code reviews](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-on-githubcom)
 
@@ -214,24 +365,28 @@ Copilot helps reviewers understand changes:
 Extend Copilot's capabilities with third-party integrations and custom agents.
 
 **Types of Extensions:**
+
 - **Tool Integrations**: Connect to external services
 - **Custom Agents**: Specialized AI assistants
 - **Language-Specific**: Enhanced support for specific languages
 - **Framework Helpers**: Framework-specific assistance
 
 **Popular Extensions:**
+
 - Docker (container management)
 - Azure (cloud services)
 - Database tools (SQL generation)
 - Testing frameworks (test generation)
 
 **Creating Custom Extensions:**
+
 - Use GitHub Copilot SDK
 - Define custom prompts
 - Integrate with APIs
 - Deploy as VS Code extension
 
 **📖 Official Documentation:**
+
 - [GitHub Copilot Extensions](https://docs.github.com/en/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)
 - [Building Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions)
 - [Copilot extensibility overview](https://code.visualstudio.com/api/extension-guides/chat)
@@ -243,6 +398,7 @@ Extend Copilot's capabilities with third-party integrations and custom agents.
 Enterprise feature allowing organizations to provide custom context to Copilot.
 
 **What You Can Add:**
+
 - Internal documentation
 - API specifications
 - Architecture guides
@@ -251,24 +407,28 @@ Enterprise feature allowing organizations to provide custom context to Copilot.
 - Company-specific libraries
 
 **Benefits:**
+
 - Copilot understands your systems
 - Suggestions follow company standards
 - Generates compliant code
 - References internal docs
 
 **Setup:**
+
 - Organization administrators configure
 - Add documentation repositories
 - Copilot indexes content
 - Available to all users
 
 **📖 Official Documentation:**
+
 - [GitHub Copilot Enterprise knowledge bases](https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-knowledge-bases)
 - [Managing knowledge bases](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization)
 
 ### Advanced Prompting Techniques
 
 **Context Setting:**
+
 ```
 Given a REST API using Express.js and MongoDB,
 create authentication middleware with JWT tokens.
@@ -276,6 +436,7 @@ Include error handling and input validation.
 ```
 
 **Iterative Refinement:**
+
 ```
 1. "Create a user service"
 2. "Add email validation"
@@ -284,6 +445,7 @@ Include error handling and input validation.
 ```
 
 **Specific Constraints:**
+
 ```
 Write a Python function to parse CSV files.
 Requirements:
@@ -295,6 +457,7 @@ Requirements:
 ```
 
 **Style Guidelines:**
+
 ```
 Refactor this code following these rules:
 - Use async/await (no callbacks)
@@ -304,6 +467,7 @@ Refactor this code following these rules:
 ```
 
 **Testing Focus:**
+
 ```
 Create unit tests for this function:
 - Test happy path
@@ -314,6 +478,7 @@ Create unit tests for this function:
 ```
 
 **Documentation:**
+
 ```
 Add documentation to this class:
 - JSDoc/docstring for all public methods
@@ -324,6 +489,7 @@ Add documentation to this class:
 ```
 
 **📖 Official Documentation:**
+
 - [Best practices for prompt crafting](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 - [Getting better suggestions](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
 
@@ -334,12 +500,14 @@ Add documentation to this class:
 Enterprise organizations can fine-tune Copilot on their codebase.
 
 **Benefits:**
+
 - Better suggestions for internal code
 - Understands company patterns
 - Follows organizational standards
 - Improved accuracy
 
 **Process:**
+
 1. Organization opts in
 2. Codebase analysis
 3. Model fine-tuning
@@ -347,11 +515,13 @@ Enterprise organizations can fine-tune Copilot on their codebase.
 5. Continuous improvement
 
 **Privacy:**
+
 - Data stays within organization
 - No sharing with other customers
 - Controlled by administrators
 
 **📖 Official Documentation:**
+
 - [GitHub Copilot Enterprise overview](https://docs.github.com/en/copilot/github-copilot-enterprise)
 - [Copilot for Business vs Enterprise](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot)
 
@@ -362,6 +532,7 @@ Enterprise organizations can fine-tune Copilot on their codebase.
 **Objective**: Experience Copilot Workspace (if available).
 
 **Steps:**
+
 1. Access Copilot Workspace (Enterprise users)
 2. Create or select an issue
 3. Describe implementation in natural language
@@ -370,11 +541,13 @@ Enterprise organizations can fine-tune Copilot on their codebase.
 6. Create pull request
 
 **If Not Available:**
+
 - Read documentation
 - Watch demo videos
 - Plan how you'd use it
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Copilot Workspace documentation](https://githubnext.com/projects/copilot-workspace)
 
 ### Exercise 2: Multi-File Refactoring
@@ -383,6 +556,7 @@ Enterprise organizations can fine-tune Copilot on their codebase.
 
 **Setup:**
 Create a simple project:
+
 ```javascript
 // user.js
 class User {
@@ -405,13 +579,15 @@ function handleCreateUser(req, res) {
 
 **Task:**
 Use Copilot Edits to:
+
 1. Add email parameter to User
 2. Update createUser function
 3. Update controller
 4. Add validation
 5. Update all related code
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Multi-file editing](https://code.visualstudio.com/docs/copilot/copilot-edits)
 
 ### Exercise 3: PR Summary Generation
@@ -419,6 +595,7 @@ Use Copilot Edits to:
 **Objective**: Generate comprehensive PR descriptions.
 
 **Steps:**
+
 1. Make meaningful code changes
 2. Create pull request
 3. Use Copilot to generate summary (Enterprise)
@@ -426,17 +603,20 @@ Use Copilot Edits to:
 5. Publish
 
 **Manual Alternative:**
+
 - Use Copilot Chat: "Generate PR description for these changes"
 - Paste git diff
 - Get summary
 
 **Compare:**
+
 - Manual description vs Copilot-generated
 - Completeness
 - Clarity
 - Time saved
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [PR summaries](https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-pull-request-summaries)
 
 ### Exercise 4: Advanced Prompting
@@ -444,6 +624,7 @@ Use Copilot Edits to:
 **Objective**: Master complex prompting techniques.
 
 **Scenario 1 - Detailed Requirements:**
+
 ```
 Create a caching layer for API responses:
 - Use Redis for storage
@@ -455,6 +636,7 @@ Create a caching layer for API responses:
 ```
 
 **Scenario 2 - Style Constraints:**
+
 ```
 Refactor this code to:
 - Use functional programming style
@@ -465,6 +647,7 @@ Refactor this code to:
 ```
 
 **Scenario 3 - Testing Focus:**
+
 ```
 Generate tests for authentication flow:
 - Happy path: valid credentials
@@ -475,7 +658,8 @@ Generate tests for authentication flow:
 - Concurrent requests
 ```
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Prompt engineering guide](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 
 ### Exercise 5: Code Review Assistance
@@ -483,10 +667,12 @@ Generate tests for authentication flow:
 **Objective**: Use Copilot for thorough code reviews.
 
 **Setup:**
+
 1. Find a pull request (yours or teammate's)
 2. Open in review mode
 
 **Use Copilot to:**
+
 1. Explain overall changes
 2. Identify security issues
 3. Suggest performance improvements
@@ -495,13 +681,15 @@ Generate tests for authentication flow:
 6. Review documentation
 
 **Questions to Ask:**
+
 - "What does this change do?"
 - "Are there any security concerns?"
 - "How does this affect performance?"
 - "What edge cases might be missed?"
 - "Is error handling complete?"
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Code review with Copilot](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-on-githubcom)
 
 ### Exercise 6: Working Set Management
@@ -509,6 +697,7 @@ Generate tests for authentication flow:
 **Objective**: Efficiently manage multi-file working sets.
 
 **Tasks:**
+
 1. Open Copilot Edits
 2. Add related files:
    - Model/entity
@@ -520,12 +709,14 @@ Generate tests for authentication flow:
 5. Apply incrementally
 
 **Best Practices:**
+
 - Group logically related files
 - Review before applying
 - Test after each application
 - Commit frequently
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Copilot Edits documentation](https://code.visualstudio.com/docs/copilot/copilot-edits)
 
 ### Exercise 7: Extension Exploration
@@ -533,6 +724,7 @@ Generate tests for authentication flow:
 **Objective**: Discover and use Copilot extensions.
 
 **Steps:**
+
 1. Browse available extensions
 2. Install relevant extensions
 3. Test features
@@ -540,18 +732,21 @@ Generate tests for authentication flow:
 5. Evaluate usefulness
 
 **Extensions to Try:**
+
 - GitHub (Enterprise features)
 - Docker (container help)
 - Database extensions
 - Cloud provider tools
 
 **Evaluation:**
+
 - Does it solve real problems?
 - Integration quality?
 - Performance impact?
 - Would you keep it?
 
-**📖 Reference:**
+#### 📚 Official Docs
+
 - [Copilot Extensions](https://docs.github.com/en/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)
 
 ## 📝 Key Takeaways
@@ -567,7 +762,7 @@ Generate tests for authentication flow:
 
 ## ➡️ Next Steps
 
-Continue to [Module 7: Best Practices and Real-World Applications](../07-best-practices/README.md) to learn effective patterns and techniques for maximizing Copilot productivity.
+Continue to [Module 9: Best Practices and Real-World Applications](../09-best-practices/README.md) to learn effective patterns and techniques for maximizing Copilot productivity.
 
 ## 🔗 Additional Resources
 

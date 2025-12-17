@@ -1,4 +1,103 @@
-# The Evolution of Enterprise Programming: A 15-Year Journey
+# Module 0: Orientation — How This Training Works
+
+## 📖 Overview
+
+Welcome! This path turns great thinking into effective collaboration with Copilot. You’ll learn a common structure across modules: clear objectives, practical content, persona-driven exercises, and links to official docs. Expect short focused lessons with hands‑on tasks.
+
+## Prerequisites
+
+- VS Code with GitHub Copilot Chat enabled
+- A GitHub account (Business/Enterprise recommended in org settings)
+
+## Estimated Time
+
+- 10–15 minutes
+
+---
+
+## 🎯 Learning Objectives
+
+- Understand the training philosophy (Markdown Whisperer: clarity over cleverness)
+- Meet the personas (Sarah, Marcus, Priya, David) and why they matter
+- Learn how to get feedback from Copilot and evaluate it critically
+- Know how modules are structured and how to navigate
+
+---
+
+## 📚 Content
+
+### Training Philosophy
+
+- Clarity beats cleverness: write what you mean, simply
+- Intent over implementation: describe outcomes and constraints
+- Documentation is leverage: encode decisions so Copilot can amplify them
+- Human judgment is non‑negotiable: Copilot proposes; you decide
+
+### Personas You’ll See
+
+- Sarah (Skeptical Senior): wants real ROI, no fluff
+- Marcus (DevOps Developer): practical, workflow‑focused, infrastructure‑savvy
+- Priya (Recent Grad): learning fast, needs safe explanations
+- David (Seasoned Architect): values rigor, wants augmentation not replacement
+
+### How to Work Through Modules
+
+- Each module has: Overview, Objectives, Content, Exercises, Key Takeaways, Next Steps
+- Exercises include stories, clear steps, success criteria, official docs, and a stretch goal
+- Prefer doing exercises inside a repo to give Copilot real context
+
+---
+
+## 🔨 Exercises
+
+### Exercise: “Your Personal Goals” (All Personas)
+
+#### 🎯 Objective
+
+Write down what you want from Copilot in 3 bullets.
+
+#### 📋 Steps
+
+1. Create `docs/my-copilot-goals.md` in any repo.
+2. Write three goals (e.g., reduce PR time by 30%, standardize tests, improve docs).
+3. Ask: `@workspace Suggest how to measure these goals using artifacts in this repo.`
+
+#### ✅ Success Criteria
+
+- [ ] three goals written
+- [ ] a simple measurement plan proposed
+
+#### 📚 Official Docs
+
+- Copilot Chat overview: https://code.visualstudio.com/docs/copilot/copilot-chat
+
+#### 💭 David’s Note
+
+“Setting explicit goals gives me a basis for evaluating Copilot’s value.”
+
+---
+
+## 🧠 Key Takeaways
+
+- We focus on clarity, intent, and documentation
+- Personas help surface real-world situations and tradeoffs
+- You’ll practice, not just read — hands‑on beats theory
+
+---
+
+## ➡️ Next Steps
+
+Go to Module 1: modules/01-getting-started/README.md
+
+# Module 0: Orientation — The Evolution of Enterprise Programming: A 15-Year Journey
+
+## Prerequisites
+
+- None
+
+## Estimated time
+
+- 10–15 minutes
 
 ## From Wizards of Syntax to Markdown Whisperers
 
@@ -7,7 +106,9 @@ This is the story of how enterprise programmers have transformed their craft ove
 ---
 
 ## Act I: The Wizards of Syntax (2010-2015)
+
 ![alt text](wizard.png)
+
 ### The Era of Craft Mastery
 
 **The Scene:**
@@ -37,7 +138,9 @@ In 2010, enterprise programming was a priesthood. To be a "real developer," you 
 ---
 
 ## Act II: The YAML Cowboys (2015-2020)
+
 ![alt text](cowboy.png)
+
 ### The Era of Infrastructure as Code
 
 **The Transition:**
@@ -69,7 +172,9 @@ Around 2015, DevOps emerged and containers took over. Suddenly, enterprise progr
 ---
 
 ## Act III: The Markdown Whisperers (2020-Present)
+
 ![alt text](monk.png)
+
 ### The Era of Intent and Clarity
 
 **The Transformation:**
@@ -180,3 +285,7 @@ Each module takes 15-20 minutes and covers one topic:
 ---
 
 _The best developers aren't those who know the most syntax. They're the ones who think most clearly and communicate most effectively. Copilot didn't change that—it just made it even more true._
+
+## ➡️ Next Steps
+
+Continue to [Module 1: Getting Started with GitHub Copilot](../01-getting-started/README.md) to install, configure, and experience Copilot in VS Code.
