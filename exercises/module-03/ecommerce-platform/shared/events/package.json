@@ -1,7 +1,0 @@
-{
-  "name": "@techmart/events",
-  "version": "1.0.0",
-  "description": "Event bus for TechMart platform inter-service communication",
-  "main": "index.js",
-  "private": true
-}
