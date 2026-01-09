@@ -220,8 +220,48 @@ Pragmatic, automation-first, always thinking about scale and repeatability. Appr
 
 ---
 
+## The FanHub Team
+
+In this workshop, these seven personas work together to build FanHub—a TV show fan site—in an 8-hour sprint. Each persona has a specific role and transformation arc:
+
+| Persona | Primary Role | Modules Featured | Key Transformation |
+|---------|-------------|------------------|-------------------|
+| **Sarah** | Sprint lead, skeptic | 0, 5 | From "prove it" to "I'm convinced" |
+| **David** | Architecture, code review | 1, 3, 5 | From "will AI replace me?" to "AI amplifies me" |
+| **Marcus** | DevOps → application code | 1, 2, 3, 4 | From infrastructure-only to full-stack confident |
+| **Priya** | Learning, UI implementation | 1, 4, 5 | From intimidated to empowered learner |
+| **Elena** | Testing, quality assurance | 2, 4, 5 | From AI-skeptical QA to AI-assisted QA |
+| **Rafael** | Product, specifications | 2, 5 | From requirements writer to execution enabler |
+| **Jordan** | Platform, deployment | 3, 4, 5 | From manual ops to documented automation |
+
+### The Story Arc
+
+**Monday 9:00 AM**: Sarah challenges the team to ship a production-ready fan site by end of day. The codebase is messy, undocumented, and Copilot gives generic suggestions.
+
+**Monday 10:00 AM - 5:30 PM**: Through Modules 1-5, the team progressively adds customization—instructions, prompts, agents, custom instructions. Each addition compounds the others. Module 5 concludes with shipping and reflection.
+
+**The Transformation**: By the end, each persona has grown:
+- David realizes AI amplifies his 20 years of experience
+- Priya learns faster because AI explains as it generates
+- Sarah sees concrete ROI, not just hype
+- The whole team works more effectively together
+
+---
+
 ## Which Persona Are You?
 
 As you work through this training, consider which persona resonates most with your situation. You might find yourself relating to aspects of multiple personas—that's completely normal! The key is to recognize that developers at all experience levels can benefit from AI-assisted development while honoring the unique perspective and expertise they bring.
+
+### Quick Self-Assessment
+
+| If you... | You might relate to... |
+|-----------|----------------------|
+| Are skeptical of AI hype | Sarah |
+| Worry about AI replacing expertise | David |
+| Come from infrastructure/DevOps | Marcus |
+| Are newer to professional development | Priya |
+| Focus on testing and quality | Elena |
+| Bridge business and technical teams | Rafael |
+| Own deployment and operations | Jordan |
 
 > **Remember:** This training exists to help developers at all levels embrace AI-assisted development while honoring the expertise they bring. AI is a tool; wisdom is human.

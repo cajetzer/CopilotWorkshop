@@ -1,24 +1,24 @@
-# GitHub Copilot Training Outline
+# FanHub Workshop: Complete Outline
 
-> **Total Estimated Time**: 10–12 hours (for slower readers)
-> **Modules**: 8 + 2 Appendices
-> **Exercises**: 57
+> **Total Time**: 7-8 hours (self-paced)  
+> **Modules**: 5 core modules + 2 optional appendices  
+> **Exercises**: 20 hands-on exercises  
 > **Target Audience**: Developers at all experience levels
 
 ---
 
-## 🎯 The Four Principles
+## 🎯 The Four Customization Features
 
-This training is built on four principles that define effective AI-assisted development. Every module and exercise connects back to these foundational ideas.
+This workshop teaches four ways to customize GitHub Copilot. Each module progressively adds customization, demonstrating how they compound.
 
-| Principle                               | Core Message                                                                               | Module Focus       |
-| --------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------ |
-| 🔍 **Clarity Beats Cleverness**         | The best code is code anyone can understand. Write what you mean, simply.                  | Module 02          |
-| 🎯 **Intent Over Implementation**       | Describe WHAT you want, not HOW to build it. Let AI handle implementation details.         | Module 04          |
-| 📚 **Documentation Is Leverage**        | Write once, benefit infinitely. Documentation scales your knowledge to both humans and AI. | Modules 03, 06     |
-| ⚖️ **Human Judgment Is Non-Negotiable** | AI proposes; you decide. Your expertise is the filter that catches what AI misses.         | Modules 05, 07, 08 |
+| Feature | What It Does | Introduced In |
+|---------|--------------|---------------|
+| 📋 **Repository Instructions** | Team patterns in every response | Module 1 |
+| 📝 **Custom Prompts** | Reusable, shareable prompt files | Module 2 |
+| 🤖 **Custom Agents** | Autonomous task specialists | Module 3 |
+| 🎨 **Custom Instructions** | File-scoped context via `applyTo` | Module 4 |
 
-**Full explanation**: [Module 00 — The Four Principles](modules/00-orientation/README.md#the-four-principles)
+By Module 5, all features work together and you'll ship your complete workflow.
 
 ---
 
@@ -26,339 +26,311 @@ This training is built on four principles that define effective AI-assisted deve
 
 ### Tier Markers
 
-| Icon | Tier       | Description                         |
-| ---- | ---------- | ----------------------------------- |
-| 🆓   | Free       | Available to all Copilot users      |
-| 💼   | Business   | Requires Copilot Business license   |
-| 🏢   | Enterprise | Requires Copilot Enterprise license |
+| Icon | Tier | Description |
+|------|------|-------------|
+| 🆓 | Free | Available to all Copilot users |
+| 💼 | Business | Requires Copilot Business license |
+| 🏢 | Enterprise | Requires Copilot Enterprise license |
 
-### Status Markers
+### Difficulty Markers
 
-| Icon | Status      | Description                                                   |
-| ---- | ----------- | ------------------------------------------------------------- |
-| ✅   | Complete    | Exercise fully implemented with all sections                  |
-| 🚧   | In Progress | Exercise structure exists, some content missing               |
-| 📝   | Planned     | Exercise described in philosophy section, not yet implemented |
+| Icon | Difficulty | Description |
+|------|-----------|-------------|
+| 🌱 | Beginner | Foundational concepts |
+| 🌿 | Intermediate | Building on basics |
+| 🌳 | Advanced | Complex, multi-tool workflows |
 
 ---
 
-## 👥 Personas Quick Reference
+## 👥 The FanHub Team
 
-| Persona    | Experience | Key Characteristic | Fears                       | Goals                         |
-| ---------- | ---------- | ------------------ | --------------------------- | ----------------------------- |
-| **Sarah**  | 15 years   | Skeptical Senior   | Wasting time on hype        | Verify real value             |
-| **Marcus** | 5 years    | DevOps Developer   | Being "just ops"            | Write app code confidently    |
-| **Priya**  | 1 year     | Recent Graduate    | Appearing incompetent       | Learn without judgment        |
-| **David**  | 20 years   | Seasoned Architect | AI replacing expertise      | Augment, not replace          |
-| **Elena**  | 8 years    | Quality Champion   | Tests that miss edge cases  | Comprehensive coverage        |
-| **Rafael** | 10 years   | Product Visionary  | Misunderstanding complexity | Bridge business and tech      |
-| **Jordan** | 12 years   | DevOps Expert      | Security vulnerabilities    | Automation with understanding |
+Seven personas guide you through the workshop, each representing real developer archetypes:
 
-**Full personas**: [Training Personas](modules/00-orientation/PERSONAS.md)
+| Persona | Experience | Role in Workshop | Key Transformation |
+|---------|-----------|------------------|-------------------|
+| **Sarah** | 15 years | Sets the challenge, validates results | Skeptic → Believer |
+| **David** | 20 years | Architecture, code review | "Will AI replace me?" → "AI amplifies me" |
+| **Marcus** | 5 years | DevOps → Application code | Infrastructure only → Full-stack confident |
+| **Priya** | 1 year | Learning, UI implementation | Intimidated → Empowered |
+| **Elena** | 8 years | Testing, quality assurance | AI-skeptical QA → AI-assisted QA |
+| **Rafael** | 10 years | Product, specifications | Requirements → Execution bridge |
+| **Jordan** | 12 years | Platform, deployment | Manual ops → Automated ops |
+
+**Full personas**: [modules/00-orientation/PERSONAS.md](modules/00-orientation/PERSONAS.md)
 
 ---
 
 ## 📚 Module Map
 
-### Module 00: Orientation — Redefining Developer Success
+### Module 0: Orientation — The Challenge
 
-**Time**: 20–25 minutes | **Principle**: All Four | **Status**: ✅
+**Time**: 30–45 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
 
-> Why the definition of developer excellence has changed, and how to measure success in the age of AI.
+> Meet the team. Get the challenge. Experience Copilot without customization.
 
-| #   | Exercise                        | Persona | Time      | Tier | Status |
-| --- | ------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Define Your New Success Metrics | David   | 15-20 min | 🆓   | ✅     |
+**Story**: Monday 9:00 AM. Sarah drops a messy fan site on the team's desk.
 
----
+| # | Exercise | Persona | Time | What You'll Experience |
+|---|----------|---------|------|----------------------|
+| 0.1 | The Challenge | Sarah | 15 min | Understand the sprint goals |
+| 0.2 | Clone & Explore | All | 15 min | See the "before" state |
+| 0.3 | Copilot Without Context | Priya | 15 min | Watch Copilot struggle |
 
-### Module 01: Getting Started — Your First Wins with Copilot
-
-**Time**: 40–50 minutes | **Principle**: Clarity Beats Cleverness | **Status**: ✅
-
-> Install, configure, and experience your first "wow" moments with Copilot.
-
-| #   | Exercise                                          | Persona | Time      | Tier | Status |
-| --- | ------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Installation Verification — "The Moment of Truth" | Sarah   | 5-10 min  | 🆓   | ✅     |
-| 2   | Comment-Driven Development — "The New Workflow"   | Marcus  | 10-15 min | 🆓   | ✅     |
-| 3   | Copilot Chat — "The Conversation"                 | Priya   | 10-15 min | 🆓   | ✅     |
-| 4   | Context is Everything — "The Connected Codebase"  | David   | 10-15 min | 🆓   | ✅     |
-| 5   | Explain and Improve — "Understanding Before Changing" | Priya   | 5 min     | 🆓   | ✅     |
-| 6   | Next Edit Suggestions — "Copilot Reads Your Mind" | Priya   | 15-20 min | 🆓   | ✅     |
+**Key Insight**: Copilot without context gives generic, confused suggestions. This is the baseline to beat.
 
 ---
 
-### Module 02: Clarity as a Foundation
+### Module 1: Repository Instructions
 
-**Time**: 45–60 minutes | **Principle**: Clarity Beats Cleverness | **Status**: ✅
+**Time**: 90 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
 
-> Master context management and configuration to give Copilot the clarity it needs.
+> Create repository instructions and architecture documentation. Watch Copilot transform instantly.
 
-| #   | Exercise                                               | Persona | Time      | Tier | Status |
-| --- | ------------------------------------------------------ | ------- | --------- | ---- | ------ |
-| 1   | Context Discovery — "Workspace Indexing & #codebase"   | David   | 10-15 min | 🆓   | ✅     |
-| 2   | Context Precision — "Implicit vs Explicit Context"     | Marcus  | 10-15 min | 🆓   | ✅     |
-| 3   | External & Visual Context — "#fetch and Images"        | Priya   | 10-15 min | 🆓   | ✅     |
-| 4   | Configuration Standards — "Personal & Repository"      | Sarah   | 15-20 min | 🆓   | ✅     |
-| 5   | Workflow Efficiency — "Chat Participants & Slash Commands" | Elena   | 10-15 min | 🆓   | ✅     |
+**Story**: Monday 10:00 AM. David documents architecture, Marcus creates team instructions.
 
----
+| # | Exercise | Persona | Time | Customization Feature |
+|---|----------|---------|------|----------------------|
+| 1.1 | Architecture Documentation | David | 30 min | ARCHITECTURE.md |
+| 1.2 | Repository Instructions | Marcus | 30 min | `.github/copilot-instructions.md` |
+| 1.3 | The Transformation | Priya | 30 min | See the "after" |
 
-### Module 03: Documentation as Leverage
+**Artifacts Created**:
+- `docs/ARCHITECTURE.md` — System design for FanHub
+- `.github/copilot-instructions.md` — Team coding patterns
 
-**Time**: 45–60 minutes | **Principle**: Documentation Is Leverage | **Status**: 🚧
-
-> Create documentation that benefits both humans AND AI, multiplying your team's knowledge.
-
-| #   | Exercise                                                             | Persona | Time      | Tier | Status |
-| --- | -------------------------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Architecture Documentation — "Map the System Once, Navigate Forever" | Marcus  | 20-25 min | 🆓   | ✅     |
-| 2   | Pattern Documentation — "Solve Once, Apply Everywhere"               | Sarah   | 20-25 min | 🆓   | ✅     |
-| 3   | Convention Documentation — "Standards That Stick"                    | Elena   | 15-20 min | 🆓   | 📝     |
-| 4   | Living Documentation — "Docs That Stay Current"                      | David   | 15-20 min | 🆓   | 📝     |
-| 5   | AI-First Documentation — "Writing for Humans and Machines"           | All     | 15-20 min | 🆓   | 📝     |
-| 6   | Multi-File Leverage — "Connected Knowledge"                          | David   | 15-20 min | 🆓   | 📝     |
+**Key Insight**: Same question, dramatically better answers. Context is everything.
 
 ---
 
-### Module 04: Intent Over Implementation
+### Module 2: Custom Prompts
 
-**Time**: 45–60 minutes | **Principle**: Intent Over Implementation | **Status**: ✅
+**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
-> Express WHAT you want, not HOW to build it. Learn the CRISPE framework and build reusable prompt libraries.
+> Build a reusable prompt library. Create templates for testing and specifications.
 
-| #   | Exercise                                                   | Persona | Time      | Tier | Status |
-| --- | ---------------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | The Prompt Transformation — "From Vague to Precise"        | Marcus  | 15-20 min | 🆓   | ✅     |
-| 2   | Building a Prompt Library — "The Team Toolkit"             | David   | 20-25 min | 🆓   | ✅     |
-| 3   | Prompt Variables and Customization — "The Template System" | Sarah   | 15-20 min | 🆓   | ✅     |
-| 4   | Prompt Chains — "The Workflow"                             | Priya   | 15-20 min | 🆓   | ✅     |
-| —   | _(Quick)_ Tighten the Prompt                               | Priya   | 5 min     | 🆓   | ✅     |
-| —   | _(Quick)_ Examples and Non-Examples                        | David   | 5 min     | 🆓   | ✅     |
+**Story**: Monday 11:30 AM. Elena creates test prompts, Rafael builds spec-to-code templates.
 
----
+| # | Exercise | Persona | Time | Customization Feature |
+|---|----------|---------|------|----------------------|
+| 2.1 | Test Generation Prompts | Elena | 30 min | `.github/prompts/test-generation.md` |
+| 2.2 | Spec-to-Code Prompts | Rafael | 30 min | `.github/prompts/spec-to-code.md` |
+| 2.3 | Build Episode Guide | Team | 30 min | Using prompts together |
 
-### Module 05: AI-Assisted Design Thinking
+**Artifacts Created**:
+- `.github/prompts/test-generation.md` — Elena's comprehensive test template
+- `.github/prompts/spec-to-code.md` — Rafael's spec-to-implementation workflow
 
-**Time**: 60–75 minutes | **Principle**: Human Judgment Is Non-Negotiable | **Status**: ✅
-
-> Use AI to amplify your design thinking—explore possibilities, evaluate tradeoffs, and plan before you code.
-
-| #   | Exercise                                                      | Persona | Time      | Tier | Status |
-| --- | ------------------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Problem Decomposition — "From Vague to Precise"               | Marcus  | 20-25 min | 🆓   | ✅     |
-| 2   | Solution Exploration — "One Good Idea vs. Many Great Options" | Sarah   | 20-25 min | 🆓   | ✅     |
-| 3   | Architectural Design — "Expertise Amplified, Not Replaced"    | David   | 25-30 min | 🆓   | ✅     |
-| 4   | Requirements Engineering — "From Ambiguity to Precision"      | Rafael  | 20-25 min | 🆓   | ✅     |
-| 5   | Tactical Planning — "Think Before You Code"                   | Marcus  | 25-30 min | 🆓   | ✅     |
+**Key Insight**: Prompt libraries make expertise reusable. Solved problems stay solved.
 
 ---
 
-### Module 06: Collaborative Development Workflows
+### Module 3: Custom Agents
 
-**Time**: 50–60 minutes | **Principle**: Documentation Is Leverage | **Status**: ✅
+**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓/💼
 
-> Turn individual AI gains into team velocity through shared prompts, review practices, and collective learning.
+> Create custom agents for autonomous tasks. Learn Agent Mode and CLI integration.
 
-| #   | Exercise                                                         | Persona       | Time      | Tier | Status |
-| --- | ---------------------------------------------------------------- | ------------- | --------- | ---- | ------ |
-| 1   | Building a Shared Prompt Library — "Wisdom That Travels"         | Marcus        | 20-25 min | 🆓   | ✅     |
-| 2   | AI Code Review Practices — "Quality at Scale"                    | Sarah         | 15-20 min | 🆓   | ✅     |
-| 3   | Pair Programming with AI — "Three-Way Collaboration"             | Priya & David | 15-20 min | 🆓   | ✅     |
-| 4   | Team Learning Loops — "Getting Better Together"                  | All           | 15-20 min | 🆓   | ✅     |
+**Story**: Monday 1:00 PM. Marcus discovers Agent Mode, David creates custom agents.
 
----
+| # | Exercise | Persona | Time | Customization Feature |
+|---|----------|---------|------|----------------------|
+| 3.1 | Agent Mode Fundamentals | Marcus | 20 min | Agent Mode workflow |
+| 3.2 | Custom Architecture Agent | David | 30 min | `agents/architecture-reviewer/` |
+| 3.3 | Background Agents | David | 20 min | 🏢 Long-running tasks |
 
-### Module 07: Agent Fundamentals
+**Artifacts Created**:
+- `agents/architecture-reviewer/` — Custom architecture review agent
+- `agents/devops-reviewer/` — Custom DevOps review agent
 
-**Time**: 60–80 minutes | **Principle**: Human Judgment Is Non-Negotiable | **Status**: ✅
-
-> Unlock autonomous AI assistance with Agent Mode, model selection, and MCP tools.
-
-| #   | Exercise                                                | Persona | Time      | Tier | Status |
-| --- | ------------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Your First Agent Workflow — "Autonomous Implementation" | Marcus  | 20-30 min | 🆓   | ✅     |
-| 2   | Model Selection Strategy — "Right Tool for the Job"     | All     | 15-20 min | 🆓   | ✅     |
-| 3   | Tools & MCP — "Extending Copilot's Reach"               | Sarah   | 30-45 min | 🆓   | ✅     |
+**Key Insight**: Agents handle autonomous multi-step tasks. Work in parallel.
 
 ---
 
-### Module 08: Enterprise Agents & Debugging
+### Module 4: Custom Instructions
 
-**Time**: 80–105 minutes | **Principle**: Human Judgment Is Non-Negotiable | **Status**: ✅
+**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
-> Master enterprise agent features, checkpoints, and debugging AI behavior.
+> File-scoped instructions via `applyTo` patterns. Context-aware code generation.
 
-| #   | Exercise                                      | Persona | Time      | Tier | Status |
-| --- | --------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Background Agents — "Work While You Wait"     | David   | 15-20 min | 🏢   | ✅     |
-| 2   | Cloud Agents — "Enterprise-Scale AI"          | Jordan  | 15-20 min | 🏢   | ✅     |
-| 3   | Custom Agents — "Your Team's Expert"          | Elena   | 20-25 min | 💼   | ✅     |
-| 4   | Checkpoints — "Save Your Progress"            | Sarah   | 15-20 min | 🆓   | ✅     |
-| 5   | Chat Debug View — "Understanding AI Behavior" | David   | 15-20 min | 🆓   | ✅     |
+**Story**: Monday 2:30 PM. The team creates instructions that activate automatically.
 
----
+| # | Exercise | Persona | Time | Customization Feature |
+|---|----------|---------|------|----------------------|
+| 4.1 | Testing Instructions | Elena | 25 min | `**/*.test.ts` patterns |
+| 4.2 | API Route Instructions | David | 25 min | `src/api/**` patterns |
+| 4.3 | Infrastructure Instructions | Jordan | 25 min | DevOps file patterns |
+| 4.4 | Component Instructions | Priya | 15 min | React component patterns |
 
-## 📎 Appendices
+**Artifacts Created**:
+- `.github/instructions/testing.instructions.md`
+- `.github/instructions/api-routes.instructions.md`
+- `.github/instructions/infrastructure.instructions.md`
+- `.github/instructions/react-components.instructions.md`
 
-### Appendix A: Copilot on the Web (GitHub.com)
-
-**Time**: 30–45 minutes | **Principle**: Documentation Is Leverage | **Status**: ✅
-
-> Use Copilot where your code lives: GitHub.com for PRs, issues, and code review.
-
-| #   | Exercise                            | Persona | Time      | Tier | Status |
-| --- | ----------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | Pull Request Description Generation | All     | 10-15 min | 💼   | ✅     |
-| 2   | Code Review with Copilot            | Sarah   | 10-15 min | 💼   | ✅     |
-| 3   | Quick Edits with github.dev         | Marcus  | 10-15 min | 🆓   | ✅     |
-| 4   | Issue Enhancement                   | Priya   | 10-15 min | 💼   | ✅     |
-| 5   | Repository Exploration              | David   | 10-15 min | 💼   | ✅     |
-| 6   | Collaborative Review Session        | All     | 15-20 min | 💼   | ✅     |
-| —   | _(Quick)_ Tight PR Review           | Sarah   | 5 min     | 💼   | ✅     |
-| —   | _(Quick)_ From Logs to Issue        | Priya   | 5 min     | 💼   | ✅     |
+**Key Insight**: Instructions activate based on file patterns—context without prompting.
 
 ---
 
-### Appendix B: Copilot in the CLI
+### Module 5: Agentic SDLC + Ship
 
-**Time**: 50–60 minutes | **Principle**: Clarity Beats Cleverness | **Status**: ✅
+**Time**: 90-120 minutes | **Difficulty**: 🌳 | **Tier**: 🆓
 
-> Use Copilot in your terminal for command suggestions, explanations, and shell workflows.
+> Run agents simultaneously across VS Code, Web, and CLI. Ship and reflect.
 
-| #   | Exercise                                                | Persona | Time      | Tier | Status |
-| --- | ------------------------------------------------------- | ------- | --------- | ---- | ------ |
-| 1   | CLI Installation & Setup — "Your Terminal, Now Smarter" | Jordan  | 10-15 min | 🆓   | ✅     |
-| 2   | Command Suggestions — "What's the Command?"             | Marcus  | 10-15 min | 🆓   | ✅     |
-| 3   | Command Explanation — "What Does This Do?"              | Priya   | 10-15 min | 🆓   | ✅     |
-| 4   | Shell Scripting with Copilot — "Automate the Tedious"   | Jordan  | 15-20 min | 🆓   | ✅     |
-| 5   | Git Workflow Automation — "Git Without the Guesswork"   | Marcus  | 15-20 min | 🆓   | ✅     |
+**Story**: Monday 4:00 PM. The team orchestrates multiple agents, then ships.
+
+| # | Exercise | Persona | Time | Focus |
+|---|----------|---------|------|-------|
+| 5.1 | VS Code Agent Mode | Marcus | 25 min | Interactive feature development |
+| 5.2 | GitHub Web Agent | David | 25 min | Background autonomous PRs |
+| 5.3 | Copilot CLI | Jordan | 20 min | Terminal/infrastructure tasks |
+| 5.4 | The Convergence | All | 15 min | Merge parallel work streams |
+| 5.5 | Checkpoints | Sarah | 15 min | Safety net for agent work |
+| 5.6 | Debug View | David | 15 min | Understanding AI behavior |
+
+**Artifacts Created**:
+- Parallel agent workflows
+- Sprint retrospective and celebration
+
+**Key Insight**: Parallel agents multiply productivity. Checkpoints and debug view keep you in control.
+
+---
+
+## 📎 Appendices (Optional)
+
+### Appendix A: Copilot on the Web
+
+**Time**: 45 minutes | **Tier**: 💼
+
+> Use Copilot where code lives: PRs, issues, GitHub.com
+
+| # | Exercise | Focus |
+|---|----------|-------|
+| A.1 | PR Description Generation | Auto-generate PR summaries |
+| A.2 | Code Review with Copilot | Review assistance |
+| A.3 | Issue Enhancement | Better issue descriptions |
+
+---
+
+### Appendix B: GitHub Copilot CLI
+
+**Time**: 60-75 minutes | **Tier**: 💼 Pro / Pro+ / Business / Enterprise
+
+> Agentic terminal workflows with the new `copilot` CLI
+
+| # | Exercise | Focus |
+|---|----------|-------|
+| B.1 | CLI Installation & Setup | Installing and first interactive session |
+| B.2 | Interactive Tasks | Agent-style task execution |
+| B.3 | GitHub.com Integration | PRs, issues, and workflows from terminal |
+| B.4 | Programmatic Mode | Scripted automation with `-p` |
+| B.5 | Customization & MCP | Instructions, servers, and agents |
+| B.6 | Security & Best Practices | Safe agentic workflows |
 
 ---
 
 ## 🎓 Learning Paths
 
-### Beginner Track (3–4 hours)
+### Full Workshop (7-8 hours)
 
-For developers new to Copilot or AI-assisted development.
+Complete all 5 core modules in order. The narrative builds progressively.
 
-| Order | Module                             | Focus                            |
-| ----- | ---------------------------------- | -------------------------------- |
-| 1     | Module 00: Orientation             | Understand the mindset shift     |
-| 2     | Module 01: Getting Started         | First hands-on experience        |
-| 3     | Module 02: Clarity as a Foundation | Master context and configuration |
-
-**Outcome**: Comfortable using Copilot for daily development tasks.
+| Time | Modules | Focus |
+|------|---------|-------|
+| ~7-8 hours | 0–5 | Build features, ship, and reflect |
 
 ---
 
-### Advanced Track (5–6 hours)
+### Quick Start (4 hours)
 
-For developers ready to go deeper with AI-assisted development.
+Core customization features without the full narrative.
 
-| Order | Module                                   | Focus                       |
-| ----- | ---------------------------------------- | --------------------------- |
-| 1     | Module 04: Intent Over Implementation    | Master prompt engineering   |
-| 2     | Module 05: AI-Assisted Design Thinking   | Use AI for design decisions |
-| 3     | Module 07: Agent Fundamentals            | Autonomous AI assistance    |
-| 4     | Module 08: Enterprise Agents & Debugging | Advanced agent features     |
-
-**Outcome**: Leverage AI for complex, multi-step development workflows.
+| Order | Module | Key Takeaway |
+|-------|--------|--------------|
+| 1 | Module 1 | Repository instructions |
+| 2 | Module 2 | Custom prompts |
+| 3 | Module 3 | Agents |
+| 4 | Module 4 | Custom instructions |
 
 ---
 
-### Team Lead Track (4–5 hours)
+### Team Lead Track (3 hours)
 
-For tech leads, architects, and team managers establishing AI practices.
+Focus on establishing practices for your team.
 
-| Order | Module                                   | Focus                          |
-| ----- | ---------------------------------------- | ------------------------------ |
-| 1     | Module 03: Documentation as Leverage     | Scale knowledge with docs      |
-| 2     | Module 06: Collaborative Workflows       | Team-wide AI practices         |
-| 3     | Module 08: Enterprise Agents & Debugging | Understand enterprise features |
-| 4     | Module 00: Orientation                   | Set team expectations          |
-
-**Outcome**: Establish effective AI-assisted development practices across your team.
-
----
-
-### Platform Integration (Optional, 1.5 hours)
-
-For developers who want to use Copilot beyond VS Code.
-
-| Order | Content                        | Focus                    |
-| ----- | ------------------------------ | ------------------------ |
-| 1     | Appendix A: Copilot on the Web | PRs, issues, code review |
-| 2     | Appendix B: Copilot in the CLI | Terminal workflows       |
-
-**Outcome**: Use Copilot across your entire development workflow.
+| Order | Module | Focus |
+|-------|--------|-------|
+| 1 | Module 1 | Team standards |
+| 2 | Module 2 | Prompt library |
+| 3 | Module 4 | Custom instructions |
 
 ---
 
 ## 📊 Summary Statistics
 
-### Exercises by Module
+### Time by Module
 
-| Module                        | Total Exercises | Complete | In Progress | Planned |
-| ----------------------------- | --------------- | -------- | ----------- | ------- |
-| 00 Orientation                | 1               | 1        | 0           | 0       |
-| 01 Getting Started            | 6               | 6        | 0           | 0       |
-| 02 Clarity as a Foundation    | 5               | 5        | 0           | 0       |
-| 03 Documentation as Leverage  | 6               | 2        | 0           | 4       |
-| 04 Intent Over Implementation | 6               | 6        | 0           | 0       |
-| 05 AI-Assisted Design         | 5               | 5        | 0           | 0       |
-| 06 Collaborative Development  | 4               | 4        | 0           | 0       |
-| 07 Agent Fundamentals         | 3               | 3        | 0           | 0       |
-| 08 Enterprise Agents          | 5               | 5        | 0           | 0       |
-| **Modules Subtotal**          | **41**          | **37**   | **0**       | **4**   |
-| Appendix A: Web               | 8               | 8        | 0           | 0       |
-| Appendix B: CLI               | 5               | 5        | 0           | 0       |
-| **TOTAL**                     | **54**          | **50**   | **0**       | **4**   |
+| Module | Time | Cumulative |
+|--------|------|-----------|
+| 0: Orientation | 30-45 min | 45 min |
+| 1: Repository Instructions | 90 min | 2h 15min |
+| 2: Custom Prompts | 90 min | 3h 45min |
+| 3: Custom Agents | 90 min | 5h 15min |
+| 4: Custom Instructions | 90 min | 6h 45min |
+| 5: Agentic SDLC + Ship | 90-120 min | 8h 45min |
+| **Total** | **~7-8 hours** | |
 
 ### Exercises by Tier
 
-| Tier          | Count | Percentage |
-| ------------- | ----- | ---------- |
-| 🆓 Free       | 44    | 81%        |
-| 💼 Business   | 8     | 15%        |
-| 🏢 Enterprise | 2     | 4%         |
+| Tier | Count | Percentage |
+|------|-------|------------|
+| 🆓 Free | 21 | 88% |
+| 💼 Business | 2 | 8% |
+| 🏢 Enterprise | 1 | 4% |
 
-### Exercises by Principle
+### Artifacts Created
 
-| Principle                        | Primary Modules | Exercise Count |
-| -------------------------------- | --------------- | -------------- |
-| Clarity Beats Cleverness         | 01, 02          | ~11            |
-| Intent Over Implementation       | 04              | ~6             |
-| Documentation Is Leverage        | 03, 06          | ~10            |
-| Human Judgment Is Non-Negotiable | 05, 07, 08      | ~13            |
+| Category | Count | Examples |
+|----------|-------|----------|
+| Documentation | 6 | ARCHITECTURE.md, RUNBOOK.md, LEARNINGS.md |
+| Prompts | 3 | test-generation.md, spec-to-code.md |
+| Agents | 2 | architecture-reviewer, devops-reviewer |
+| Instructions | 4 | testing, api-routes, infrastructure, components |
+| Code | 8+ | Search, analytics dashboard, components |
 
-### Time by Track
+---
 
-| Track                | Estimated Time | Content        |
-| -------------------- | -------------- | -------------- |
-| Beginner             | 3–4 hours      | 00, 01, 02     |
-| Advanced             | 5–6 hours      | 04, 05, 07, 08 |
-| Team Lead            | 4–5 hours      | 03, 06, 08, 00 |
-| Platform Integration | 1.5 hours      | Appendix A, B  |
-| Complete             | 10–12 hours    | All            |
+## 🔗 Quick Reference
+
+### Key Files
+
+| File | Purpose | Created In |
+|------|---------|-----------|
+| `.github/copilot-instructions.md` | Team patterns | Module 1 |
+| `docs/ARCHITECTURE.md` | System design | Module 1 |
+| `.github/prompts/*.md` | Reusable prompts | Module 2 |
+| `agents/*/` | Custom agents | Module 3 |
+| `.github/instructions/*.md` | File-scoped instructions | Module 4 |
+
+### The Transformation Journey
+
+| Stage | When | What Changes |
+|-------|------|-------------|
+| **Before** | Module 0 | Generic, confused suggestions |
+| **Foundation** | Module 1 | Architecture-aware, pattern-following |
+| **Automation** | Module 2-3 | Reusable prompts, autonomous agents |
+| **Context-Aware** | Module 4 | File-scoped, pattern-matched instructions |
+| **Complete** | Module 5 | All features compound, ship it |
 
 ---
 
 ## 🤝 Contributing
 
-Exercises marked with 📝 (Planned) are opportunities for contribution. See [.github/copilot-instructions.md](.github/copilot-instructions.md) for content guidelines.
+This workshop is open for contributions. Areas of opportunity:
 
-**Priority areas**:
+- **Additional prompts** for the prompt library
+- **More custom agents** for different domains
+- **Alternative instruction patterns** as examples
+- **Translations** to other languages
 
-- Module 03: Exercises 3-6 need implementation (Convention, Living, AI-First, Multi-File documentation)
-
----
-
-<!-- TODO: Cross-Reference Link Audit
-After folder renaming, audit all modules/*/README.md files for:
-- Broken "Next Steps" links (e.g., old Module 05 references non-existent path)
-- Outdated module number references
-- Prerequisites referencing old module numbers
-Known issue: Old Module 05 references `modules/04-agents-and-tools/` which doesn't exist
--->
+See [.github/copilot-instructions.md](.github/copilot-instructions.md) for content guidelines.

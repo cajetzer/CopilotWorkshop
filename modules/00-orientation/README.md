@@ -1,24 +1,30 @@
-# Module 0: Orientation — Redefining Developer Success
+# Module 0: The Challenge — Building FanHub in 8 Hours
+
+> **Monday, 9:00 AM** — A skeptical senior developer throws down a challenge: prove that AI-assisted development is worth the hype by building something real. Fast.
 
 ## Why This Module Matters
 
-This isn't optional background reading. This module establishes **how we measure developer success** in the age of AI-assisted development—and why those metrics are fundamentally different from what many of us learned.
+This training isn't about features and keyboard shortcuts. It's about **a fundamental shift in how you build software**.
 
-If you skip this module, you'll learn Copilot features without understanding _why_ they matter. You'll measure yourself by outdated standards. You'll miss the mindset shift that separates developers who struggle with AI from those who thrive.
+Over the next 8 hours (your time, your pace), you'll transform from someone typing code into someone orchestrating AI to build better software, faster. You'll experience firsthand how the right context, configuration, and communication turn GitHub Copilot from "fancy autocomplete" into a force multiplier.
 
-**Read this first. Internalize it. Then proceed.**
+But first, you need to see the problem. You need to _feel_ the frustration of working with AI that doesn't understand your codebase, your standards, or your domain. Only then will the transformation be meaningful.
+
+**This module sets up everything.** Read it carefully. Experience the struggle. Then watch as the next 9 hours transform how you work.
 
 ---
 
 ## Prerequisites
 
-- VS Code with GitHub Copilot Chat enabled
-- A GitHub account (Business/Enterprise recommended in org settings)
-- **Read the [Training Personas](PERSONAS.md)** — Meet Sarah, Marcus, Priya, David, Elena, Rafael, and Jordan. They represent real developers at different career stages with different fears and goals. You'll see yourself in them.
+- **VS Code** with **GitHub Copilot** and **GitHub Copilot Chat** enabled
+- **Docker Desktop** installed and running (for the FanHub starter app)
+- **Node.js 18+** installed
+- A **GitHub account** with Copilot access (Individual, Business, or Enterprise)
+- **Read the [Training Personas](PERSONAS.md)** — Meet the team you'll be working with
 
 ## Estimated Time
 
-20–25 minutes (this is an investment, not an expense)
+60 minutes
 
 ---
 
@@ -26,241 +32,542 @@ If you skip this module, you'll learn Copilot features without understanding _wh
 
 By the end of this module, you will:
 
-- Understand _why_ the definition of developer excellence has changed
-- Recognize the outdated metrics that may be holding you back
-- Adopt the "Markdown Whisperer" mindset: clarity over cleverness
-- Set personal goals that align with the new reality
+- Understand **The AI-Assisted Mindset** (four principles that guide your thinking):
+  - Clarity Beats Cleverness
+  - Intent Over Implementation
+  - Documentation Is Leverage
+  - Human Judgment Is Non-Negotiable
+- Understand **The Five Practices** (where you invest your effort):
+  - Clarity as a Foundation
+  - Documentation as Leverage
+  - Intent Over Implementation
+  - Context is Everything
+  - Iterate and Refine
+- Meet the FanHub project and choose your show theme
+- Set up the starter application and verify it runs
+- Experience Copilot struggling with an unconfigured codebase (the "before" state)
+- Set measurable success criteria for your learning journey
 
 ---
 
-## The Uncomfortable Truth: How We Used to Measure Success
+## 📖 The Story: Monday Morning, 9:00 AM
 
-For decades, developer value was measured by:
+### The Team
 
-- **Syntax mastery** — How many language quirks could you recall?
-- **Clever solutions** — How elegant was your code (even if no one else understood it)?
-- **Knowledge hoarding** — Were you the only person who understood the critical system?
-- **Speed of typing** — How fast could you write boilerplate?
+You're part of the development team at **TechCorp**, a mid-sized software company. Your team includes:
 
-These metrics created a culture where:
+- **Sarah** — Senior developer (15 years), skeptical of new tools, demands proof of value
+- **Marcus** — DevOps developer (5 years), comfortable with infrastructure, wants to improve application code skills
+- **Priya** — Recent graduate (1 year), eager to learn, afraid of asking "dumb" questions
+- **David** — Staff engineer (20 years), concerned about relevance, deep expertise
+- **Elena** — QA engineer (8 years), passionate about quality and comprehensive testing
+- **Rafael** — Product manager (10 years), bridges business and technical, prioritizes ruthlessly
+- **Jordan** — Platform engineer (12 years), automation-first, security-conscious
 
-- Onboarding took months
-- Technical debt accumulated silently in "clever" code
-- Knowledge silos made teams fragile
-- Senior developers justified their value through complexity
+*(For full persona details, see [PERSONAS.md](PERSONAS.md))*
 
-**This model is obsolete.**
+### The Challenge
+
+Sarah walks into the Monday standup and drops a zip file on the screen:
+
+> "A contractor started building a generic fan site for TV shows. They bailed halfway through. The code works, barely, but it's a mess—no documentation, inconsistent patterns, and completely generic. Pick your favorite show—The Office, Stranger Things, Breaking Bad, whatever—and turn this into a production-ready fan hub. Authentication, search, admin tools, deployment pipeline, the works."
+
+She pauses for effect.
+
+> "You have until **end of day**. Oh, and you're all using GitHub Copilot. I want to see if this AI hype is real or just another tool that makes more work. Prove me wrong."
+
+**The team looks at the code. It's... rough.**
+
+- Database schema is generic ("shows", "characters", "episodes")
+- API endpoints are inconsistent (some REST-ish, some not)
+- Frontend components are a mix of styles (class components, functional, styled-components, plain CSS)
+- Zero documentation
+- No tests
+- No standards
+- Generic placeholder content everywhere
+
+Marcus mutters, "This is going to take days to understand."
+
+Priya thinks, "I don't even know where to start."
+
+David sighs, "Another codebase with no architecture decisions recorded."
+
+**Sarah smiles.** "You've got Copilot. Let's see if it helps or just suggests more confusion."
 
 ---
 
-## The Evolution: From Syntax Wizards to Markdown Whisperers
+## The Mindset Shift: From Syntax Wizards to Markdown Whisperers
 
-### Era 1: The Wizards of Syntax (2010-2015)
+Before you dive into the code, you need to understand **why** this training exists.
 
-![Wizard of Syntax](wizard.png)
+### The Old Way: Syntax Wizards (1990-2015)
 
-In 2010, enterprise programming was a priesthood. "Real developers" memorized APIs, language quirks, and design patterns. Code was art—sometimes so elegant that junior developers couldn't maintain it. But that was the point: complexity proved you were elite.
+![Syntax Wizard](wizard.png)
 
-**The metrics:**
+For decades, developer excellence meant:
 
-- Lines of code written
-- Obscure language features mastered
-- Being the "only one who understands this system"
+- **Syntax mastery** — Memorizing language quirks and API signatures
+- **Clever solutions** — Code so elegant only you could maintain it
+- **Knowledge hoarding** — Being the "only one who understands the system"
+- **Fast typing** — Speed of writing boilerplate
 
-**The cost:**
+This created:
+- ✗ Onboarding that took months
+- ✗ Technical debt hidden in "clever" code
+- ✗ Fragile teams dependent on individual experts
+- ✗ Documentation as an afterthought
 
-- Onboarding took months
-- Documentation was an afterthought ("the code is self-documenting")
-- When experts left, chaos followed
-
----
-
-### Era 2: The YAML Cowboys (2015-2020)
+### The Transition: YAML Cowboys (2015-2020)
 
 ![YAML Cowboy](cowboy.png)
 
-DevOps emerged. Containers took over. Developers needed to wrangle infrastructure alongside code. YAML, Terraform, and Kubernetes manifests became as important as application logic.
+Then DevOps emerged and containers took over. The cowboy era wasn't about syntax anymore—it was about herding clouds.
 
-**The metrics:**
+- **Configuration became the language** — YAML, JSON, Terraform, Kubernetes manifests
+- **Infrastructure as Code was the new battlefield** — You weren't just building applications; you were building systems that built themselves
+- **Tools multiplied** — Docker, Kubernetes, Terraform, Jenkins, Helm—the toolchain became as complex as the code itself
+- **Copy-paste engineering became an art form** — "I'll find a working example and modify it" was a legitimate strategy
 
-- Tools mastered (Docker, Kubernetes, Jenkins, Helm...)
-- Deployment problems solved at 3 AM
-- Copy-paste engineering as survival skill
+This created new pain:
+- ✗ YAML indentation bugs were legendary (a single space could break your deployment)
+- ✗ Onboarding became even harder (programming AND infrastructure)
+- ✗ Documentation was fragmented across repos, tools, and tribal knowledge
+- ✗ "It works on my cluster" replaced "it works on my machine"
 
-**The cost:**
-
-- A single YAML indentation error could break everything
-- New developers needed to understand programming _and_ infrastructure
-- Documentation was fragmented across repos, wikis, and Slack threads
-
----
-
-### Era 3: The Markdown Whisperers (2020-Present)
+### The New Way: Markdown Whisperers (2020-Present)
 
 ![Markdown Whisperer](monk.png)
 
-Around 2020, something shifted. AI assistants emerged—but more importantly, a realization dawned:
+AI-assisted development changed what matters:
 
-**Clarity beats cleverness.**
+- **Clear intent** — Articulate what you want to build
+- **Understandable code** — Anyone on the team can maintain it
+- **Scaled knowledge** — Documentation multiplies your impact
+- **Fast thinking** — Design and architecture over syntax recall
 
-The best code isn't the most elegant. It's the code anyone can understand. The best documentation isn't exhaustive API references. It's a clear explanation of _intent_.
+This enables:
+- ✓ AI handles boilerplate and syntax
+- ✓ Developers focus on design and judgment
+- ✓ Documentation becomes leverage (write once, benefit infinitely)
+- ✓ Expertise matters more (guiding AI, catching mistakes, making tradeoffs)
 
-**The new metrics:**
+### 🧠 Mindful Moment: What This Means
 
-- How clearly can you articulate what you want to build?
-- How quickly can someone new understand your system?
-- How well do your decisions scale across the team?
+**Sarah's perspective:** "If Copilot just writes code, anyone can be a developer. But if it requires clear thinking and good judgment to get good results... then experience matters more than ever."
 
-**The new reality:**
+**David's fear:** "What if my 20 years of expertise becomes obsolete?"
 
-- AI handles syntax, boilerplate, and routine patterns
-- Developers focus on design, intent, and judgment
-- Documentation is leverage—it multiplies your impact
-
----
-
-## The New Definition of Developer Excellence
-
-| Old Metric               | New Metric                        |
-| ------------------------ | --------------------------------- |
-| Syntax memorization      | Clear articulation of intent      |
-| Clever, elegant code     | Understandable, maintainable code |
-| Being the only expert    | Scaling knowledge to the team     |
-| Fast typing              | Fast thinking                     |
-| Knowing how to implement | Knowing what to implement and why |
-
-**This is not a demotion of expertise. It's a promotion.**
-
-Your years of experience now matter _more_, not less. But they matter in a different way:
-
-- Your judgment catches what AI misses
-- Your architectural knowledge shapes better prompts
-- Your understanding of tradeoffs guides AI output
-- Your communication skills determine AI effectiveness
+**David's realization (by Module 5):** "My expertise isn't obsolete—it's the filter that catches what AI misses. Juniors generate syntax. I generate solutions."
 
 ---
 
-## The Four Principles
+## The AI-Assisted Mindset: Four Principles
 
-This training is built on four principles that define the Markdown Whisperer mindset:
+These principles shape how you *think* about AI-assisted development. They're always true, regardless of which tool you're using or what you're building.
 
-### 1. Clarity Beats Cleverness
+### 1. 🔍 Clarity Beats Cleverness
 
-The best code is code anyone can understand. Write what you mean, simply. If you can't explain it clearly to a human, you can't explain it clearly to AI.
+The best code is code anyone can understand. If you can't explain it clearly to a human, you can't explain it to AI. Clever solutions that only you understand become liabilities—both for your team and for AI collaboration.
 
-### 2. Intent Over Implementation
+### 2. 🎯 Intent Over Implementation
 
-Describe outcomes and constraints before diving into code. The developers who excel with Copilot are those who can articulate what they want before asking for help.
+Describe WHAT you want (outcomes, constraints, business logic), not HOW to build it (loops, conditionals, data structures). Your expertise is knowing what to build and why. Let AI handle the syntax.
 
-### 3. Documentation Is Leverage
+### 3. 📚 Documentation Is Leverage
 
-A well-written README, architecture decision record, or inline comment scales your knowledge across your team. Copilot amplifies documented decisions—undocumented ones stay locked in your head.
+Write once, benefit infinitely. Documentation helps humans AND AI. Every piece of context you document pays dividends on every AI interaction—forever.
 
-### 4. Human Judgment Is Non-Negotiable
+### 4. ⚖️ Human Judgment Is Non-Negotiable
 
-Copilot proposes; you decide. AI can generate code that looks correct but misses your architecture, security requirements, or business constraints. Your expertise is the filter.
-
----
-
-## What This Means for You
-
-The transition to "Markdown Whisperer" is precisely why Copilot has become valuable:
-
-1. **You no longer need to memorize syntax.** Copilot handles the mechanical parts. Your skill is knowing _what_ to build, not _how_ to write a for-loop.
-
-2. **Clear intent is now the bottleneck.** Good developers became _better_ with Copilot. Great communicators became great developers.
-
-3. **Documentation is now leverage.** A well-written README, a clear architecture document, a thoughtful ADR—these scale your knowledge. Copilot amplifies this effect.
-
-4. **The skill hierarchy shifted.** Today's junior developers can write syntax as well as seniors (thanks to AI). What distinguishes excellent developers is the ability to think clearly, design elegantly, and communicate effectively.
+AI proposes; you decide. Your expertise catches what AI misses—security holes, scalability issues, edge cases, business logic. The goal isn't to remove human judgment—it's to focus it where it matters most.
 
 ---
 
-## How Modules Are Structured
+## The Five Practices: Where You Invest
 
-Each module in this training follows a consistent pattern:
+The principles tell you how to think. These practices tell you *where to invest your effort*. Master these, and AI becomes a force multiplier. Ignore them, and you'll fight the tools instead of using them.
 
-- **Overview** — What you'll learn and why it matters
-- **Learning Objectives** — Concrete, measurable outcomes
-- **Content** — Concepts with practical context
-- **Exercises** — Persona-driven, with stories and success criteria
-- **Key Takeaways** — Summary connecting back to objectives
-- **Next Steps** — Bridge to subsequent content
+### 1. 🔍 Clarity as a Foundation
 
-Exercises feature our personas in realistic situations. You'll see their hopes, fears, and reactions as they navigate AI-assisted development.
+> **Clear thinking enables effective AI collaboration.**
+
+Clarity isn't just about clean code—it's about clear thinking. When you articulate your intent precisely, AI can help effectively. When you're vague, AI guesses (badly).
+
+**In Practice:**
+- Vague prompt: *"Make the character page better"* → AI guesses, fails
+- Clear prompt: *"Add a character biography section using the same card styling as CharacterCard.jsx"* → AI succeeds
+
+**The Investment:** Practice articulating what you want before you start typing. The thinking is the hard part—AI handles the rest.
+
+### 2. 📚 Documentation as Leverage
+
+> **Write once, benefit infinitely—for humans AND AI.**
+
+Documentation isn't overhead—it's a force multiplier. When you document architecture, standards, and patterns, you're not just helping future developers. You're training AI to understand YOUR codebase.
+
+**In Practice:**
+- Without docs: Each team member's Copilot gives different suggestions
+- With docs: Everyone's Copilot follows the same architecture and patterns
+
+**The Investment:** Spend time documenting architecture, patterns, and standards. Same investment as before, but now with double the payoff.
+
+### 3. 🎯 Intent Over Implementation
+
+> **Stay at the design level where your expertise matters most.**
+
+Your expertise is knowing what to build and why. AI's strength is knowing how to write the code. Play to both strengths.
+
+**In Practice:**
+- Implementation-focused: *"Create a function that queries the database with a WHERE clause and LIKE operator"*
+- Intent-focused: *"Create a search feature that finds characters by name, show, or episode appearances"*
+
+**The Investment:** Learn to express requirements, constraints, and business logic clearly. Let AI worry about the syntax you used to memorize.
+
+### 4. 🎯 Context is Everything
+
+> **The right context produces the right results.**
+
+AI doesn't read your mind—it reads your context. The quality of suggestions is directly proportional to the quality of context you provide.
+
+**In Practice:**
+- Without context: Generic suggestions that don't fit your codebase
+- With context: Suggestions that follow your architecture, patterns, and domain
+
+**The Investment:** Learn what context to provide when—instructions for persistent patterns, `@workspace` for project awareness, `#file` for targeted focus, images for visual design.
+
+### 5. 🔄 Iterate and Refine
+
+> **Conversation beats one-shot commands.**
+
+AI collaboration is a dialogue, not a transaction. The best results come from generating, reviewing, refining, and building on what AI produces.
+
+**In Practice:**
+- One-shot: *"Create a user service"* → Accept whatever comes out
+- Iterative: *"Create a user service"* → Review → *"Add input validation"* → Review → Ship
+
+**The Investment:** Treat AI as a collaborator, not a vending machine. Review output critically, ask follow-ups, and refine until it's right.
 
 ---
 
-## 🔨 Exercise: Define Your New Success Metrics
+## 🔨 Exercise: The Struggle
 
-### 📖 The Story
+### 📖 The Setup
 
-**Meet David.** After 20 years building enterprise systems, he's watching junior developers use Copilot to generate code that used to take years to learn. Part of him wonders: if anyone can write code with AI, what happens to the expertise he spent decades building?
+It's Monday, 9:30 AM. You've just looked at the FanHub starter code. It's time to experience what happens when you try to build with AI that doesn't understand your codebase.
 
-Then David realizes something: the juniors are generating _syntax_. They're not generating _judgment_. They don't know which patterns fit which problems. They can't spot the race condition in line 47. They don't understand why the generated code will fail under load.
-
-David's expertise isn't obsolete. It's more valuable than ever—but he needs to express it differently.
+This exercise is intentionally frustrating. You need to feel the "before" state to appreciate the transformation.
 
 ### 🎯 Objective
 
-Define three personal goals that align with the new metrics of developer success.
+Try to add a simple feature using Copilot WITHOUT any configuration or documentation. Experience the struggle. Document the problems.
+
+### ❌ The "Before" — What Frustration Looks Like
+
+You're about to experience:
+- ✗ Generic suggestions that don't match your architecture
+- ✗ Inconsistent code styles (because the codebase is inconsistent)
+- ✗ Show-generic content ("John Doe" instead of your show's characters)
+- ✗ Uncertainty about which patterns to follow
+- ✗ Multiple attempts to get what you want
+
+**This is on purpose.** You need to see the problem to appreciate the solution.
 
 ### 📋 Steps
 
-1. Create \`docs/my-copilot-goals.md\` in this repository (or any repo you're working with)
+**1. Clone the FanHub starter app** (we'll create this in Phase 2)
 
-2. Write three goals using this format:
-   \`\`\`markdown
+```bash
+# Clone the training repo if you haven't already
+git clone https://github.com/YOUR_USERNAME/CopilotTraining.git
+cd CopilotTraining
 
-   ## My Copilot Goals
+# Navigate to the FanHub starter
+cd fanhub
 
-   ### Goal 1: [Title]
+# Install dependencies and start the app
+docker-compose up -d
+cd frontend && npm install && npm start
+```
 
-   **Old metric I'm leaving behind:** [What you used to measure]
-   **New metric I'm adopting:** [What you'll measure now]
-   **How I'll know I succeeded:** [Observable outcome]
+**2. Browse the existing code** (spend 5-10 minutes)
 
-   ### Goal 2: [Title]
+Look at:
+- `fanhub/backend/database/schema.sql` — generic database structure
+- `fanhub/backend/api/routes/` — inconsistent API patterns
+- `fanhub/frontend/components/` — mixed component styles
+- `fanhub/docs/` — empty! No architecture, no patterns, no standards
 
-   ...
+**3. Choose your TV show theme**
 
-   ### Goal 3: [Title]
+Pick your favorite show. Some ideas:
+- 📺 The Office (US)
+- 🔦 Stranger Things  
+- 🧪 Breaking Bad
+- 🛡️ The Mandalorian
+- 🐉 Game of Thrones
+- 🚀 The Expanse
 
-   ...
-   \`\`\`
+This will be YOUR FanHub throughout the training.
 
-3. Ask Copilot Chat: \`@workspace Based on my goals in docs/my-copilot-goals.md, suggest how I can measure progress using artifacts in this repository.\`
+**4. Try to add a character detail page**
 
-4. Review Copilot's suggestions critically. Which ones make sense? Which miss the point?
+Open `fanhub/frontend/pages/` and create a new file `CharacterDetail.jsx` (or `.tsx` if using TypeScript).
+
+Ask Copilot Chat:
+
+```
+Add a character detail page that shows:
+- Character name
+- Photo
+- Biography
+- List of episodes they appear in
+```
+
+**Watch what happens:**
+- Does it match your show? Or is it generic?
+- Does it follow existing component patterns? Or create new ones?
+- Does it use the right API endpoints? Or make assumptions?
+- Does the styling match the rest of the app?
+
+**5. Document the struggle**
+
+Create `docs/before-configuration.md` and note:
+
+```markdown
+## The Struggle: Before Configuration
+
+**What I asked for:**
+[Your prompt]
+
+**What Copilot suggested:**
+- [Problem 1: e.g., generic character names]
+- [Problem 2: e.g., didn't match existing API structure]
+- [Problem 3: e.g., inconsistent styling]
+- [Problem 4: e.g., had to ask 3 times]
+
+**Time spent:** [X minutes]
+
+**Frustration level:** [1-10]
+
+**Marcus's reaction:** "Why is it suggesting REST when we're using GraphQL?"
+```
 
 ### ✅ Success Criteria
 
-- [ ] Three goals written with old metric, new metric, and success indicator
-- [ ] Copilot provided measurement suggestions
-- [ ] You evaluated which suggestions were useful (and which weren't)
+- [ ] FanHub app is running locally
+- [ ] You've chosen your show theme
+- [ ] You attempted to add a feature with Copilot
+- [ ] You documented specific problems you encountered
+- [ ] You felt the frustration (this is important!)
+
+### 🧠 Mindful Moment: Before
+
+**Marcus thinks:** "Is Copilot even helping? This feels like fighting with autocomplete."
+
+**Priya worries:** "If I can't get good results, maybe I'm not using it right?"
+
+**Sarah observes:** "This is what I was afraid of. Generic garbage that doesn't understand our domain."
+
+**David notes:** "The AI doesn't know our architecture, our patterns, or our standards. It's guessing."
 
 ### 📚 Official Docs
 
-- [GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat)
-- [GitHub Copilot documentation](https://docs.github.com/en/copilot)
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Getting Started with Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
+- [Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat)
 
-### 💭 David's Realization
+### ✨ The "After" — What's Coming
 
-_"I spent 20 years learning to write code. Now I need to spend time learning to express what I know clearly. That's not a step backward—it's the next level. My experience becomes more valuable when I can articulate it in ways that scale."_
+In Module 1, you'll configure Copilot with:
+- Team coding standards (`.github/copilot-instructions.md`)
+- Architecture documentation (`docs/ARCHITECTURE.md`)
+- Your show's specific context
+
+Then you'll ask the same question again. The difference will be dramatic:
+- ✓ Show-specific content (your characters, not "John Doe")
+- ✓ Follows your architecture (uses correct API patterns)
+- ✓ Matches your standards (consistent styling and structure)
+- ✓ Works on the first try
+
+**But first, you need to experience the struggle.**
+
+---
+
+## 🔨 Exercise: Set Your Success Metrics
+
+### 📖 The Story
+
+**David** has a question that's been nagging him: "If AI can write code, what makes me valuable?"
+
+Then he realizes: juniors with AI write syntax. He writes solutions. His 20 years of experience lets him:
+- Know which patterns fit which problems
+- Spot the race condition in line 47
+- Understand why generated code will fail under load
+- Make architectural tradeoffs
+
+His expertise isn't obsolete—it needs to be expressed differently.
+
+### 🎯 Objective
+
+Define how YOU will measure success with AI-assisted development.
+
+### 📋 Steps
+
+**1. Create a goals document**
+
+In the root of the training repo, create `docs/my-success-metrics.md`:
+
+```markdown
+# My Copilot Success Metrics
+
+## Where I'm Starting
+
+**Current role:** [e.g., Senior Developer, DevOps Engineer]
+**Years of experience:** [X years]
+**Which persona resonates most:** [Sarah, Marcus, Priya, David, Elena, Rafael, or Jordan]
+**My biggest concern about AI:** [e.g., "Will my expertise become obsolete?"]
+
+## My Three Goals
+
+### Goal 1: [Title]
+
+**Old metric I'm leaving behind:** [e.g., "Lines of code written per day"]
+**New metric I'm adopting:** [e.g., "Features shipped per week with full test coverage"]
+**How I'll measure success:** [Observable outcome]
+
+### Goal 2: [Title]
+
+**Old metric I'm leaving behind:** 
+**New metric I'm adopting:** 
+**How I'll measure success:** 
+
+### Goal 3: [Title]
+
+**Old metric I'm leaving behind:** 
+**New metric I'm adopting:** 
+**How I'll measure success:** 
+
+## By Module 5, I Want To...
+
+- [ ] [Specific skill, e.g., "Use custom agents to automate code review"]
+- [ ] [Specific outcome, e.g., "Ship FanHub with 80%+ test coverage"]
+- [ ] [Specific mindset, e.g., "Feel confident that my expertise is amplified, not replaced"]
+```
+
+**2. Reflect on what matters**
+
+Some example metrics to consider:
+
+| Old Metric                     | New Metric                                  |
+|-------------------------------|---------------------------------------------|
+| Lines of code per day         | Features shipped per week                   |
+| Memorized API signatures      | Clarity of intent in prompts                |
+| Being the only expert         | Knowledge scaled across the team            |
+| Code that only I understand   | Code anyone can maintain                    |
+| Fast typing                   | Fast design thinking                        |
+
+**3. Share with Copilot** (optional)
+
+Ask Copilot Chat:
+
+```
+@workspace Based on my goals in docs/my-success-metrics.md, 
+suggest specific ways I can measure progress as I work through 
+the FanHub project in this training.
+```
+
+Review Copilot's suggestions. Which make sense? Which don't?
+
+### ✅ Success Criteria
+
+- [ ] Created `docs/my-success-metrics.md` with three clear goals
+- [ ] Each goal has old metric, new metric, and success measure
+- [ ] Identified which persona you resonate with most
+- [ ] (Optional) Got Copilot's suggestions and evaluated them critically
+
+### 🧠 Mindful Moment: Setting Intention
+
+**David realizes:** "I spent 20 years learning to write code. Now I need to learn to express what I know clearly. That's not a step backward—it's the next level."
+
+**Priya realizes:** "I don't need to know everything. I need to know what questions to ask and how to evaluate the answers."
+
+**Sarah decides:** "I'll measure this by time-to-production and code quality, not by 'cool AI tricks.' Show me the value."
 
 ---
 
 ## 🧠 Key Takeaways
 
-- **The definition of developer excellence has changed.** Syntax mastery is out. Clarity of intent is in.
-- **Your expertise matters more, not less.** But it matters in how you think, judge, and communicate—not in what you memorize.
-- **Documentation is leverage.** What you write down scales. What stays in your head doesn't.
-- **AI is a tool that amplifies clarity.** The better you express what you want, the better Copilot helps.
+**The Mindset Shift:**
+- Syntax mastery → Clear intent articulation
+- Clever code → Understandable code
+- Knowledge hoarding → Knowledge scaling
+- Fast typing → Fast thinking
+
+**The AI-Assisted Mindset (Four Principles):**
+1. 🔍 **Clarity Beats Cleverness** — Understandable trumps clever
+2. 🎯 **Intent Over Implementation** — Describe WHAT, not HOW
+3. 📚 **Documentation Is Leverage** — Write once, benefit infinitely
+4. ⚖️ **Human Judgment Is Non-Negotiable** — AI proposes, you decide
+
+**The Five Practices (Where You Invest):**
+1. 🔍 **Clarity as a Foundation** — Clear thinking enables effective AI collaboration
+2. 📚 **Documentation as Leverage** — Write once, benefit infinitely (for humans AND AI)
+3. 🎯 **Intent Over Implementation** — Stay at the design level where your expertise matters
+4. 🎯 **Context is Everything** — The right context produces the right results
+5. 🔄 **Iterate and Refine** — Conversation beats one-shot commands
+
+**What You Experienced:**
+- The FanHub challenge (build a production app in 8 hours)
+- The struggle (Copilot without configuration gives poor results)
+- The setup (chose your show, documented the "before" state)
+- The intention (defined your personal success metrics)
+
+**What's Coming:**
+- Module 1: Repository Instructions (watch everything change)
+- Module 2: Build a reusable prompt library
+- Module 3: Create custom agents that understand your domain
+- Modules 4-6: Complete FanHub using every AI assistance technique
 
 ---
 
 ## ➡️ Next Steps
 
-You now understand _why_ this training exists and _how_ we measure success. You've set personal goals aligned with the new reality.
+You've experienced the struggle. You've set your success metrics. You're ready for the transformation.
 
-Proceed to [Module 1: Getting Started](../01-getting-started/README.md) to begin hands-on practice with Copilot.
+**On to Module 1:** [Repository Instructions](../01-repository-instructions/README.md)
+
+Monday, 10:00 AM. Marcus is about to show the team how configuration changes everything...
+
+---
+
+## 📎 Appendix: The FanHub Tech Stack
+
+For reference, here's what you'll be working with:
+
+**Backend:**
+- Node.js + Express
+- PostgreSQL database
+- GraphQL API (with some REST endpoints—intentionally inconsistent)
+- JWT authentication (partially implemented)
+
+**Frontend:**
+- React 18
+- React Router
+- Mix of styling approaches (intentionally inconsistent)
+- Axios for API calls
+
+**Infrastructure:**
+- Docker & Docker Compose
+- Environment-based configuration
+- CI/CD (you'll build this in Module 3)
+
+**By Module 5, you'll have added:**
+- Full authentication & authorization
+- Character, episode, and quote management
+- Advanced search
+- Admin dashboard
+- Comprehensive test suite
+- Production deployment pipeline
+- Show-specific theming and branding
+
+All built in 7-8 hours with AI assistance. Let's begin.

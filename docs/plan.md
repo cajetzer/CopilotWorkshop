@@ -1255,17 +1255,16 @@ Module numbering has been resolved. Current structure:
 ```
 modules/
   00-orientation/
-  01-getting-started/
-  02-clarity-context/
-  03-clarity-configuration/
-  04-documentation-as-leverage/
-  05-intent-over-implementation/       (prompt engineering)
-  06-ai-assisted-design-thinking/      (design thinking with AI)
-  07-advanced-agents-tools/            (NEW - exercises 7.1-7.6) ✅
-  08-collaborative-development-workflows/
-  09-ai-workflow-optimization/         (NEW - exercises 9.1-9.5) ✅
-  10-copilot-web/                      (GitHub.com features)
-  11-copilot-cli/
+  01-repository-instructions/
+  02-custom-prompts/
+  03-custom-agents/
+  04-custom-instructions/
+  05-compounding-value/
+  06-collaborative-development-workflows/
+  07-agent-fundamentals/
+  08-enterprise-agents-debugging/
+  09-appendix-a-copilot-web/
+  10-appendix-b-copilot-cli/
 ```
 
 **Remaining Work**: Enhancement exercises for existing modules (1.6, 4.7, 6.5).
