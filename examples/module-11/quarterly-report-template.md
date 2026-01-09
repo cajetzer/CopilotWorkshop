@@ -281,4 +281,4 @@
 
 ---
 
-*Report generated using template from [GitHub Copilot Training](../../modules/10-enterprise-patterns/README.md)*
+*Report generated using template from [GitHub Copilot Training](../../modules/11-enterprise-patterns/README.md)*

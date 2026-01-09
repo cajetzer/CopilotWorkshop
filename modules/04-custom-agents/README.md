@@ -100,7 +100,7 @@ The new Copilot CLI brings AI agent capabilities to your terminal:
 - **GitHub integration** — Work with issues, PRs, and workflows
 - **Programmatic mode** — Use `-p` for scripted automation
 
-> 📘 See [Appendix B: GitHub Copilot CLI](../09-appendix-b-copilot-cli/README.md) for full coverage.
+> 📘 See [Module 9: GitHub Copilot CLI](../09-copilot-cli/README.md) for full coverage.
 
 ---
 
@@ -443,7 +443,7 @@ David's code review workflow transforms:
 
 *"I've spent 20 years building mental checklists for code review. Now those checklists are executable. I review the AI's review—catching what it misses while it catches what I'd overlook."*
 
-> 💡 **Want CLI workflows?** See [Appendix B: GitHub Copilot CLI](../09-appendix-b-copilot-cli/README.md) for comprehensive coverage of the new agentic Copilot CLI.
+> 💡 **Want CLI workflows?** See [Module 9: GitHub Copilot CLI](../09-copilot-cli/README.md) for comprehensive coverage of the new agentic Copilot CLI.
 
 ---
 

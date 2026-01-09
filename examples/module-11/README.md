@@ -1,6 +1,6 @@
-# Module 10: Enterprise Patterns — Example Artifacts
+# Module 11: Enterprise Patterns — Example Artifacts
 
-> Standalone templates from [Module 10: Enterprise Patterns](../../modules/10-enterprise-patterns/README.md)
+> Standalone templates from [Module 11: Enterprise Patterns](../../modules/11-enterprise-patterns/README.md)
 
 These files are ready-to-use templates that can be copied and customized for your organization.
 
@@ -30,5 +30,5 @@ Each template includes `[PLACEHOLDER]` markers for content you should customize:
 
 ## Related
 
-- [Module 10 README](../../modules/10-enterprise-patterns/README.md) — Full training content
+- [Module 11 README](../../modules/11-enterprise-patterns/README.md) — Full training content
 - [OUTLINE.md](../../OUTLINE.md) — Workshop overview

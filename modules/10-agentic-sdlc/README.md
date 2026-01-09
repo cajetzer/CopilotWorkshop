@@ -1,6 +1,6 @@
-# Module 5: Agentic SDLC
+# Module 10: Agentic SDLC + Ship
 
-## ⏰ Monday 4:00 PM — Parallel Development Power
+## ⏰ Monday 7:00 PM — Parallel Development Power
 
 > *"We've learned to use agents one at a time. Now let's see what happens when we run them everywhere at once."*  
 > — Jordan, ready to unleash the full potential of multi-interface agents
@@ -11,9 +11,14 @@
 
 The FanHub team has accomplished a lot in one day:
 - **Module 1**: Repository-wide instructions in `copilot-instructions.md`
-- **Module 2**: Reusable prompts for common workflows
-- **Module 3**: Custom agents for autonomous tasks
-- **Module 4**: Custom instructions that activate based on file patterns
+- **Module 2**: Agent plan mode for structured thinking
+- **Module 3**: Reusable prompts for common workflows
+- **Module 4**: Custom agents for autonomous tasks
+- **Module 5**: Custom instructions that activate based on file patterns
+- **Module 6**: Agent Skills for domain expertise
+- **Module 7**: MCP servers for database and GitHub integration
+- **Module 8**: Web workflows for PR and issue automation
+- **Module 9**: CLI automation for terminal workflows
 
 But so far, they've been working sequentially—one task at a time, one interface at a time. That's about to change.
 
@@ -34,7 +39,7 @@ By the end of this module, you will:
 - Orchestrate parallel development workflows
 - Understand which interface to use for which task type
 
-**Time**: ~90 minutes  
+**Time**: ~90-120 minutes  
 **Personas**: Jordan (DevOps), David (Architect), Marcus (Developer), Elena (QA)
 
 ---
@@ -384,7 +389,7 @@ Use GitHub Copilot CLI to rapidly execute infrastructure tasks while VS Code and
    copilot --version
    ```
    
-   If not installed, see [Appendix B](../09-appendix-b-copilot-cli/README.md) for setup.
+   If not installed, see [Module 9: GitHub Copilot CLI](../09-copilot-cli/README.md) for setup.
    
    > 💡 **Why Copilot CLI for these tasks?**  
    > The CLI is a full agentic interface—it can read files, write files, run shell commands, and interact with GitHub.com. Perfect for infrastructure and automation tasks.
@@ -1068,10 +1073,10 @@ Every persona ended the sprint more capable, not less relevant.
 
 ### Continue Learning
 
-**[Appendix A: Copilot in the Browser](../08-appendix-a-copilot-web/README.md)**
+**[Module 8: Copilot on the Web](../08-copilot-web/README.md)**
 Using GitHub Copilot on github.com for research, documentation, and mobile work.
 
-**[Appendix B: GitHub Copilot CLI](../09-appendix-b-copilot-cli/README.md)**
+**[Module 9: GitHub Copilot CLI](../09-copilot-cli/README.md)**
 The new agentic CLI for interactive and programmatic terminal workflows.
 
 ### Stay Connected

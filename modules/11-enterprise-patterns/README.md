@@ -1,4 +1,4 @@
-# Module 10: Enterprise Patterns — Scaling Copilot Across Teams
+# Module 11: Enterprise Patterns — Scaling Copilot Across Teams
 
 ## ⏰ Tuesday 9:00 AM — From Team Success to Organizational Standard
 
@@ -11,9 +11,9 @@
 
 **Monday 6:00 PM**: The FanHub team gathered around Sarah's desk to demo the completed site. Character pages loaded instantly. Quote searches worked flawlessly. The deployment pipeline ran green on the first try.
 
-Sarah, who started the day as the skeptical senior developer, smiled: *"I'll admit it. You convinced me. We shipped a production-ready fan site in nine hours."*
+Sarah, who started the day as the skeptical senior developer, smiled: *"I'll admit it. You convinced me. We shipped a production-ready fan site in eleven hours."*
 
-David nodded: *"And we didn't just ship code. We built a system—repository instructions, custom prompts, agent workflows, specialized skills. We created a way of working."*
+David nodded: *"And we didn't just ship code. We built a system—repository instructions, custom prompts, agent workflows, specialized skills, MCP connections. We created a way of working."*
 
 Jordan pulled up the commit history: *"Look at this. Thirty-seven commits from seven people. No merge conflicts. No stepping on each other's toes. The customization kept us aligned."*
 
@@ -2145,11 +2145,12 @@ You've completed the FanHub workshop. In a simulated sprint, you've:
 - **Module 3**: Built reusable custom prompts
 - **Module 4**: Deployed custom agents for autonomous tasks
 - **Module 5**: Added file-scoped custom instructions
-- **Module 6**: Created domain-specific skills
-- **Module 7**: Explored Copilot web capabilities
-- **Module 8**: Automated with Copilot CLI
-- **Module 9**: Orchestrated agentic SDLC workflows
-- **Module 10**: Scaled success across your organization
+- **Module 6**: Created domain-specific Agent Skills
+- **Module 7**: Connected to external systems via MCP servers
+- **Module 8**: Explored Copilot web capabilities
+- **Module 9**: Automated with Copilot CLI
+- **Module 10**: Orchestrated agentic SDLC workflows and shipped
+- **Module 11**: Scaled success across your organization
 
 **The journey from "Syntax Wizard" to "Markdown Whisperer" is complete.**
 

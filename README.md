@@ -1,4 +1,4 @@
-# Build FanHub in 9 Hours: A GitHub Copilot Training Workshop
+# Build FanHub in 11 Hours: A GitHub Copilot Training Workshop
 
 > **The Challenge**: A skeptical senior developer drops a half-finished fan site on your team and gives you by end of day to ship it. Pick your favorite TV show, make it production-ready, and prove that AI-assisted development is more than just hype.
 
@@ -21,7 +21,7 @@
 - ✅ Basic auth scaffolding → Secure, tested implementation
 - ✅ Generic UI → Polished, show-specific experience
 
-**The twist**: You'll do it in 9-10 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
+**The twist**: You'll do it in 11-13 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
 
 - **Repository instructions** (`.github/copilot-instructions.md`) — Your team's standards, automatically applied
 - **Agent plan mode** — Structured thinking and systematic AI collaboration
@@ -29,6 +29,7 @@
 - **Custom agents** — Specialized AI assistants trained on your domain
 - **Custom instructions** (`.github/instructions/`) — File-scoped context via `applyTo` patterns
 - **Agent Skills** (`.github/skills/`) — Domain-specific knowledge Copilot loads automatically
+- **MCP Servers** (`.vscode/mcp.json`) — Connect Copilot to databases, APIs, and external systems
 - **Web and CLI integration** — AI assistance across all development interfaces
 
 **The transformation**: Watch Copilot evolve from giving generic, confused suggestions to acting like a team member who understands your architecture, follows your standards, and even knows your show's characters by name.
@@ -39,7 +40,7 @@
 
 **Monday, 9:00 AM**: Sarah (skeptical senior dev) throws down the challenge. The team looks at the starter code—it's rough. Generic content, inconsistent patterns, zero documentation. Copilot gives confused suggestions because it has nothing to work with.
 
-**Monday, 9:00 AM - 6:00 PM**: Over the next 9-10 hours (your time, your pace), you'll follow the team as they:
+**Monday, 9:00 AM - 6:00 PM**: Over the next 11-13 hours (your time, your pace), you'll follow the team as they:
 
 1. **Document architecture** and establish team standards (watch suggestions improve instantly)
 2. **Master plan mode** for structured thinking and systematic AI collaboration
@@ -47,7 +48,8 @@
 4. **Create custom agents** that understand the architecture
 5. **Add custom instructions** for context-aware code generation
 6. **Encode domain expertise** with Agent Skills that Copilot loads automatically
-7. **Integrate web and CLI workflows** for comprehensive AI assistance
+7. **Connect to external systems** via MCP for database queries, API calls, and deployment awareness
+8. **Integrate web and CLI workflows** for comprehensive AI assistance
 8. **Orchestrate everything together** with agentic development lifecycle
 9. **Ship and reflect** on the transformation
 
@@ -171,8 +173,17 @@ Elena and Rafael teach Copilot FanHub's domain expertise through Agent Skills. E
 **The transformation**: Generic knowledge → Domain expertise  
 **Featured**: Elena, Rafael
 
-### Module 7: Copilot Web (90 min)
+### Module 7: MCP Servers (75 min)
 **Monday 5:00 PM**
+
+Elena's data validator can't verify against real data—it knows the RULES but can't check the DATABASE. Jordan shows the team how MCP (Model Context Protocol) connects Copilot to external systems. Connect to SQLite for data validation, GitHub for deployment awareness.
+
+**You'll learn**: MCP architecture, server configuration, database connectivity, security governance  
+**The transformation**: Knowledge only → Knowledge + action  
+**Featured**: Jordan, Elena, David
+
+### Module 8: Copilot Web (90 min)
+**Monday 5:30 PM**
 
 Team learns web-based AI workflows through GitHub's interface. Plan web integration strategies. Create automated PR workflows and review processes. Connect web and local development cycles.
 
@@ -180,8 +191,8 @@ Team learns web-based AI workflows through GitHub's interface. Plan web integrat
 **The transformation**: Local-only → Full lifecycle integration  
 **Featured**: David, Sarah, Rafael
 
-### Module 8: Copilot CLI (90 min)
-**Monday 5:30 PM**
+### Module 9: Copilot CLI (90 min)
+**Monday 6:00 PM**
 
 Jordan introduces systematic CLI automation with GitHub Copilot CLI. Plan terminal workflow automation. Create scripted development processes and infrastructure automation.
 
@@ -189,8 +200,8 @@ Jordan introduces systematic CLI automation with GitHub Copilot CLI. Plan termin
 **The transformation**: Manual terminal work → Automated AI-assisted CLI  
 **Featured**: Jordan, Marcus
 
-### Module 9: Agentic SDLC + Ship (90-120 min)
-**Monday 6:00 PM**
+### Module 10: Agentic SDLC + Ship (90-120 min)
+**Monday 7:00 PM**
 
 The team orchestrates all their AI tools across VS Code, Web, and CLI. Plan the complete development lifecycle. While Marcus builds search interactively in VS Code, David kicks off analytics endpoints via GitHub's Coding Agent, and Jordan handles infrastructure in the CLI—all simultaneously. The module concludes with shipping and reflecting on what worked.
 
@@ -198,7 +209,7 @@ The team orchestrates all their AI tools across VS Code, Web, and CLI. Plan the 
 **The transformation**: Sequential → Parallel → Complete system → Ship it  
 **Featured**: All personas
 
-### Module 10: Enterprise Patterns (90-120 min)
+### Module 11: Enterprise Patterns (90-120 min)
 **Tuesday 9:00 AM**
 
 Sarah calls an early meeting: "We built something that works. Now we need to make it organizational standard." The team scales their success—creating organization-wide instructions, code review standards for AI-generated code, Copilot Spaces for knowledge sharing, metrics dashboards, and onboarding kits for other teams.

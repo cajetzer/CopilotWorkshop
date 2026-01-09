@@ -957,9 +957,9 @@ The FanHub team now has:
 
 ### What's Next
 
-In **Module 7: Copilot Web**, you'll learn how to use Copilot across GitHub's web interface—applying all your customizations (instructions, skills, prompts, agents) to pull requests, issues, and code review workflows.
+In **Module 7: MCP Servers**, you'll learn how to connect Copilot to external systems—databases, APIs, and deployment infrastructure. Elena's data validator skill knows the RULES, but it can't check the DATABASE. Jordan shows the team how MCP (Model Context Protocol) bridges that gap.
 
-**💡 Plan Mode Tip for Next Module**: Before diving into web workflows, use plan mode to identify which web-based tasks would benefit from your skills and how to integrate web and local development cycles.
+**💡 Plan Mode Tip for Next Module**: Before adding MCP servers, use plan mode to identify which external systems Copilot should connect to and what security constraints apply.
 
 ---
 

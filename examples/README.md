@@ -24,7 +24,7 @@ examples/
 │   └── skills/                         # Agent Skills examples
 │       └── agent-skills.md
 │
-└── module-10/                 # Enterprise patterns templates
+└── module-11/                 # Enterprise patterns templates
     ├── org-instructions-template.md
     ├── COPILOT-REVIEW-GUIDE.md
     ├── TEAM-ONBOARDING.md
@@ -43,7 +43,8 @@ examples/
 | **Module 4** | Custom Agents | Agent configuration files | [completed-config/.github/agents/](completed-config/.github/agents/) |
 | **Module 5** | Custom Instructions | File-scoped instructions | [completed-config/.github/instructions/](completed-config/.github/instructions/) |
 | **Module 6** | Agent Skills | Domain-specific skills | [completed-config/skills/agent-skills.md](completed-config/skills/agent-skills.md) |
-| **Module 10** | Enterprise Patterns | Org templates | [module-10/](module-10/) |
+| **Module 7** | MCP Servers | External system connections | `.vscode/mcp.json` |
+| **Module 11** | Enterprise Patterns | Org templates | [module-11/](module-11/) |
 | **Appendix** | Visual Context | Using images with Copilot | [completed-config/visual-context/README.md](completed-config/visual-context/README.md) |
 
 ---

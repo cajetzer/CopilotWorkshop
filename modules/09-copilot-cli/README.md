@@ -1,4 +1,4 @@
-# Appendix B: GitHub Copilot CLI
+# Module 9: GitHub Copilot CLI
 
 > **Core Philosophy**: Clarity beats cleverness—even in the terminal. Clear intent gets clear results. Your terminal becomes an AI agent that can work on your behalf.
 
@@ -13,25 +13,26 @@ GitHub Copilot CLI is a **powerful AI agent** that lives in your terminal. Unlik
 - **Use MCP servers** — Extend capabilities with Model Context Protocol
 - **Support custom agents** — Configure specialized versions for different tasks
 
-This appendix covers installing, configuring, and using the new Copilot CLI for agentic terminal workflows.
+This module covers installing, configuring, and using the new Copilot CLI for agentic terminal workflows.
 
 **Why CLI?** Even developers who live in VS Code spend significant time in the terminal. The new Copilot CLI brings the full power of an AI agent to your command line—not just command suggestions, but actual task execution.
 
 ## Prerequisites
 
 - Copilot subscription (Pro, Pro+, Business, or Enterprise)
+- Completed Module 8: Copilot Web (recommended)
 - A terminal you're comfortable using
 - Linux, macOS, or Windows (WSL recommended; native Windows is experimental)
 
 ## Estimated Time
 
-- 60–75 minutes
+- 90 minutes
 
 ---
 
 ## 🎯 Learning Objectives
 
-By the end of this appendix, you will:
+By the end of this module, you will:
 
 - Install and configure GitHub Copilot CLI
 - Use interactive mode to have conversations and complete tasks
@@ -862,11 +863,11 @@ _"I was ready to dismiss this as a security nightmare. But the trust model is ac
 
 ## ➡️ Next Steps
 
-You've completed Appendix B! You now have an AI agent in your terminal—not just suggestions, but actual task execution capability.
+You've completed Module 9! You now have an AI agent in your terminal—not just suggestions, but actual task execution capability.
 
 **To continue learning:**
 - Return to [Module 00: Orientation](../00-orientation/README.md) for a refresher
-- Explore [Appendix A: Copilot on the Web](../08-appendix-a-copilot-web/README.md)
+- Explore [Module 8: Copilot on the Web](../08-copilot-web/README.md)
 - Practice daily: start a `copilot` session for your morning workflow
 
 **Build the habit:**

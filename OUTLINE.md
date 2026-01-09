@@ -1,8 +1,8 @@
 # FanHub Workshop: Complete Outline
 
-> **Total Time**: 10-12 hours (self-paced)  
-> **Modules**: 10 core modules + orientation  
-> **Exercises**: 34+ hands-on exercises  
+> **Total Time**: 11-13 hours (self-paced)  
+> **Modules**: 11 core modules + orientation  
+> **Exercises**: 39+ hands-on exercises  
 > **Target Audience**: Developers at all experience levels
 
 ---
@@ -19,9 +19,10 @@ This workshop teaches ways to customize GitHub Copilot. Each module progressivel
 | 🤖 **Custom Agents** | Autonomous task specialists | Module 4 |
 | 🎨 **Custom Instructions** | File-scoped context via `applyTo` | Module 5 |
 | 🎓 **Agent Skills** | Domain-specific knowledge loaded when relevant | Module 6 |
-| 🏢 **Enterprise Patterns** | Organization-wide standards and governance | Module 10 |
+| 🔌 **MCP Servers** | External system access (databases, APIs) | Module 7 |
+| 🏢 **Enterprise Patterns** | Organization-wide standards and governance | Module 11 |
 
-By Module 10, all features work together and you'll scale your success across the organization.
+By Module 11, all features work together and you'll scale your success across the organization.
 
 ---
 
@@ -232,22 +233,50 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 7: Copilot Web
+### Module 7: MCP Servers
+
+**Time**: 75 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
+
+> Give Copilot hands—connect to databases, APIs, and external systems via Model Context Protocol.
+
+**Story**: Monday 5:00 PM. Elena's data validator can't verify against real data. Jordan shows the team how MCP connects Copilot to external systems.
+
+💡 **Plan Mode Tip**: Use plan mode to design your MCP strategy—what to connect, security considerations, and integration with existing customizations.
+
+| # | Exercise | Persona | Time | Focus |
+|---|----------|---------|------|-------|
+| 7.1 | Understanding the MCP Ecosystem | Jordan | 15 min | Browse servers, understand architecture |
+| 7.2 | Connect to FanHub Database | Elena | 20 min | SQLite MCP server setup |
+| 7.3 | Deployment Awareness | Jordan | 15 min | GitHub MCP for system status |
+| 7.4 | MCP Security & Governance | David | 15 min | Trust model, governance policies |
+| 7.5 | Integrated Workflows | Team | 10 min | Combining MCP with agents and skills |
+
+**Artifacts Created**:
+- `.vscode/mcp.json` — MCP server configuration
+- `fanhub/docs/MCP-STRATEGY.md` — MCP planning document
+- `fanhub/docs/MCP-GOVERNANCE.md` — Security policies
+- `fanhub/docs/AI-STACK.md` — Complete customization documentation
+
+**Key Insight**: MCP transforms Copilot from "knows things" to "can do things"—verify data, check status, interact with systems.
+
+---
+
+### Module 8: Copilot Web
 
 **Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 💼
 
 > Use Copilot where code lives: PRs, issues, GitHub.com
 
-**Story**: Monday 5:00 PM. Team learns web-based AI workflows and integration strategies.
+**Story**: Monday 5:30 PM. Team learns web-based AI workflows and integration strategies.
 
 💡 **Plan Mode Tip**: Use plan mode to plan web-based workflows and integration strategies before implementing.
 
 | # | Exercise | Persona | Time | Focus |
 |---|----------|---------|------|-------|
-| 7.1 | PR Description Generation | David | 20 min | Auto-generate PR summaries |
-| 7.2 | Code Review with Copilot | Sarah | 25 min | AI-assisted review workflows |
-| 7.3 | Issue Enhancement | Rafael | 25 min | Better issue descriptions |
-| 7.4 | Web Workflow Integration | Team | 20 min | Combining web and local workflows |
+| 8.1 | PR Description Generation | David | 20 min | Auto-generate PR summaries |
+| 8.2 | Code Review with Copilot | Sarah | 25 min | AI-assisted review workflows |
+| 8.3 | Issue Enhancement | Rafael | 25 min | Better issue descriptions |
+| 8.4 | Web Workflow Integration | Team | 20 min | Combining web and local workflows |
 
 **Artifacts Created**:
 - Automated PR templates and review workflows
@@ -258,23 +287,23 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 8: Copilot CLI
+### Module 9: Copilot CLI
 
 **Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 💼
 
 > Agentic terminal workflows with the GitHub Copilot CLI
 
-**Story**: Monday 5:30 PM. Jordan automates terminal workflows and creates systematic CLI approaches.
+**Story**: Monday 6:00 PM. Jordan automates terminal workflows and creates systematic CLI approaches.
 
 💡 **Plan Mode Tip**: Use plan mode to design CLI automation scripts and systematic pipeline workflows.
 
 | # | Exercise | Persona | Time | Focus |
 |---|----------|---------|------|-------|
-| 8.1 | CLI Installation & Setup | Jordan | 15 min | Installing and first interactive session |
-| 8.2 | Interactive Terminal Tasks | Marcus | 20 min | Agent-style task execution |
-| 8.3 | GitHub.com Integration | Jordan | 20 min | PRs, issues, and workflows from terminal |
-| 8.4 | Programmatic Automation | Jordan | 20 min | Scripted automation workflows |
-| 8.5 | CLI Customization | Team | 15 min | Instructions and custom agents for CLI |
+| 9.1 | CLI Installation & Setup | Jordan | 15 min | Installing and first interactive session |
+| 9.2 | Interactive Terminal Tasks | Marcus | 20 min | Agent-style task execution |
+| 9.3 | GitHub.com Integration | Jordan | 20 min | PRs, issues, and workflows from terminal |
+| 9.4 | Programmatic Automation | Jordan | 20 min | Scripted automation workflows |
+| 9.5 | CLI Customization | Team | 15 min | Instructions and custom agents for CLI |
 
 **Artifacts Created**:
 - Automated terminal workflows and scripts
@@ -285,24 +314,24 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 9: Agentic SDLC + Ship
+### Module 10: Agentic SDLC + Ship
 
 **Time**: 90-120 minutes | **Difficulty**: 🌳 | **Tier**: 🆓
 
 > Run agents simultaneously across VS Code, Web, and CLI. Ship and reflect.
 
-**Story**: Monday 6:00 PM. The team orchestrates all their AI tools, ships the complete FanHub, and reflects on their transformation.
+**Story**: Monday 7:00 PM. The team orchestrates all their AI tools, ships the complete FanHub, and reflects on their transformation.
 
 💡 **Plan Mode Tip**: Use plan mode to orchestrate the entire development lifecycle and coordinate multiple AI tools.
 
 | # | Exercise | Persona | Time | Focus |
 |---|----------|---------|------|-------|
-| 9.1 | VS Code Agent Orchestration | Marcus | 25 min | Coordinating multiple local agents |
-| 9.2 | Multi-Interface Workflows | David | 25 min | VS Code + Web + CLI integration |
-| 9.3 | Quality Assurance Integration | Elena | 20 min | AI-assisted testing and validation |
-| 9.4 | The Complete Ship | All | 20 min | Deploy integrated FanHub with full AI workflow |
-| 9.5 | Sprint Retrospective | Sarah | 15 min | Reflect on transformation and learnings |
-| 9.6 | Future Planning | Team | 15 min | Plan continued AI integration strategies |
+| 10.1 | VS Code Agent Orchestration | Marcus | 25 min | Coordinating multiple local agents |
+| 10.2 | Multi-Interface Workflows | David | 25 min | VS Code + Web + CLI integration |
+| 10.3 | Quality Assurance Integration | Elena | 20 min | AI-assisted testing and validation |
+| 10.4 | The Complete Ship | All | 20 min | Deploy integrated FanHub with full AI workflow |
+| 10.5 | Sprint Retrospective | Sarah | 15 min | Reflect on transformation and learnings |
+| 10.6 | Future Planning | Team | 15 min | Plan continued AI integration strategies |
 
 **Artifacts Created**:
 - Complete FanHub application with all AI integrations
@@ -313,7 +342,7 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 10: Enterprise Patterns — Scaling Copilot Across Teams
+### Module 11: Enterprise Patterns — Scaling Copilot Across Teams
 
 **Time**: 90-120 minutes | **Difficulty**: 🌳 | **Tiers**: 🆓 💼 🏢
 
@@ -323,11 +352,11 @@ Seven personas guide you through the workshop, each representing real developer 
 
 | # | Exercise | Persona | Time | Enterprise Feature |
 |---|----------|---------|------|-------------------|
-| 10.1 | Organization Instructions | Rafael + Sarah | 25 min | 💼 Org-level standards |
-| 10.2 | Code Review Standards | Elena + David | 25 min | 🆓 AI code review checklist |
-| 10.3 | Copilot Spaces Setup | Jordan + David | 25 min | 🏢 Cross-repo knowledge bases |
-| 10.4 | Metrics Dashboard | Jordan + Sarah | 25 min | 💼 Usage tracking and ROI |
-| 10.5 | Onboarding Kit | Marcus + Priya | 25 min | 🆓 Team enablement templates |
+| 11.1 | Organization Instructions | Rafael + Sarah | 25 min | 💼 Org-level standards |
+| 11.2 | Code Review Standards | Elena + David | 25 min | 🆓 AI code review checklist |
+| 11.3 | Copilot Spaces Setup | Jordan + David | 25 min | 🏢 Cross-repo knowledge bases |
+| 11.4 | Metrics Dashboard | Jordan + Sarah | 25 min | 💼 Usage tracking and ROI |
+| 11.5 | Onboarding Kit | Marcus + Priya | 25 min | 🆓 Team enablement templates |
 
 **Artifacts Created**:
 - Organization-level `copilot-instructions.md` template
@@ -342,13 +371,13 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ## 🎓 Learning Paths
 
-### Full Workshop (9-10 hours)
+### Full Workshop (11-13 hours)
 
-Complete all 9 core modules in order. The narrative builds progressively.
+Complete all 11 core modules in order. The narrative builds progressively.
 
 | Time | Modules | Focus |
 |------|---------|-------|
-| ~7-8 hours | 0–5 | Build features, ship, and reflect |
+| ~11-13 hours | 0–11 | Build features, ship, scale, and reflect |
 
 ---
 
@@ -390,28 +419,31 @@ Focus on establishing practices for your team.
 | 4: Custom Agents | 90 min | 6h 45min |
 | 5: Custom Instructions | 90 min | 8h 15min |
 | 6: Agent Skills | 90 min | 9h 45min |
-| 7: Copilot Web | 90 min | 11h 15min |
-| 8: Copilot CLI | 90 min | 12h 45min |
-| 9: Agentic SDLC + Ship | 90-120 min | 14h 15min |
-| **Total** | **~9-10 hours** | |
+| 7: MCP Servers | 75 min | 11h |
+| 8: Copilot Web | 90 min | 12h 30min |
+| 9: Copilot CLI | 90 min | 14h |
+| 10: Agentic SDLC + Ship | 90-120 min | 15h 30min |
+| 11: Enterprise Patterns | 90-120 min | 17h |
+| **Total** | **~11-13 hours** | |
 
 ### Exercises by Tier
 
 | Tier | Count | Percentage |
 |------|-------|------------|
-| 🆓 Free | 28 | 88% |
-| 💼 Business | 3 | 9% |
-| 🏢 Enterprise | 1 | 3% |
+| 🆓 Free | 33 | 85% |
+| 💼 Business | 4 | 10% |
+| 🏢 Enterprise | 2 | 5% |
 
 ### Artifacts Created
 
 | Category | Count | Examples |
 |----------|-------|----------|
-| Documentation | 8 | ARCHITECTURE.md, AI-PLANNING-WORKFLOWS.md, LEARNINGS.md |
-| Prompts | 3 | test-generation.md, spec-to-code.md |
-| Agents | 2 | architecture-reviewer, devops-reviewer |
+| Documentation | 11 | ARCHITECTURE.md, MCP-STRATEGY.md, AI-STACK.md |
+| Prompts | 4 | test-generation.md, spec-to-code.md, infra-preflight.md |
+| Agents | 3 | architecture-reviewer, devops-reviewer, fanhub-validator |
 | Instructions | 4 | testing, api-routes, infrastructure, components |
 | Skills | 2 | tv-show-data-validator, feature-requirements |
+| MCP Configs | 1 | .vscode/mcp.json |
 | Planning Files | 4 | Feature plans, agent designs, workflows, standards |
 | Code | 8+ | Search, analytics dashboard, components |
 

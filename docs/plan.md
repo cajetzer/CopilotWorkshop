@@ -74,29 +74,29 @@ Module 06 (Collaborative)
     └── Module 06, Ex 5 (Prompt Files) [ENHANCE]
     └── Module 08, Ex 4 (Prompt Examples)
 
-Module 09 (Agentic SDLC)
-    └── Module 10 (Enterprise Patterns)
-            └── Module 10, Ex 1 (Org Instructions) [💼]
-            └── Module 10, Ex 2 (Code Review Standards) [🆓]
-            └── Module 10, Ex 3 (Copilot Spaces) [🏢]
-            └── Module 10, Ex 4 (Usage Metrics) [💼]
-            └── Module 10, Ex 5 (Team Onboarding) [🆓]
+Module 10 (Agentic SDLC)
+    └── Module 11 (Enterprise Patterns)
+            └── Module 11, Ex 1 (Org Instructions) [💼]
+            └── Module 11, Ex 2 (Code Review Standards) [🆓]
+            └── Module 11, Ex 3 (Copilot Spaces) [🏢]
+            └── Module 11, Ex 4 (Usage Metrics) [💼]
+            └── Module 11, Ex 5 (Team Onboarding) [🆓]
 ```
 
 ---
 
-## New Module 07: Advanced Agents & Tools
+## New Module 07: MCP Servers
 
-### Exercise 7.1: Your First Agent Workflow — "Autonomous Implementation"
+### Exercise 7.1: Understanding MCP Ecosystem — "Jordan's Discovery"
 
-**Priority**: 1 (Start here for Agents track)
-**Dependencies**: Module 01 complete
+**Priority**: 1 (Start here for MCP)
+**Dependencies**: Module 06 complete
 **Tier**: 🆓 Free
-**Primary Persona**: Marcus (DevOps Developer)
+**Primary Persona**: Jordan (DevOps Expert)
 
-#### 📖 Before Scenario
+#### 📖 The Story
 
-Marcus receives a ticket: "Add health check endpoint to the API." He opens Copilot Chat and asks for help. Copilot suggests code, but Marcus has to:
+Jordan notices Elena struggling with her data validator skill. It knows the validation RULES, but can't check against the actual DATABASE. Jordan pulls up the MCP specification and shows the team how to bridge this gap.
 
 - Manually create each file
 - Copy-paste code snippets
@@ -1269,15 +1269,16 @@ Module numbering has been resolved. Current structure:
 modules/
   00-orientation/
   01-repository-instructions/
-  02-custom-prompts/
-  03-custom-agents/
-  04-custom-instructions/
-  05-compounding-value/
-  06-collaborative-development-workflows/
-  07-agent-fundamentals/
-  08-enterprise-agents-debugging/
-  09-appendix-a-copilot-web/
-  10-appendix-b-copilot-cli/
+  02-agent-plan-mode/
+  03-custom-prompts/
+  04-custom-agents/
+  05-custom-instructions/
+  06-agent-skills/
+  07-mcp-servers/
+  08-copilot-web/
+  09-copilot-cli/
+  10-agentic-sdlc/
+  11-enterprise-patterns/
 ```
 
 **Remaining Work**: Enhancement exercises for existing modules (1.6, 4.7, 6.5).

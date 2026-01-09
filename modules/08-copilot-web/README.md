@@ -1,17 +1,18 @@
-# Appendix A: Copilot on the Web (GitHub.com)
+# Module 8: Copilot on the Web (GitHub.com)
 
 ## 📖 Overview
 
-GitHub Copilot is available directly in your browser on GitHub.com, enabling AI-assisted coding without leaving your repository. This appendix covers using Copilot for pull requests, code reviews, discussions, and the web-based code editor.
+GitHub Copilot is available directly in your browser on GitHub.com, enabling AI-assisted coding without leaving your repository. This module covers using Copilot for pull requests, code reviews, discussions, and the web-based code editor.
 
 ## Prerequisites
 
 - GitHub account and access to at least one repository
+- Completed Module 7: MCP Servers (recommended)
 - Optional: Copilot Enterprise for PR summaries and chat on GitHub.com
 
 ## Estimated time
 
-- 30–45 minutes
+- 90 minutes
 
 ## 🎯 Learning Objectives
 
@@ -437,7 +438,7 @@ _"Turning chaos into a clean issue made triage so much faster. Now I understand 
 
 ## ➡️ Next Steps
 
-Continue to [Appendix B: GitHub Copilot CLI](../09-appendix-b-copilot-cli/README.md) to learn about using Copilot from the command line.
+Continue to [Module 9: GitHub Copilot CLI](../09-copilot-cli/README.md) to learn about using Copilot from the command line.
 
 ## 🔗 Additional Resources
 
