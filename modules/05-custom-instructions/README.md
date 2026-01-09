@@ -1,6 +1,6 @@
-# Module 4: Custom Instructions
+# Module 5: Custom Instructions
 
-## ⏰ Monday 2:30 PM — Context-Aware Expertise
+## ⏰ Monday 3:00 PM — Context-Aware Expertise
 
 > *"Our repo instructions help, but I want different guidance when I'm writing tests vs. API routes vs. deployment configs. Can Copilot switch contexts automatically?"*  
 > — David, wanting specialized expertise without manual prompting
@@ -11,16 +11,21 @@
 
 The FanHub team has built solid foundations:
 - **Module 1**: Repository-wide instructions in `.github/copilot-instructions.md`
-- **Module 2**: Reusable prompts for common workflows
-- **Module 3**: Custom agents for autonomous tasks
+- **Module 2**: Structured planning with agent plan mode for systematic workflows
+- **Module 3**: Reusable prompts for common workflows
+- **Module 4**: Custom agents for autonomous tasks
 
 But there's a pattern emerging: Different files need different expertise.
 
 *"When I'm in a test file, I want testing expertise. When I'm in infrastructure code, I want DevOps patterns. Why do I have to keep specifying this?"* Jordan asks.
 
-David has an idea: *"What if we could create instructions that automatically activate based on what file you're working in?"*
+David has an idea: *"What if we could create instructions that automatically activate based on what file you're working in? And what if we used plan mode to analyze our codebase patterns first?"*
 
-**This module's mission**: Create specialized instruction files that provide contextual expertise based on file patterns and paths.
+**This module's mission**: Create specialized instruction files that provide contextual expertise based on file patterns, using systematic analysis to design them effectively.
+
+---
+
+💡 **Plan Mode Integration**: You'll use plan mode to analyze codebase patterns and generate tailored instruction configurations that automatically provide the right context for different file types and project areas.
 
 ---
 

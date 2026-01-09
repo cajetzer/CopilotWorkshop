@@ -1,4 +1,4 @@
-# Build FanHub in 8 Hours: A GitHub Copilot Training Workshop
+# Build FanHub in 9 Hours: A GitHub Copilot Training Workshop
 
 > **The Challenge**: A skeptical senior developer drops a half-finished fan site on your team and gives you by end of day to ship it. Pick your favorite TV show, make it production-ready, and prove that AI-assisted development is more than just hype.
 
@@ -6,22 +6,30 @@
 
 ## 🎯 What You'll Build
 
-**FanHub** — A production-ready fan site for YOUR favorite TV show. Starting from a messy, undocumented codebase, you'll transform it into a polished application with:
+**FanHub** — A production-ready fan site for YOUR favorite TV show. Starting from a messy, undocumented codebase with partial features, you'll transform it using AI assistance:
 
-- ✅ Full authentication and authorization
-- ✅ Character, episode, and quote management
+**What you'll build/add:**
 - ✅ Advanced search functionality
-- ✅ Admin dashboard with CRUD operations
+- ✅ Admin dashboard features
 - ✅ Show-specific theming and branding
-- ✅ Comprehensive test suite
-- ✅ Production deployment pipeline
+- ✅ New API endpoints and components
+- ✅ Comprehensive test coverage
+- ✅ Production-ready patterns and documentation
 
-**The twist**: You'll do it in 8 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
+**What you'll improve (starter code provided):**
+- ✅ Inconsistent API patterns → REST standards
+- ✅ Basic auth scaffolding → Secure, tested implementation
+- ✅ Generic UI → Polished, show-specific experience
+
+**The twist**: You'll do it in 9-10 hours using GitHub Copilot. But not "basic Copilot." You'll learn to configure, customize, and orchestrate AI assistance through:
 
 - **Repository instructions** (`.github/copilot-instructions.md`) — Your team's standards, automatically applied
+- **Agent plan mode** — Structured thinking and systematic AI collaboration
 - **Custom prompts** (`.github/prompts/`) — Reusable templates for common tasks
 - **Custom agents** — Specialized AI assistants trained on your domain
 - **Custom instructions** (`.github/instructions/`) — File-scoped context via `applyTo` patterns
+- **Custom skills** (`.github/skills/`) — Domain-specific knowledge Copilot loads automatically
+- **Web and CLI integration** — AI assistance across all development interfaces
 
 **The transformation**: Watch Copilot evolve from giving generic, confused suggestions to acting like a team member who understands your architecture, follows your standards, and even knows your show's characters by name.
 
@@ -31,14 +39,17 @@
 
 **Monday, 9:00 AM**: Sarah (skeptical senior dev) throws down the challenge. The team looks at the starter code—it's rough. Generic content, inconsistent patterns, zero documentation. Copilot gives confused suggestions because it has nothing to work with.
 
-**Monday, 9:00 AM - 6:00 PM**: Over the next 8 hours (your time, your pace), you'll follow the team as they:
+**Monday, 9:00 AM - 6:00 PM**: Over the next 9-10 hours (your time, your pace), you'll follow the team as they:
 
-1. **Configure Copilot** with team standards (watch suggestions improve instantly)
-2. **Build a prompt library** for reusable workflows
-3. **Create custom agents** that understand the architecture
-4. **Add custom instructions** for context-aware code generation
-5. **Implement complex features** with all tools working together
-6. **Ship and reflect** on the transformation
+1. **Document architecture** and establish team standards (watch suggestions improve instantly)
+2. **Master plan mode** for structured thinking and systematic AI collaboration
+3. **Build a prompt library** for reusable workflows
+4. **Create custom agents** that understand the architecture
+5. **Add custom instructions** for context-aware code generation
+6. **Encode domain expertise** with custom skills that Copilot loads automatically
+7. **Integrate web and CLI workflows** for comprehensive AI assistance
+8. **Orchestrate everything together** with agentic development lifecycle
+9. **Ship and reflect** on the transformation
 
 Each module builds on the previous. Each customization compounds. By the end, you'll have a production app and a completely transformed understanding of AI-assisted development.
 
@@ -97,8 +108,8 @@ Every module connects back to these core ideas:
 
 ## 📚 Workshop Structure
 
-**Total Time**: 8 hours (self-paced)  
-**Format**: 6 progressive modules + supporting materials  
+**Total Time**: 10-12 hours (self-paced)  
+**Format**: 10 progressive modules + orientation + supporting materials  
 **Style**: Story-driven with hands-on exercises
 
 ### Module 0: The Challenge (60 min)
@@ -113,45 +124,88 @@ Meet the team. Get the challenge. Clone the messy FanHub starter. Choose your sh
 
 David documents the architecture. Marcus creates repository instructions (`.github/copilot-instructions.md`). Everything changes. Ask the same question from Module 0—watch Copilot give show-specific, architecture-aware suggestions.
 
-**You'll learn**: Repository instructions, architecture documentation  
-**The transformation**: Generic → Specific  
-**Featured**: David, Marcus, Priya
+**You'll learn**: Repository instructions, architecture documentation
 
-### Module 2: Custom Prompts (90 min)
-**Monday 11:30 AM**
+### Module 2: Agent Plan Mode (90 min)
+**Monday 10:30 AM**
 
-Elena creates reusable test prompts. Rafael builds spec-to-code templates. The team starts using `.github/prompts/` for common workflows. Copilot now follows standards AND has templates for repeatable tasks.
+Sarah introduces structured thinking with agent plan mode. David designs custom agent configurations. Marcus creates systematic AI collaboration workflows. The team learns to plan before implementing, using AI to help configure AI.
 
-**You'll learn**: Custom prompt files, context techniques  
+**You'll learn**: Agent plan mode, systematic AI collaboration, planning-to-implementation flow  
+**The transformation**: Reactive → Strategic  
+**Featured**: Sarah, David, Marcus
+
+### Module 3: Custom Prompts (90 min)
+**Monday 12:00 PM**
+
+Elena creates reusable test prompts. Rafael builds spec-to-code templates. The team starts using `.github/prompts/` for common workflows, designed with plan mode. Copilot now follows standards AND has templates for repeatable tasks.
+
+**You'll learn**: Custom prompt files, context techniques, prompt design with plan mode  
 **The transformation**: Manual → Automated  
 **Featured**: Elena, Rafael
 
-### Module 3: Custom Agents (90 min)
-**Monday 1:00 PM**
+### Module 4: Custom Agents (90 min)
+**Monday 1:30 PM**
 
-David creates an "Architecture Reviewer" custom agent trained on the docs. Jordan builds a "DevOps Helper" agent. Background agents introduced—start a large refactor and work on something else while it runs.
+David creates an "Architecture Reviewer" custom agent designed through plan mode. Jordan builds a "DevOps Helper" agent. Background agents introduced—start a large refactor and work on something else while it runs.
 
-**You'll learn**: Custom agents, background agents, MCP, CLI integration  
+**You'll learn**: Custom agents, agent design through planning, background agents, MCP integration  
 **The transformation**: Sequential → Parallel  
 **Featured**: David, Jordan
 
-### Module 4: Custom Instructions (90 min)
-**Monday 2:30 PM**
+### Module 5: Custom Instructions (90 min)
+**Monday 3:00 PM**
 
-Priya creates file-scoped instructions using `applyTo` patterns. Testing standards automatically apply to test files. API route conventions apply to API files. Infrastructure patterns apply to DevOps configs.
+Team creates file-scoped instructions using `applyTo` patterns, analyzed through plan mode. Testing standards automatically apply to test files. API route conventions apply to API files. Infrastructure patterns apply to DevOps configs.
 
-**You'll learn**: Custom instructions, `applyTo` patterns, file-scoped context  
+**You'll learn**: Custom instructions, `applyTo` patterns, file-scoped context, codebase analysis  
 **The transformation**: Generic → Context-aware  
 **Featured**: Elena, Marcus, Jordan, Priya
 
-### Module 5: Agentic SDLC + Ship (90 min)
+### Module 6: Custom Skills (90 min)
 **Monday 4:00 PM**
 
-The team learns to run agents in parallel across VS Code, GitHub Web, and CLI. While Marcus builds search interactively in VS Code, David kicks off analytics endpoints via GitHub's Coding Agent, and Jordan handles infrastructure in the CLI—all simultaneously. The module concludes with shipping and reflecting on what worked.
+Elena and Rafael teach Copilot FanHub's domain expertise through Agent Skills. Explore the anthropics/skills and github/awesome-copilot communities. Create TV Show Data Validator and Feature Requirements skills that encode domain knowledge Copilot loads automatically.
 
-**You'll learn**: Multi-interface agent orchestration, parallel development workflows  
-**The transformation**: Sequential → Parallel → Ship it  
+**You'll learn**: Agent Skills (.github/skills/), SKILL.md format, domain expertise encoding, community skills  
+**The transformation**: Generic knowledge → Domain expertise  
+**Featured**: Elena, Rafael
+
+### Module 7: Copilot Web (90 min)
+**Monday 5:00 PM**
+
+Team learns web-based AI workflows through GitHub's interface. Plan web integration strategies. Create automated PR workflows and review processes. Connect web and local development cycles.
+
+**You'll learn**: Web-based AI workflows, PR automation, issue enhancement, integrated development processes  
+**The transformation**: Local-only → Full lifecycle integration  
+**Featured**: David, Sarah, Rafael
+
+### Module 8: Copilot CLI (90 min)
+**Monday 5:30 PM**
+
+Jordan introduces systematic CLI automation with GitHub Copilot CLI. Plan terminal workflow automation. Create scripted development processes and infrastructure automation.
+
+**You'll learn**: CLI automation, programmatic workflows, terminal AI assistance, systematic scripting  
+**The transformation**: Manual terminal work → Automated AI-assisted CLI  
+**Featured**: Jordan, Marcus
+
+### Module 9: Agentic SDLC + Ship (90-120 min)
+**Monday 6:00 PM**
+
+The team orchestrates all their AI tools across VS Code, Web, and CLI. Plan the complete development lifecycle. While Marcus builds search interactively in VS Code, David kicks off analytics endpoints via GitHub's Coding Agent, and Jordan handles infrastructure in the CLI—all simultaneously. The module concludes with shipping and reflecting on what worked.
+
+**You'll learn**: Multi-interface agent orchestration, parallel development workflows, complete AI integration  
+**The transformation**: Sequential → Parallel → Complete system → Ship it  
 **Featured**: All personas
+
+### Module 10: Enterprise Patterns (90-120 min)
+**Tuesday 9:00 AM**
+
+Sarah calls an early meeting: "We built something that works. Now we need to make it organizational standard." The team scales their success—creating organization-wide instructions, code review standards for AI-generated code, Copilot Spaces for knowledge sharing, metrics dashboards, and onboarding kits for other teams.
+
+**You'll learn**: Organization instructions, code review standards, Copilot Spaces, metrics and ROI tracking, team onboarding  
+**The transformation**: Individual success → Organizational capability  
+**Featured**: All personas (scaling focus: Sarah, Rafael, Jordan)
 
 ---
 
@@ -163,7 +217,7 @@ The team learns to run agents in parallel across VS Code, GitHub Web, and CLI. W
 - **Docker Desktop** (for running FanHub locally)
 - **Node.js 18+**
 - **GitHub account** with Copilot access (Individual, Business, or Enterprise)
-- **8 hours** over a day or two (or pace it however you like)
+- **9-10 hours** over a day or two (or pace it however you like)
 
 ### Installation
 
@@ -218,8 +272,8 @@ Intentional struggles make transformations meaningful
 
 By completing this workshop, you will:
 
-- **Build a production application** with AI assistance in 8 hours
-- **Master 4 customization techniques**: repository instructions, custom prompts, custom agents, custom instructions
+- **Build a production application** with AI assistance in 9-10 hours
+- **Master 6 customization techniques**: repository instructions, agent plan mode, custom prompts, custom agents, custom instructions, and custom skills
 - **Understand compounding value**: how early configuration pays dividends on every later task
 - **Transform your workflow**: from writing code to orchestrating AI
 - **Measure success differently**: clarity, scalability, and judgment over syntax
@@ -271,7 +325,7 @@ A: You'll need Individual, Business, or Enterprise to complete the exercises. Ch
 A: Absolutely! Pick whatever you're passionate about. That's the point.
 
 **Q: Is this only for VS Code?**  
-A: Modules 0-7 focus on VS Code. Appendices cover web and CLI usage.
+A: Modules 0-6 focus on VS Code. Modules 7-8 cover web and CLI usage. Module 9 orchestrates all interfaces.
 
 **Q: What if I get stuck?**  
 A: Check [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) (coming Phase 4) or open an issue.

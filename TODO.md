@@ -1,66 +1,64 @@
 # TODO: Workshop Reorganization
 
-## Priority: Module Reordering
+## ✅ COMPLETED: Agent Plan Mode Module (Module 2)
 
-### Move Appendices Before Module 5
+Module 2 has been created and integrated into the workshop structure.
 
-The current appendices (Copilot Web and Copilot CLI) should be moved earlier in the workshop flow, before the Agentic SDLC module.
+## ✅ COMPLETED: Custom Skills Module (Module 6)
+
+Module 6 has been created to introduce GitHub Copilot Agent Skills (Dec 2025 feature).
+
+## ✅ COMPLETED: Module Reordering
+
+All modules have been reorganized into the following structure:
 
 **Current Structure:**
 ```
 00-orientation/
 01-repository-instructions/
-02-custom-prompts/
-03-custom-agents/
-04-custom-instructions/
-05-agentic-sdlc/           ← Final module
-08-appendix-a-copilot-web/ ← Optional appendix
-09-appendix-b-copilot-cli/ ← Optional appendix
+02-agent-plan-mode/        ✅ CREATED
+03-custom-prompts/         ✅ RENAMED (was 02)
+04-custom-agents/          ✅ RENAMED (was 03)
+05-custom-instructions/    ✅ RENAMED (was 04)
+06-custom-skills/          ✅ CREATED (new GitHub feature)
+07-copilot-web/            ✅ RENAMED (was 08-appendix-a)
+08-copilot-cli/            ✅ RENAMED (was 09-appendix-b)
+09-agentic-sdlc/           ✅ RENAMED (was 05)
 ```
 
-**Target Structure:**
-```
-00-orientation/
-01-repository-instructions/
-02-custom-prompts/
-03-custom-agents/
-04-custom-instructions/
-05-copilot-web/            ← Renamed from appendix
-06-copilot-cli/            ← Renamed from appendix
-07-agentic-sdlc/           ← Now the capstone module
-```
+**Total modules**: 9 core modules + orientation
+**Time estimate**: 9-10 hours
+**Narrative flow**: Plan Mode → Prompts → Agents → Instructions → Skills → Web → CLI → Agentic SDLC
 
-### Rationale
+### Completed Tasks
 
-1. **Copilot Web** and **Copilot CLI** introduce interfaces that are used in the Agentic SDLC module
-2. Module 5 (Agentic SDLC) references both Web and CLI workflows - learners should know these first
-3. The capstone module should come last, tying everything together
+- [x] Create new `02-agent-plan-mode/` module
+- [x] Create new `06-custom-skills/` module (Agent Skills feature)
+- [x] Rename `02-custom-prompts/` → `03-custom-prompts/`
+- [x] Rename `03-custom-agents/` → `04-custom-agents/`
+- [x] Rename `04-custom-instructions/` → `05-custom-instructions/`
+- [x] Rename `08-appendix-a-copilot-web/` → `07-copilot-web/` → `07-copilot-web/`
+- [x] Rename `09-appendix-b-copilot-cli/` → `08-copilot-cli/` → `08-copilot-cli/`
+- [x] Rename `05-agentic-sdlc/` → `09-agentic-sdlc/`
+- [x] Update all cross-references in module files
+- [x] Update OUTLINE.md with new structure (9 modules)
+- [x] Update README.md module descriptions (9 modules)
+- [x] Update PERSONAS.md module references (9 modules)
+- [x] Integrate plan mode examples throughout all modules
+- [x] Remove "Appendix" terminology - these are now core modules
+- [x] Module content includes plan mode integration
+- [x] Added anthropics/skills and github/awesome-copilot links to Module 6
 
-### Steps to Complete
+### Remaining Tasks
 
-- [ ] Rename `08-appendix-a-copilot-web/` → `05-copilot-web/`
-- [ ] Rename `09-appendix-b-copilot-cli/` → `06-copilot-cli/`
-- [ ] Rename `05-agentic-sdlc/` → `07-agentic-sdlc/`
-- [ ] Update all cross-references in module files
-- [ ] Update OUTLINE.md with new structure
-- [ ] Update README.md module descriptions
-- [ ] Update PERSONAS.md module references
-- [ ] Update docs/INSTRUCTOR-GUIDE.md
-- [ ] Remove "Appendix" terminology - these are now core modules
-- [ ] Update exercise numbering (5.x, 6.x, 7.x)
-- [ ] Run broken link check after changes
-
-### Impact on Workshop
-
-- **Total modules**: 7 core modules (was 5 + 2 appendices)
-- **Time estimate**: Will need recalculation
-- **Narrative flow**: Web → CLI → Agentic SDLC (using both)
+- [ ] Update docs/INSTRUCTOR-GUIDE.md with new 9-module structure
+- [ ] Update exercise numbering in individual module README files if needed
+- [ ] Run broken link check after all changes
+- [ ] Review Debug View exercise placement (currently in Module 9, verify appropriateness)
+- [ ] Verify all persona references are consistent across all modules
+- [ ] Add missing "Official Docs" sections where needed in older modules
+- [x] Check root README.md for "full auth" promise and verify FanHub actually implements it (FIXED: Updated to reflect auth as starter code to improve, not build from scratch)
 
 ---
 
-## Other TODOs
-
-- [ ] Review Debug View exercise placement (currently in Module 5, consider Module 1)
-- [ ] Verify all persona references are consistent
-- [ ] Add missing "Official Docs" sections where needed
-- [ ] Check root README.md for "full auth" promise and verify FanHub actually implements it
+## Notes

@@ -1,6 +1,6 @@
-# Module 3: Custom Agents
+# Module 4: Custom Agents
 
-## ⏰ Monday 1:00 PM — Autonomous Assistance
+## ⏰ Monday 1:30 PM — Autonomous Assistance
 
 > *"I've been asking Copilot questions all morning. What if I could tell it: 'Go solve this problem, and let me know when you're done?'"*  
 > — David, imagining a world where AI handles the tedious parts
@@ -11,13 +11,18 @@
 
 The team has built an impressive foundation:
 - **Module 1**: Architecture docs and team standards (`copilot-instructions.md`)
-- **Module 2**: A prompt library for tests, specs, and feature planning
+- **Module 2**: Structured planning with agent plan mode for systematic AI collaboration
+- **Module 3**: A prompt library for tests, specs, and feature planning
 
-But there's a pattern emerging: Even with great prompts, someone has to manually orchestrate each step. Ask for an implementation plan. Copy the result. Ask for the code. Apply the code. Ask for tests. Apply the tests.
+But there's a pattern emerging: Even with great prompts and planning, someone has to manually orchestrate each step. Ask for an implementation plan. Copy the result. Ask for the code. Apply the code. Ask for tests. Apply the tests.
 
 *"What if Copilot could do all of that automatically?"* Jordan asks. As a platform engineer, he's built pipelines that automate everything. Manual steps are a code smell to him.
 
-**This module's mission**: Graduate from interactive chat to autonomous agents that work on your behalf.
+**This module's mission**: Graduate from interactive chat to autonomous agents that work on your behalf, using your plan mode skills to design them effectively.
+
+---
+
+💡 **Plan Mode Integration**: You'll use plan mode to design agent personalities, capabilities, and workflows before creating custom agents. The systematic thinking from Module 2 makes agent design more effective.
 
 ---
 

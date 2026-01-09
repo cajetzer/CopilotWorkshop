@@ -222,28 +222,32 @@ Pragmatic, automation-first, always thinking about scale and repeatability. Appr
 
 ## The FanHub Team
 
-In this workshop, these seven personas work together to build FanHub—a TV show fan site—in an 8-hour sprint. Each persona has a specific role and transformation arc:
+In this workshop, these seven personas work together to build FanHub—a TV show fan site—in a 9-10 hour sprint. Each persona has a specific role and transformation arc:
 
 | Persona | Primary Role | Modules Featured | Key Transformation |
 |---------|-------------|------------------|-------------------|
-| **Sarah** | Sprint lead, skeptic | 0, 5 | From "prove it" to "I'm convinced" |
-| **David** | Architecture, code review | 1, 3, 5 | From "will AI replace me?" to "AI amplifies me" |
-| **Marcus** | DevOps → application code | 1, 2, 3, 4 | From infrastructure-only to full-stack confident |
-| **Priya** | Learning, UI implementation | 1, 4, 5 | From intimidated to empowered learner |
-| **Elena** | Testing, quality assurance | 2, 4, 5 | From AI-skeptical QA to AI-assisted QA |
-| **Rafael** | Product, specifications | 2, 5 | From requirements writer to execution enabler |
-| **Jordan** | Platform, deployment | 3, 4, 5 | From manual ops to documented automation |
+| **Sarah** | Sprint lead, skeptic | 0, 2, 9 | From "prove it" to "I'm convinced" |
+| **David** | Architecture, code review | 1, 2, 4, 7, 9 | From "will AI replace me?" to "AI amplifies me" |
+| **Marcus** | DevOps → application code | 1, 2, 3, 4, 8 | From infrastructure-only to full-stack confident |
+| **Priya** | Learning, UI implementation | 1, 5, 9 | From intimidated to empowered learner |
+| **Elena** | Testing, quality assurance | 3, 5, 6, 9 | From AI-skeptical QA to AI-assisted QA |
+| **Rafael** | Product, specifications | 3, 6, 7, 9 | From requirements writer to execution enabler |
+| **Jordan** | Platform, deployment | 5, 8, 9 | From manual ops to documented automation |
 
 ### The Story Arc
 
 **Monday 9:00 AM**: Sarah challenges the team to ship a production-ready fan site by end of day. The codebase is messy, undocumented, and Copilot gives generic suggestions.
 
-**Monday 10:00 AM - 5:30 PM**: Through Modules 1-5, the team progressively adds customization—instructions, prompts, agents, custom instructions. Each addition compounds the others. Module 5 concludes with shipping and reflection.
+**Monday 10:00 AM - 6:00 PM**: Through Modules 1-9, the team progressively adds customization—starting with plan mode thinking, then instructions, prompts, agents, custom instructions, custom skills, web workflows, CLI automation, and finally full integration. Each addition compounds the others. Module 9 concludes with shipping and reflection.
 
 **The Transformation**: By the end, each persona has grown:
-- David realizes AI amplifies his 20 years of experience
+- Sarah realizes structured AI collaboration delivers real value
+- David discovers AI amplifies his 20 years of architectural experience  
+- Marcus gains full-stack confidence through systematic AI workflows
 - Priya learns faster because AI explains as it generates
-- Sarah sees concrete ROI, not just hype
+- Elena integrates AI into quality assurance without sacrificing rigor
+- Rafael bridges requirements and implementation more effectively through domain skills
+- Jordan creates documented, systematic automation workflows
 - The whole team works more effectively together
 
 ---

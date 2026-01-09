@@ -1,6 +1,6 @@
-# Module 2: Custom Prompts
+# Module 3: Custom Prompts
 
-## ⏰ Monday 11:30 AM — Building Reusable Tools
+## ⏰ Monday 12:00 PM — Building Reusable Tools
 
 > *"Every time I write the same prompt explaining how we test, I think: there has to be a better way."*  
 > — Elena, watching the team manually re-type similar prompts for the fifth time
@@ -9,17 +9,21 @@
 
 ## 📖 The Story So Far
 
-Module 1 gave the team **foundations**: David documented the architecture, Marcus created team standards in `copilot-instructions.md`, and Priya experienced the transformation firsthand.
+Module 1 gave the team **foundations**: David documented the architecture, Marcus created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: Sarah, David, and Marcus learned to use plan mode for systematic AI collaboration.
 
-But Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
+Now Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
 
 - Elena explains testing requirements each time she asks for tests
 - Rafael describes the same acceptance criteria format for every feature
 - Marcus types the same "create an endpoint" instructions repeatedly
 
-*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions."*
+*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. And what if we used our new planning skills to design them properly?"*
 
-**This module's mission**: Create a prompt library that turns repetitive work into reusable tools.
+**This module's mission**: Create a prompt library that turns repetitive work into reusable tools, using plan mode to design them systematically.
+
+---
+
+💡 **Plan Mode Integration**: Throughout this module, you'll use plan mode to design prompt structure, test different approaches, and iteratively refine your prompt templates before implementation.
 
 ---
 
