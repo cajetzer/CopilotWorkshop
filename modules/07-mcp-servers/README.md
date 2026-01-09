@@ -173,120 +173,15 @@ VS Code prompts you to confirm trust before starting any MCP server. Always:
 
 ## 🔨 Exercises
 
-### Exercise 7.1: Understanding the MCP Ecosystem — "Jordan Maps the Landscape"
+### Exercise 7.1: Your First Database Query — "Elena Catches a Typo"
 
 #### 📖 The Story
 
-**Jordan** (Platform Engineer, 12 years) has been hearing about MCP but hasn't explored it systematically. Before connecting FanHub to external systems, he wants to understand what's available and how it works.
+**Elena** (Quality Champion, 8 years) has been manually checking the database every time she validates character data. It's tedious: copy data, open database client, run query, come back, continue validation.
 
-*"I never deploy tools I don't understand,"* Jordan explains. *"Let's see what MCP servers exist and how they work before we start plugging things in."*
+Today she discovers Copilot can query the database directly.
 
-#### ❌ The "Before" — What Frustration Looks Like
-
-Without MCP, the team manually copies data between systems:
-
-```
-Elena: "Copilot, does character ID 42 exist?"
-Copilot: "I can't query your database. You'll need to check manually."
-
-*Elena opens database client, runs query, copies result back to chat*
-
-Elena: "OK, it exists. Now validate this data against it."
-```
-
-Every verification requires context-switching and manual data transfer.
-
-#### 🎯 Objective
-
-Explore the MCP ecosystem, understand server types, and identify which servers could benefit FanHub.
-
-#### 📋 Steps
-
-1. **Enable MCP server gallery**
-   
-   Open VS Code settings and enable:
-   ```json
-   "chat.mcp.gallery.enabled": true
-   ```
-
-2. **Browse available MCP servers**
-   
-   - Open the Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`)
-   - Type `@mcp` in the search field
-   - Browse the available servers from the GitHub MCP registry
-   
-   Note servers relevant to FanHub:
-   - **SQLite** — Query our local database
-   - **Filesystem** — Read/write files outside workspace
-   - **GitHub** — Interact with our repository
-   - **Fetch** — Make HTTP requests to external APIs
-
-3. **Understand MCP capabilities**
-   
-   Open Copilot Chat and ask:
-   ```
-   I want to understand MCP (Model Context Protocol). Use plan mode to help me:
-   
-   1. Explain what MCP tools, resources, and prompts are
-   2. Identify which MCP servers would help FanHub:
-      - We have a SQLite database with shows, characters, and episodes
-      - We want to validate data against the live database
-      - We might want to enrich data from external APIs (TMDB, IMDB)
-      - We need to check deployment status before infrastructure changes
-   3. Create a prioritized list of MCP servers to install
-   4. Identify security considerations for each
-   ```
-
-4. **Review the MCP architecture**
-   
-   Create a documentation file:
-   ```
-   Create fanhub/docs/MCP-STRATEGY.md with:
-   - Overview of MCP and how it extends Copilot
-   - List of MCP servers we plan to use
-   - Security considerations for each
-   - Implementation priority and timeline
-   ```
-
-#### ✅ Success Criteria
-
-- [ ] MCP gallery is enabled in VS Code
-- [ ] Browsed at least 10 MCP servers in the gallery
-- [ ] Identified 3-5 servers relevant to FanHub
-- [ ] Created MCP-STRATEGY.md with prioritized server list
-- [ ] Can explain the difference between MCP tools, resources, and prompts
-
-#### ✨ The "After" — The Improved Experience
-
-Jordan now has a clear picture:
-- **What MCP can do** — Connect Copilot to databases, APIs, and external systems
-- **Which servers FanHub needs** — SQLite for database, GitHub for repo, possibly Fetch for external APIs
-- **Security implications** — Trust model, what each server can access
-
-**Key insight**: MCP transforms Copilot from "knows things" to "can do things."
-
-#### 📚 Official Docs
-
-- [VS Code Docs: MCP Servers](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
-- [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction)
-- [GitHub MCP Server Registry](https://github.com/mcp)
-- [MCP Server Repository](https://github.com/modelcontextprotocol/servers)
-
-#### 💭 Jordan's Realization
-
-*"MCP is like giving Copilot actual hands. Instructions tell it what to do, skills tell it what to know, but MCP lets it actually interact with our systems. That's powerful—and we need to be careful about what we connect."*
-
----
-
-### Exercise 7.2: Install Your First MCP Server — "Connecting to FanHub's Database"
-
-#### 📖 The Story
-
-**Elena** is ready to stop manually verifying data. She wants Copilot to query the FanHub database directly when validating TV show data.
-
-*"If Copilot can actually check whether character ID 42 exists,"* Elena explains, *"my validation workflows become so much more powerful. No more context-switching to the database client."*
-
-**Jordan** helps her set it up safely.
+*"Wait,"* Elena realizes, *"if Copilot can actually check the database for me, my TV Show Data Validator skill becomes SO much more powerful. Let me try this."*
 
 #### ❌ The "Before" — What Frustration Looks Like
 
@@ -300,407 +195,191 @@ const newCharacter = {
 };
 ```
 
-Copilot: *"The structure looks valid. I can't verify if 'Jessie Pinkman' matches existing data or if show_id 1 exists."*
+Copilot (using only the TV Show Data Validator skill): *"✅ Format looks valid. All required fields present. Status 'alive' is a valid enum value."*
 
-The typo slips through because Copilot can't check the real database.
+**The typo slips through** because the skill only knows FORMAT, not actual DATA.
+
+Elena switches to her database client, manually queries, discovers the typo. *"There has to be a better way..."*
 
 #### 🎯 Objective
 
-Install the SQLite MCP server and connect it to the FanHub database.
+Give Copilot database access using MCP, then watch it catch typos automatically by combining your skill with real data.
+
+**Time**: ~10 minutes to first "wow" moment
 
 #### 📋 Steps
 
-1. **Install the SQLite MCP server**
+1. **Create a development database**
    
-   From the Extensions view:
-   - Search for `@mcp sqlite`
-   - Click "Install in Workspace" to add it to FanHub
+   FanHub includes a setup script that creates a SQLite database with sample data:
    
-   Or add manually to `.vscode/mcp.json`:
-   ```json
+   ```bash
+   bash /workspaces/CopilotTraining/fanhub/backend/src/database/setup-dev-db.sh
+   ```
+   
+   This creates `/workspaces/CopilotTraining/dev-data/fanhub-dev.db` with Breaking Bad, Better Call Saul, The Office, and Stranger Things data.
+
+2. **Configure the SQLite MCP server**
+   
+   Create `.vscode/mcp.json` in workspace root:
+   
+   ```bash
+   mkdir -p /workspaces/CopilotTraining/.vscode
+   
+   cat > /workspaces/CopilotTraining/.vscode/mcp.json << 'JSON'
    {
      "servers": {
        "sqlite": {
          "type": "stdio",
          "command": "npx",
-         "args": ["-y", "@anthropic/mcp-server-sqlite", "${workspaceFolder}/fanhub/backend/src/database/fanhub.db"]
+         "args": [
+           "-y",
+           "@modelcontextprotocol/server-sqlite",
+           "/workspaces/CopilotTraining/dev-data/fanhub-dev.db"
+         ]
        }
      }
    }
+   JSON
    ```
 
-2. **Start the MCP server**
+3. **Activate the MCP server**
    
-   - Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
-   - Run `MCP: List Servers`
-   - Select the SQLite server and choose "Start Server"
-   - Confirm trust when prompted
+   - Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) → `Developer: Reload Window`
+   - After reload, open Command Palette again → `MCP: List Servers`
+   - You should see **sqlite** in the list with status "Stopped"
+   - Click on **sqlite** to view details, then click **"Start Server"**
+   - When prompted for trust, click **"Trust"** to allow the SQLite MCP server
+   - The server status should change to **"Running"**
+   
+   **What just happened?** You gave Copilot the ability to query your FanHub database.
+   
+   💡 **Troubleshooting**: If the server shows "Stopped" and won't start:
+   - Check Output panel (View → Output → select "MCP Servers") for errors
+   - Verify the database exists: `ls -la /workspaces/CopilotTraining/dev-data/fanhub-dev.db`
+   - Try running manually: `npx -y @modelcontextprotocol/server-sqlite /workspaces/CopilotTraining/dev-data/fanhub-dev.db`
 
-3. **Verify the connection**
+4. **Verify the server is running**
+   
+   Before testing queries, confirm the server is active:
+   - Command Palette → `MCP: List Servers`
+   - **sqlite** should show status: **Running** ✅
+   
+   If it's stopped, start it again from the MCP servers panel.
+
+5. **Quick verification query**
    
    In Copilot Chat, ask:
    ```
-   Using the SQLite MCP server, show me the tables in the FanHub database.
+   @workspace How many characters do we have for Breaking Bad?
    ```
    
-   Copilot should use the MCP tool to query the database schema.
+   **Expected**: Copilot should query the database and return: **4 characters**
+   
+   **If Copilot says "I can't query the database"**: The MCP server isn't running. Go back to step 4 and start the server via `MCP: List Servers`.
 
-4. **Test a real query**
+6. **🎉 The Magic Moment: Watch the typo get caught**
    
-   Ask Copilot:
-   ```
-   Query the FanHub database: How many characters do we have for each show?
-   ```
-
-5. **Use MCP with validation**
+   Now ask Copilot to validate the same data from before:
    
-   Now ask Copilot to validate with real data:
    ```
-   I want to add this character to FanHub:
+   @workspace Validate this character data for FanHub:
+   
    {
      "name": "Jessie Pinkman",
      "show_id": 1,
+     "actor_name": "Aaron Paul",
      "status": "alive"
    }
-   
-   Before I add it, use the database to:
-   1. Check if show_id 1 exists and what show it is
-   2. Check if a similar character name already exists (might be a typo)
-   3. Validate the status value is appropriate
    ```
+   
+   **Watch what happens without you saying "check the database"**:
+   - Copilot uses the TV Show Data Validator skill (format rules)
+   - Copilot *automatically detects* the SQLite MCP server
+   - Copilot **queries the database** to check existing characters
+   - Copilot finds "Jesse Pinkman" (correct spelling) and alerts you!
+   
+   ```
+   ⚠️ Potential issue found:
+   
+   ❌ Name typo detected: Found existing character 'Jesse Pinkman' 
+      (character_id: 2) for show_id 1. Did you mean 'Jesse' not 'Jessie'?
+   
+   ✅ show_id 1 exists: 'Breaking Bad'
+   ✅ Format validation passed
+   ```
+
+6. **Test a valid character**
+   
+   Now try one that should pass:
+   ```
+   @workspace Validate this character data:
+   
+   {
+     "name": "Holly White",
+     "show_id": 1,
+     "actor_name": "Elanor Anne Wenrich",
+     "status": "alive"
+   }
+   ```
+   
+   Copilot should verify: format valid ✅, show exists ✅, no duplicate ✅
+   
+   **⚠️ Still not working?** Check that the MCP server is running via `MCP: List Servers` - it should show **Running**, not **Stopped**.
 
 #### ✅ Success Criteria
 
-- [ ] SQLite MCP server is installed in the workspace
-- [ ] Server starts successfully and is trusted
-- [ ] Can query the FanHub database schema via Copilot
-- [ ] Successfully ran a query that returns real data
-- [ ] Copilot caught the "Jessie" → "Jesse" typo by checking existing data
+- [ ] SQLite MCP server installed, **started**, and **trusted**
+- [ ] Server shows status "Running" in `MCP: List Servers`
+- [ ] Copilot successfully queried the database (character count worked)
+- [ ] **Copilot caught the "Jessie" → "Jesse" typo without being told to check**
+- [ ] Validated a correct character successfully
+- [ ] Understand that skills + MCP = automatic intelligence
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — The Transformation
 
-With MCP connected:
-- **Copilot verifies data** against the real database
-- **Typos get caught** because Copilot can check existing records
-- **Foreign keys validate** because Copilot can query related tables
-- **No context-switching** — everything happens in the editor
+**Before MCP** (2 minutes of context-switching):
+1. Copilot validates format ✅
+2. Elena opens database client
+3. Elena runs `SELECT * FROM characters WHERE show_id = 1`
+4. Elena spots "Jesse Pinkman" exists
+5. Elena returns to Copilot: "Actually there's a typo..."
 
-Elena: *"This is what I've been waiting for. Copilot doesn't just know our rules—it can check our actual data."*
+**After MCP** (10 seconds):
+1. Elena asks Copilot to validate
+2. Copilot automatically checks format AND database
+3. Copilot catches the typo immediately
+
+**Elena's reaction:**
+> "That was MAGIC! I didn't tell Copilot to query the database—it just figured out it should because MCP was available. My skill taught it WHAT to validate, MCP gave it the HOW. In 10 minutes I went from manual verification to automatic validation against real data. This is the future."
 
 #### 📚 Official Docs
 
 - [VS Code Docs: Add an MCP Server](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server)
-- [SQLite MCP Server](https://github.com/anthropics/mcp-server-sqlite)
+- [SQLite MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite)
 - [MCP Configuration Format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)
 
 #### 💭 Elena's Realization
 
-*"The validation skill tells Copilot WHAT to check. MCP gives it the ability to actually CHECK it. Together, they're incredibly powerful."*
+*"The TV Show Data Validator skill tells Copilot WHAT to check. MCP gives it the ability to actually CHECK it. The orchestration is automatic—I just ask for validation and Copilot figures out how to use both. This doesn't replace my testing expertise, it amplifies it."*
 
 #### 🚀 Challenge Extension
 
-Create an agent that combines the TV Show Data Validator skill with the SQLite MCP server:
-
-```markdown
-# .github/agents/data-validator.agent.md
----
-name: data-validator
-description: Validates TV show data against both schema rules AND live database
-tools:
-  - sqlite
----
-
-You are a data validation specialist for FanHub.
-
-When validating data:
-1. First check format against our schema rules (required fields, types, enums)
-2. Then use the SQLite tool to verify against live data:
-   - Foreign keys exist
-   - No duplicate entries
-   - Names match existing records (catch typos)
-3. Report all issues found with specific recommendations
-```
-
----
-
-### Exercise 7.3: MCP for Deployment Awareness — "Jordan's Safety Net"
-
-#### 📖 The Story
-
-**Jordan** has a different concern. When working on infrastructure, Copilot suggests changes without knowing the current system state.
-
-*"What if Copilot suggests scaling up pods when we're mid-deployment?"* Jordan worries. *"Or recommends a database migration when the DB is under heavy load? I need Copilot to see our actual deployment state."*
-
-This exercise sets up MCP to give Copilot awareness of deployment status.
-
-#### ❌ The "Before" — What Frustration Looks Like
-
-Jordan asks Copilot for infrastructure help:
+Try validating intentionally bad data to watch Copilot catch multiple issues:
 
 ```
-Copilot, I need to scale up the FanHub backend. What do you recommend?
+@workspace Validate this character:
+
+{
+  "name": "New Character",
+  "show_id": 999,
+  "status": "unknown"
+}
 ```
 
-Copilot: *"I recommend increasing replicas to 3. Here's the config change..."*
+Watch Copilot catch: ❌ show_id doesn't exist, ❌ invalid status enum. All without you saying "check the database."
 
-But Copilot doesn't know:
-- A deployment is currently in progress
-- The cluster is at 90% CPU
-- There's an ongoing incident
-
-#### 🎯 Objective
-
-Set up MCP awareness for deployment and system status (using GitHub as a proxy for deployment state).
-
-#### 📋 Steps
-
-1. **Install the GitHub MCP server**
-   
-   Add to `.vscode/mcp.json`:
-   ```json
-   {
-     "servers": {
-       "sqlite": {
-         // ... existing sqlite config
-       },
-       "github": {
-         "type": "stdio",
-         "command": "npx",
-         "args": ["-y", "@anthropic/mcp-server-github"],
-         "env": {
-           "GITHUB_TOKEN": "${input:github-token}"
-         }
-       }
-     },
-     "inputs": [
-       {
-         "type": "promptString",
-         "id": "github-token",
-         "description": "GitHub Personal Access Token",
-         "password": true
-       }
-     ]
-   }
-   ```
-
-2. **Create a GitHub token**
-   
-   - Go to GitHub → Settings → Developer Settings → Personal Access Tokens
-   - Create a token with `repo` scope
-   - VS Code will prompt for this when starting the server
-
-3. **Start the GitHub MCP server**
-   
-   - Run `MCP: List Servers`
-   - Start the GitHub server
-   - Enter your token when prompted
-
-4. **Test deployment awareness**
-   
-   Ask Copilot:
-   ```
-   Before I make any infrastructure changes, use the GitHub MCP server to:
-   1. Check if there are any open PRs for the fanhub repo
-   2. Check if there are any open issues labeled "incident" or "deployment"
-   3. Look at recent commits to see if a deployment might be in progress
-   
-   Then tell me if it's safe to make infrastructure changes.
-   ```
-
-5. **Create a pre-flight check prompt**
-   
-   Create `.github/prompts/infra-preflight.prompt.md`:
-   ```markdown
-   ---
-   name: infra-preflight
-   description: Pre-flight check before infrastructure changes
-   tools:
-     - github
-     - sqlite
-   ---
-   
-   Before making infrastructure changes to FanHub, perform these checks:
-   
-   ## GitHub Status
-   - [ ] No open PRs with "deploy" or "infrastructure" labels
-   - [ ] No open issues with "incident" labels
-   - [ ] No deployments in progress (check recent commits/actions)
-   
-   ## Database Status
-   - [ ] Database is accessible (run simple query)
-   - [ ] No long-running transactions
-   
-   ## Recommendation
-   Based on these checks, provide a GO/NO-GO recommendation for infrastructure changes.
-   ```
-
-#### ✅ Success Criteria
-
-- [ ] GitHub MCP server is installed and configured
-- [ ] Server starts and authenticates successfully
-- [ ] Can query repository status via Copilot
-- [ ] Created infra-preflight.prompt.md
-- [ ] Pre-flight check returns meaningful status
-
-#### ✨ The "After" — The Improved Experience
-
-Now before any infrastructure change:
-- **Copilot checks GitHub** for active PRs, incidents, deployments
-- **Copilot queries the database** to verify it's healthy
-- **Jordan gets a GO/NO-GO** recommendation based on actual system state
-
-Jordan: *"This is exactly what I needed. Copilot doesn't just suggest changes—it checks if it's safe to make them."*
-
-#### 📚 Official Docs
-
-- [GitHub MCP Server](https://github.com/anthropics/mcp-server-github)
-- [MCP Input Variables](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_input-variables-for-sensitive-data)
-- [VS Code Docs: MCP Tools in Chat](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_use-mcp-tools-in-chat)
-
-#### 💭 Jordan's Realization
-
-*"MCP turns Copilot into a real deployment partner. It's not just generating configs—it's checking actual state before making recommendations. This is how AI should work in production environments."*
-
----
-
-### Exercise 7.4: MCP Security and Governance — "David's Review"
-
-#### 📖 The Story
-
-**David** (Seasoned Architect, 20 years) has been watching the MCP setup with interest—and concern.
-
-*"This is powerful,"* David admits. *"But you're giving an AI access to your database and GitHub. What are the security implications? What guardrails do we need?"*
-
-Time for a security review.
-
-#### ❌ The "Before" — What Risk Looks Like
-
-Without governance:
-- MCP servers could access sensitive data
-- Tokens might be committed to version control
-- Team members might install untrusted servers
-- No audit trail of what MCP servers do
-
-#### 🎯 Objective
-
-Review MCP security, establish governance policies, and document best practices for FanHub.
-
-#### 📋 Steps
-
-1. **Audit current MCP configuration**
-   
-   Review `.vscode/mcp.json` and ask Copilot:
-   ```
-   Review our MCP configuration for security issues:
-   
-   1. Are any secrets hardcoded?
-   2. What data can each server access?
-   3. What's the blast radius if a server is compromised?
-   4. Are we following least-privilege principles?
-   
-   Provide specific recommendations.
-   ```
-
-2. **Understand MCP trust model**
-   
-   Read the trust documentation and discuss:
-   - When does VS Code prompt for trust?
-   - What happens if you don't trust a server?
-   - Can trust be reset?
-   
-   Test by running: `MCP: Reset Trust`
-
-3. **Create MCP governance policy**
-   
-   Use plan mode to create a governance document:
-   ```
-   Create a governance policy for MCP servers at FanHub. Include:
-   
-   1. Approval process for new MCP servers
-      - Who can approve?
-      - What review is required?
-   
-   2. Security requirements
-      - No hardcoded secrets
-      - Least-privilege access
-      - Audit logging requirements
-   
-   3. Allowed server sources
-      - GitHub MCP registry (verified publishers)
-      - Internal/trusted servers only
-   
-   4. Periodic review requirements
-   
-   Save to fanhub/docs/MCP-GOVERNANCE.md
-   ```
-
-4. **Implement secrets management**
-   
-   Review that all sensitive values use input variables:
-   ```json
-   {
-     "inputs": [
-       {
-         "type": "promptString",
-         "id": "github-token",
-         "description": "GitHub Personal Access Token",
-         "password": true
-       },
-       {
-         "type": "promptString",
-         "id": "db-password",
-         "description": "Database password (if needed)",
-         "password": true
-       }
-     ]
-   }
-   ```
-   
-   Ensure `.vscode/mcp.json` is in `.gitignore` if it contains any environment-specific values.
-
-5. **Create an MCP server allowlist**
-   
-   Document approved servers in `MCP-GOVERNANCE.md`:
-   ```markdown
-   ## Approved MCP Servers
-   
-   | Server | Purpose | Approved By | Date |
-   |--------|---------|-------------|------|
-   | @anthropic/mcp-server-sqlite | FanHub database queries | Jordan | 2025-01-09 |
-   | @anthropic/mcp-server-github | Repository status | Jordan | 2025-01-09 |
-   
-   ## Pending Review
-   | Server | Purpose | Requested By | Status |
-   |--------|---------|--------------|--------|
-   ```
-
-#### ✅ Success Criteria
-
-- [ ] Audited current MCP configuration for security issues
-- [ ] No hardcoded secrets in configuration
-- [ ] Created MCP-GOVERNANCE.md with policies
-- [ ] Documented approved servers with approval trail
-- [ ] Team understands MCP trust model
-
-#### ✨ The "After" — The Improved Experience
-
-FanHub now has:
-- **Clear governance** for MCP server approval
-- **Secure configuration** with no hardcoded secrets
-- **Audit trail** of what's approved and why
-- **Team understanding** of MCP security implications
-
-David: *"Now I'm comfortable. We have power, but we also have guardrails."*
-
-#### 📚 Official Docs
-
-- [VS Code Docs: MCP Server Trust](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_mcp-server-trust)
-- [VS Code Security Documentation](https://code.visualstudio.com/docs/copilot/security)
-- [Enterprise MCP Management](https://code.visualstudio.com/docs/setup/enterprise#_configure-mcp-server-access)
-
-#### 💭 David's Realization
-
-*"MCP is like giving someone keys to your house. Useful if it's the right person, dangerous if it's not. The technology is sound—what matters is the governance around it. Now we have both."*
+**Why this matters**: You're seeing AI that makes intelligent decisions about when to query data, combining domain knowledge (skill) with capability (MCP) automatically.
 
 ---
 

@@ -45,3 +45,9 @@ temp/
 
 # Debug
 .debug/
+
+# Development databases (MCP testing)
+dev-data/
+*.db
+*.sqlite
+*.sqlite3
