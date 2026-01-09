@@ -249,6 +249,67 @@ AI collaboration is a dialogue, not a transaction. The best results come from ge
 
 ---
 
+## 🗺️ The Copilot Customization Map
+
+Throughout this training, you'll learn five ways to customize GitHub Copilot. Here's your roadmap—refer back to this when deciding which tool to use.
+
+### When to Use What
+
+**The simple question**: *"What am I trying to teach Copilot?"*
+
+| I want Copilot to... | Use | Example |
+|---------------------|-----|---------|
+| **Know our project basics** | Repo Instructions | "This is a React/Node app, use these patterns" |
+| **Apply rules to specific files** | Custom Instructions | "For test files, use Jest with these conventions" |
+| **Run a specific task I trigger** | Prompts | "Generate a React component with tests" |
+| **Act as a specialist persona** | Agents | "Be a security reviewer with read-only access" |
+| **Know our domain automatically** | Skills | "Validate TV show data against our schema" |
+
+### The Five Customization Types
+
+| | **Repo Instructions** | **Custom Instructions** | **Prompts** | **Agents** | **Skills** |
+|---|----------------------|------------------------|-------------|------------|-----------|
+| **File** | `copilot-instructions.md` | `*.instructions.md` | `*.prompt.md` | `*.agent.md` | `SKILL.md` |
+| **Location** | `.github/` | `.github/instructions/` | `.github/prompts/` | `.github/agents/` | `.github/skills/*/` |
+| **Think of it as** | Project README for AI | File-specific rules | Task template | Specialist persona | Domain expert |
+| **When loaded** | Always, every request | By file pattern (`applyTo`) | When you invoke it | When you @ mention it | Automatically when relevant |
+| **You trigger it by** | Nothing—always on | Opening matching files | Running `/prompt-name` | Typing `@agent-name` | Just asking—Copilot decides |
+| **Scope** | Whole repository | Specific file types | Specific task | Role-based workflow | Specialized knowledge |
+| **Best for** | Project context | File-type consistency | Repeatability | Autonomy | Expertise |
+| **Module** | 1 | 5 | 3 | 4 | 6 |
+
+### Real-World Analogy
+
+Imagine onboarding a new developer:
+
+- **Repo Instructions** = The project overview they read first ("Here's what this app does and our tech stack")
+- **Custom Instructions** = Context-specific guidelines ("When working on tests, follow these patterns")
+- **Prompts** = Checklists they follow for common tasks ("Use this template when creating a new API endpoint")
+- **Agents** = Roles they can take on ("When doing security review, only read code—don't change it")
+- **Skills** = Domain knowledge they acquire over time ("Our TV show data has specific validation rules")
+
+### Quick Decision Flowchart
+
+```
+Do you want this applied AUTOMATICALLY?
+├── YES → Is it project-wide context?
+│         ├── YES → Use REPO INSTRUCTIONS (copilot-instructions.md)
+│         └── NO → Should it apply to specific file types?
+│                   ├── YES → Use CUSTOM INSTRUCTIONS (*.instructions.md)
+│                   └── NO → Does it need scripts + domain knowledge?
+│                             ├── YES → Use SKILLS
+│                             └── NO → Use REPO INSTRUCTIONS
+└── NO → Do you want a reusable task template?
+          ├── YES → Use PROMPTS
+          └── NO → Do you want a specialist persona?
+                    ├── YES → Use AGENTS
+                    └── NO → Just ask Copilot directly!
+```
+
+> 💡 **Don't worry about memorizing this now.** Each module will deep-dive into one customization type. This map is here so you understand where everything fits as you learn.
+
+---
+
 ## 🔨 Exercise: The Struggle
 
 ### 📖 The Setup

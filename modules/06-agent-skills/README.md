@@ -1,9 +1,90 @@
-# Module 6: Custom Skills
+# Module 6: Agent Skills
 
 ## ⏰ Monday 4:00 PM — Teaching Copilot Your Domain
 
 > *"We have instructions for coding standards and prompts for common tasks. But how do I teach Copilot the specific validation rules for TV show data? That's too detailed for instructions, but too specific for prompts."*  
 > — Elena, wanting domain-specific validation expertise
+
+---
+
+## 🔍 Background: Understanding Agent Skills
+
+### Where Agent Skills Came From
+
+**Agent Skills** is an **open standard** originally developed by Anthropic for their Claude AI assistant. The format proved so useful that it became a cross-tool standard, now documented at [agentskills.io](https://agentskills.io).
+
+**Key terminology clarification:**
+
+| Term | What It Means |
+|------|---------------|
+| **"Claude Skills"** | Anthropic's original implementation (you may see this term in older docs) |
+| **"Agent Skills"** | The official open standard name (what we use in this training) |
+| **"GitHub Skills"** | Not an official term—GitHub adopted the Agent Skills standard |
+
+### GitHub Copilot's Adoption
+
+GitHub Copilot now supports the Agent Skills standard across multiple tools:
+
+- **VS Code** — Skills loaded in chat and agent mode
+- **Copilot CLI** — Skills accessible in terminal workflows
+- **Copilot coding agent** — Skills used during automated coding tasks
+
+This means skills you create are **portable**—they work across all GitHub Copilot surfaces, not just VS Code.
+
+> ⚠️ **Preview Status**: Agent Skills in VS Code is currently in preview. Enable the `chat.useAgentSkills` setting to use this feature. While the format is stable (it's an open standard), the VS Code integration continues to evolve.
+
+### When to Use What: A Decision Guide
+
+**The simple question**: *"What am I trying to teach Copilot?"*
+
+| I want Copilot to... | Use | Example |
+|---------------------|-----|---------|
+| **Know our project basics** | Repo Instructions | "This is a React/Node app, use these patterns" |
+| **Apply rules to specific files** | Custom Instructions | "For test files, use Jest with these conventions" |
+| **Run a specific task I trigger** | Prompts | "Generate a React component with tests" |
+| **Act as a specialist persona** | Agents | "Be a security reviewer with read-only access" |
+| **Know our domain automatically** | Skills | "Validate TV show data against our schema" |
+
+### The Five Types Compared
+
+| | **Repo Instructions** | **Custom Instructions** | **Prompts** | **Agents** | **Skills** |
+|---|----------------------|------------------------|-------------|------------|-----------|
+| **File** | `copilot-instructions.md` | `*.instructions.md` | `*.prompt.md` | `*.agent.md` | `SKILL.md` |
+| **Location** | `.github/` | `.github/instructions/` | `.github/prompts/` | `.github/agents/` | `.github/skills/*/` |
+| **Think of it as** | Project README for AI | File-specific rules | Task template | Specialist persona | Domain expert |
+| **When loaded** | Always, every request | By file pattern (`applyTo`) | When you invoke it | When you @ mention it | Automatically when relevant |
+| **You trigger it by** | Nothing—always on | Opening matching files | Running `/prompt-name` | Typing `@agent-name` | Just asking—Copilot decides |
+| **Scope** | Whole repository | Specific file types | Specific task | Role-based workflow | Specialized knowledge |
+| **Best for** | Project context | File-type consistency | Repeatability | Autonomy | Expertise |
+| **Module** | 1 | 5 | 3 | 4 | 6 |
+
+### Real-World Analogy
+
+Imagine onboarding a new developer:
+
+- **Repo Instructions** = The project overview they read first ("Here's what this app does and our tech stack")
+- **Custom Instructions** = Context-specific guidelines ("When working on tests, follow these patterns")
+- **Prompts** = Checklists they follow for common tasks ("Use this template when creating a new API endpoint")
+- **Agents** = Roles they can take on ("When doing security review, only read code—don't change it")
+- **Skills** = Domain knowledge they acquire over time ("Our TV show data has specific validation rules")
+
+### Quick Decision Flowchart
+
+```
+Do you want this applied AUTOMATICALLY?
+├── YES → Is it project-wide context?
+│         ├── YES → Use REPO INSTRUCTIONS (copilot-instructions.md)
+│         └── NO → Should it apply to specific file types?
+│                   ├── YES → Use CUSTOM INSTRUCTIONS (*.instructions.md)
+│                   └── NO → Does it need scripts + domain knowledge?
+│                             ├── YES → Use SKILLS
+│                             └── NO → Use REPO INSTRUCTIONS
+└── NO → Do you want a reusable task template?
+          ├── YES → Use PROMPTS
+          └── NO → Do you want a specialist persona?
+                    ├── YES → Use AGENTS
+                    └── NO → Just ask Copilot directly!
+```
 
 ---
 
@@ -68,17 +149,27 @@ Skills are perfect for domain-specific expertise that's too detailed for instruc
 - Optional scripts, examples, and resources
 - Domain-specific knowledge Copilot loads when relevant
 
-Skills are part of an [open standard](https://github.com/agentskills/agentskills) used by various AI coding assistants.
+Skills are part of an [open standard](https://agentskills.io) supported by GitHub Copilot, Claude, Cursor, and other AI coding tools.
+
+### How Copilot Loads Skills (Progressive Disclosure)
+
+Skills use a three-level loading system to stay efficient:
+
+1. **Level 1: Discovery** — Copilot always knows which skills exist by reading `name` and `description` from YAML frontmatter
+2. **Level 2: Instructions** — When your request matches a skill, Copilot loads the full `SKILL.md` body
+3. **Level 3: Resources** — Scripts and examples load only when Copilot references them
+
+This means you can have many skills installed without bloating context—only relevant content loads.
 
 ### Where Skills Live
 
 **Project Skills** (repository-specific):
-- `.github/skills/` or `.claude/skills/` in your repository
+- `.github/skills/` (recommended) or `.claude/skills/` (legacy) in your repository
 - Shared with everyone working on the project
 - Version controlled with your code
 
 **Personal Skills** (across all projects):
-- `~/.copilot/skills/` or `~/.claude/skills/` in your home directory
+- `~/.github/skills/` (recommended) or `~/.claude/skills/` (legacy) in your home directory
 - Available in all your projects
 - Your personal toolkit
 
@@ -239,10 +330,10 @@ Elena now understands:
 
 #### 📚 Official Docs
 
-- [GitHub Docs: About Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+- [VS Code Docs: Use Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- [Agent Skills Open Standard](https://agentskills.io)
 - [Anthropic Skills Repository](https://github.com/anthropics/skills)
 - [GitHub Awesome Copilot Collection](https://github.com/github/awesome-copilot)
-- [Agent Skills Open Standard](https://github.com/agentskills/agentskills)
 
 #### 💭 Elena's Realization
 
@@ -920,8 +1011,8 @@ Include:
 
 ### Resources
 
-- **Official Docs**: [GitHub Copilot Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
-- **Open Standard**: [agentskills/agentskills](https://github.com/agentskills/agentskills)
+- **Official Docs**: [VS Code: Use Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- **Open Standard**: [agentskills.io](https://agentskills.io)
 - **Community Skills**: [anthropics/skills](https://github.com/anthropics/skills)
 - **Curated Collection**: [github/awesome-copilot](https://github.com/github/awesome-copilot)
 

@@ -18,7 +18,7 @@ This workshop teaches ways to customize GitHub Copilot. Each module progressivel
 | 📝 **Custom Prompts** | Reusable, shareable prompt files | Module 3 |
 | 🤖 **Custom Agents** | Autonomous task specialists | Module 4 |
 | 🎨 **Custom Instructions** | File-scoped context via `applyTo` | Module 5 |
-| 🎓 **Custom Skills** | Domain-specific knowledge loaded when relevant | Module 6 |
+| 🎓 **Agent Skills** | Domain-specific knowledge loaded when relevant | Module 6 |
 | 🏢 **Enterprise Patterns** | Organization-wide standards and governance | Module 10 |
 
 By Module 10, all features work together and you'll scale your success across the organization.
@@ -205,7 +205,7 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 6: Custom Skills
+### Module 6: Agent Skills
 
 **Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
@@ -389,7 +389,7 @@ Focus on establishing practices for your team.
 | 3: Custom Prompts | 90 min | 5h 15min |
 | 4: Custom Agents | 90 min | 6h 45min |
 | 5: Custom Instructions | 90 min | 8h 15min |
-| 6: Custom Skills | 90 min | 9h 45min |
+| 6: Agent Skills | 90 min | 9h 45min |
 | 7: Copilot Web | 90 min | 11h 15min |
 | 8: Copilot CLI | 90 min | 12h 45min |
 | 9: Agentic SDLC + Ship | 90-120 min | 14h 15min |
@@ -440,7 +440,7 @@ Focus on establishing practices for your team.
 | **Planning** | Module 2 | Structured AI collaboration, systematic thinking |
 | **Automation** | Modules 3-4 | Reusable prompts, autonomous agents |
 | **Context-Aware** | Module 5 | File-scoped, pattern-matched instructions |
-| **Domain Expertise** | Module 6 | Specialized knowledge via custom skills |
+| **Domain Expertise** | Module 6 | Specialized knowledge via Agent Skills |
 | **Integrated** | Modules 7-8 | Web + CLI + local workflows |
 | **Complete** | Module 9 | All features compound, ship it |
 

@@ -28,7 +28,7 @@
 - **Custom prompts** (`.github/prompts/`) — Reusable templates for common tasks
 - **Custom agents** — Specialized AI assistants trained on your domain
 - **Custom instructions** (`.github/instructions/`) — File-scoped context via `applyTo` patterns
-- **Custom skills** (`.github/skills/`) — Domain-specific knowledge Copilot loads automatically
+- **Agent Skills** (`.github/skills/`) — Domain-specific knowledge Copilot loads automatically
 - **Web and CLI integration** — AI assistance across all development interfaces
 
 **The transformation**: Watch Copilot evolve from giving generic, confused suggestions to acting like a team member who understands your architecture, follows your standards, and even knows your show's characters by name.
@@ -46,7 +46,7 @@
 3. **Build a prompt library** for reusable workflows
 4. **Create custom agents** that understand the architecture
 5. **Add custom instructions** for context-aware code generation
-6. **Encode domain expertise** with custom skills that Copilot loads automatically
+6. **Encode domain expertise** with Agent Skills that Copilot loads automatically
 7. **Integrate web and CLI workflows** for comprehensive AI assistance
 8. **Orchestrate everything together** with agentic development lifecycle
 9. **Ship and reflect** on the transformation
@@ -162,7 +162,7 @@ Team creates file-scoped instructions using `applyTo` patterns, analyzed through
 **The transformation**: Generic → Context-aware  
 **Featured**: Elena, Marcus, Jordan, Priya
 
-### Module 6: Custom Skills (90 min)
+### Module 6: Agent Skills (90 min)
 **Monday 4:00 PM**
 
 Elena and Rafael teach Copilot FanHub's domain expertise through Agent Skills. Explore the anthropics/skills and github/awesome-copilot communities. Create TV Show Data Validator and Feature Requirements skills that encode domain knowledge Copilot loads automatically.
@@ -273,7 +273,7 @@ Intentional struggles make transformations meaningful
 By completing this workshop, you will:
 
 - **Build a production application** with AI assistance in 9-10 hours
-- **Master 6 customization techniques**: repository instructions, agent plan mode, custom prompts, custom agents, custom instructions, and custom skills
+- **Master 6 customization techniques**: repository instructions, agent plan mode, custom prompts, custom agents, custom instructions, and Agent Skills
 - **Understand compounding value**: how early configuration pays dividends on every later task
 - **Transform your workflow**: from writing code to orchestrating AI
 - **Measure success differently**: clarity, scalability, and judgment over syntax

@@ -4,9 +4,9 @@
 
 Module 2 has been created and integrated into the workshop structure.
 
-## ✅ COMPLETED: Custom Skills Module (Module 6)
+## ✅ COMPLETED: Agent Skills Module (Module 6)
 
-Module 6 has been created to introduce GitHub Copilot Agent Skills (Dec 2025 feature).
+Module 6 has been created to introduce GitHub Copilot Agent Skills (open standard from agentskills.io).
 
 ## ✅ COMPLETED: Module Reordering
 
@@ -20,7 +20,7 @@ All modules have been reorganized into the following structure:
 03-custom-prompts/         ✅ RENAMED (was 02)
 04-custom-agents/          ✅ RENAMED (was 03)
 05-custom-instructions/    ✅ RENAMED (was 04)
-06-custom-skills/          ✅ CREATED (new GitHub feature)
+06-agent-skills/          ✅ CREATED (Agent Skills open standard)
 07-copilot-web/            ✅ RENAMED (was 08-appendix-a)
 08-copilot-cli/            ✅ RENAMED (was 09-appendix-b)
 09-agentic-sdlc/           ✅ RENAMED (was 05)
@@ -33,7 +33,7 @@ All modules have been reorganized into the following structure:
 ### Completed Tasks
 
 - [x] Create new `02-agent-plan-mode/` module
-- [x] Create new `06-custom-skills/` module (Agent Skills feature)
+- [x] Create new `06-agent-skills/` module (Agent Skills feature)
 - [x] Rename `02-custom-prompts/` → `03-custom-prompts/`
 - [x] Rename `03-custom-agents/` → `04-custom-agents/`
 - [x] Rename `04-custom-instructions/` → `05-custom-instructions/`

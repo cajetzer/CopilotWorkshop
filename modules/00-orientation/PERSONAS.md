@@ -238,7 +238,7 @@ In this workshop, these seven personas work together to build FanHub—a TV show
 
 **Monday 9:00 AM**: Sarah challenges the team to ship a production-ready fan site by end of day. The codebase is messy, undocumented, and Copilot gives generic suggestions.
 
-**Monday 10:00 AM - 6:00 PM**: Through Modules 1-9, the team progressively adds customization—starting with plan mode thinking, then instructions, prompts, agents, custom instructions, custom skills, web workflows, CLI automation, and finally full integration. Each addition compounds the others. Module 9 concludes with shipping and reflection.
+**Monday 10:00 AM - 6:00 PM**: Through Modules 1-9, the team progressively adds customization—starting with plan mode thinking, then instructions, prompts, agents, custom instructions, Agent Skills, web workflows, CLI automation, and finally full integration. Each addition compounds the others. Module 9 concludes with shipping and reflection.
 
 **The Transformation**: By the end, each persona has grown:
 - Sarah realizes structured AI collaboration delivers real value
