@@ -65,6 +65,8 @@ GitHub Copilot can use prompt files stored in `.github/prompts/`. These files:
 3. Fill in any variables
 4. Execute with full context
 
+> 📂 **Reference Examples**: See [`examples/completed-config/.github/prompts/`](../../examples/completed-config/.github/prompts/) for sample prompt files including test generators, spec-to-implementation, and the Golden Thread detail page pattern.
+
 ### Chat Participants
 
 Copilot Chat has specialized "participants" you can invoke:
@@ -154,4 +156,6 @@ Before moving forward, verify:
 - [ ] Generated Episode Detail page using the detail page prompt
 - [ ] Updated `character-detail-challenge.md` with Module 03 metrics
 - [ ] Tested PR summary generation on GitHub.com
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/`](../../examples/completed-config/.github/prompts/) to compare your prompts against the reference examples.
 

@@ -179,6 +179,8 @@ Different roles can focus on different aspects of MCP:
 }
 ```
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.vscode/mcp.json`](../../examples/completed-config/.vscode/mcp.json) for a reference MCP configuration.
+
 ### Useful Commands
 
 | Command | Purpose |

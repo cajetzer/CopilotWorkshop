@@ -360,6 +360,8 @@ Give Copilot database access using MCP, then watch it query the actual duplicate
 - [ ] Copilot wrote a test that reproduces the exact bug state
 - [ ] Understand that skills + MCP = automatic intelligence (patterns + data)
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.vscode/mcp.json`](../../examples/completed-config/.vscode/mcp.json) for a reference MCP configuration.
+
 #### ✨ The "After" — The Transformation
 
 **Before MCP** (5 minutes of context-switching):
@@ -541,6 +543,8 @@ Create integrated workflows that combine multiple customization types with MCP c
 - [ ] Successfully tested integrated validation workflow
 - [ ] Created AI-STACK.md documenting the complete stack
 - [ ] Team understands how all customization types work together
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/agents/fanhub-validator.agent.md`](../../examples/completed-config/.github/agents/fanhub-validator.agent.md) for a reference implementation.
 
 #### ✨ The "After" — The Improved Experience
 

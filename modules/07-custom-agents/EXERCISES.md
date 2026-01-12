@@ -394,6 +394,8 @@ You are a platform engineer reviewing infrastructure and configuration changes.
 - [ ] Agent referenced your documentation files
 - [ ] Review output followed the specified format
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/agents/`](../../examples/completed-config/.github/agents/) for reference agent implementations.
+
 #### ✨ The "After" — The Improved Experience
 
 David's code review workflow transforms:

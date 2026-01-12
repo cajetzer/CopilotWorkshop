@@ -59,6 +59,8 @@ GitHub Copilot can read a special file at `.github/copilot-instructions.md` in y
 - Things that change frequently
 - Secrets or credentials (never!)
 
+> 📂 **Reference Example**: See [`examples/completed-config/.github/copilot-instructions.md`](../../examples/completed-config/.github/copilot-instructions.md) for a sample of what your instructions file might look like.
+
 ### Context Through Documentation
 
 Copilot suggestions improve dramatically when:
@@ -67,6 +69,8 @@ Copilot suggestions improve dramatically when:
 - Terminology is defined (domain language isn't a mystery)
 
 This is why David's architecture documentation is step one—not step last.
+
+> 📂 **Reference Example**: See [`examples/completed-config/docs/ARCHITECTURE.md`](../../examples/completed-config/docs/ARCHITECTURE.md) for a sample architecture document.
 
 ---
 
@@ -181,6 +185,8 @@ Create architecture documentation that gives Copilot (and humans) the context to
 - [ ] Identified at least 3 "Known Issues" from the starter code
 - [ ] Copilot's architecture explanation improved noticeably
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/docs/ARCHITECTURE.md`](../../examples/completed-config/docs/ARCHITECTURE.md) for a reference example of what your architecture document might look like. Your version should be tailored to your specific codebase analysis.
+
 #### ✨ The "After" — The Improved Experience
 
 With `ARCHITECTURE.md` in place, Copilot now:
@@ -214,6 +220,8 @@ With `ARCHITECTURE.md` in place, Copilot now:
 ### 🧵 Checkpoint 1.1b: The Character Detail Challenge — After Architecture
 
 > **The Golden Thread**: Remember the Character Detail Challenge from Module 00? Let's see how much ARCHITECTURE.md alone improves your results.
+
+> 📂 **Tracking Template**: If you haven't already, copy [`examples/completed-config/docs/character-detail-challenge.md`](../../examples/completed-config/docs/character-detail-challenge.md) to your `fanhub/docs/` folder to track your progress across modules.
 
 #### 🎯 Quick Objective
 
@@ -398,6 +406,8 @@ Create `.github/copilot-instructions.md` that establishes consistent patterns fo
 - [ ] Included error handling pattern with code example
 - [ ] Specified preferred libraries and ones to avoid
 - [ ] Tested that Copilot suggestions now follow your patterns
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/copilot-instructions.md`](../../examples/completed-config/.github/copilot-instructions.md) for a comprehensive reference example. Your version should reflect your team's specific preferences and conventions.
 
 #### ✨ The "After" — The Improved Experience
 

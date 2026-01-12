@@ -103,6 +103,8 @@ Custom instructions live in the `.github/instructions/` folder:
     └── infrastructure.instructions.md # For infra/deployment files
 ```
 
+> 📂 **Reference Examples**: See [`examples/completed-config/.github/instructions/`](../../examples/completed-config/.github/instructions/) for sample custom instructions files covering testing, API routes, infrastructure, and React components.
+
 ### The `applyTo` Front Matter
 
 Each instruction file uses YAML front matter to specify when it activates:

@@ -163,6 +163,8 @@ Skills are perfect for domain-specific expertise that's too detailed for instruc
     └── SKILL.md
 ```
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/`](../../examples/completed-config/skills/) for reference implementations of all skills.
+
 **How skills integrate with previous modules:**
 
 - **Module 1** (Instructions): Skills add domain-specific knowledge on top of general standards

@@ -201,6 +201,8 @@ Before moving to Module 8, verify:
 - `devops-reviewer.agent.md` — Infrastructure review agent
 - **Character Detail v2** — The golden thread feature, built with full context
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/agents/`](../../examples/completed-config/.github/agents/) for reference agent implementations.
+
 **Artifacts from previous modules we use:**
 - `docs/ARCHITECTURE.md` — Referenced by agents (Module 1)
 - `.github/copilot-instructions.md` — Agent behavior patterns (Module 1)

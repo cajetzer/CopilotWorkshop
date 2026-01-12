@@ -247,6 +247,8 @@ Create custom instructions that automatically activate for all test files, ensur
 - [ ] Mocking is consistent (module-level with beforeEach reset)
 - [ ] Tests cover FanHub-specific edge cases (empty episodes, etc.)
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/instructions/testing.instructions.md`](../../examples/completed-config/.github/instructions/testing.instructions.md) for a reference example of testing instructions.
+
 #### ✨ The "After" — The Improved Experience
 
 **Before (without instructions)**: Agent would generate tests with inconsistent patterns  
@@ -499,6 +501,8 @@ Create path-based instructions that provide REST API expertise for route files, 
 - [ ] Response format is consistent (`{ success, data }`)
 - [ ] Input validation is included
 - [ ] Error handling follows the FanHub pattern
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/instructions/api-routes.instructions.md`](../../examples/completed-config/.github/instructions/api-routes.instructions.md) for a reference example of API route instructions.
 
 #### ✨ The "After" — The Improved Experience
 
@@ -755,6 +759,8 @@ Create specialized instructions for infrastructure and deployment files, then us
 - [ ] Health check is included
 - [ ] GitHub Actions workflow has timeouts and concurrency
 - [ ] No hardcoded secrets in generated code
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/instructions/infrastructure.instructions.md`](../../examples/completed-config/.github/instructions/infrastructure.instructions.md) for a reference example of infrastructure instructions.
 
 #### ✨ The "After" — The Improved Experience
 
@@ -1025,6 +1031,8 @@ Create instructions that provide React/TypeScript expertise for component files,
 - [ ] Loading, error, AND empty states are handled
 - [ ] Uses styled-components (no inline styles)
 - [ ] Hooks follow rules of hooks (all dependencies listed)
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/instructions/react-components.instructions.md`](../../examples/completed-config/.github/instructions/react-components.instructions.md) for a reference example of React component instructions.
 
 #### ✨ The "After" — The Improved Experience
 

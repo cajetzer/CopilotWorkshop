@@ -65,6 +65,11 @@ GitHub Copilot can read a special file at `.github/copilot-instructions.md` in y
 - Things that change frequently
 - Secrets or credentials (never!)
 
+> 📂 **Reference Examples**: The [`examples/completed-config/`](../../examples/completed-config/) folder contains sample files for reference:
+> - [`docs/ARCHITECTURE.md`](../../examples/completed-config/docs/ARCHITECTURE.md) — Sample architecture documentation
+> - [`.github/copilot-instructions.md`](../../examples/completed-config/.github/copilot-instructions.md) — Sample team instructions
+> - [`docs/character-detail-challenge.md`](../../examples/completed-config/docs/character-detail-challenge.md) — Golden Thread tracking template
+
 ### Context Through Documentation
 
 Copilot suggestions improve dramatically when:
@@ -212,6 +217,8 @@ Create `.github/copilot-instructions.md` that establishes consistent patterns fo
 - [ ] Included error handling pattern with code example
 - [ ] Specified preferred libraries and ones to avoid
 - [ ] Tested that Copilot suggestions now follow your patterns
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/copilot-instructions.md`](../../examples/completed-config/.github/copilot-instructions.md) for a comprehensive reference example. Your version should reflect your team's specific preferences and conventions.
 
 #### ✨ The "After" — The Improved Experience
 

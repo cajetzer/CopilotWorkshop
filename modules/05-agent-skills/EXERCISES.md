@@ -512,6 +512,8 @@ Create a Bug Reproduction Test Generator skill that teaches Copilot how to write
 - [ ] Verified Copilot uses the skill automatically when reproducing bugs
 - [ ] Skill generates failing tests that demonstrate the issue
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/bug-reproduction-test-generator/SKILL.md`](../../examples/completed-config/skills/bug-reproduction-test-generator/SKILL.md) for a reference implementation.
+
 #### ✨ The "After" — The Improved Experience
 
 Now when a bug report comes in:
@@ -742,6 +744,8 @@ Create a Feature Requirements Skill that encodes product standards Copilot appli
 - [ ] Compared behavior with skill enabled vs. disabled
 - [ ] Updated team instructions to reference the skill
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/feature-requirements/SKILL.md`](../../examples/completed-config/skills/feature-requirements/SKILL.md) for a reference implementation.
+
 #### ✨ The "After" — The Improved Experience
 
 Rafael's product requirements are now:
@@ -951,6 +955,8 @@ Create an Effort Estimator skill that analyzes feature descriptions and provides
 - [ ] Copilot automatically applies the skill when estimating effort
 - [ ] Generated a prioritization matrix based on value + effort
 - [ ] Compared Rafael's initial guesses vs. skill-informed estimates
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/effort-estimator/SKILL.md`](../../examples/completed-config/skills/effort-estimator/SKILL.md) for a reference implementation.
 
 #### ✨ The "After" — The Improved Experience
 

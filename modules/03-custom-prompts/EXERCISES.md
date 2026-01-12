@@ -69,6 +69,14 @@ GitHub Copilot can use prompt files stored in `.github/prompts/`. These files:
 3. Fill in any variables
 4. Execute with full context
 
+> 📂 **Reference Examples**: The [`examples/completed-config/.github/prompts/`](../../examples/completed-config/.github/prompts/) folder contains sample prompt files:
+> - `create-component-tests.prompt.md` — Elena's React component test generator
+> - `create-api-tests.prompt.md` — Elena's API test generator
+> - `spec-to-implementation.prompt.md` — Rafael's spec translator
+> - `feature-request-template.prompt.md` — Feature request formatter
+> - `create-detail-page.prompt.md` — The Golden Thread pattern 🧵
+> - `commit.prompt.md` — Jordan's one-word ship button
+
 ### Chat Participants
 
 Copilot Chat has specialized "participants" you can invoke:
@@ -208,6 +216,8 @@ Create a reusable test generation prompt that ensures consistent, high-quality t
 - [ ] Created `create-api-tests.prompt.md` using the same approach
 - [ ] Successfully invoked your prompt from Copilot Chat
 - [ ] Generated tests follow the patterns specified in the prompt
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/create-component-tests.prompt.md`](../../examples/completed-config/.github/prompts/create-component-tests.prompt.md) and [`create-api-tests.prompt.md`](../../examples/completed-config/.github/prompts/create-api-tests.prompt.md) for reference examples.
 
 #### ✨ The "After" — The Improved Experience
 
@@ -373,6 +383,8 @@ Create a prompt that transforms user stories into implementation plans, ensuring
 - [ ] Generated an implementation plan from a user story
 - [ ] Plan references the correct files from FanHub architecture
 - [ ] Plan includes testing requirements
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/spec-to-implementation.prompt.md`](../../examples/completed-config/.github/prompts/spec-to-implementation.prompt.md) and [`feature-request-template.prompt.md`](../../examples/completed-config/.github/prompts/feature-request-template.prompt.md) for reference examples.
 
 #### ✨ The "After" — The Improved Experience
 
@@ -552,6 +564,8 @@ Build the Episode Guide feature AND create a reusable `create-detail-page.prompt
 - [ ] Tests generated using Elena's prompts
 - [ ] Updated `character-detail-challenge.md` with Module 03 metrics
 
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/create-detail-page.prompt.md`](../../examples/completed-config/.github/prompts/create-detail-page.prompt.md) for the Golden Thread detail page pattern reference.
+
 #### ✨ The "After" — The Compound Effect
 
 The team now has:
@@ -721,6 +735,8 @@ Create a "commit" prompt that acts as a one-word ship button: handles branches, 
 - [ ] Pushes with proper upstream tracking
 - [ ] Creates a PR with descriptive title and body
 - [ ] Successfully tested the full workflow
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/commit.prompt.md`](../../examples/completed-config/.github/prompts/commit.prompt.md) for a reference implementation of the ship-it workflow.
 
 #### ✨ The "After" — The Improved Experience
 
