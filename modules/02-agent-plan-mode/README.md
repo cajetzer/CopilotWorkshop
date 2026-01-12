@@ -9,11 +9,13 @@
 
 ## 📖 The Story So Far
 
-The FanHub team has documented their architecture, but Sarah notices something: when they ask Copilot for help, they jump straight into implementation. Sometimes this works, but often they need to backtrack, refine, and iterate on their approach.
+The FanHub team has documented their architecture and established coding standards. The Character Detail Challenge that frustrated them in Module 00 is now much easier—consistent patterns, correct API usage, matching styles.
+
+But Sarah notices something: even with better context, they still jump straight to implementation. They ask Copilot to build, get code, realize they missed something, iterate, and eventually get there. Better than before, but still reactive.
 
 *"We've learned to give Copilot context about our codebase,"* Sarah says, *"but we haven't learned to use AI to help us **think** about the problems first."*
 
-**This module's mission**: Master GitHub Copilot's agent plan mode to create structured approaches before jumping into implementation. Learn to use AI to help configure AI—because the clearest thinking produces the best results.
+**This module's mission**: Master GitHub Copilot's agent plan mode to create structured approaches before jumping into implementation. You'll revisit the Character Detail Challenge one final time and see how planning transforms the experience from "good enough" to "first-try success."
 
 ---
 
@@ -82,73 +84,85 @@ The most effective AI collaboration follows this pattern:
 
 ## 🔨 Exercises
 
-### Exercise 2.1: Plan Before You Code — "Sarah's Structured Approach"
+### Exercise 2.1: Plan Before You Code — "The Character Detail Challenge: Final Form"
+
+> 🧵 **The Golden Thread Continues**: You've attempted this challenge in Module 00 (chaos), Module 01a (better structure), and Module 01b (consistent patterns). Now see what happens when you **plan first**.
 
 #### 📖 The Story
 
-**Sarah** (Skeptical Senior, 15 years) has been watching the team struggle with a common problem: they ask Copilot to solve something, get a solution, realize it doesn't quite fit, ask for modifications, get a different solution, and eventually end up in a confusing conversation where nobody—human or AI—knows what they're trying to accomplish.
+**Sarah** (Skeptical Senior, 15 years) has been tracking the team's progress on the Character Detail Challenge. She's noticed something: even with architecture docs and coding standards, they still jump straight to implementation—and sometimes miss important considerations.
 
 *"We're treating AI like a magic code machine,"* Sarah observes. *"But the best results happen when we use it to think first, then implement."*
 
-Today, Sarah will demonstrate how plan mode transforms scattered requests into structured solutions.
+Today, Sarah will demonstrate how plan mode completes the transformation—turning the Character Detail Challenge from a struggle into a systematic success.
 
-#### ❌ The "Before" — What Frustration Looks Like
+#### ❌ The "Before" — What We've Been Doing
 
-Right now, when you need to add a feature to FanHub, you might ask:
+Even with documentation in place, you've been asking for implementation directly:
 
-*"Add a feature to mark episodes as watched"*
+```
+@workspace Add a character detail page that shows:
+- Character name
+- Photo
+- Biography
+- List of episodes they appear in
+```
 
-Without planning, this leads to:
-- Copilot making assumptions about where the data goes
-- Multiple back-and-forth conversations to clarify requirements
-- Solutions that work but don't fit your architecture
-- Implementation that might conflict with future features
+This approach jumps straight to code. But consider:
+- What happens if a character has no photo? No biography?
+- How should this page integrate with navigation?
+- What about loading states? Error states?
+- Should users be able to edit character info? Mark as favorite?
+- How does this connect to the episode list we might add later?
+
+**Without planning, these questions surface AFTER you've written the code.**
 
 #### 🎯 Objective
 
-Use agent plan mode to structure your thinking before implementing, creating a clear plan that leads to better AI collaboration.
+Use agent plan mode to structure your thinking before implementing the Character Detail page, creating a comprehensive plan that leads to first-try success.
 
 #### 📋 Steps
 
-1. **Experience the "before" state**
+1. **Review your previous attempts**
    
-   Open Copilot Chat and ask directly for implementation:
+   Open `docs/character-detail-challenge.md` and review your metrics from:
+   - Module 00: The Struggle (no context)
+   - Module 01a: After ARCHITECTURE.md
+   - Module 01b: After copilot-instructions.md
    
-   ```
-   Add a feature to mark episodes as watched in the FanHub app
-   ```
-   
-   Notice how Copilot makes assumptions and jumps straight to code. The solution might work, but does it fit your architecture? Your data model? Your UI patterns?
+   Notice that even with docs and standards, you may have needed multiple iterations.
 
 2. **Switch to plan mode for structured thinking**
    
-   Now let's approach this with planning first. Start a new chat conversation and use the `@agent` prefix:
+   Start a new chat conversation and use the `@agent` prefix:
    
    ```
-   @agent I need to add a "mark episodes as watched" feature to the FanHub app. 
+   @agent I need to add a character detail page to the FanHub app.
    Before we implement anything, help me create a comprehensive plan.
    
    Please analyze the current codebase and create a structured plan that addresses:
    
-   1. Data model implications - how should we store "watched" status?
-   2. Frontend changes - where should users interact with this feature?
-   3. Backend changes - what API endpoints do we need?
-   4. User experience - when and how do users mark episodes as watched?
-   5. Edge cases - what happens if a user watches an episode multiple times?
-   6. Future considerations - how might this relate to watch history, recommendations, etc.?
+   1. Data requirements - what character information do we have? What's missing?
+   2. API needs - do we have the right endpoints? What might we need to add?
+   3. Component structure - how should this page be organized?
+   4. Integration points - how does this connect to navigation, other pages?
+   5. Edge cases - no photo, long biography, character in zero episodes?
+   6. User experience - loading states, error handling, mobile responsiveness?
+   7. Future considerations - favorites, editing, social sharing?
    
-   Ask me clarifying questions if you need more context about user requirements.
+   Ask me clarifying questions if you need more context about our specific requirements.
    ```
 
 3. **Engage with the clarifying questions**
    
    Plan mode will likely ask you questions like:
-   - Should watched status be per-user or global?
-   - Do you want to track when an episode was watched?
-   - Should there be a "currently watching" state vs "completed"?
-   - How should this display in the episode list?
+   - Is character data editable or read-only?
+   - Should we show related characters (same show)?
+   - Do we need breadcrumb navigation back to the character list?
+   - Should there be a "favorite" or "bookmark" feature?
+   - How should we handle characters with extensive episode appearances?
    
-   Answer these questions—this is where your product thinking matters most.
+   **This is where your product thinking matters most.** Answer thoughtfully—these decisions shape the implementation.
 
 4. **Generate the structured plan**
    
@@ -156,11 +170,14 @@ Use agent plan mode to structure your thinking before implementing, creating a c
    
    ```
    Based on our discussion, create a detailed implementation plan with:
-   - Database schema changes
-   - API endpoint specifications
-   - Frontend component modifications
-   - Testing considerations
+   - Data model validation (what exists vs. what we need)
+   - API endpoint specifications (existing + any new ones)
+   - Component hierarchy and props
+   - State management approach
+   - Testing strategy
    - Implementation order (what to build first)
+   
+   Format this as a document I can save and share with the team.
    ```
 
 5. **Save the plan for team collaboration**
@@ -168,35 +185,85 @@ Use agent plan mode to structure your thinking before implementing, creating a c
    Create a new file to store your planning results:
    
    ```
-   Create a new file called fanhub/docs/FEATURE-PLAN-watched-episodes.md 
-   with the complete plan we just developed
+   Create fanhub/docs/FEATURE-PLAN-character-detail.md with the complete plan
    ```
    
    This becomes your implementation guide and helps other team members understand your approach.
 
-6. **Compare the two approaches**
+6. **Now implement with the plan as context**
    
-   Now you have both:
-   - The quick implementation from step 1
-   - The structured plan from steps 2-5
+   With your plan saved, ask for implementation:
    
-   Which approach gives you more confidence? Which one would be easier to explain to a team member?
+   ```
+   @workspace Based on the plan in docs/FEATURE-PLAN-character-detail.md, 
+   implement the CharacterDetail page component. Start with the core layout 
+   and data fetching as specified in the plan.
+   ```
+
+7. **Update your tracking document**
+   
+   Open `docs/character-detail-challenge.md` and complete the final section:
+   
+   | Metric | Mod 00 | Mod 01a | Mod 01b | **Mod 02** |
+   |--------|--------|---------|---------|------------|
+   | Time to working code | ___ | ___ | ___ | ___ |
+   | Prompt attempts | ___ | ___ | ___ | ___ |
+   | Edge cases identified | ___ | ___ | ___ | ___ |
+   | Confidence (1-10) | ___ | ___ | ___ | ___ |
 
 #### ✅ Success Criteria
 
 - [ ] Used `@agent` prefix to access plan mode
-- [ ] Engaged with clarifying questions about requirements
+- [ ] Engaged with clarifying questions about the character detail page
 - [ ] Generated a comprehensive implementation plan
-- [ ] Saved the plan to `fanhub/docs/FEATURE-PLAN-watched-episodes.md`
+- [ ] Saved the plan to `fanhub/docs/FEATURE-PLAN-character-detail.md`
+- [ ] Implemented using the plan as context
+- [ ] Updated `docs/character-detail-challenge.md` with final metrics
 - [ ] Can articulate the difference between planning and implementing with AI
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — The Complete Transformation
+
+**Compare your journey:**
+
+| Attempt | Context | Approach | Typical Result |
+|---------|---------|----------|----------------|
+| Module 00 | None | Direct ask | Chaos, 3+ attempts |
+| Module 01a | ARCHITECTURE.md | Direct ask | Better structure, still iterations |
+| Module 01b | + Instructions | Direct ask | Consistent patterns, fewer iterations |
+| **Module 02** | + Plan Mode | **Plan then implement** | **First-try success, edge cases covered** |
 
 With structured planning, you now have:
 - **Clear requirements** that you've thought through with AI assistance
 - **Implementation roadmap** that considers architecture and edge cases
 - **Team documentation** that others can review and build upon
 - **Confidence** in your approach before writing any code
+- **Measurable improvement** across all your attempts
+
+**Time invested**: 20 minutes of planning  
+**Value unlocked**: First-try implementation without backtracking
+
+#### 📚 Official Docs
+
+- [GitHub Copilot: Agent Mode](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/copilot-chat-in-github)
+- [VS Code: Copilot Chat Modes](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-modes)
+
+#### 💭 Sarah's Realization
+
+*"I've been skeptical of AI tools because they felt chaotic. But plan mode isn't chaotic—it's structured thinking. This is how AI actually helps experienced developers: by amplifying our planning, not replacing our judgment."*
+
+#### 🎭 The Team Celebrates
+
+**Sarah**: *"Look at the progression. Same prompt, dramatically different results. THIS is what I needed to see."*
+
+**David**: *"Planning isn't overhead—it's where my 20 years of experience matters most. The AI handles syntax; I handle strategy."*
+
+**Priya**: *"I never would have thought about those edge cases on my own. Plan mode taught me to think like a senior developer!"*
+
+**Marcus**: *"This is like code review BEFORE you write the code. Catch the issues when they're cheap to fix."*
+
+---
+
+### Exercise 2.2: Iterate on Configuration — "David Designs Agent Personas"
 
 **Time invested**: 20 minutes of planning  
 **Value unlocked**: Hours of focused implementation without backtracking
@@ -348,137 +415,68 @@ Through structured planning, David discovered:
 
 ---
 
-### Exercise 2.3: Plan Development Workflows — "Marcus Systematizes Success"
+### Exercise 2.3: Create a Reusable Planning Template — "Marcus Systematizes Success"
 
 #### 📖 The Story
 
-**Marcus** (DevOps Developer, 5 years) has been absorbing everything from the previous exercises. He sees Sarah's structured approach and David's architectural thinking, and he realizes something: his DevOps mindset of "systematize everything" applies perfectly to AI collaboration.
+**Marcus** (DevOps Developer, 5 years) notices the team keeps using plan mode in similar ways. His DevOps instinct kicks in: *"If we're doing the same thing repeatedly, let's make it a template."*
 
-*"We use plan mode to think through problems,"* Marcus reflects, *"but we could also use it to design our development workflows. What if we planned how we plan?"*
+#### ❌ The "Before" — Ad-Hoc Planning
 
-Marcus wants to create systematic approaches that the whole team can use, turning the ad-hoc "ask Copilot for help" into repeatable, effective workflows.
-
-#### ❌ The "Before" — What Frustration Looks Like
-
-The team's current AI collaboration is reactive:
-- Someone gets stuck, asks Copilot for help
-- The conversation meanders based on what comes to mind
-- Solutions work but aren't shared or systematized
-- Each team member develops different AI collaboration habits
-- No consistency in how the team leverages AI capabilities
+Each time someone uses plan mode, they start from scratch—different questions, different formats, inconsistent results.
 
 #### 🎯 Objective
 
-Use plan mode to design systematic workflows that make AI collaboration predictable and effective for the entire team.
+Create ONE reusable planning template the team can use for new features.
 
 #### 📋 Steps
 
-1. **Identify workflow improvement opportunities**
-   
-   Start with plan mode to analyze current practices:
+1. **Ask plan mode to create a feature planning template**
    
    ```
-   @agent Analyze how our team currently uses AI assistance in development. 
-   Based on the previous exercises in this module, help me identify patterns 
-   and opportunities for systematic improvement.
+   @agent Create a simple planning template for new features. 
    
-   Consider:
-   - When do we use plan mode vs implementation mode?
-   - What types of problems benefit from structured planning?
-   - How can we make AI collaboration more predictable?
-   - What workflows would help junior team members be more effective?
+   The template should be a checklist of questions to ask before implementing:
+   - What data does this feature need?
+   - What UI components are involved?
+   - What edge cases should we handle?
+   - How does it connect to existing features?
    
-   Create a framework for when and how to use different AI collaboration approaches.
+   Keep it to one page—practical, not bureaucratic.
    ```
 
-2. **Design systematic planning templates**
-   
-   Ask plan mode to help create reusable templates:
+2. **Save the template**
    
    ```
-   Design 3-4 planning templates that our team can use for common scenarios:
-   
-   1. Feature Planning Template - for adding new functionality
-   2. Architecture Review Template - for technical decision-making
-   3. Configuration Planning Template - for customizing AI tools
-   4. Debugging Investigation Template - for systematic problem-solving
-   
-   Each template should include:
-   - When to use this template
-   - Questions to ask in plan mode
-   - How to save and share results
-   - When to switch from planning to implementation
+   Save this as fanhub/docs/FEATURE-PLANNING-TEMPLATE.md
    ```
 
-3. **Plan the implementation of these workflows**
+3. **Test it with a real feature**
    
-   Use plan mode to think through adoption:
+   Apply your new template to plan "user ratings for episodes":
    
    ```
-   How should we implement these planning workflows with our team? 
-   
-   Consider:
-   - Where should these templates live in our repository?
-   - How do we encourage adoption without making it bureaucratic?
-   - What examples would help teammates see the value?
-   - How do we iterate and improve the templates over time?
-   
-   Create an adoption plan that fits our team culture.
+   @agent Using our FEATURE-PLANNING-TEMPLATE.md, help me plan an 
+   "episode ratings" feature where users can rate episodes 1-5 stars.
    ```
 
-4. **Create team documentation**
+4. **Refine if needed**
    
-   Generate the systematic approach documentation:
-   
-   ```
-   Create comprehensive documentation for our AI Planning Workflows including:
-   - Overview of when and why to use plan mode
-   - The 4 planning templates with examples
-   - Best practices for planning-to-implementation flow
-   - Guidelines for saving and sharing planning results
-   
-   Save this as fanhub/docs/AI-PLANNING-WORKFLOWS.md
-   ```
-
-5. **Test one workflow with a real scenario**
-   
-   Pick one template and apply it to an actual FanHub improvement:
-   
-   ```
-   Use the Feature Planning Template to plan the "user ratings for episodes" feature. 
-   Follow the systematic approach we just designed and see how it works in practice.
-   ```
-
-6. **Refine based on experience**
-   
-   After testing, iterate on your workflow:
-   
-   ```
-   Based on using the Feature Planning Template for episode ratings, 
-   what adjustments would make this workflow more effective?
-   
-   Update the documentation with lessons learned.
-   ```
+   Did the template help? Missing anything? Update it based on what you learned.
 
 #### ✅ Success Criteria
 
-- [ ] Analyzed current team AI collaboration patterns
-- [ ] Designed 4 systematic planning templates
-- [ ] Created adoption plan for team implementation
-- [ ] Documented comprehensive AI Planning Workflows
-- [ ] Tested one workflow with real scenario
-- [ ] Refined approach based on practical experience
+- [ ] Created `fanhub/docs/FEATURE-PLANNING-TEMPLATE.md`
+- [ ] Template fits on one page
+- [ ] Tested template with episode ratings feature
+- [ ] Template produces useful, actionable plans
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — Systematic Planning
 
-Marcus has systematized AI collaboration for the team:
-- **Predictable workflows** for common development scenarios
-- **Reusable templates** that junior developers can follow
-- **Shared approaches** that improve team consistency
-- **Documentation** that scales knowledge across the team
-- **Iterative improvement** built into the system
+Instead of reinventing planning each time, the team has a **starting point**. Junior developers know what questions to ask. Senior developers save time on routine planning.
 
-**Key insight**: DevOps thinking (systematic, repeatable, improvable) applies perfectly to AI tool adoption.
+**Time to create template**: ~10 minutes  
+**Time saved per feature**: ~15 minutes of "what should I ask?"
 
 #### 📚 Official Docs
 
@@ -486,109 +484,108 @@ Marcus has systematized AI collaboration for the team:
 - [VS Code: Copilot Chat](https://code.visualstudio.com/docs/copilot/copilot-chat)
 - [GitHub Docs: Getting started with Copilot Chat](https://docs.github.com/en/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)
 
-#### 💭 Marcus's Evolution
+#### 💭 Marcus's Insight
 
-*"This is what I love about DevOps thinking—you take something that works and you make it systematic. Plan mode isn't just a tool, it's a practice. And practices can be engineered for better outcomes."*
+*"DevOps is about making good practices repeatable. Same applies here—one template, consistent results."*
 
 ---
 
-### Exercise 2.4: Plan Mode Integration Workshop — "The Team Synthesizes"
+### Exercise 2.4: Debug Investigation — "Sarah Investigates Before Fixing"
 
 #### 📖 The Story
 
-After three exercises exploring plan mode individually, the FanHub team comes together to synthesize what they've learned. Each person brings their perspective:
+**Sarah** (Skeptical Senior, 15 years) gets a bug report: *"The Episodes page shows wrong episodes sometimes. I click Season 2, but I see Season 1 episodes. Refreshing fixes it."*
 
-- **Sarah**: *"Plan mode gives structure to AI collaboration—no more chaotic conversations"*
-- **David**: *"It amplifies expertise instead of replacing it—my architecture knowledge makes the AI better"*
-- **Marcus**: *"We can systematize this—turn good practices into repeatable workflows"*
+Sarah's instinct is to dive into the code and start changing things. But she remembers: **plan mode helps you think before you act.**
 
-Now they want to establish plan mode as a foundational practice for their entire development process.
+*"If I understand the bug first, I'll fix it once instead of creating three new bugs."*
+
+#### ❌ The "Before" — The Debugging Anti-Pattern
+
+Without planning, debugging often looks like:
+1. Read the bug report, make assumptions
+2. Jump to the code, start changing things
+3. "Fix" one thing, break another
+4. Spend 2 hours on a 15-minute bug
 
 #### 🎯 Objective
 
-Integrate plan mode thinking across all aspects of FanHub development, establishing it as the foundation for AI-assisted workflows.
+Use plan mode to systematically investigate the bug before writing any fix.
 
 #### 📋 Steps
 
-1. **Team planning session**
-   
-   Facilitate a team discussion (if doing this workshop solo, consider multiple perspectives):
+1. **Ask plan mode to help investigate**
    
    ```
-   @agent Help facilitate a team planning session to establish plan mode as our 
-   foundational AI collaboration approach.
+   @agent Users report the Episodes page sometimes shows wrong data—they 
+   click Season 2 but see Season 1 episodes. It's intermittent and 
+   refreshing fixes it.
    
-   Create an agenda that covers:
-   - When each team member will use plan mode vs implementation mode
-   - How we'll share planning results across the team
-   - Integration with our existing development process
-   - Standards for documentation and iteration
-   
-   The goal is team alignment on systematic AI collaboration.
+   Before I change any code, help me investigate:
+   1. What could cause intermittent, stale data issues?
+   2. What should I look for in the Episodes.js component?
+   3. What's my hypothesis-driven investigation plan?
    ```
 
-2. **Create team standards**
+2. **Follow the investigation plan**
    
-   Document the team's plan mode standards:
+   Plan mode will likely point you toward:
+   - Caching issues (is there a cache that's not invalidated?)
+   - Race conditions (is data loading before filters apply?)
+   - State management (is state persisting when it shouldn't?)
+   
+   Open [fanhub/frontend/src/pages/Episodes.js](../../fanhub/frontend/src/pages/Episodes.js) and look for what plan mode identified.
+
+3. **Document what you find**
    
    ```
-   Based on our team discussion, create team standards for plan mode usage:
+   @agent I found the issue in Episodes.js. There's a module-level cache 
+   (episodeCache) that doesn't account for which season was requested.
    
-   - Required scenarios (when must we use plan mode?)
-   - Recommended scenarios (when should we consider it?)
-   - Documentation standards (how do we save and share plans?)
-   - Handoff processes (how do plans become implementations?)
-   - Review and iteration (how do we improve our planning practices?)
+   Create a brief bug analysis document that explains:
+   - Root cause
+   - Why it's intermittent
+   - Recommended fix approach
    
-   Save as fanhub/docs/TEAM-AI-COLLABORATION-STANDARDS.md
+   Save as fanhub/docs/BUG-ANALYSIS-episode-cache.md
    ```
 
-3. **Plan the next module preparation**
+4. **Now fix it with confidence**
    
-   Use plan mode to prepare for Module 3 (Custom Prompts):
+   With your analysis complete, the fix is clear. You can either:
+   - Remove the flawed cache entirely (simplest)
+   - Fix the cache to track season IDs (more complex)
    
-   ```
-   @agent We're about to start learning custom prompts for Copilot. 
-   Use plan mode to help us prepare:
-   
-   - What types of prompts would benefit from planning first?
-   - How should we use plan mode to design custom prompts?
-   - What planning questions help create better prompts?
-   - How does our new systematic approach apply to prompt engineering?
-   
-   Create a bridge from plan mode fundamentals to custom prompt development.
-   ```
-
-4. **Document integration across modules**
-   
-   Plan how to integrate plan mode throughout the remaining workshop:
-   
-   ```
-   Create a plan for integrating plan mode concepts into the remaining modules:
-   
-   - Module 3 (Custom Prompts): How does planning improve prompt design?
-   - Module 4 (Custom Agents): How do we plan agent personalities?
-   - Module 5 (Custom Instructions): How do we plan configuration strategies?
-   
-   Each integration should show plan mode helping configure AI, not just generate code.
-   ```
+   **Note**: Don't actually implement the fix yet—the goal is the investigation process. The fix is left as an optional challenge.
 
 #### ✅ Success Criteria
 
-- [ ] Facilitated team alignment on plan mode usage
-- [ ] Created comprehensive team AI collaboration standards
-- [ ] Planned integration with Module 3 (Custom Prompts)
-- [ ] Documented plan mode integration across all remaining modules
-- [ ] Established plan mode as foundational to team development process
+- [ ] Used plan mode to create an investigation strategy
+- [ ] Identified the caching bug in `Episodes.js`
+- [ ] Documented the root cause and fix approach
+- [ ] Understood the bug **before** attempting to fix it
 
-#### ✨ The "After" — The Transformation
+#### ✨ The "After" — Systematic Debugging
 
-The FanHub team now has:
-- **Structured approach** to AI collaboration
-- **Shared standards** for when and how to use plan mode
-- **Systematic workflows** that scale across team members
-- **Foundation** for all future AI customization work
-- **Confidence** in their ability to leverage AI effectively
+Instead of 2 hours of trial-and-error, Sarah spent:
+- **5 minutes** creating an investigation plan
+- **5 minutes** following the plan to find the bug  
+- **5 minutes** documenting the root cause
+
+**Total**: 15 minutes to fully understand an intermittent bug
+
+**The fix is now trivial** because the problem is understood.
+
+#### 💭 Sarah's Validation
+
+*"This is exactly what I needed to see. Plan mode isn't just for new features—it's for thinking through problems. I've been debugging for 15 years, but having AI help structure my investigation? That's actually useful."*
+
+#### 🚀 Challenge Extension
+
+If you want to complete the fix:
+1. Remove the flawed `episodeCache` and `cacheTimestamp` variables
+2. Or implement proper caching with season-aware keys
+3. Test by rapidly switching between seasons
 
 #### 📚 Official Docs
 
@@ -625,16 +622,33 @@ In **Module 3: Custom Prompts**, you'll apply your plan mode foundation to desig
 
 ---
 
+## 🧵 The Golden Thread: Complete
+
+You've now completed the **Character Detail Challenge** across all three modules:
+
+| Module | Context | Approach | Result |
+|--------|---------|----------|--------|
+| **00** | Nothing | Direct ask | Chaos, 3+ attempts, generic output |
+| **01a** | ARCHITECTURE.md | Direct ask | Better structure, still inconsistent |
+| **01b** | + Instructions | Direct ask | Consistent patterns, fewer iterations |
+| **02** | + Plan Mode | **Plan first** | **First-try success, edge cases covered** |
+
+**The lesson**: Each layer of investment compounds. Documentation provides context. Instructions provide patterns. Plan mode provides strategy. Together, they transform AI collaboration from frustrating guesswork into systematic success.
+
+> *"Same prompt. Dramatically different results. That's not magic—that's engineering."* — Sarah
+
+---
+
 ## ⏱️ Time Check
 
-**Expected Duration**: 90 minutes
-- Exercise 2.1: Sarah's Structured Approach (20 minutes)
+**Expected Duration**: 75 minutes
+- Exercise 2.1: The Character Detail Challenge: Final Form (25 minutes)
 - Exercise 2.2: David's Agent Design (25 minutes)  
-- Exercise 2.3: Marcus's Workflow Systems (25 minutes)
-- Exercise 2.4: Team Integration Workshop (20 minutes)
+- Exercise 2.3: Marcus's Planning Template (15 minutes)
+- Exercise 2.4: Sarah's Debug Investigation (10 minutes)
 
-**If running ahead**: Explore additional planning templates for your specific domain
-**If running behind**: Focus on Exercise 2.1 and 2.4, skip the middle exercises
+**If running ahead**: Complete the bug fix in Exercise 2.4, create additional templates  
+**If running behind**: Focus on Exercise 2.1 (essential for the Golden Thread) and 2.4
 
 ---
 

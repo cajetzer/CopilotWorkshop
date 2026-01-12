@@ -318,13 +318,15 @@ Do you want this applied AUTOMATICALLY?
 
 ---
 
-## 🔨 Exercise: The Struggle
+## 🔨 Exercise 0: The Character Detail Challenge — "The Struggle"
 
 ### 📖 The Setup
 
 It's Monday, 9:30 AM. You've just looked at the FanHub starter code. It's time to experience what happens when you try to build with AI that doesn't understand your codebase.
 
 This exercise is intentionally frustrating. You need to feel the "before" state to appreciate the transformation.
+
+> 🧵 **The Golden Thread**: You'll revisit this exact challenge in **Module 01** (after adding documentation) and **Module 02** (using plan mode). Track your metrics carefully—the improvement will be dramatic and measurable.
 
 ### 🎯 Objective
 
@@ -398,36 +400,86 @@ Add a character detail page that shows:
 - Does it use the right API endpoints? Or make assumptions?
 - Does the styling match the rest of the app?
 
-**5. Document the struggle**
+**5. Document the struggle (Critical for Later Comparison)**
 
-Create `docs/before-configuration.md` and note:
+Create `docs/character-detail-challenge.md` and track your metrics:
 
 ```markdown
-## The Struggle: Before Configuration
+# The Character Detail Challenge — Progress Tracker
 
-**What I asked for:**
-[Your prompt]
+This document tracks the same challenge across three modules to demonstrate
+how configuration and planning improve AI collaboration.
 
-**What Copilot suggested:**
+## Attempt 1: Module 00 — No Configuration (The Struggle)
+
+**Date/Time:** [When you attempted this]
+
+**Prompt used:**
+Add a character detail page that shows:
+- Character name
+- Photo  
+- Biography
+- List of episodes they appear in
+
+### Metrics
+
+| Metric | Value |
+|--------|-------|
+| **Time to working code** | ___ minutes |
+| **Number of prompt attempts** | ___ |
+| **Code matched existing patterns?** | Yes / No / Partially |
+| **Used correct API structure?** | Yes / No / Partially |
+| **Styling consistent?** | Yes / No / Partially |
+| **Confidence level (1-10)** | ___ |
+
+### Problems Encountered
 - [Problem 1: e.g., generic character names]
 - [Problem 2: e.g., didn't match existing API structure]
 - [Problem 3: e.g., inconsistent styling]
 - [Problem 4: e.g., had to ask 3 times]
 
-**Time spent:** [X minutes]
+### Persona Reactions
+- **Marcus:** "Why is it suggesting REST when we're using GraphQL?"
+- **Priya:** "I'm not sure if this is right..."
+- **Sarah:** "This is what I was afraid of."
 
-**Frustration level:** [1-10]
+---
 
-**Marcus's reaction:** "Why is it suggesting REST when we're using GraphQL?"
+## Attempt 2: Module 01a — After ARCHITECTURE.md
+*[You'll complete this in Module 01]*
+
+---
+
+## Attempt 2: Module 01b — After copilot-instructions.md  
+*[You'll complete this in Module 01]*
+
+---
+
+## Attempt 3: Module 02 — With Plan Mode
+*[You'll complete this in Module 02]*
+
+---
+
+## Summary Comparison
+*[Complete after Module 02]*
+
+| Metric | Mod 00 | Mod 01a | Mod 01b | Mod 02 |
+|--------|--------|---------|---------|--------|
+| Time to working code | | | | |
+| Prompt attempts | | | | |
+| Pattern consistency | | | | |
+| Confidence (1-10) | | | | |
 ```
 
 ### ✅ Success Criteria
 
 - [ ] FanHub app is running locally
 - [ ] You've chosen your show theme
-- [ ] You attempted to add a feature with Copilot
-- [ ] You documented specific problems you encountered
-- [ ] You felt the frustration (this is important!)
+- [ ] You attempted the Character Detail Challenge with Copilot
+- [ ] Created `docs/character-detail-challenge.md` with Attempt 1 metrics
+- [ ] Documented specific problems encountered
+- [ ] Felt the frustration (this is important!)
+- [ ] Ready to revisit this challenge in Module 01 and 02
 
 ### 🧠 Mindful Moment: Before
 
@@ -448,21 +500,29 @@ Create `docs/before-configuration.md` and note:
 ### ✨ The "After" — What's Coming
 
 In Module 1, you'll configure Copilot with:
-- Team coding standards (`.github/copilot-instructions.md`)
 - Architecture documentation (`docs/ARCHITECTURE.md`)
+- Team coding standards (`.github/copilot-instructions.md`)
 - Your show's specific context
 
-Then you'll ask the same question again. The difference will be dramatic:
+**Then you'll revisit the Character Detail Challenge** and track your improvement:
+
+| After... | Expected Improvement |
+|----------|---------------------|
+| ARCHITECTURE.md | Structure improves, but patterns still inconsistent |
+| copilot-instructions.md | Consistent patterns, faster results |
+| Plan Mode (Module 02) | First-try success with comprehensive solution |
+
+The same prompt. Dramatically different results:
 - ✓ Show-specific content (your characters, not "John Doe")
 - ✓ Follows your architecture (uses correct API patterns)
 - ✓ Matches your standards (consistent styling and structure)
-- ✓ Works on the first try
+- ✓ Works on the first try (especially with plan mode)
 
 **But first, you need to experience the struggle.**
 
 ---
 
-## 🔨 Exercise: Set Your Success Metrics
+## 🔨 Exercise 0.1: Set Your Success Metrics
 
 ### 📖 The Story
 
@@ -479,49 +539,6 @@ His expertise isn't obsolete—it needs to be expressed differently.
 ### 🎯 Objective
 
 Define how YOU will measure success with AI-assisted development.
-
-### 📋 Steps
-
-**1. Create a goals document**
-
-In the root of the training repo, create `docs/my-success-metrics.md`:
-
-```markdown
-# My Copilot Success Metrics
-
-## Where I'm Starting
-
-**Current role:** [e.g., Senior Developer, DevOps Engineer]
-**Years of experience:** [X years]
-**Which persona resonates most:** [Sarah, Marcus, Priya, David, Elena, Rafael, or Jordan]
-**My biggest concern about AI:** [e.g., "Will my expertise become obsolete?"]
-
-## My Three Goals
-
-### Goal 1: [Title]
-
-**Old metric I'm leaving behind:** [e.g., "Lines of code written per day"]
-**New metric I'm adopting:** [e.g., "Features shipped per week with full test coverage"]
-**How I'll measure success:** [Observable outcome]
-
-### Goal 2: [Title]
-
-**Old metric I'm leaving behind:** 
-**New metric I'm adopting:** 
-**How I'll measure success:** 
-
-### Goal 3: [Title]
-
-**Old metric I'm leaving behind:** 
-**New metric I'm adopting:** 
-**How I'll measure success:** 
-
-## By Module 5, I Want To...
-
-- [ ] [Specific skill, e.g., "Use custom agents to automate code review"]
-- [ ] [Specific outcome, e.g., "Ship FanHub with 80%+ test coverage"]
-- [ ] [Specific mindset, e.g., "Feel confident that my expertise is amplified, not replaced"]
-```
 
 **2. Reflect on what matters**
 
@@ -540,7 +557,7 @@ Some example metrics to consider:
 Ask Copilot Chat:
 
 ```
-@workspace Based on my goals in docs/my-success-metrics.md, 
+@workspace Based on these goals [....], 
 suggest specific ways I can measure progress as I work through 
 the FanHub project in this training.
 ```
@@ -549,8 +566,6 @@ Review Copilot's suggestions. Which make sense? Which don't?
 
 ### ✅ Success Criteria
 
-- [ ] Created `docs/my-success-metrics.md` with three clear goals
-- [ ] Each goal has old metric, new metric, and success measure
 - [ ] Identified which persona you resonate with most
 - [ ] (Optional) Got Copilot's suggestions and evaluated them critically
 

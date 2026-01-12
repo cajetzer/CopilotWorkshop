@@ -9,17 +9,18 @@
 
 ## 📖 The Story
 
-Module 1 gave the team **foundations**: David documented the architecture, Marcus created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: Sarah, David, and Marcus learned to use plan mode for systematic AI collaboration.
+Module 1 gave the team **foundations**: David documented the architecture, Sarah created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: The team used plan mode to build the Character Detail page—transforming a frustrating 45-minute struggle into a systematic 20-minute success.
 
 Now Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
 
 - Elena explains testing requirements each time she asks for tests
 - Rafael describes the same acceptance criteria format for every feature
 - Marcus types the same "create an endpoint" instructions repeatedly
+- And soon they'll need Episode Detail, Show Detail, Quote Detail pages...
 
-*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. And what if we used our new planning skills to design them properly?"*
+*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. The Character Detail page took real planning—what if we captured that pattern so we never have to plan it again?"*
 
-**This module's mission**: Create a prompt library that turns repetitive work into reusable tools, using plan mode to design them systematically.
+**This module's mission**: Create a prompt library that turns repetitive work into reusable tools. The ultimate goal: encode the Character Detail pattern so every future detail page takes 3 minutes instead of 20.
 
 ---
 
@@ -117,10 +118,10 @@ Jump directly to specific exercises:
 
 | Exercise | Lead Persona | Time | Topic |
 |----------|--------------|------|-------|
-| [2.1](EXERCISES.md#exercise-21-create-a-test-prompt-library--elenas-quality-toolkit) | Elena | 30 min | Test generation prompts |
-| [2.2](EXERCISES.md#exercise-22-spec-to-code-prompts--rafael-bridges-the-gap) | Rafael | 30 min | Requirements translation |
-| [2.3](EXERCISES.md#exercise-23-build-the-episode-guide--the-team-collaborates) | Team | 45 min | Collaborative feature build |
-| [2.4](EXERCISES.md#exercise-24-one-word-git-workflow--jordans-ship-it-button) | Jordan | 30 min | Git automation |
+| [3.1](EXERCISES.md#exercise-31-create-a-test-prompt-library--elenas-quality-toolkit) | Elena | 30 min | Test generation prompts |
+| [3.2](EXERCISES.md#exercise-32-spec-to-code-prompts--rafael-bridges-the-gap) | Rafael | 30 min | Requirements translation |
+| [3.3](EXERCISES.md#exercise-33-build-the-episode-guide--the-team-collaborates) | Team | 45 min | Episode Guide + **Golden Thread pattern** 🧵 |
+| [3.4](EXERCISES.md#exercise-34-one-word-git-workflow--jordans-ship-it-button) | Jordan | 30 min | Git automation |
 
 ---
 
@@ -145,9 +146,12 @@ The team has patterns, documentation, and prompts. Now it's time to let Copilot 
 
 Before moving forward, verify:
 
-- [ ] `.github/prompts/` directory exists with at least 4 prompts
+- [ ] `.github/prompts/` directory exists with at least 6 prompts
+- [ ] Created `create-detail-page.prompt.md` (the Golden Thread pattern) 🧵
 - [ ] Prompts use variables for flexibility
 - [ ] Prompts reference existing documentation
 - [ ] Successfully invoked prompts from Copilot Chat
+- [ ] Generated Episode Detail page using the detail page prompt
+- [ ] Updated `character-detail-challenge.md` with Module 03 metrics
 - [ ] Tested PR summary generation on GitHub.com
 

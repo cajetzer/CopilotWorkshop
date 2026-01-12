@@ -9,17 +9,18 @@
 
 ## 📖 The Story So Far
 
-Module 1 gave the team **foundations**: David documented the architecture, Marcus created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: Sarah, David, and Marcus learned to use plan mode for systematic AI collaboration.
+Module 1 gave the team **foundations**: David documented the architecture, Sarah created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: The team used plan mode to build the Character Detail page—transforming a frustrating 45-minute struggle into a systematic 20-minute success.
 
-Now Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
+But Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
 
 - Elena explains testing requirements each time she asks for tests
 - Rafael describes the same acceptance criteria format for every feature
 - Marcus types the same "create an endpoint" instructions repeatedly
+- And soon they'll need Episode Detail, Show Detail, Quote Detail pages...
 
-*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. And what if we used our new planning skills to design them properly?"*
+*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. The Character Detail page took real planning—what if we captured that pattern so we never have to plan it again?"*
 
-**This module's mission**: Create a prompt library that turns repetitive work into reusable tools, using plan mode to design them systematically.
+**This module's mission**: Create a prompt library that turns repetitive work into reusable tools. The ultimate goal: encode the Character Detail pattern so every future detail page takes 3 minutes instead of 20.
 
 ---
 
@@ -90,7 +91,7 @@ We'll use both modes in this module.
 
 ## 🔨 Exercises
 
-### Exercise 2.1: Create a Test Prompt Library — "Elena's Quality Toolkit"
+### Exercise 3.1: Create a Test Prompt Library — "Elena's Quality Toolkit"
 
 #### 📖 The Story
 
@@ -237,7 +238,7 @@ Create a third prompt: `create-integration-tests.prompt.md` that:
 
 ---
 
-### Exercise 2.2: Spec-to-Code Prompts — "Rafael Bridges the Gap"
+### Exercise 3.2: Spec-to-Code Prompts — "Rafael Bridges the Gap"
 
 #### 📖 The Story
 
@@ -394,25 +395,35 @@ Rafael's workflow transforms:
 
 ---
 
-### Exercise 2.3: Build the Episode Guide — "The Team Collaborates"
+### Exercise 3.3: Build the Episode Guide — "The Team Collaborates"
+
+> 🧵 **The Golden Thread Continues**: Remember the Character Detail page from Modules 00-02? You'll now capture that hard-won pattern as a reusable prompt—and watch what took 20 minutes of planning become a 3-minute generation.
 
 #### 📖 The Story
 
 The team decides to build their first real feature together: an Episode Guide page. This is their chance to use everything they've created:
 - David's architecture documentation
-- Marcus's copilot-instructions.md
+- Sarah's copilot-instructions.md
 - Elena's test prompts
 - Rafael's spec-to-implementation prompt
 
 *"Let's see if these tools actually work together,"* Sarah says.
 
-**This is a full-team exercise**: Each persona contributes their piece.
+Halfway through, Rafael realizes something: *"Wait, we also need an Episode Detail page—when users click an episode, they should see full details, quotes, and character appearances."*
+
+David pauses. *"That sounds familiar. Remember the Character Detail page we built in Module 02? Same pattern—fetch entity, display fields, show related items, handle errors."*
+
+Sarah sees the opportunity: *"We spent 20 minutes planning that page with plan mode. What if we captured that pattern in a reusable prompt? Then every detail page takes 3 minutes instead of 20."*
+
+**This is where prompts become truly powerful**: Not just encoding instructions, but encoding *proven patterns*.
 
 #### 🎯 Objective
 
-Build a complete Episode Guide feature using the prompt library and documentation.
+Build the Episode Guide feature AND create a reusable `create-detail-page.prompt.md` that captures the Character Detail pattern for future pages.
 
 #### 📋 Steps
+
+**Part 1: Build the Episode List (Steps 1-4)**
 
 1. **Rafael defines the feature**
    
@@ -438,7 +449,7 @@ Build a complete Episode Guide feature using the prompt library and documentatio
    - Follow our API response format from copilot-instructions.md
    ```
 
-4. **Priya builds the frontend**
+4. **Priya builds the Episode List page**
    
    Ask Copilot:
    ```
@@ -450,56 +461,142 @@ Build a complete Episode Guide feature using the prompt library and documentatio
    - Follows our React patterns from copilot-instructions.md
    ```
 
-5. **Elena generates tests**
+**Part 2: The Golden Thread — Capture the Detail Page Pattern (Steps 5-7)**
+
+5. **Recognize the pattern**
+   
+   Open your `docs/character-detail-challenge.md` from Module 02. Review what made the Character Detail page successful:
+   - Plan mode identified data requirements, edge cases, related entities
+   - Clear component structure with loading/error states
+   - Followed established patterns from copilot-instructions.md
+   
+   *This pattern applies to ANY detail page: Episode, Show, Quote, etc.*
+
+6. **Create the reusable detail page prompt**
+   
+   Use Agent mode to create a prompt that encodes this pattern:
+   
+   ```
+   Create a reusable prompt file at .github/prompts/create-detail-page.prompt.md
+   
+   This prompt should generate detail pages following our proven Character Detail pattern.
+   
+   Include variables:
+   - {{entity_name}} — The entity type (Episode, Show, Quote, etc.)
+   - {{api_endpoint}} — The API endpoint to fetch data (e.g., /api/episodes/:id)
+   - {{display_fields}} — Key fields to display (e.g., title, air_date, synopsis)
+   - {{related_entities}} — Related items to show (e.g., quotes, characters)
+   
+   The prompt should guide Copilot to:
+   1. Create a detail page component following our CharacterDetail.jsx pattern
+   2. Implement data fetching with proper loading and error states
+   3. Display the specified fields in a card-based layout
+   4. Show related entities in a list or grid
+   5. Handle edge cases (missing data, empty related items)
+   6. Follow patterns from copilot-instructions.md
+   7. Reference docs/ARCHITECTURE.md for data flow
+   
+   Use mode: 'agent' in the frontmatter.
+   Add description: 'Generate a detail page following our proven pattern'
+   
+   Reference the CharacterDetail.jsx component as the template to follow.
+   ```
+
+7. **Use the prompt to generate Episode Detail page**
+   
+   Now test your new prompt:
+   - Open Copilot Chat
+   - Type `/create-detail-page`
+   - Fill in the variables:
+     - entity_name: `Episode`
+     - api_endpoint: `/api/episodes/:id`
+     - display_fields: `title, air_date, season_number, episode_number, synopsis, runtime`
+     - related_entities: `quotes, characters`
+   
+   **Watch the magic**: A complete EpisodeDetail page, following your established patterns, generated in minutes instead of the 20+ minutes the Character Detail page took.
+
+**Part 3: Complete the Feature (Steps 8-9)**
+
+8. **Elena generates tests**
    
    Use the prompt library:
    - `/create-api-tests` for the episodes route
-   - `/create-component-tests` for the EpisodeGuide component
+   - `/create-component-tests` for both EpisodeGuide and EpisodeDetail
 
-6. **Review as a team**
+9. **Update your tracking document**
    
-   Check that:
-   - All generated code follows team standards
-   - Tests cover the acceptance criteria
-   - Documentation would need any updates
+   Add a new section to `docs/character-detail-challenge.md`:
+   
+   ```markdown
+   ## Module 03: Pattern as Prompt
+   
+   We captured the Character Detail pattern as a reusable prompt.
+   
+   | Page | Approach | Time | Quality |
+   |------|----------|------|---------|
+   | Character Detail | Plan Mode (Mod 02) | ~20 min | ⭐⭐⭐⭐⭐ |
+   | Episode Detail | `create-detail-page` prompt | ~3 min | ⭐⭐⭐⭐⭐ |
+   
+   **Key Insight**: Once you've done it well once, encode the pattern. 
+   Don't repeat yourself—even with AI.
+   ```
 
 #### ✅ Success Criteria
 
-- [ ] Feature spec generated from prompt
-- [ ] Implementation plan covers backend, frontend, and tests
-- [ ] Backend changes follow copilot-instructions.md patterns
-- [ ] Frontend uses functional components with styled-components
+- [ ] Episode list page (EpisodeGuide) created
+- [ ] Backend route supports season filtering
+- [ ] Created `.github/prompts/create-detail-page.prompt.md`
+- [ ] Prompt includes all four variables (entity_name, api_endpoint, display_fields, related_entities)
+- [ ] Generated EpisodeDetail page using the prompt
+- [ ] EpisodeDetail follows same patterns as CharacterDetail
 - [ ] Tests generated using Elena's prompts
-- [ ] All code is consistent (same patterns throughout)
+- [ ] Updated `character-detail-challenge.md` with Module 03 metrics
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — The Compound Effect
 
-The team built a complete feature where:
-- Product vision translated cleanly to technical plan
-- Every piece of code follows the same patterns
-- Tests exist from the start, not as an afterthought
-- Junior and senior developers produced consistent quality
+The team now has:
+- **A complete Episode Guide feature** (list + detail)
+- **A reusable pattern** for any future detail page
+- **Measurable improvement** in their workflow
 
-**This is the compound effect** of Modules 1 and 2 working together.
+| What | Module 02 Approach | Module 03 Approach | Time Saved |
+|------|-------------------|-------------------|------------|
+| Character Detail | Plan mode from scratch | N/A (first time) | Baseline |
+| Episode Detail | Would repeat plan mode | Use `create-detail-page` prompt | ~17 minutes |
+| Show Detail | Would repeat plan mode | Use `create-detail-page` prompt | ~17 minutes |
+| Quote Detail | Would repeat plan mode | Use `create-detail-page` prompt | ~17 minutes |
+
+**The compound effect**: Every pattern you encode saves time forever.
 
 #### 📚 Official Docs
 
 - [VS Code: Chat Participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants)
+- [VS Code: Reusable Prompts](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files)
 - [GitHub Docs: Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat)
 
 #### 💭 Team Realization
 
-**Sarah**: *"This is what I hoped AI could do—not replace us, but make us work together better."*
+**Sarah**: *"This is what I hoped AI could do—not replace us, but make us work together better. And now our best work is reusable."*
 
-**David**: *"My architecture doc was referenced in every generated piece of code. That's leverage."*
+**David**: *"The Character Detail page took real thinking. Now that thinking is encoded. My architecture expertise lives in that prompt."*
 
 **Marcus**: *"I understood the business requirement because Rafael's prompt explained it. I'm not just coding—I'm solving problems."*
 
-**Priya**: *"I generated code that looks like David wrote it. The patterns are becoming automatic."*
+**Priya**: *"The Episode Detail page looks just like the Character Detail page I struggled with in Module 00. But this time it took 3 minutes, not 3 hours."*
+
+**Rafael**: *"We need Show Detail and Quote Detail pages too. With this prompt, that's 6 more minutes of work, not 6 more hours."*
+
+#### 🚀 Challenge Extension
+
+**Test the pattern's power**: Use your `create-detail-page` prompt to generate:
+1. **ShowDetail.jsx** — entity: Show, fields: title, network, start_year, end_year, description, related: seasons, characters
+2. **QuoteDetail.jsx** — entity: Quote, fields: text, context, speaker, episode, related: character, episode
+
+Track how long each takes. The pattern should hold.
 
 ---
 
-### Exercise 2.4: One-Word Git Workflow — "Jordan's Ship-It Button"
+### Exercise 3.4: One-Word Git Workflow — "Jordan's Ship-It Button"
 
 #### 📖 The Story
 
@@ -703,19 +800,42 @@ Everything we've built works on GitHub.com too:
 - `.github/prompts/create-api-tests.prompt.md`
 - `.github/prompts/spec-to-implementation.prompt.md`
 - `.github/prompts/feature-request-template.prompt.md`
+- `.github/prompts/create-detail-page.prompt.md` ← **The Golden Thread pattern!**
 - `.github/prompts/commit.prompt.md`
 
 **Artifacts from previous modules we used:**
 - `docs/ARCHITECTURE.md` — Referenced in prompts
 - `.github/copilot-instructions.md` — Automatic context for all prompts
+- `CharacterDetail.jsx` — The pattern we encoded into `create-detail-page`
 
 **How this helps in future modules:**
 
 | Module | How Today's Work Helps |
 |--------|----------------------|
-| Module 3 | Custom agents can use our prompts |
-| Module 4 | Instructions reference styling patterns |
-| Module 5 | All customizations compound, ship, and reflect |
+| Module 4 | Custom agents can use our prompts |
+| Module 5 | Instructions reference styling patterns |
+| Module 6 | Skills can invoke prompts for complex workflows |
+
+---
+
+## 🧵 The Golden Thread: Module 03 Summary
+
+You've now extended the Character Detail Challenge into reusable patterns:
+
+| Module | What You Did | Time Investment | Reusability |
+|--------|-------------|-----------------|-------------|
+| **00** | Struggled with Character Detail | ~45 min (frustrating) | One-time |
+| **01** | Added docs + instructions | ~30 min (better) | Helps all requests |
+| **02** | Used plan mode | ~20 min (great) | One-time per feature |
+| **03** | Created `create-detail-page` prompt | ~10 min (setup) | **Unlimited reuse** |
+
+**The progression**:
+- Module 00: "I don't know how to do this"
+- Module 01: "Copilot knows our patterns"
+- Module 02: "Copilot helps me plan"
+- Module 03: "**I never have to plan this pattern again**"
+
+> *"The best prompt is one you write once and use forever."* — David
 
 ---
 
@@ -733,13 +853,15 @@ This is knowledge scaling. Expert knowledge, available to everyone, every time.
 
 ## ✅ Module Checklist
 
-Before moving to Module 3, verify:
+Before moving to Module 4, verify:
 
-- [ ] `.github/prompts/` directory exists with at least 4 prompts
+- [ ] `.github/prompts/` directory exists with at least 6 prompts
+- [ ] Created `create-detail-page.prompt.md` (the Golden Thread pattern)
 - [ ] Prompts use variables for flexibility
 - [ ] Prompts reference existing documentation (ARCHITECTURE.md, copilot-instructions.md)
 - [ ] Team can invoke prompts from Copilot Chat
 - [ ] `/commit` prompt successfully creates branches, commits, pushes, and opens PRs
+- [ ] Updated `character-detail-challenge.md` with Module 03 metrics
 - [ ] Understand how to use `@workspace` participant with prompts
 - [ ] Tried PR summary generation on GitHub.com
 

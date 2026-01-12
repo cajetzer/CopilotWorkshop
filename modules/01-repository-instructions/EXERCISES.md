@@ -7,13 +7,19 @@
 
 ---
 
-## 📖 The Story So Far
+## 📖 Story So Far
 
-The TechCorp team has cloned the FanHub starter project and experienced **The Struggle**. Everyone got different suggestions from Copilot because there are no documented patterns—the AI is as confused as a new hire with no onboarding docs.
+The TechCorp team has gathered for their Monday morning sprint planning, and Sarah has thrown down a challenge: ship a production-ready FanHub (TV show fan site) by end of day.
 
-Now it's time to transform this chaos into consistency.
+The team has cloned the starter project and noticed something troubling: the `docs/` folder is empty. No architecture documentation, no coding standards, no team conventions. The AI is as confused as a new hire with no onboarding docs.
 
-**This module's mission**: Create the foundational documentation that tells Copilot (and future developers) how this team works. By the end, everyone will get consistent, high-quality suggestions aligned with your chosen patterns.
+They've experienced **The Struggle** firsthand—Copilot giving wildly different suggestions to each person, inconsistent patterns across the codebase, and hours wasted in code reviews catching style issues.
+
+**Exercise 1.1** (in the [main README](README.md#exercise-11-document-the-architecture--david-maps-the-territory)) established the foundation with David creating the architecture documentation. Now the team will build on that foundation with team standards, experience the transformation, and peek behind the AI's curtain.
+
+---
+
+💡 **Integration Note**: The architecture documentation created in Exercise 1.1 serves as the foundation for all exercises in this module. If you're jumping in here, complete Exercise 1.1 first to create `fanhub/docs/ARCHITECTURE.md`.
 
 ---
 
@@ -26,8 +32,8 @@ By the end of this module, you will:
 - Experience the dramatic improvement in suggestion quality
 - Understand why "clarity is the new syntax" isn't just a slogan
 
-**Time**: ~90 minutes  
-**Personas**: David (Architect), Sarah (Senior Developer), Priya (Junior Developer)
+**Time**: ~90 minutes (or follow your persona's focused path for less)  
+**Featured Personas**: David (Architect), Sarah (Senior Developer), Priya (Junior Developer)
 
 ---
 
@@ -72,200 +78,6 @@ This is why David's architecture documentation is step one—not step last.
 
 ## 🔨 Exercises
 
-### Exercise 1.1: Document the Architecture — "David Maps the Territory"
-
-#### 📖 The Story
-
-**David** (Staff Engineer, 20 years) opens the FanHub codebase and sees exactly what he expected—a contractor's code with no documentation. He's seen this movie before.
-
-*"Before anyone writes another line of code, we need to document what we have,"* David says. *"Otherwise Copilot is just guessing—and so are we."*
-
-Some team members groan. Documentation feels like busywork. But David knows something they'll soon learn: in the AI age, documentation isn't overhead—it's **amplification**.
-
-#### ❌ The "Before" — What Frustration Looks Like
-
-Watch what happens when you ask Copilot about the FanHub codebase right now:
-
-1. Open Copilot Chat (`Ctrl+Shift+I` / `Cmd+Shift+I`)
-2. Ask: *"@workspace What's the architecture of this project? How do the backend services communicate with the frontend?"*
-
-**Copilot's response will be:**
-- Vague ("appears to be a React frontend with a Node backend...")
-- Incomplete (missing key relationships)
-- Generic (no understanding of YOUR specific patterns)
-
-This is the tax you pay for undocumented code.
-
-#### 🎯 Objective
-
-Create architecture documentation that gives Copilot (and humans) the context to understand this codebase.
-
-#### 📋 Steps
-
-1. **Experience the "before" state**
-   
-   First, see what Copilot knows about the project without documentation:
-   
-   Open Copilot Chat and ask:
-   ```
-   @workspace What's the architecture of this project? How do the backend 
-   services communicate with the frontend?
-   ```
-   
-   Notice: The response is vague, generic, and misses important details.
-
-2. **Ask Copilot to generate the architecture doc**
-   
-   Now let's have Copilot create the documentation by analyzing the actual code:
-   
-   ```
-   @workspace Analyze this codebase and create an ARCHITECTURE.md file that documents:
-   
-   1. Overview - what this application does
-   2. Technology stack (backend, frontend, database, infrastructure)
-   3. Project structure - explain the folder organization
-   4. Data flow - how frontend communicates with backend
-   5. Known issues - any inconsistencies or problems you observe in the code
-   6. Development patterns - how to add new endpoints, pages, etc.
-   
-   Be specific about what you actually find in the code, not generic best practices.
-   Include a "Known Issues" section for any inconsistencies you observe.
-   ```
-
-3. **Review and refine the output** *(Practice 5: Iterate and Refine)*
-   
-   Copilot will generate a comprehensive architecture document. **Don't accept it immediately**—this is where your expertise matters.
-   
-   Review critically:
-   - Is the tech stack accurate?
-   - Did it capture the project structure correctly?
-   - Did it identify real issues (mixed async patterns, inconsistent styling)?
-   
-   **Iteration is normal, not failure.** Ask follow-up questions to improve the output:
-   
-   ```
-   @workspace What async patterns are used in the backend routes? Are they consistent?
-   ```
-   
-   ```
-   The database section is too vague. What specific tables exist and what are the relationships?
-   ```
-   
-   ```
-   Add more detail about error handling patterns in the API routes.
-   ```
-   
-   Each follow-up makes the documentation more accurate. This conversation IS the work.
-
-4. **Create the file**
-   
-   Create `fanhub/docs/ARCHITECTURE.md` and paste the generated content.
-   
-   Make any corrections based on your review—remember, you're the expert here, Copilot is your assistant.
-
-5. **Test the improvement**
-
-   Now ask Copilot the original question again:
-   
-   ```
-   @workspace What's the architecture of this project? How do the backend 
-   services communicate with the frontend?
-   ```
-   
-   The response should now reference your documentation with specific, accurate details.
-
-#### ✅ Success Criteria
-
-- [ ] Created `fanhub/docs/ARCHITECTURE.md` with project-specific details
-- [ ] Copilot-generated content was reviewed and refined by you
-- [ ] Identified at least 3 "Known Issues" from the starter code
-- [ ] Copilot's architecture explanation improved noticeably
-
-#### ✨ The "After" — The Improved Experience
-
-With `ARCHITECTURE.md` in place, Copilot now:
-- References your specific technology choices
-- Understands the project structure
-- Can explain data flow accurately
-- Knows about the inconsistencies that need fixing
-
-**Time invested**: 15 minutes  
-**Value unlocked**: Every future question about this codebase is now more accurate
-
-#### 📚 Official Docs
-
-- [VS Code: Adding Context](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-context)
-- [GitHub Docs: Using Context](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/using-copilot-chat#adding-context-to-your-questions)
-
-#### 📌 Practices Used
-
-| Practice | How It Applied |
-|----------|----------------|
-| 📚 **Documentation as Leverage** | Your ARCHITECTURE.md now benefits humans AND AI |
-| 🎯 **Context is Everything** | The `@workspace` context enabled accurate analysis |
-| 🔄 **Iterate and Refine** | You reviewed and improved AI output before accepting |
-
-#### 💭 David's Realization
-
-*"I've been documenting architecture for years because it helps junior devs. I never realized it also helps the AI. Same investment, double the payoff."*
-
----
-
-### 🧵 Checkpoint 1.1b: The Character Detail Challenge — After Architecture
-
-> **The Golden Thread**: Remember the Character Detail Challenge from Module 00? Let's see how much ARCHITECTURE.md alone improves your results.
-
-#### 🎯 Quick Objective
-
-Revisit the exact same prompt from Module 00 and measure the improvement.
-
-#### 📋 Steps
-
-1. **Use the same prompt from Module 00**
-   
-   In Copilot Chat:
-   ```
-   @workspace Add a character detail page that shows:
-   - Character name
-   - Photo
-   - Biography
-   - List of episodes they appear in
-   ```
-
-2. **Observe the differences**
-   
-   Compare to your Module 00 attempt:
-   - Does it reference the correct API structure from ARCHITECTURE.md?
-   - Does it understand the data flow better?
-   - Is it still inconsistent on patterns/styling?
-
-3. **Update your tracking document**
-   
-   Open `docs/character-detail-challenge.md` and fill in **Attempt 2: Module 01a**:
-   
-   | Metric | Module 00 | Module 01a (now) |
-   |--------|-----------|------------------|
-   | Time to working code | ___ min | ___ min |
-   | Prompt attempts | ___ | ___ |
-   | Pattern consistency | ___ | ___ |
-   | Confidence (1-10) | ___ | ___ |
-
-#### 💭 Expected Results
-
-**What should improve:**
-- ✅ Better understanding of project structure
-- ✅ Correct API endpoint references
-- ✅ Awareness of data relationships
-
-**What's still problematic:**
-- ❌ Pattern inconsistency (async styles, error handling)
-- ❌ Styling approaches may still vary
-- ❌ No clear conventions to follow
-
-*This is expected! Architecture provides context, but not patterns. That's what Exercise 1.2 fixes.*
-
----
-
 ### Exercise 1.2: Create Team Standards — "Sarah Builds the Playbook"
 
 #### 📖 The Story
@@ -276,7 +88,9 @@ Revisit the exact same prompt from Module 00 and measure the improvement.
 
 Sarah knows that defining standards isn't just about consistency—it's about leverage. Every hour spent here saves dozens of hours in code review debates.
 
-**Supporting Cast**: David (Staff Engineer) reviews Sarah's choices, ensuring the patterns align with long-term architectural goals.
+**Supporting Cast**: 
+- **David** (Staff Engineer) reviews Sarah's choices, ensuring the patterns align with long-term architectural goals
+- **Priya** will later benefit from these standards in Exercise 1.3
 
 #### ❌ The "Before" — What Frustration Looks Like
 
@@ -409,6 +223,10 @@ Ask Copilot to generate several different things:
 
 All suggestions now follow the same patterns. The team speaks one language.
 
+**Time saved per code review**: ~30 minutes (no more style debates)  
+**Consistency improvement**: From 3 different patterns to 1 standard approach  
+**Confidence gained**: The whole team now has explicit patterns to follow
+
 #### 📚 Official Docs
 
 - [VS Code: Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
@@ -425,7 +243,7 @@ All suggestions now follow the same patterns. The team speaks one language.
 
 #### 💭 Sarah's Realization
 
-*"I've spent years giving the same code review feedback over and over. Now I've codified those patterns once, and Copilot enforces them for me. The team gets consistent suggestions, and I get to focus on architecture instead of style debates."*
+*"I've spent years giving the same code review feedback over and over. Now I've codified those patterns once, and Copilot enforces them for me. The team gets consistent suggestions, and I get to focus on architecture instead of style debates."**
 
 #### 🚀 Challenge Extension
 
@@ -437,92 +255,22 @@ Add more specific testing guidance based on the feedback.
 
 ---
 
-### 🧵 Checkpoint 1.2b: The Character Detail Challenge — After Instructions
-
-> **The Golden Thread**: Now let's see the compounding effect of ARCHITECTURE.md + copilot-instructions.md together.
-
-#### 🎯 Quick Objective
-
-Revisit the Character Detail Challenge one more time and measure the cumulative improvement.
-
-#### 📋 Steps
-
-1. **Use the same prompt (again!)**
-   
-   In Copilot Chat:
-   ```
-   @workspace Add a character detail page that shows:
-   - Character name
-   - Photo
-   - Biography
-   - List of episodes they appear in
-   ```
-
-2. **Observe the compounding improvement**
-   
-   This time, compare:
-   - Does it use async/await consistently? (from your instructions)
-   - Does it follow your error handling pattern? (from your instructions)
-   - Does it use the styling approach you specified? (from your instructions)
-   - Does it match the architecture you documented? (from ARCHITECTURE.md)
-
-3. **Update your tracking document**
-   
-   Open `docs/character-detail-challenge.md` and fill in **Attempt 2: Module 01b**:
-   
-   | Metric | Module 00 | Module 01a | Module 01b (now) |
-   |--------|-----------|------------|------------------|
-   | Time to working code | ___ min | ___ min | ___ min |
-   | Prompt attempts | ___ | ___ | ___ |
-   | Pattern consistency | No | Partial | ___ |
-   | Confidence (1-10) | ___ | ___ | ___ |
-
-4. **Reflect on the progression**
-   
-   You've now tried the same challenge three times:
-   - **Module 00**: No context → chaos
-   - **Module 01a**: Architecture only → structure improves
-   - **Module 01b**: Architecture + Instructions → consistent patterns
-
-#### ✨ The Transformation So Far
-
-| Aspect | Module 00 | Module 01a | Module 01b |
-|--------|-----------|------------|------------|
-| **Structure** | Random | ✅ Correct | ✅ Correct |
-| **API usage** | Guessed | ✅ Documented | ✅ Documented |
-| **Patterns** | Inconsistent | Inconsistent | ✅ Standardized |
-| **Styling** | Mixed | Mixed | ✅ Consistent |
-| **Error handling** | Varies | Varies | ✅ Follows template |
-
-#### 💭 Team Realization
-
-**Sarah**: *"The documentation IS the value. Every minute we invested pays back on every AI interaction."*
-
-**David**: *"Architecture + Standards = Predictable AI. This is engineering, not magic."*
-
-**Priya**: *"Wait—my code looks like theirs now. The AI learned from them, and now I learn from the AI!"*
-
-#### 🔮 What's Next: Module 02
-
-Your results are dramatically better. But notice you're still asking for implementation directly. What if you could use AI to **plan first**, then implement?
-
-In **Module 02: Agent Plan Mode**, you'll revisit this challenge one final time—but instead of jumping to code, you'll use plan mode to think through the feature systematically. The results will be even better: fewer iterations, better edge case handling, and near-first-try success.
-
-> *"We've taught Copilot our patterns. Now let's teach it to think."* — David
-
----
-
 ### Exercise 1.3: Experience the Transformation — "Priya Sees the Light"
 
 #### 📖 The Story
 
-**Priya** (Junior Developer, 1 year) has been quietly watching David and Marcus work. She's intimidated by architecture documents and coding standards—that's senior developer stuff.
+**Priya** (Junior Developer, 1 year) has been quietly watching David and Sarah work. She's intimidated by architecture documents and coding standards—that's senior developer stuff.
 
 But then Sarah hands her a task: *"Add a new feature to display character quotes. Use Copilot, and tell us how it goes."*
 
 Priya opens her editor, types a prompt, and something magical happens: Copilot's suggestions look like they were written by David himself. Same patterns. Same error handling. Same naming conventions.
 
 *"Wait,"* she thinks. *"Is this what it feels like to have years of experience?"*
+
+**Supporting Cast**:
+- **David** created the architecture that guides the AI
+- **Marcus** defined the patterns that Priya now benefits from
+- **Sarah** provides the safe space for Priya to experiment and learn
 
 #### ❌ The "Before" — What Priya Used to Experience
 
@@ -531,6 +279,10 @@ Before the team created standards:
 - She'd accept code, then get feedback in reviews that it was "wrong"
 - She never knew which pattern was "correct"
 - Asking felt embarrassing—*shouldn't I already know this?*
+
+**Time wasted per feature**: 2+ hours (code + rewrites after review)  
+**Confidence level**: Low (constant uncertainty about "doing it right")  
+**Learning curve**: Steep (patterns weren't explicit)
 
 #### 🎯 Objective
 
@@ -598,8 +350,9 @@ Priya realizes something profound: The AI isn't giving her random suggestions an
 - Sarah's instructions → Copilot follows team patterns
 - Priya's code → Automatically looks like senior developer code
 
-**Time saved in code review**: Hours  
-**Confidence gained**: Immeasurable
+**Time saved per feature**: 90 minutes (first-try quality code)  
+**Code review rounds**: From 3-4 to 1  
+**Confidence gained**: Immeasurable—Priya now trusts her work
 
 #### 📚 Official Docs
 
@@ -641,6 +394,10 @@ Review all 5 for consistency. Do they all follow the same patterns? If not, what
 
 The Debug View reveals exactly that—what context Copilot received, how your prompt was constructed, and why it generated the response it did.
 
+**Supporting Cast**:
+- **Marcus** and **Priya** have been using Copilot without understanding the mechanics
+- **Sarah** encourages David's investigative approach—understanding the tool makes it more powerful
+
 #### ❌ The "Before" — What Frustration Looks Like
 
 Without debug visibility:
@@ -648,6 +405,10 @@ Without debug visibility:
 - Can't understand why it chose one approach over another
 - Hard to improve prompts without seeing what went wrong
 - Unexpected results lead to frustration, not learning
+
+**Time wasted on trial-and-error prompting**: 15-20 minutes per complex task  
+**Success rate**: ~60% (hit-or-miss without understanding)  
+**Ability to teach others**: Limited (can't explain why something works)
 
 #### 🎯 Objective
 
@@ -721,6 +482,10 @@ With debug visibility:
 - Debug unexpected behavior systematically
 - Improve prompting skills with evidence, not guesswork
 
+**Time saved on debugging unexpected results**: 10-15 minutes per issue  
+**Success rate**: 90%+ (intentional context leads to predictable results)  
+**Teaching effectiveness**: High (can show others exactly how it works)
+
 #### 📚 Official Docs
 
 - [VS Code Developer Tools](https://code.visualstudio.com/docs/editor/debugging)
@@ -735,8 +500,8 @@ With debug visibility:
 ## 🔗 Compounding Value
 
 **What we created in this module:**
-- `docs/ARCHITECTURE.md` — Project context
-- `.github/copilot-instructions.md` — Team patterns
+- `docs/ARCHITECTURE.md` — Project context (Exercise 1.1)
+- `.github/copilot-instructions.md` — Team patterns (Exercise 1.2)
 
 **How this helps in future modules:**
 
@@ -792,11 +557,12 @@ Before moving to Module 2, verify:
 
 ## ➡️ Next Up
 
-**[Module 2: Custom Prompts](../02-custom-prompts/README.md)** (Monday 11:30 AM)
+**[Module 2: Agent Plan Mode](../02-agent-plan-mode/README.md)** — Monday 11:30 AM
 
-Now that we have foundations, it's time to build reusable tools. Elena will create a testing prompt library, Rafael will bridge requirements and implementation, and the whole team will build the episode guide using prompts that reference our new documentation.
+Now that Copilot knows our patterns, let's teach it to think through problems before coding. David will discover AI planning for architectural decisions, Marcus will debug complex deployment issues, and the whole team will see how "plan first, code second" transforms their workflow.
 
-*"Copilot knows our patterns now. Let's teach it our workflows."* — Sarah, sipping her second coffee
+> *"The AI knows our standards now. But can it think through complex problems like we do?"*  
+> — David, ready to test Copilot's reasoning capabilities
 
 ---
 
