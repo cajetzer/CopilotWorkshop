@@ -540,6 +540,328 @@ Now when a bug report comes in:
 
 ---
 
+### Exercise 5.2A: Docker Build Debugger Skill — "Marcus Stops Googling Build Errors"
+
+> 🧵 **The Golden Thread**: Marcus handles deployment, but cryptic Docker build errors slow him down. He'll create a skill that diagnoses build failures—teaching Copilot his DevOps expertise.
+
+#### 📖 The Story
+
+**Marcus** (DevOps Developer, 5 years) is comfortable with Docker—until something breaks. Then he's stuck googling error messages like "failed to compute cache key" or "executor failed running [/bin/sh -c npm install]."
+
+**His frustration**: *"I know these are common issues—layer caching, COPY order, context size—but I waste time searching Stack Overflow every time. Why can't Copilot just know Docker build patterns?"*
+
+Today, Marcus will encode his Docker expertise into a skill that diagnoses build failures automatically.
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+Marcus updates the FanHub backend Dockerfile to add a new dependency. The build fails:
+
+```
+ERROR [backend 4/7] RUN npm install
+------
+ > [backend 4/7] RUN npm install:
+#8 2.489 npm ERR! code ENOENT
+#8 2.490 npm ERR! syscall open
+#8 2.490 npm ERR! path /app/package.json
+#8 2.491 npm ERR! errno -2
+```
+
+**Marcus's process WITHOUT the skill:**
+1. Copy error message → Google → Stack Overflow (8 minutes)
+2. Find answer: "COPY package.json before RUN npm install"
+3. Fix Dockerfile, rebuild (3 minutes)
+4. New error: "COPY failed: no source files were specified"
+5. Google again → realize COPY path is wrong (6 minutes)
+6. Fix, rebuild, finally succeeds
+
+**Total time wasted**: ~20 minutes on a simple Dockerfile ordering issue.
+
+**What Marcus is thinking**: *"I've fixed this exact issue before. Why do I keep forgetting the COPY order pattern?"*
+
+#### 🎯 Objective
+
+Create a Docker Build Debugger skill that teaches Copilot common Docker build patterns, failure modes, and diagnostic approaches—so Marcus can debug builds in seconds instead of minutes.
+
+#### 📋 Steps
+
+1. **Create the skill directory structure**
+   
+   In your FanHub repository:
+   
+   ```bash
+   mkdir -p .github/skills/docker-build-debugger
+   ```
+
+2. **Create a diagnostic script**
+   
+   First, create a helper script that validates Dockerfiles:
+   
+   ```bash
+   touch .github/skills/docker-build-debugger/analyze-dockerfile.js
+   ```
+   
+   Add this content (or use plan mode to generate it):
+   
+   ```javascript
+   #!/usr/bin/env node
+   
+   // Docker Build Analyzer
+   // Checks Dockerfile for common issues
+   
+   const fs = require('fs');
+   const path = require('path');
+   
+   function analyzeDockerfile(dockerfilePath) {
+     const content = fs.readFileSync(dockerfilePath, 'utf8');
+     const lines = content.split('\n');
+     const issues = [];
+     
+     let foundCopyPackageJson = false;
+     let foundRunNpmInstall = false;
+     let copyBeforeRun = false;
+     
+     lines.forEach((line, idx) => {
+       const trimmed = line.trim();
+       
+       // Check COPY package.json comes before RUN npm install
+       if (trimmed.match(/^COPY.*package\.json/i)) {
+         foundCopyPackageJson = true;
+         if (!foundRunNpmInstall) copyBeforeRun = true;
+       }
+       if (trimmed.match(/^RUN.*npm install/i)) {
+         foundRunNpmInstall = true;
+         if (!copyBeforeRun) {
+           issues.push({
+             line: idx + 1,
+             severity: 'error',
+             message: 'RUN npm install before COPY package.json - will fail with ENOENT',
+             fix: 'Move COPY package*.json ./ before RUN npm install'
+           });
+         }
+       }
+       
+       // Check for missing WORKDIR
+       if (trimmed.match(/^COPY|^RUN/) && !content.match(/^WORKDIR/m)) {
+         if (!issues.some(i => i.message.includes('WORKDIR'))) {
+           issues.push({
+             line: idx + 1,
+             severity: 'warning',
+             message: 'No WORKDIR set - COPY/RUN paths may be ambiguous',
+             fix: 'Add WORKDIR /app before COPY commands'
+           });
+         }
+       }
+       
+       // Check for COPY . . before npm install (slow rebuilds)
+       if (trimmed === 'COPY . .' && !foundRunNpmInstall) {
+         issues.push({
+           line: idx + 1,
+           severity: 'warning',
+           message: 'COPY . . before dependencies - breaks layer caching',
+           fix: 'Copy package*.json first, RUN npm install, then COPY . .'
+         });
+       }
+     });
+     
+     return {
+       file: dockerfilePath,
+       issues,
+       summary: issues.length === 0 
+         ? 'No common issues detected' 
+         : `Found ${issues.length} potential issue(s)`
+     };
+   }
+   
+   // CLI usage
+   if (require.main === module) {
+     const dockerfilePath = process.argv[2] || './Dockerfile';
+     const result = analyzeDockerfile(dockerfilePath);
+     console.log(JSON.stringify(result, null, 2));
+   }
+   
+   module.exports = { analyzeDockerfile };
+   ```
+   
+   Make it executable:
+   ```bash
+   chmod +x .github/skills/docker-build-debugger/analyze-dockerfile.js
+   ```
+
+3. **Use plan mode to design the skill content**
+   
+   ```
+   @agent Help me create the SKILL.md file for our Docker Build Debugger skill.
+   
+   This skill should help diagnose Docker build failures for our FanHub Node.js app.
+   
+   Include these sections:
+   
+   1. Common Docker Build Failure Patterns:
+      - ENOENT errors (missing package.json) → COPY order wrong
+      - "no source files" → COPY path issues
+      - "executor failed" → Invalid RUN commands
+      - Slow rebuilds → Layer caching problems
+      - Context too large → .dockerignore missing
+   
+   2. Best Practices for Node.js Dockerfiles:
+      - WORKDIR /app for clear paths
+      - COPY package*.json first (for caching)
+      - RUN npm ci (not npm install in prod)
+      - COPY . . last (after dependencies)
+      - Multi-stage builds for smaller images
+   
+   3. Diagnostic Approach:
+      - Read error message carefully
+      - Check COPY/RUN command order
+      - Verify paths are relative to context
+      - Check .dockerignore for context bloat
+      - Test layer caching with --no-cache
+   
+   4. Script Integration:
+      - Reference the analyze-dockerfile.js script
+      - Explain when to run it (before debugging)
+      - Show how to interpret its output
+   
+   Create a properly formatted SKILL.md file with:
+   - YAML frontmatter (name, description, scripts section)
+   - Clear instructions organized by failure type
+   - Examples from FanHub's frontend/backend Dockerfiles
+   - Links to script output interpretation
+   ```
+
+4. **Create the SKILL.md file**
+   
+   Save Copilot's generated content to:
+   ```
+   .github/skills/docker-build-debugger/SKILL.md
+   ```
+   
+   Review the completed skill in the examples folder:
+   ```
+   examples/completed-config/skills/docker-build-debugger/SKILL.md
+   ```
+   
+   Notice the YAML frontmatter includes:
+   ```yaml
+   scripts:
+     - name: analyze-dockerfile
+       command: node .github/skills/docker-build-debugger/analyze-dockerfile.js
+       description: Validates Dockerfile for common issues
+   ```
+
+5. **Test the skill with a broken Dockerfile**
+   
+   Temporarily break the backend Dockerfile to test the skill:
+   
+   ```dockerfile
+   # Break it: put RUN before COPY
+   FROM node:18-alpine
+   RUN npm install
+   COPY package*.json ./
+   COPY . .
+   CMD ["node", "src/index.js"]
+   ```
+   
+   Now ask Copilot:
+   
+   ```
+   @workspace Why does my backend Dockerfile build fail with "ENOENT package.json"?
+   
+   The error says:
+   npm ERR! code ENOENT
+   npm ERR! syscall open
+   npm ERR! path /app/package.json
+   ```
+   
+   **Expected**: Copilot should use the skill to diagnose:
+   - "RUN npm install appears before COPY package.json"
+   - "Move COPY package*.json ./ before RUN npm install"
+   - Optionally: "Run the analyze-dockerfile script to check for other issues"
+
+6. **Verify the script integration**
+   
+   Ask Copilot to run the diagnostic script:
+   
+   ```
+   @workspace Run the Docker build analyzer on backend/Dockerfile
+   ```
+   
+   Copilot should recognize the script from the skill's frontmatter and execute it.
+
+7. **Test with a caching issue**
+   
+   Now test with a more subtle problem:
+   
+   ```
+   @workspace My Docker builds are really slow—every code change rebuilds npm install. 
+   Here's my Dockerfile:
+   
+   FROM node:18-alpine
+   WORKDIR /app
+   COPY . .
+   RUN npm ci
+   CMD ["node", "src/index.js"]
+   
+   What's wrong?
+   ```
+   
+   **Expected**: Copilot should identify the layer caching issue and suggest:
+   - Copy package*.json first
+   - RUN npm ci (caches this layer)
+   - COPY . . last (only this layer rebuilds on code changes)
+
+#### ✅ Success Criteria
+
+- [ ] Created `.github/skills/docker-build-debugger/` directory
+- [ ] Created `analyze-dockerfile.js` script that validates Dockerfile patterns
+- [ ] Created `SKILL.md` with frontmatter including `scripts` section
+- [ ] Documented common failure patterns (ENOENT, layer caching, context size)
+- [ ] Included Node.js-specific best practices
+- [ ] Tested skill with COPY order error—Copilot diagnosed correctly
+- [ ] Tested script integration—Copilot can run the analyzer
+- [ ] Tested with layer caching issue—Copilot suggested proper COPY order
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/docker-build-debugger/`](../../examples/completed-config/skills/docker-build-debugger/) for reference implementation (both SKILL.md and analyze-dockerfile.js).
+
+#### ✨ The "After" — The Improved Experience
+
+Now when a Docker build fails:
+- **Instant diagnosis** — Copilot recognizes error patterns
+- **Script validation** — Automated Dockerfile checking
+- **Actionable fixes** — Specific line changes, not vague advice
+- **Layer caching awareness** — Prevents slow rebuild cycles
+
+**Before the skill:**
+- Time per build error: ~15-20 minutes (Google → Stack Overflow → trial/error)
+- Errors before success: 2-3 attempts
+- Frustration level: High (same issues keep recurring)
+
+**After the skill:**
+- Time per build error: ~2 minutes (ask Copilot → get fix)
+- Errors before success: 1 attempt (fix is correct first time)
+- Frustration level: Low (systematic diagnosis)
+
+**Value unlocked**: Marcus debugs Docker builds 8x faster. His DevOps expertise is now encoded and accessible to the whole team.
+
+#### 📚 Official Docs
+
+- [VS Code: Agent Skills with Scripts](https://code.visualstudio.com/docs/copilot/customization/agent-skills#script-integration)
+- [Docker: Best Practices for Node.js](https://docs.docker.com/language/nodejs/build-images/)
+- [Docker: Layer Caching](https://docs.docker.com/build/cache/)
+
+#### 💭 Marcus's Transformation
+
+*"This is exactly what I needed! I've debugged hundreds of Dockerfile issues—COPY order, layer caching, context size. Now that knowledge is in a skill. When someone on the team hits a build error, Copilot diagnoses it using my patterns. And the script catches issues before we even run docker build. My 5 years of DevOps experience just became the team's Docker expert."*
+
+#### 🚀 Challenge Extension
+
+**For advanced users**: Extend the script to check for:
+- Security issues (running as root, outdated base images)
+- Multi-stage build opportunities (dev dependencies in final image)
+- .dockerignore validation (node_modules, .git being copied)
+
+---
+
 ### Exercise 5.3: Create Domain-Specific Skills — "What Character Detail v2 Will Need"
 
 > 🧵 **The Golden Thread**: When the agent builds Character Detail v2 in Module 07, it should follow FanHub's product standards. Rafael creates a skill that ensures features get error boundaries, loading states, and analytics automatically.
@@ -778,6 +1100,353 @@ Rafael's product requirements are now:
 
 ---
 
+### Exercise 5.3A: Dependency Conflict Resolver Skill — "Marcus Fixes npm Hell"
+
+> 🧵 **The Golden Thread**: Marcus updates a dependency and `npm install` explodes with peer dependency errors. He'll create a skill that diagnoses conflicts systematically.
+
+#### 📖 The Story
+
+**Marcus** needs to update `react-router-dom` in the FanHub frontend. He changes the version in package.json, runs `npm install`, and hits this:
+
+```
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: react-router-dom@6.20.0
+npm ERR! Found: react@17.0.2
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@"^18.0.0" from react-router-dom@6.20.0
+```
+
+**Marcus's frustration**: *"I know what this means—react-router v6 needs React 18, but we're on React 17. But which packages will break if I upgrade React? And do I need to update other packages too?"*
+
+He spends 30 minutes checking package compatibility, reading changelogs, and testing. There has to be a better way.
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+Marcus wants to add a new feature that requires `react-router-dom@6.20.0`. Here's his painful process:
+
+1. **Update package.json** — Change react-router-dom version (2 minutes)
+2. **Run npm install** — Immediate ERESOLVE error (30 seconds)
+3. **Google the error** — Find discussions about React 18 requirement (5 minutes)
+4. **Check React breaking changes** — Read React 18 migration docs (10 minutes)
+5. **Find dependent packages** — Manually grep package.json for react-* packages (3 minutes)
+6. **Check each package** — Visit npm to see which versions support React 18 (8 minutes)
+7. **Update multiple packages** — React, react-dom, react-scripts, testing-library (4 minutes)
+8. **Run npm install again** — New conflict with testing-library (30 seconds)
+9. **Repeat process** — Another 10 minutes of research and updates
+
+**Total time**: ~45 minutes
+**Result**: Finally works, but Marcus isn't confident he didn't miss something
+**Frustration level**: Maximum — *"There has to be a systematic way to do this!"*
+
+#### 🎯 Objective
+
+Create a Dependency Conflict Resolver skill that teaches Copilot how to diagnose npm/yarn dependency conflicts, identify cascading updates needed, and suggest safe upgrade paths.
+
+#### 📋 Steps
+
+1. **Create the skill directory structure**
+   
+   In your FanHub repository:
+   
+   ```bash
+   mkdir -p .github/skills/dependency-conflict-resolver
+   ```
+
+2. **Create a dependency analyzer script**
+   
+   Create a script that checks for common dependency issues:
+   
+   ```bash
+   touch .github/skills/dependency-conflict-resolver/analyze-dependencies.js
+   ```
+   
+   Add this content:
+   
+   ```javascript
+   #!/usr/bin/env node
+   
+   // Dependency Conflict Analyzer
+   // Checks package.json for compatibility issues
+   
+   const fs = require('fs');
+   const path = require('path');
+   
+   function analyzeDependencies(packageJsonPath) {
+     const pkgJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+     const deps = { ...pkgJson.dependencies, ...pkgJson.devDependencies };
+     const issues = [];
+     
+     // Check React ecosystem versions
+     const reactVersion = deps['react'];
+     const reactDomVersion = deps['react-dom'];
+     const reactRouterVersion = deps['react-router-dom'];
+     
+     if (reactVersion && reactDomVersion) {
+       const reactMajor = extractMajorVersion(reactVersion);
+       const reactDomMajor = extractMajorVersion(reactDomVersion);
+       
+       if (reactMajor !== reactDomMajor) {
+         issues.push({
+           severity: 'error',
+           package: 'react/react-dom',
+           message: `Version mismatch: react@${reactVersion} but react-dom@${reactDomVersion}`,
+           fix: 'Both packages must be on same major version',
+           category: 'version-mismatch'
+         });
+       }
+     }
+     
+     // Check React Router compatibility with React
+     if (reactVersion && reactRouterVersion) {
+       const reactMajor = extractMajorVersion(reactVersion);
+       const routerMajor = extractMajorVersion(reactRouterVersion);
+       
+       if (routerMajor >= 6 && reactMajor < 18) {
+         issues.push({
+           severity: 'error',
+           package: 'react-router-dom',
+           message: `react-router-dom@${routerMajor} requires React 18+, but found React ${reactMajor}`,
+           fix: 'Upgrade react and react-dom to ^18.0.0, or downgrade react-router-dom to ^5.3.0',
+           category: 'peer-dependency'
+         });
+       }
+     }
+     
+     // Check for caret vs exact versions (potential lock issues)
+     const exactVersions = Object.entries(deps)
+       .filter(([_, version]) => !version.match(/^[\^~]/))
+       .map(([pkg]) => pkg);
+     
+     if (exactVersions.length > 3) {
+       issues.push({
+         severity: 'warning',
+         package: exactVersions.join(', '),
+         message: `${exactVersions.length} packages use exact versions (no ^ or ~)`,
+         fix: 'Consider using ^ for minor version updates: "^1.2.3" allows 1.x.x updates',
+         category: 'versioning-strategy'
+       });
+     }
+     
+     // Check for very old packages (security risk)
+     const oldPackages = [];
+     for (const [pkg, version] of Object.entries(deps)) {
+       const major = extractMajorVersion(version);
+       // Flag React < 17, Node packages with major version 0
+       if ((pkg === 'react' && major < 17) || (major === 0 && !pkg.includes('eslint'))) {
+         oldPackages.push(`${pkg}@${version}`);
+       }
+     }
+     
+     if (oldPackages.length > 0) {
+       issues.push({
+         severity: 'warning',
+         package: oldPackages.join(', '),
+         message: 'Old package versions detected (potential security/compatibility issues)',
+         fix: 'Review changelogs and consider upgrading to latest stable versions',
+         category: 'outdated'
+       });
+     }
+     
+     return {
+       file: packageJsonPath,
+       totalDependencies: Object.keys(deps).length,
+       issues,
+       summary: issues.length === 0 
+         ? 'No obvious compatibility issues detected' 
+         : `Found ${issues.length} potential issue(s)`
+     };
+   }
+   
+   function extractMajorVersion(versionString) {
+     const match = versionString.match(/(\d+)\./);
+     return match ? parseInt(match[1], 10) : 0;
+   }
+   
+   // CLI usage
+   if (require.main === module) {
+     const packageJsonPath = process.argv[2] || './package.json';
+     const result = analyzeDependencies(packageJsonPath);
+     console.log(JSON.stringify(result, null, 2));
+   }
+   
+   module.exports = { analyzeDependencies };
+   ```
+   
+   Make it executable:
+   ```bash
+   chmod +x .github/skills/dependency-conflict-resolver/analyze-dependencies.js
+   ```
+
+3. **Use plan mode to design the skill content**
+   
+   ```
+   @agent Help me create the SKILL.md file for our Dependency Conflict Resolver skill.
+   
+   This skill should help diagnose and resolve npm dependency conflicts for FanHub's 
+   React/Node.js stack.
+   
+   Include these sections:
+   
+   1. Common Dependency Conflict Patterns:
+      - ERESOLVE errors → peer dependency version mismatches
+      - Version conflicts in React ecosystem (react, react-dom, react-router)
+      - Cascading updates (upgrading one package requires others)
+      - Lock file desync (package-lock.json vs package.json)
+   
+   2. Diagnostic Approach:
+      - Read the error message for specific package names
+      - Identify which package is requesting the peer dependency
+      - Check current versions of all related packages
+      - Find compatible version ranges
+      - Plan update order (dependencies before dependents)
+   
+   3. FanHub-Specific Rules:
+      - Frontend uses React 17+ (considering React 18 migration)
+      - Backend uses Node 18+ LTS
+      - Testing with Jest + React Testing Library
+      - Router: react-router-dom (v5 currently, v6 planned)
+   
+   4. Safe Upgrade Strategies:
+      - Check breaking changes in CHANGELOGs
+      - Update package.json versions together
+      - Use npm list to verify resolution
+      - Run tests after updates
+      - Commit dependency updates separately from features
+   
+   5. Script Integration:
+      - Reference the analyze-dependencies.js script
+      - Explain when to run it (before major updates)
+      - Show how to interpret conflict categories
+   
+   Create a properly formatted SKILL.md file with:
+   - YAML frontmatter with scripts section
+   - Clear diagnostic flowchart
+   - Examples of common React ecosystem conflicts
+   - Safe resolution steps
+   ```
+
+4. **Create the SKILL.md file**
+   
+   Save Copilot's generated content to:
+   ```
+   .github/skills/dependency-conflict-resolver/SKILL.md
+   ```
+   
+   Review the completed skill in the examples folder:
+   ```
+   examples/completed-config/skills/dependency-conflict-resolver/SKILL.md
+   ```
+
+5. **Test the skill with a React Router upgrade scenario**
+   
+   Ask Copilot to diagnose the conflict:
+   
+   ```
+   @workspace I'm trying to upgrade react-router-dom from 5.3.0 to 6.20.0 but getting:
+   
+   npm ERR! ERESOLVE could not resolve
+   npm ERR! peer react@"^18.0.0" from react-router-dom@6.20.0
+   npm ERR! Found: react@17.0.2
+   
+   What do I need to update and in what order?
+   ```
+   
+   **Expected**: Copilot should use the skill to provide:
+   - Root cause: "react-router-dom@6 requires React 18+"
+   - Packages to update: react, react-dom, @testing-library/react
+   - Update order: Update all together to avoid intermediate conflicts
+   - Breaking changes warning: "Check React 18 migration guide"
+
+6. **Test the analyzer script**
+   
+   Ask Copilot to run the dependency analyzer:
+   
+   ```
+   @workspace Run the dependency analyzer on frontend/package.json
+   ```
+   
+   The script should detect:
+   - Any React/React-DOM version mismatches
+   - react-router compatibility with current React version
+   - Outdated packages or exact versions
+
+7. **Test with a complex cascading scenario**
+   
+   Present a more complex situation:
+   
+   ```
+   @workspace I updated React to 18.2.0, but now I'm getting errors from:
+   - react-scripts (incompatible with React 18)
+   - @testing-library/react (needs newer version)
+   - react-router-dom (still on v5)
+   
+   What's the safe upgrade path?
+   ```
+   
+   **Expected**: Copilot should provide a systematic upgrade plan:
+   1. Check react-scripts compatibility → may need v5+
+   2. Update @testing-library/react to ^13.0.0
+   3. Consider react-router-dom v6 (but can stay on v5 if needed)
+   4. Update all at once, then run tests
+
+#### ✅ Success Criteria
+
+- [ ] Created `.github/skills/dependency-conflict-resolver/` directory
+- [ ] Created `analyze-dependencies.js` script that detects compatibility issues
+- [ ] Created `SKILL.md` with frontmatter including scripts section
+- [ ] Documented common npm conflict patterns (ERESOLVE, peer deps)
+- [ ] Included FanHub-specific dependency rules (React version, Node version)
+- [ ] Tested with React Router upgrade—Copilot identified cascading updates needed
+- [ ] Tested script integration—Copilot ran analyzer and interpreted results
+- [ ] Tested complex scenario—Copilot provided systematic upgrade order
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/dependency-conflict-resolver/`](../../examples/completed-config/skills/dependency-conflict-resolver/) for reference implementation.
+
+#### ✨ The "After" — The Improved Experience
+
+Now when Marcus hits a dependency conflict:
+- **Instant diagnosis** — Copilot identifies root cause (peer dependency mismatch)
+- **Cascading updates identified** — All affected packages listed upfront
+- **Safe upgrade order** — No trial-and-error, systematic plan
+- **Breaking changes flagged** — Reminded to check migration guides
+
+**Before the skill:**
+- Time per dependency conflict: ~30-45 minutes (research + trial/error)
+- Failed install attempts: 3-5 before success
+- Confidence level: Low (worried about missed dependencies)
+- Broken tests: Often discovered after "successful" install
+
+**After the skill:**
+- Time per dependency conflict: ~5 minutes (ask + execute plan)
+- Failed install attempts: 0-1 (plan works first time)
+- Confidence level: High (systematic approach)
+- Broken tests: Rare (breaking changes anticipated)
+
+**Value unlocked**: Marcus resolves dependency conflicts 8x faster and with zero guesswork. The skill captures his hard-won knowledge of the React ecosystem.
+
+#### 📚 Official Docs
+
+- [npm: Peer Dependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#peerdependencies)
+- [React: Upgrading to React 18](https://react.dev/blog/2022/03/08/react-18-upgrade-guide)
+- [React Router: Upgrading to v6](https://reactrouter.com/en/main/upgrading/v5)
+
+#### 💭 Marcus's Transformation
+
+*"Dependency conflicts used to be my nightmare—30 minutes of googling, trial and error, broken builds. Now the skill does the analysis in seconds. It knows React Router v6 needs React 18, which packages cascade, what order to update them. My experience dealing with npm hell is now encoded knowledge that helps the whole team avoid these time sinks."*
+
+#### 🚀 Challenge Extension
+
+**For advanced users**: Extend the script to:
+- Check for known security vulnerabilities (`npm audit` integration)
+- Suggest package-lock.json regeneration when needed
+- Detect transitive dependency conflicts
+- Recommend compatible version ranges using npm registry API
+
+---
+
 ### Exercise 5.4: Effort Estimator Skill — "What's Next After Character Detail?"
 
 > 🧵 **The Golden Thread**: Character Detail v2 shipped. Users love it. Now stakeholders want Episode Detail pages. But how long will that take? Rafael doesn't want to guess again.
@@ -998,6 +1667,284 @@ Enhance the effort estimator to:
 - Suggest MVP vs. full-featured versions ("Ship basic Episode Detail in 1 sprint, add streaming links later")
 - Track actual vs. estimated effort to improve future estimates
 - Flag when estimates diverge significantly from similar past work
+
+---
+
+### Exercise 5.4A: Build Pipeline Analyzer Skill — "Jordan and Marcus Debug CI/CD Failures"
+
+> 🧵 **The Golden Thread**: FanHub's GitHub Actions pipeline fails. Marcus and Jordan spend 20 minutes digging through logs. They'll create a skill that diagnoses build failures systematically. *This connects to Module 8 (Copilot Web) and Module 9 (CLI), where pipeline automation continues.*
+
+#### 📖 The Story
+
+**Marcus** (DevOps Developer, 5 years) gets a Slack notification: "Build failed on main branch." He opens GitHub Actions, finds a 500-line log, and starts scrolling:
+
+```
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! fanhub-frontend@1.0.0 test: `react-scripts test --coverage`
+npm ERR! Exit status 1
+```
+
+**Jordan** (DevOps Expert, 12 years) joins: *"What failed this time?"*
+
+Marcus: *"Tests... I think? The log is huge."*
+
+Jordan: *"Let me look... yeah, tests are timing out. But why? This worked yesterday."*
+
+They spend 20 minutes analyzing:
+- Was it an environment issue? (check Node version)
+- A flaky test? (check previous runs)
+- A new commit that broke something? (check diff)
+- Resource exhaustion? (check runner memory)
+
+**The problem**: Every build failure requires manual log forensics. There's no systematic diagnostic approach.
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+**Scenario**: The FanHub backend build fails on pull request #47. Here's Marcus and Jordan's painful process:
+
+1. **Get notified** — Slack: "CI failed" (instant)
+2. **Open GitHub Actions** — Navigate to workflow run (30 seconds)
+3. **Expand log groups** — Click through 8 steps to find failure (2 minutes)
+4. **Find error message** — Scroll through 500 lines of npm output (3 minutes)
+5. **Identify error type** — "Ah, it's a test failure" (30 seconds)
+6. **Find which test** — Search for "FAIL" in logs (2 minutes)
+7. **Understand context** — Read test output, stack trace (5 minutes)
+8. **Check if known issue** — Search similar failures, check Slack (4 minutes)
+9. **Identify root cause** — Database connection timeout in test (2 minutes)
+10. **Fix** — Increase timeout in test config (1 minute)
+11. **Push fix and wait** — Commit + re-run CI (5 minutes)
+
+**Total time**: ~25 minutes per CI failure
+**Frustration**: High — *"We spend more time debugging CI than writing features"*
+**Bus factor**: Only Marcus and Jordan know how to read these logs effectively
+
+#### 🎯 Objective
+
+Create a Build Pipeline Analyzer skill that teaches Copilot how to diagnose common CI/CD failure patterns, extract key errors from verbose logs, and suggest fixes based on FanHub's pipeline configuration.
+
+#### 📋 Steps
+
+1. **Create the skill directory structure**
+   
+   In your FanHub repository:
+   
+   ```bash
+   mkdir -p .github/skills/build-pipeline-analyzer
+   ```
+
+2. **Use plan mode to design the skill content**
+   
+   ```
+   @agent Help me create the SKILL.md file for our Build Pipeline Analyzer skill.
+   
+   This skill should help diagnose GitHub Actions workflow failures for FanHub's CI/CD pipeline.
+   
+   Include these sections:
+   
+   1. Common CI/CD Failure Patterns:
+      - Test failures (timeout, assertion, setup issues)
+      - Build failures (dependency install, compilation errors)
+      - Linting failures (ESLint, Prettier violations)
+      - Docker build failures (in CI context)
+      - Environment issues (Node version, missing secrets)
+   
+   2. Log Analysis Approach:
+      - Identify which workflow step failed
+      - Extract the actual error message (not just exit code)
+      - Distinguish root cause from cascading errors
+      - Check if failure is intermittent (flaky test)
+      - Compare to previous successful runs
+   
+   3. FanHub Pipeline Structure:
+      - Frontend workflow: install → lint → test → build
+      - Backend workflow: install → lint → test → docker-build
+      - Runs on: ubuntu-latest, Node 18
+      - Test coverage requirements (80% minimum)
+      - Docker builds use multi-stage Dockerfile
+   
+   4. Diagnostic Questions to Ask:
+      - Which step failed? (install, lint, test, build)
+      - What's the error message? (extract from logs)
+      - Did this pass on previous commit? (regression vs. existing issue)
+      - Is it environment-specific? (works locally but not in CI)
+      - Are secrets/env vars configured? (for backend tests)
+   
+   5. Common Fixes:
+      - Test timeouts → Increase test timeout or fix slow test
+      - Dependency install fails → Check package-lock.json committed
+      - Lint errors → Run locally with --fix flag
+      - Docker build fails → Check COPY paths relative to workflow
+      - Flaky tests → Add retry logic or improve test isolation
+   
+   Create a properly formatted SKILL.md file with:
+   - YAML frontmatter (name, description)
+   - Flowchart for triaging failures
+   - Examples of real FanHub CI errors
+   - Quick fixes for each failure type
+   ```
+
+3. **Create the SKILL.md file**
+   
+   Save Copilot's generated content to:
+   ```
+   .github/skills/build-pipeline-analyzer/SKILL.md
+   ```
+   
+   Review the completed skill in the examples folder:
+   ```
+   examples/completed-config/skills/build-pipeline-analyzer/SKILL.md
+   ```
+
+4. **Test the skill with a test failure scenario**
+   
+   Give Copilot a real build failure log excerpt:
+   
+   ```
+   @workspace Our GitHub Actions build failed with this output:
+   
+   Run npm test -- --coverage
+     FAIL src/components/CharacterCard.test.js
+       ● CharacterCard › renders character name
+         
+         Timeout - Async callback was not invoked within the 5000ms timeout 
+         specified by jest.setTimeout.
+         
+       at ../node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:62:11
+   
+   npm ERR! Test failed. See above for more details.
+   
+   What's wrong and how do I fix it?
+   ```
+   
+   **Expected**: Copilot should use the skill to diagnose:
+   - **Failure type**: Test timeout (async operation exceeded 5000ms)
+   - **Affected test**: CharacterCard › renders character name
+   - **Root cause**: Likely an API call or async operation not completing
+   - **Fixes**: 
+     1. Increase jest timeout: `jest.setTimeout(10000)`
+     2. Check for missing mocks (API calls)
+     3. Ensure async operations resolve/reject properly
+
+5. **Test with a Docker build failure in CI**
+   
+   Present a Docker-specific CI failure:
+   
+   ```
+   @workspace The backend Docker build step failed in GitHub Actions:
+   
+   Step 4/7 : COPY package*.json ./
+   COPY failed: file not found in build context or excluded by .dockerignore: 
+   stat package.json: file does not exist
+   
+   But the Docker build works fine locally. What's different in CI?
+   ```
+   
+   **Expected**: Copilot should identify:
+   - **Issue**: COPY path is relative to Docker build context
+   - **CI vs Local difference**: GitHub Actions runs from repo root, context might be wrong
+   - **Check**: Workflow sets correct context: `docker build -f backend/Dockerfile ./backend`
+   - **Fix**: Ensure workflow specifies context directory, or adjust COPY paths
+
+6. **Test with a flaky test scenario**
+   
+   ```
+   @workspace This test passes locally but fails randomly in CI (about 30% of the time):
+   
+   FAIL src/api/characters.test.js
+     ● GET /api/characters/:id › returns character with related data
+       
+       Expected: 200
+       Received: 500
+       
+       Database connection timeout
+   
+   How do I diagnose if this is a flaky test or a real issue?
+   ```
+   
+   **Expected**: Copilot should suggest:
+   - **Diagnosis**: Connection timeout suggests race condition or resource exhaustion
+   - **Check past runs**: Is this consistently flaky or a new issue?
+   - **CI-specific factors**: Shared runners may have variable performance
+   - **Fixes**:
+     1. Increase database connection timeout
+     2. Add test isolation (reset DB state between tests)
+     3. Use test retries for known-flaky tests
+     4. Check if CI runner has database properly configured
+
+7. **Test cross-skill integration (with Docker Build Debugger)**
+   
+   Ask about a Docker build issue that could use both skills:
+   
+   ```
+   @workspace The CI pipeline fails during the Docker build step. Locally, my Dockerfile works.
+   What should I check first?
+   ```
+   
+   **Expected**: Copilot might reference BOTH skills:
+   - Build Pipeline Analyzer: Check CI context path, workflow docker build command
+   - Docker Build Debugger: Validate Dockerfile structure, COPY order, .dockerignore
+   
+   This shows skills working together!
+
+#### ✅ Success Criteria
+
+- [ ] Created `.github/skills/build-pipeline-analyzer/` directory
+- [ ] Created `SKILL.md` with pipeline failure patterns
+- [ ] Documented FanHub's CI/CD workflow structure (frontend/backend steps)
+- [ ] Included diagnostic flowchart (which step failed → what to check)
+- [ ] Tested with test timeout—Copilot identified root cause and fixes
+- [ ] Tested with Docker CI failure—Copilot distinguished CI vs local context
+- [ ] Tested with flaky test—Copilot suggested isolation and retry strategies
+- [ ] Verified cross-skill integration (works with Docker Build Debugger skill)
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/build-pipeline-analyzer/SKILL.md`](../../examples/completed-config/skills/build-pipeline-analyzer/SKILL.md) for reference implementation.
+
+#### ✨ The "After" — The Improved Experience
+
+Now when CI fails:
+- **Instant triage** — Copilot identifies failure type (test/build/lint/docker)
+- **Root cause extraction** — Finds actual error in verbose logs
+- **Context awareness** — Understands CI vs local differences
+- **Actionable fixes** — Specific steps, not generic advice
+
+**Before the skill:**
+- Time per CI failure: ~20-25 minutes (log forensics + diagnosis)
+- False starts: 2-3 (wrong diagnosis, try again)
+- Team dependency: Only Marcus/Jordan can diagnose efficiently
+- Documentation: Ad-hoc Slack threads
+
+**After the skill:**
+- Time per CI failure: ~3-5 minutes (describe failure, get diagnosis)
+- False starts: 0-1 (correct diagnosis first time)
+- Team dependency: Anyone can ask Copilot for help
+- Documentation: Skill encodes Marcus/Jordan's expertise
+
+**Value unlocked**: 
+- 5x faster CI debugging
+- Entire team can diagnose pipeline failures
+- Marcus and Jordan's knowledge is democratized
+- Connects to Module 8 (GitHub Actions automation) and Module 9 (CLI workflows)
+
+#### 📚 Official Docs
+
+- [GitHub Docs: GitHub Actions workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+- [GitHub Docs: Debugging workflows](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)
+- [Jest: Timeout configuration](https://jestjs.io/docs/jest-object#jestsettimeouttimeout)
+
+#### 💭 Marcus and Jordan's Transformation
+
+**Marcus**: *"I've debugged hundreds of CI failures—test timeouts, Docker context issues, flaky tests. Now that knowledge is in a skill. When someone's PR fails, they don't wait for me—they ask Copilot and get my diagnosis instantly."*
+
+**Jordan**: *"This is automation at the next level. We automated the builds; now we're automating the debugging. The skill captures our 17 combined years of CI/CD experience. And it connects perfectly to our GitHub Actions work in Module 8."*
+
+#### 🚀 Challenge Extension
+
+**For advanced users**: 
+- Add skill content for deployment failures (rollback strategies)
+- Include cost optimization patterns (cache usage, matrix strategy)
+- Create a companion script that fetches GitHub Actions logs via API
+- Integrate with Module 8's GitHub Actions automation
 
 ---
 

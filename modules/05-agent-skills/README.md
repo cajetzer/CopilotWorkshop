@@ -34,7 +34,7 @@ By the end of this module, you will:
 - Leverage community skills from existing repositories
 
 **Time**: ~90 minutes  
-**Personas**: Elena (Quality Champion), Rafael (Product Visionary)
+**Featured Personas**: Elena (Quality Champion), Rafael (Product Visionary), Marcus (DevOps Developer)
 
 ---
 
@@ -54,6 +54,10 @@ Data validation, testing skills
 **[Rafael's Path →](personas/rafael.md)**  
 Feature requirements, effort estimation  
 *~50 minutes*
+
+**[Marcus's Path →](personas/marcus.md)**  
+Application complexity understanding  
+*~30 minutes*
 
 </td>
 <td width="33%" valign="top">
