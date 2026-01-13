@@ -257,26 +257,29 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 8: Copilot on the Web (GitHub.com)
+### Module 8: GitHub.com Copilot for Product Management
 
-**Time**: 45 minutes | **Difficulty**: 🌿 | **Tier**: 💼
+**Time**: 50-60 minutes | **Difficulty**: 🌿 | **Tier**: 🏢 (Enterprise features emphasized)
 
-> Use Copilot where code lives: PRs, code reviews, issues, and the web-based editor.
+> Bridge product and engineering without VS Code. Rafael validates delivery, updates docs, and communicates with stakeholders—all from GitHub.com.
 
-**Story**: Team learns web-based AI workflows—PR descriptions, code review assistance, github.dev editor, and issue creation.
+**Story**: Monday 3:30 PM. Character Detail v2 just shipped. Rafael needs to validate the implementation matches requirements, update user documentation, answer stakeholder questions about timeline, and plan the next sprint. He doesn't have VS Code—and doesn't need it.
 
 **Learning Objectives:**
-- Use Copilot in GitHub pull requests and code reviews
-- Leverage Copilot in GitHub Issues and Discussions
-- Access Copilot in the web-based code editor (github.dev)
-- Use Copilot for code exploration and understanding
+- Transform vague feature requests into well-structured GitHub Issues using Copilot
+- Validate PR implementations against original requirements using PR summaries
+- Update user documentation quickly using GitHub.com's web editor with Copilot
+- Translate technical complexity into business-friendly stakeholder communication
+- Use Copilot to analyze backlog patterns for data-informed prioritization
 
 **Artifacts Created**:
-- Automated PR templates and review workflows
-- Enhanced issue descriptions
-- Web-to-local workflow patterns
+- Refined feature issues with clear acceptance criteria
+- Product validation comments on PRs
+- Updated user documentation (using GitHub.com web editor, not github.dev)
+- Business-friendly stakeholder communication
+- Prioritized backlog with data-driven rationale
 
-**Key Insight**: Web interfaces extend AI collaboration beyond the editor to the entire development lifecycle. Press `.` in any repository for github.dev with full Copilot support.
+**Key Insight**: Product managers can stay proximate to implementation without local dev environments. GitHub.com Copilot bridges product and engineering—validate continuously, not just at sprint demos.
 
 ---
 

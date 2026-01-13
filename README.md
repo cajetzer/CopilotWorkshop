@@ -182,14 +182,14 @@ Elena's data validator can't verify against real data—it knows the RULES but c
 **The transformation**: Sequential → Autonomous excellence  
 **Featured**: David, Marcus, Jordan
 
-### Module 8: Copilot Web (90 min)
-**Monday 5:30 PM**
+### Module 8: GitHub.com Copilot for Product Management (50-60 min)
+**Monday 3:30 PM**
 
-Team learns web-based AI workflows through GitHub's interface. Plan web integration strategies. Create automated PR workflows and review processes. Connect web and local development cycles.
+Rafael validates Character Detail v2 delivery from his browser—no VS Code needed. He refines issues with Copilot, validates PRs against requirements using PR summaries, updates user docs via GitHub.com's web editor, explains timeline overruns to stakeholders in business-friendly language, and analyzes the backlog for data-driven prioritization. The portfolio manager is impressed by the transparency.
 
-**You'll learn**: Web-based AI workflows, PR automation, issue enhancement, integrated development processes  
-**The transformation**: Local-only → Full lifecycle integration  
-**Featured**: David, Sarah, Rafael
+**You'll learn**: Issue refinement with Copilot, PR validation from product lens, web editor documentation updates (github.com, not github.dev), stakeholder communication, backlog analysis  
+**The transformation**: Requirements writer in isolation → Connected product owner who validates continuously  
+**Featured**: Rafael (primary), Priya (Exercise 8.8 from logs to issue)
 
 ### Module 9: Copilot CLI (90 min)
 **Monday 6:00 PM**
