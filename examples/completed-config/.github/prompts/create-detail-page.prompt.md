@@ -1,5 +1,5 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate a detail page following our proven Character Detail pattern'
 ---
 

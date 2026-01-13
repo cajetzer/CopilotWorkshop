@@ -1,11 +1,6 @@
 ---
-applyTo:
-  - "Dockerfile*"
-  - "docker-compose*.yml"
-  - ".github/workflows/**"
-  - "**/terraform/**"
-  - "**/k8s/**"
-  - "**/*.tf"
+applyTo: "**/{Dockerfile*,docker-compose*.yml,.github/workflows/**,terraform/**,k8s/**,*.tf}"
+description: "Infrastructure and DevOps standards for Docker, Kubernetes, Terraform, and CI/CD workflows"
 ---
 
 # Infrastructure & DevOps Standards for FanHub

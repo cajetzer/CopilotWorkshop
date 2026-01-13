@@ -1,5 +1,5 @@
 ---
-mode: 'agent'
+agent: agent
 description: 'One-word ship button: branch, commit, push, and create PR'
 ---
 

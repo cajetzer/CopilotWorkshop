@@ -1,8 +1,6 @@
 ---
-applyTo:
-  - "**/*.tsx"
-  - "**/*.jsx"
-  - "**/components/**"
+applyTo: "**/{*.tsx,*.jsx,components/**}"
+description: "React component standards and patterns for FanHub"
 ---
 
 # React Component Standards for FanHub
