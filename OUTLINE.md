@@ -66,21 +66,22 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ## 📚 Module Map
 
-### Module 0: Orientation — The Challenge
+### Module 0: The Challenge — Building FanHub in 8 Hours
 
-**Time**: 30–45 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
+**Time**: 60 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
 
-> Meet the team. Get the challenge. Experience Copilot without customization.
+> Meet the team. Get the challenge. Experience Copilot without customization—then prepare to transform how you build software.
 
-**Story**: Monday 9:00 AM. Sarah drops a messy fan site on the team's desk.
+**Story**: Monday 9:00 AM. Sarah challenges the team to turn a messy contractor project into a production-ready fan site.
 
-| # | Exercise | Persona | Time | What You'll Experience |
-|---|----------|---------|------|----------------------|
-| 0.1 | The Challenge | Sarah | 15 min | Understand the sprint goals |
-| 0.2 | Clone & Explore | All | 15 min | See the "before" state |
-| 0.3 | Copilot Without Context | Priya | 15 min | Watch Copilot struggle |
+**Learning Objectives:**
+- Understand **The AI-Assisted Mindset** (Clarity Beats Cleverness, Intent Over Implementation, Documentation Is Leverage, Human Judgment Is Non-Negotiable)
+- Master **The Five Practices** (Clarity as Foundation, Documentation as Leverage, Intent Over Implementation, Context is Everything, Iterate and Refine)
+- Meet the FanHub project and choose your show theme
+- Set up the starter application and verify it runs
+- Experience Copilot struggling with an unconfigured codebase (the "before" state)
 
-**Key Insight**: Copilot without context gives generic, confused suggestions. This is the baseline to beat.
+**Key Insight**: Copilot without context gives generic, confused suggestions. This is the baseline to beat. You need to *feel* the frustration before the transformation is meaningful.
 
 ---
 
@@ -88,21 +89,21 @@ Seven personas guide you through the workshop, each representing real developer 
 
 **Time**: 90 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
 
-> Create repository instructions and architecture documentation. Watch Copilot transform instantly.
+> Create repository instructions and architecture documentation. Watch Copilot transform from confused to context-aware.
 
-**Story**: Monday 10:00 AM. David documents architecture, Marcus creates team instructions.
+**Story**: Monday 10:00 AM. David documents architecture, Sarah creates team standards. The same questions now get dramatically better answers.
 
-| # | Exercise | Persona | Time | Customization Feature |
-|---|----------|---------|------|----------------------|
-| 1.1 | Architecture Documentation | David | 30 min | ARCHITECTURE.md |
-| 1.2 | Repository Instructions | Marcus | 30 min | `.github/copilot-instructions.md` |
-| 1.3 | The Transformation | Priya | 30 min | See the "after" |
+**Learning Objectives:**
+- Create architecture documentation that provides context for AI suggestions
+- Build a `.github/copilot-instructions.md` that standardizes team patterns
+- Experience the dramatic improvement in suggestion quality
+- Understand why "clarity is the new syntax" isn't just a slogan
 
 **Artifacts Created**:
 - `docs/ARCHITECTURE.md` — System design for FanHub
 - `.github/copilot-instructions.md` — Team coding patterns
 
-**Key Insight**: Same question, dramatically better answers. Context is everything.
+**Key Insight**: Same question, dramatically better answers. Context is everything. Documentation isn't something you write AFTER the code works—it's the FIRST thing you create.
 
 ---
 
@@ -110,24 +111,24 @@ Seven personas guide you through the workshop, each representing real developer 
 
 **Time**: 90 minutes | **Difficulty**: 🌱 | **Tier**: 🆓
 
-> Master structured thinking with agent plan mode. Learn to use AI to help configure AI.
+> Master structured thinking with agent plan mode. Learn to use AI to help you *think*, not just *type*.
 
-**Story**: Monday 10:30 AM. Sarah introduces planning before implementation. Team learns systematic AI collaboration.
+**Story**: Monday 10:30 AM. Sarah introduces planning before implementation. The team learns systematic AI collaboration—using plan mode to ask clarifying questions and create structured approaches before jumping into code.
 
-| # | Exercise | Persona | Time | Customization Feature |
-|---|----------|---------|------|----------------------|
-| 2.1 | Plan Before You Code | Sarah | 20 min | Planning-to-implementation flow |
-| 2.2 | Iterate on Configuration | David | 25 min | Agent design with plan mode |
-| 2.3 | Plan Development Workflows | Marcus | 25 min | Systematic AI collaboration |
-| 2.4 | Plan Mode Integration Workshop | Team | 20 min | Team alignment and standards |
+**Learning Objectives:**
+- Understand the difference between agent plan mode and implementation mode
+- Use plan mode to ask clarifying questions before implementing
+- Save planning results to files for team collaboration
+- Apply iterative planning workflows to both code and Copilot configuration
+- Experience how structured thinking improves AI output quality
 
 **Artifacts Created**:
-- `docs/FEATURE-PLAN-watched-episodes.md` — Structured planning example
-- `docs/AGENT-DESIGN-architecture-assistant.md` — Custom agent design process
+- `docs/FEATURE-PLAN-*.md` — Structured planning examples
+- `docs/AGENT-DESIGN-*.md` — Custom agent design processes
 - `docs/AI-PLANNING-WORKFLOWS.md` — Systematic planning templates
 - `docs/TEAM-AI-COLLABORATION-STANDARDS.md` — Team AI usage standards
 
-**Key Insight**: Plan mode transforms AI from reactive to strategic. Use AI to think, not just type.
+**Key Insight**: Plan mode transforms AI from reactive to strategic. Use AI to help configure AI. Planning speeds you up by ensuring first-try success.
 
 ---
 
@@ -155,73 +156,47 @@ Seven personas guide you through the workshop, each representing real developer 
 
 ---
 
-### Module 4: Custom Agents
-
-**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓/💼
-
-> Create custom agents for autonomous tasks. Learn Agent Mode and CLI integration.
-
-**Story**: Monday 1:00 PM. Marcus discovers Agent Mode, David creates custom agents.
-
-💡 **Plan Mode Tip**: Use plan mode to design agent personalities and capabilities before creating custom agents.
-
-| # | Exercise | Persona | Time | Customization Feature |
-|---|----------|---------|------|----------------------|
-| 4.1 | Agent Mode Fundamentals | Marcus | 20 min | Agent Mode workflow |
-| 4.2 | Custom Architecture Agent | David | 30 min | `agents/architecture-reviewer/` |
-| 4.3 | Background Agents | David | 20 min | 🏢 Long-running tasks |
-
-**Artifacts Created**:
-- `agents/architecture-reviewer/` — Custom architecture review agent
-- `agents/devops-reviewer/` — Custom DevOps review agent
-
-**Key Insight**: Agents handle autonomous multi-step tasks. Work in parallel.
-
----
-
-### Module 5: Custom Instructions
+### Module 4: Custom Instructions
 
 **Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
-> File-scoped instructions via `applyTo` patterns. Context-aware code generation.
+> Create file-scoped instructions via `applyTo` patterns. Context-aware code generation that activates automatically.
 
-**Story**: Monday 2:30 PM. The team creates instructions that activate automatically.
+**Story**: Monday 2:00 PM. Character Detail v2 will touch tests, API routes, Docker configs, React components. Each file type needs different expertise. *"Can we prepare Copilot to switch contexts automatically?"* Elena asks.
 
-💡 **Plan Mode Tip**: Use plan mode to analyze codebase patterns and generate tailored instruction configurations.
-
-| # | Exercise | Persona | Time | Customization Feature |
-|---|----------|---------|------|----------------------|
-| 5.1 | Testing Instructions | Elena | 25 min | `**/*.test.ts` patterns |
-| 5.2 | API Route Instructions | David | 25 min | `src/api/**` patterns |
-| 5.3 | Infrastructure Instructions | Jordan | 25 min | DevOps file patterns |
-| 5.4 | Component Instructions | Priya | 15 min | React component patterns |
+**Learning Objectives:**
+- Understand the hierarchy of Copilot instructions (repo → folder → file)
+- Create file-type-specific instructions using `applyTo` patterns
+- Create path-based instructions for different parts of your codebase
+- Build specialized "expertise" instructions for domains like security, deployment, and testing
+- See how instructions compound and combine
+- Complete the Character Detail v2 prerequisites
 
 **Artifacts Created**:
-- `.github/instructions/testing.instructions.md`
-- `.github/instructions/api-routes.instructions.md`
-- `.github/instructions/infrastructure.instructions.md`
-- `.github/instructions/react-components.instructions.md`
+- `.github/instructions/testing.instructions.md` — Elena's QA patterns
+- `.github/instructions/api-routes.instructions.md` — David's REST conventions
+- `.github/instructions/infrastructure.instructions.md` — Jordan's security checklist
+- `.github/instructions/react-components.instructions.md` — Priya's component patterns
 
-**Key Insight**: Instructions activate based on file patterns—context without prompting.
+**Key Insight**: Instructions activate based on file patterns—context without prompting. Custom prompts are opt-in; custom instructions are automatic.
 
 ---
 
-### Module 6: Agent Skills
+### Module 5: Agent Skills
 
 **Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
 > Create Agent Skills with domain-specific knowledge that Copilot loads automatically when relevant.
 
-**Story**: Monday 4:00 PM. Elena and Rafael teach Copilot FanHub's domain expertise through specialized skills.
+**Story**: Monday 3:30 PM. The team has file-specific patterns, but what about business rules that aren't file-specific? *"How do I teach Copilot our domain knowledge—not just code patterns, but FanHub's data model?"* Elena asks.
 
-💡 **Plan Mode Tip**: Use plan mode to design skill structures, identify domain patterns, and create systematic validation workflows.
-
-| # | Exercise | Persona | Time | Customization Feature |
-|---|----------|---------|------|----------------------|
-| 6.1 | Explore Community Skills | Elena | 20 min | Learning from anthropics/skills and awesome-copilot |
-| 6.2 | TV Show Data Validator | Elena | 25 min | `.github/skills/tv-show-data-validator/` |
-| 6.3 | Feature Requirements Skill | Rafael | 25 min | `.github/skills/feature-requirements/` |
-| 6.4 | Skills Library Strategy | Team | 20 min | Comprehensive skills ecosystem planning |
+**Learning Objectives:**
+- Understand what Agent Skills are and how they differ from instructions and prompts
+- Create custom skills with YAML frontmatter and markdown instructions
+- Include scripts and resources within skill directories
+- See how Copilot automatically loads skills when relevant
+- Build domain-specific validation skills for the FanHub data model
+- Leverage community skills from existing repositories
 
 **Artifacts Created**:
 - `.github/skills/tv-show-data-validator/` — Domain data validation skill
@@ -229,27 +204,24 @@ Seven personas guide you through the workshop, each representing real developer 
 - `docs/SKILLS-DESIGN-PLAN.md` — Skill design framework
 - `docs/SKILLS-LIBRARY-STRATEGY.md` — Complete skills ecosystem strategy
 
-**Key Insight**: Skills encode domain expertise as AI-accessible knowledge that loads automatically when relevant.
+**Key Insight**: Skills encode domain expertise as AI-accessible knowledge that loads automatically when relevant. Instructions = code patterns. Skills = business rules and domain knowledge.
 
 ---
 
-### Module 7: MCP Servers
+### Module 6: MCP Servers — Extending Copilot's Reach
 
-**Time**: 75 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
+**Time**: 45 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
 > Give Copilot hands—connect to databases, APIs, and external systems via Model Context Protocol.
 
-**Story**: Monday 5:00 PM. Elena's data validator can't verify against real data. Jordan shows the team how MCP connects Copilot to external systems.
+**Story**: Monday 4:30 PM. *"The validator skill knows our data FORMAT is correct, but it can't check if the character actually EXISTS in our database. For Character Detail v2 to work perfectly, Copilot needs to SEE our actual data."* Elena realizes Copilot needs external system access.
 
-💡 **Plan Mode Tip**: Use plan mode to design your MCP strategy—what to connect, security considerations, and integration with existing customizations.
-
-| # | Exercise | Persona | Time | Focus |
-|---|----------|---------|------|-------|
-| 7.1 | Understanding the MCP Ecosystem | Jordan | 15 min | Browse servers, understand architecture |
-| 7.2 | Connect to FanHub Database | Elena | 20 min | SQLite MCP server setup |
-| 7.3 | Deployment Awareness | Jordan | 15 min | GitHub MCP for system status |
-| 7.4 | MCP Security & Governance | David | 15 min | Trust model, governance policies |
-| 7.5 | Integrated Workflows | Team | 10 min | Combining MCP with agents and skills |
+**Learning Objectives:**
+- Understand what MCP is and how it extends Copilot's capabilities
+- Configure MCP servers in workspace `mcp.json` files
+- Use MCP tools in Copilot chat and agent mode
+- Connect to databases via MCP
+- Understand security considerations for MCP server trust
 
 **Artifacts Created**:
 - `.vscode/mcp.json` — MCP server configuration
@@ -257,88 +229,102 @@ Seven personas guide you through the workshop, each representing real developer 
 - `fanhub/docs/MCP-GOVERNANCE.md` — Security policies
 - `fanhub/docs/AI-STACK.md` — Complete customization documentation
 
-**Key Insight**: MCP transforms Copilot from "knows things" to "can do things"—verify data, check status, interact with systems.
+**Key Insight**: MCP transforms Copilot from "knows things" to "can do things"—verify data, check status, interact with systems. Skills = knowledge. MCP = actions.
 
 ---
 
-### Module 8: Copilot Web
+### Module 7: Custom Agents — THE PAYOFF
 
-**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 💼
+**Time**: 60 minutes | **Difficulty**: 🌿 | **Tier**: 🆓
 
-> Use Copilot where code lives: PRs, issues, GitHub.com
+> This is the payoff—create autonomous agents that use ALL your customization to build complete features.
 
-**Story**: Monday 5:30 PM. Team learns web-based AI workflows and integration strategies.
+**Story**: Monday 5:00 PM. *"We've spent all day building context—instructions, prompts, custom instructions, skills, MCP connections. Now let's see what an agent can do with ALL of that in place."* David says, ready for the payoff moment.
 
-💡 **Plan Mode Tip**: Use plan mode to plan web-based workflows and integration strategies before implementing.
+**Learning Objectives:**
+- Understand the difference between Chat, Edit, and Agent modes
+- Create custom agents with specialized capabilities
+- Experience the "payoff" of layered customization
+- Use agent mode with full context (instructions + skills + MCP)
+- Watch an agent build the complete Character Detail v2 feature autonomously
 
-| # | Exercise | Persona | Time | Focus |
-|---|----------|---------|------|-------|
-| 8.1 | PR Description Generation | David | 20 min | Auto-generate PR summaries |
-| 8.2 | Code Review with Copilot | Sarah | 25 min | AI-assisted review workflows |
-| 8.3 | Issue Enhancement | Rafael | 25 min | Better issue descriptions |
-| 8.4 | Web Workflow Integration | Team | 20 min | Combining web and local workflows |
+**Artifacts Created**:
+- `agents/architecture-reviewer/` — Custom architecture review agent
+- `agents/devops-reviewer/` — Custom DevOps review agent
+- Complete Character Detail v2 feature (episodes, quotes, related characters, favorites)
+
+**Key Insight**: Early morning Copilot gave generic suggestions. Now with all context layers, watch an agent build a complete feature with episodes, quotes, related characters. This is the compounding effect.
+
+---
+
+### Module 8: Copilot on the Web (GitHub.com)
+
+**Time**: 45 minutes | **Difficulty**: 🌿 | **Tier**: 💼
+
+> Use Copilot where code lives: PRs, code reviews, issues, and the web-based editor.
+
+**Story**: Team learns web-based AI workflows—PR descriptions, code review assistance, github.dev editor, and issue creation.
+
+**Learning Objectives:**
+- Use Copilot in GitHub pull requests and code reviews
+- Leverage Copilot in GitHub Issues and Discussions
+- Access Copilot in the web-based code editor (github.dev)
+- Use Copilot for code exploration and understanding
 
 **Artifacts Created**:
 - Automated PR templates and review workflows
-- Enhanced issue descriptions with AI assistance
-- Integrated web-to-local development processes
+- Enhanced issue descriptions
+- Web-to-local workflow patterns
 
-**Key Insight**: Web interfaces extend AI collaboration beyond the editor to the entire development lifecycle.
+**Key Insight**: Web interfaces extend AI collaboration beyond the editor to the entire development lifecycle. Press `.` in any repository for github.dev with full Copilot support.
 
 ---
 
 ### Module 9: Copilot CLI
 
-**Time**: 90 minutes | **Difficulty**: 🌿 | **Tier**: 💼
+**Time**: 60 minutes | **Difficulty**: 🌿 | **Tier**: 💼
 
-> Agentic terminal workflows with the GitHub Copilot CLI
+> Agentic terminal workflows with the GitHub Copilot CLI. Your AI assistant for Git, shell commands, and GitHub operations.
 
-**Story**: Monday 6:00 PM. Jordan automates terminal workflows and creates systematic CLI approaches.
+**Story**: Monday 6:00 PM. Jordan needs to automate deployment workflows and make terminal work less error-prone. Sarah wants to see if CLI tools can reduce context-switching.
 
-💡 **Plan Mode Tip**: Use plan mode to design CLI automation scripts and systematic pipeline workflows.
-
-| # | Exercise | Persona | Time | Focus |
-|---|----------|---------|------|-------|
-| 9.1 | CLI Installation & Setup | Jordan | 15 min | Installing and first interactive session |
-| 9.2 | Interactive Terminal Tasks | Marcus | 20 min | Agent-style task execution |
-| 9.3 | GitHub.com Integration | Jordan | 20 min | PRs, issues, and workflows from terminal |
-| 9.4 | Programmatic Automation | Jordan | 20 min | Scripted automation workflows |
-| 9.5 | CLI Customization | Team | 15 min | Instructions and custom agents for CLI |
+**Learning Objectives:**
+- Install and configure GitHub Copilot CLI
+- Use natural language to generate shell commands
+- Execute GitHub operations from the terminal (PRs, issues, workflows)
+- Create systematic automation workflows using CLI
+- Understand when to use CLI vs VS Code vs Web interfaces
 
 **Artifacts Created**:
-- Automated terminal workflows and scripts
+- Automated terminal workflow scripts
 - CLI-based development process integrations
-- Custom CLI agents and automation patterns
+- Custom CLI agent configurations
 
-**Key Insight**: CLI interfaces enable systematic automation of development workflows with AI assistance.
+**Key Insight**: CLI interfaces enable systematic, repeatable automation of development workflows with AI assistance. Work where you already are—the terminal.
 
 ---
 
-### Module 10: Agentic SDLC + Ship
+### Module 10: Agentic SDLC — The Complete Workflow
 
-**Time**: 90-120 minutes | **Difficulty**: 🌳 | **Tier**: 🆓
+**Time**: 90 minutes | **Difficulty**: 🌳 | **Tier**: 🆓
 
-> Run agents simultaneously across VS Code, Web, and CLI. Ship and reflect.
+> Orchestrate development across multiple AI interfaces simultaneously. VS Code + GitHub.com + CLI working together.
 
-**Story**: Monday 7:00 PM. The team orchestrates all their AI tools, ships the complete FanHub, and reflects on their transformation.
+**Story**: Monday 7:00 PM. *"We've learned each interface individually. Now let's see how they work together in a real SDLC workflow."* The team prepares to orchestrate everything.
 
-💡 **Plan Mode Tip**: Use plan mode to orchestrate the entire development lifecycle and coordinate multiple AI tools.
-
-| # | Exercise | Persona | Time | Focus |
-|---|----------|---------|------|-------|
-| 10.1 | VS Code Agent Orchestration | Marcus | 25 min | Coordinating multiple local agents |
-| 10.2 | Multi-Interface Workflows | David | 25 min | VS Code + Web + CLI integration |
-| 10.3 | Quality Assurance Integration | Elena | 20 min | AI-assisted testing and validation |
-| 10.4 | The Complete Ship | All | 20 min | Deploy integrated FanHub with full AI workflow |
-| 10.5 | Sprint Retrospective | Sarah | 15 min | Reflect on transformation and learnings |
-| 10.6 | Future Planning | Team | 15 min | Plan continued AI integration strategies |
+**Learning Objectives:**
+- Understand multi-interface parallel workflows (VS Code agent + Web review + CLI automation)
+- Use agents in multiple contexts simultaneously
+- Connect local development, web collaboration, and terminal automation
+- Experience the compound effect of all customizations working together
+- Ship the complete FanHub application using the full AI-assisted workflow
 
 **Artifacts Created**:
-- Complete FanHub application with all AI integrations
-- Comprehensive team AI workflow documentation
-- Retrospective and future planning materials
+- Complete orchestrated development workflow documentation
+- Multi-interface integration patterns
+- End-to-end AI-assisted SDLC process
 
-**Key Insight**: All customization features compound. The systematic approach scales to entire development lifecycles.
+**Key Insight**: The most powerful AI workflows use multiple interfaces in parallel—agents building locally, web reviews happening simultaneously, CLI automation running in the background. This is the systematic approach that scales.
 
 ---
 
@@ -350,22 +336,23 @@ Seven personas guide you through the workshop, each representing real developer 
 
 **Story**: Tuesday 9:00 AM. Sarah calls an early meeting: "We built something that works. Now we need to make it organizational standard."
 
-| # | Exercise | Persona | Time | Enterprise Feature |
-|---|----------|---------|------|-------------------|
-| 11.1 | Organization Instructions | Rafael + Sarah | 25 min | 💼 Org-level standards |
-| 11.2 | Code Review Standards | Elena + David | 25 min | 🆓 AI code review checklist |
-| 11.3 | Copilot Spaces Setup | Jordan + David | 25 min | 🏢 Cross-repo knowledge bases |
-| 11.4 | Metrics Dashboard | Jordan + Sarah | 25 min | 💼 Usage tracking and ROI |
-| 11.5 | Onboarding Kit | Marcus + Priya | 25 min | 🆓 Team enablement templates |
+**Learning Objectives:**
+- Create organization-level instructions that standardize practices across teams
+- Establish systematic code review standards for AI-generated code
+- Set up knowledge bases (Copilot Spaces 🏢) that enable cross-repo learning
+- Implement metrics and tracking to demonstrate ROI
+- Build self-service onboarding materials that scale your approach
 
 **Artifacts Created**:
 - Organization-level `copilot-instructions.md` template
 - `COPILOT-REVIEW-GUIDE.md` — Comprehensive AI code review checklist
 - `TEAM-ONBOARDING.md` — Self-service onboarding kit
 - Quarterly metrics report template
-- Copilot Space configuration (Enterprise)
+- Copilot Space configuration (Enterprise tier)
 
-**Key Insight**: Individual success becomes organizational capability. Package learnings so everyone benefits.
+**Key Insight**: Individual success becomes organizational capability. Package your learnings so everyone benefits. Enterprise features (💼 Business/Enterprise, 🏢 Enterprise-only) enable org-wide scaling.
+
+---**Key Insight**: Individual success becomes organizational capability. Package learnings so everyone benefits.
 
 ---
 

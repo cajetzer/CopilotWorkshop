@@ -90,8 +90,9 @@
 - [Neovim - Copilot.vim](https://github.com/github/copilot.vim)
 
 ### CLI Tools
-- [GitHub CLI](https://cli.github.com/)
-- [GitHub Copilot CLI Extension](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
+- [GitHub Copilot in the CLI](https://github.com/features/copilot/cli/)
+- [GitHub Copilot CLI Documentation](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line)
+- [GitHub CLI (gh)](https://cli.github.com/) - Separate tool, not covered in this workshop
 
 ### Third-party Tools
 - [Copilot Extensions Marketplace](https://docs.github.com/en/copilot/building-copilot-extensions)
@@ -229,4 +230,4 @@
 
 ---
 
-**Note**: This is a curated list of resources. Links are current as of December 2025. Always check for the most recent documentation and updates.
+**Note**: This is a curated list of resources. Links are current as of January 2026. Always check for the most recent documentation and updates.
