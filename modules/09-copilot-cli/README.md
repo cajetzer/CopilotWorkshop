@@ -1,18 +1,26 @@
-# Module 9: GitHub Copilot CLI
+# Module 9: GitHub Copilot CLI for Build & Test Workflows
 
-> **Core Philosophy**: Clarity beats cleverness—even in the terminal. Your terminal becomes an AI agent that can work on your behalf.
+## ⏰ 6:00 PM — Terminal Mastery
 
-## 📖 Overview
+> *"I just spent 20 minutes running tests manually, fixing failures one by one, only to have CI fail on something I forgot to check. There has to be a better way."*  
+> — Marcus, frustrated after another CI failure
 
-GitHub Copilot CLI is a **powerful AI agent** that lives in your terminal. Unlike the deprecated `gh copilot` extension (which only suggested commands), the new Copilot CLI can:
+---
 
-- **Have interactive conversations** — Start a session with `copilot` and work iteratively
-- **Execute multi-step tasks** — Make code changes, create files, run tests
-- **Work with GitHub.com** — Create PRs, manage issues, check CI status
-- **Run shell commands** — With security controls and approval workflows
+## 📖 The Story
 
-**Time**: ~60 minutes  
-**Personas**: Jordan (DevOps automation), Marcus (interactive tasks), Sarah (security model)
+Marcus is stuck in a painful cycle:
+1. Make changes
+2. Manually run tests
+3. Fix failures one by one
+4. Push to CI
+5. Discover he forgot to run linting
+6. Fix, push again
+7. Repeat
+
+Jordan overhears Marcus cursing at his terminal: *"Want to see how I never have that problem? Let me show you what a CLI agent can do for your build/test cycle."*
+
+What follows is a mentorship session where Jordan teaches Marcus the terminal workflows that make him 10x more productive—interactive AI sessions that handle testing, debugging, coverage checks, and pre-push validation.
 
 ---
 
@@ -20,40 +28,92 @@ GitHub Copilot CLI is a **powerful AI agent** that lives in your terminal. Unlik
 
 By the end of this module, you will:
 
-- Install and configure GitHub Copilot CLI
-- Use interactive mode for conversations and tasks
-- Use programmatic mode (`-p`) for scripting
-- Understand tool approval and security controls
-- Customize Copilot CLI with instructions and MCP servers
+- Install and configure GitHub Copilot CLI for interactive agent sessions
+- Debug test failures conversationally without reading stack traces manually
+- Run smart test selection based on code changes
+- Automate pre-push health checks to never break CI again
+- Generate tests for new code through conversation
+- Debug broken builds and dependencies interactively
+- Drive test coverage improvements with agent assistance
+- Create morning health check routines
+
+**Time**: ~75-90 minutes  
+**Primary Personas**: Jordan (DevOps Expert), Marcus (DevOps Developer)
+
+---
+
+## 💡 Why CLI for Build & Test?
+
+**The Problem:** Developers spend hours in terminals running build/test commands manually:
+- `npm test` → read failures → fix → repeat
+- Forget to run linting before pushing
+- CI catches issues your local checks missed
+- Debugging broken builds means reading cryptic error messages
+
+**The Solution:** An interactive AI agent in your terminal that:
+- Understands test failures and explains them
+- Runs only relevant tests for your changes
+- Automates pre-push validation
+- Generates tests conversationally
+- Debugs build issues with you
+
+---
+
+## 🧠 Mindful Moment: The Terminal as Conversation
+
+Traditional terminal use is command-response:
+```bash
+$ npm test
+[wall of output]
+$ # read, think, decide next command
+$ npm test -- character.test.js
+```
+
+**CLI agent sessions are conversations:**
+```bash
+$ copilot
+> Run tests for files I changed
+[agent analyzes git diff, runs relevant tests]
+
+> That test failed. Why?
+[agent explains the failure]
+
+> Fix it
+[agent proposes changes]
+```
+
+You're not memorizing commands—you're describing intent.
 
 ---
 
 ## 📚 Key Concepts
 
-### Two Modes of Use
+### The Interactive Session Model
 
-| Mode | How to Start | Best For |
-|------|--------------|----------|
-| **Interactive** | `copilot` | Exploratory work, conversations, iterative tasks |
-| **Programmatic** | `copilot -p "task"` | Scripts, automation, one-shot tasks |
+| Traditional CLI | GitHub Copilot CLI Agent |
+|----------------|-------------------------|
+| One command at a time | Multi-turn conversation |
+| Read output manually | Agent explains results |
+| Memorize syntax | Describe intent |
+| Sequential execution | Iterative problem-solving |
 
-### The Agentic Difference
+### How It Works
 
-| Old `gh copilot` | New `copilot` CLI |
-|-----------------|-------------------|
-| Suggests commands | Executes tasks |
-| Single-turn | Multi-turn conversations |
-| Read-only | Can modify files, run commands |
-| Commands only | Works with GitHub.com too |
+1. **Start a session**: `copilot`
+2. **Trust the directory**: Agent asks permission first time
+3. **Converse naturally**: Describe what you want
+4. **Approve actions**: Agent asks before executing
+5. **Iterate**: Keep refining until done
 
-### Security Model
+### Tool Approval System
 
-| Layer | Protection |
-|-------|------------|
-| **Trusted directories** | Must explicitly trust each directory |
-| **Tool approval** | Must approve commands before execution |
-| **--deny-tool** | Block specific dangerous operations |
-| **Scoped permissions** | `--allow-tool` limits what's pre-approved |
+The agent will ask permission before:
+- Running shell commands
+- Modifying files
+- Installing packages
+- Pushing to git
+
+You can approve per-action or for the session.
 
 ---
 
@@ -61,58 +121,21 @@ By the end of this module, you will:
 
 > 📂 **Full exercise content**: [EXERCISES.md](./EXERCISES.md)
 
-### Exercise Overview
-
-| Exercise | Persona | Focus | Time |
-|----------|---------|-------|------|
-| 1 | Jordan | Installation & Setup | 15 min |
-| 2 | Marcus | Interactive Tasks | 15 min |
-| 3 | Priya | GitHub.com Integration | 15 min |
-| 4 | Jordan | Programmatic Mode | 15 min |
-| 5 | David | Customization & MCP | 15 min |
-| 6 | Sarah | Security & Best Practices | 10 min |
-
-### Quick Links
-
-- [Exercise 1: CLI Installation](./EXERCISES.md#exercise-1-cli-installation--setup--your-terminal-agent) — Jordan sets up the agent
-- [Exercise 4: Programmatic Mode](./EXERCISES.md#exercise-4-programmatic-mode--automating-with-ai) — Jordan's automation scripts
-- [Exercise 6: Security](./EXERCISES.md#exercise-6-security--best-practices--safe-agentic-workflows) — Sarah validates the guardrails
+| Exercise | Focus | Time | Description |
+|----------|-------|------|-------------|
+| [9.1](EXERCISES.md#exercise-91-your-first-agent-session--the-test-failure-detective) | First Session | 10 min | Debug a test failure conversationally |
+| [9.2](EXERCISES.md#exercise-92-smart-test-selection--only-run-what-matters) | Smart Testing | 12 min | Run only relevant tests for your changes |
+| [9.3](EXERCISES.md#exercise-93-pre-push-health-check--never-break-ci-again) | Pre-Push Checks | 12 min | Automate all checks CI would run |
+| [9.4](EXERCISES.md#exercise-94-test-generation-in-conversation) | Test Generation | 15 min | Generate tests through dialogue |
+| [9.5](EXERCISES.md#exercise-95-build-debugging-session) | Build Debugging | 12 min | Fix broken dependencies interactively |
+| [9.6](EXERCISES.md#exercise-96-coverage-driven-development) | Coverage Improvement | 12 min | Drive coverage up with agent help |
+| [9.7](EXERCISES.md#exercise-97-morning-health-check-routine) | Daily Routine | 10 min | Automate your morning workflow |
 
 ---
 
-## 🧑‍💼 Choose Your Path
+## 📚 Installation
 
-| Your Role | Recommended Focus | Start Here |
-|-----------|------------------|------------|
-| **DevOps/Platform** | Installation + Automation | [Jordan's Path](./personas/jordan.md) |
-| **Developer** | Interactive tasks + GitHub | [Marcus's Path](./personas/marcus.md) |
-| **Security-conscious** | Security model | [Sarah's Path](./personas/sarah.md) |
-
----
-
-## 📝 Key Takeaways
-
-### The New Paradigm
-
-```
-Old: gh copilot → Suggests commands (read-only)
-New: copilot CLI → AI Agent (conversations, executes tasks, GitHub integration)
-```
-
-### When to Use Copilot CLI
-
-| ✅ Great For | ❌ Consider Alternatives |
-|--------------|-------------------------|
-| Multi-step tasks | Simple known commands |
-| GitHub.com operations | Offline environments |
-| Code changes with context | Highly sensitive operations |
-| Automation scripts | When you need GUI review |
-
----
-
-## 📚 Quick Reference
-
-### Installation
+### Install GitHub Copilot CLI
 
 ```bash
 # macOS
@@ -121,28 +144,27 @@ brew install github/copilot-cli/copilot
 # Windows
 winget install GitHub.CopilotCLI
 
-# Authenticate
+# Linux (download from releases)
+# https://github.com/github/copilot-cli/releases
+```
+
+### Authenticate
+
+```bash
 copilot auth login
 ```
 
-### Tool Approval Options
+Follow the prompts to authenticate via browser.
 
-| Option | Effect |
-|--------|--------|
-| `--allow-all-tools` | Allow everything (be careful!) |
-| `--allow-tool 'shell(git)'` | Allow only git commands |
-| `--deny-tool 'shell(rm)'` | Block rm commands |
+### Verify Installation
 
-### Slash Commands
+```bash
+copilot --version
+```
 
-| Command | Purpose |
-|---------|---------|
-| `/help` | Show available commands |
-| `/model` | Change AI model |
-| `/mcp` | View MCP servers |
-| `/exit` | End session |
+---
 
-### Official Documentation
+## 📚 Official Documentation
 
 - [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
 - [Installing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli)
@@ -150,8 +172,22 @@ copilot auth login
 
 ---
 
-## ➡️ Next Steps
+## ➡️ Next Up
 
-Continue to [Module 10: Agentic SDLC](../10-agentic-sdlc/README.md) to see how all these tools integrate into the full development lifecycle.
+**[Module 10: Agentic SDLC](../10-agentic-sdlc/README.md)** — Orchestrate all your AI tools together
 
-**Review if needed**: [Module 8: Copilot Web](../08-copilot-web/README.md) — Browser-based Copilot features
+> *"We've learned each tool individually—VS Code, GitHub.com, CLI. Now let's see how they work together in a complete development workflow."*  
+> — The team, ready to ship
+
+---
+
+## ✅ Module Checklist
+
+Before moving on, verify:
+
+- [ ] GitHub Copilot CLI installed and authenticated
+- [ ] Ran at least one interactive session with `copilot`
+- [ ] Experienced the tool approval workflow
+- [ ] Used agent conversation to debug or test code
+- [ ] Understand when CLI agents excel vs other interfaces
+- [ ] Created at least one reusable workflow pattern
