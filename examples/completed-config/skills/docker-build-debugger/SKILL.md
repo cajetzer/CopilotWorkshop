@@ -5,6 +5,9 @@ scripts:
   - name: analyze-dockerfile
     command: node .github/skills/docker-build-debugger/analyze-dockerfile.js
     description: Validates Dockerfile for common issues (COPY order, WORKDIR, caching patterns)
+templates:
+  - name: dockerfile-template.md
+    description: Production-ready Dockerfile templates for Node.js applications (API, frontend, multi-stage)
 ---
 
 # Docker Build Debugger Skill
@@ -157,55 +160,18 @@ executor failed running [/bin/sh -c npm install]: exit code 1
 
 ## FanHub-Specific Docker Patterns
 
-### Frontend Dockerfile (React App)
+**For creating new Dockerfiles**: See `dockerfile-template.md` for production-ready templates.
 
-**Structure**:
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
+**Common issues with FanHub's existing Dockerfiles**:
 
-# Dependencies layer (cached)
-COPY package*.json ./
-RUN npm ci
-
-# Build layer
-COPY . .
-RUN npm run build
-
-# Serve with nginx (multi-stage optional)
-FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
-```
-
-**Common Issues**:
+### Frontend (React App)
 - Build fails: Check `npm run build` works locally
-- Missing env vars: Use `ARG` for build-time vars
-- Slow builds: Ensure package.json is copied first
+- Missing env vars: Use `ARG` for build-time vars (e.g., `REACT_APP_API_URL`)
+- Slow builds: Ensure package.json copied before source code
 
----
-
-### Backend Dockerfile (Node API)
-
-**Structure**:
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-
-# Dependencies layer (cached)
-COPY package*.json ./
-RUN npm ci --only=production
-
-# Application layer
-COPY src/ ./src/
-COPY database/ ./database/
-
-EXPOSE 3000
-CMD ["node", "src/index.js"]
-```
-
-**Common Issues**:
+### Backend (Node API)
 - Database files missing: Ensure `COPY database/` is included
-- Dev dependencies installed: Use `npm ci --only=production`
+- Dev dependencies in production: Use `npm ci --only=production`
 - Port not exposed: Add `EXPOSE 3000`
 
 ---
@@ -332,8 +298,11 @@ Ask Copilot with this skill when:
 - "It works locally but not in Docker"
 - Need to validate Dockerfile before committing
 - Teaching someone Docker build patterns
+- **Creating a new Dockerfile from scratch** (use the template)
 
 **Example prompts**:
 - *"Why does my Dockerfile fail with ENOENT?"*
 - *"My Docker build is slow—every code change re-runs npm install. What's wrong?"*
 - *"Run the Docker analyzer on backend/Dockerfile"*
+- *"Use the Dockerfile template to create a production Dockerfile for a Node.js API on port 4000"*
+- *"Generate a multi-stage Dockerfile for a React app using the template"*
