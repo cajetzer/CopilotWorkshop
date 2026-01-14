@@ -862,6 +862,311 @@ Now when a Docker build fails:
 
 ---
 
+### Exercise 5.2b: Architectural Data Flow Skill — "David Documents System Boundaries"
+
+> 🧵 **The Golden Thread**: When the agent builds Character Detail v2 in Module 07, it needs to understand FanHub's architectural constraints—not just code patterns, but how data flows through the system.
+
+#### 📖 The Story
+
+**David** (Staff Engineer, 20 years) opens the ARCHITECTURE.md from Module 01. It documents the system architecture, but it's static documentation. Developers read it once, then forget it when building features.
+
+*"Character Detail v2 will touch multiple layers,"* David explains. *"Frontend components fetch from API routes, which query the database, which has relationships between shows, characters, episodes, and quotes. If developers don't understand these boundaries, they'll create layering violations."*
+
+**Sarah** asks: *"Like what?"*
+
+*"Like a React component directly importing from the database layer,"* David says. *"Or an API route mixing business logic with data access. Or circular dependencies between character and show services. I catch these in code review, but by then the PR is written."*
+
+Elena realizes: *"Your architectural review prompt from Module 03 catches violations after code is written. Custom instructions from Module 04 apply patterns when specific files are edited. But what if Copilot understood the architecture **before** generating code?"*
+
+That's what architectural skills do: They encode system boundaries, data flow rules, and layer relationships—so when someone asks to "add character favorites," Copilot knows the correct layers to touch.
+
+**Supporting Cast**: Sarah learns architectural patterns by seeing them explained in real-time as she builds features.
+
+#### ❌ The "Before" — Architectural Violations
+
+Without architectural domain knowledge, developers (and AI) create layering violations:
+
+```javascript
+// Frontend component violating layering (BAD)
+import { db } from '../../backend/src/database';  // ❌ Frontend → Database direct
+
+function CharacterDetail({ id }) {
+  const character = await db.getCharacter(id);  // ❌ No service layer
+  return <div>{character.name}</div>;
+}
+```
+
+```javascript
+// API route mixing concerns (BAD)
+router.get('/characters/:id', async (req, res) => {
+  // ❌ Business logic + data access + validation all mixed
+  const char = await db.query('SELECT * FROM characters WHERE id = ?', req.params.id);
+  if (!char) return res.status(404).json({ error: 'Not found' });
+  
+  // ❌ Fetching related data manually instead of using relationships
+  const quotes = await db.query('SELECT * FROM quotes WHERE character_id = ?', char.id);
+  const episodes = await db.query('SELECT * FROM episodes WHERE show_id = ?', char.show_id);
+  
+  res.json({ ...char, quotes, episodes });
+});
+```
+
+**Architectural problems:**
+- Frontend bypasses service layer
+- No separation between business logic and data access
+- Relationships queried manually instead of using defined patterns
+- Circular dependency risks (character → show → character)
+
+#### 🎯 Objective
+
+Create an Agent Skill that encodes FanHub's architectural patterns—so Copilot understands system boundaries before generating code.
+
+#### 📋 Steps
+
+1. **Create the architectural skill**
+   
+   Create `skills/architectural-patterns.md`:
+   
+   ````markdown
+   ---
+   activation: ["architecture", "data flow", "layer", "service", "API", "component structure", "system design"]
+   ---
+   
+   # FanHub Architectural Patterns
+   
+   This skill encodes the FanHub system architecture and data flow rules documented in `docs/ARCHITECTURE.md`. Activate when discussing features, endpoints, or components that touch multiple system layers.
+   
+   ## System Architecture Overview
+   
+   FanHub follows a layered architecture:
+   
+   ```
+   Frontend (React)
+     ↓ HTTP requests only
+   API Routes (Express)
+     ↓ Function calls only
+   Services (Business Logic)
+     ↓ Function calls only
+   Database Access (Queries)
+     ↓ SQL/ORM only
+   SQLite Database
+   ```
+   
+   **Critical Rule**: Each layer can ONLY communicate with the layer directly below it. No skipping layers.
+   
+   ## Layer Responsibilities
+   
+   ### Frontend Layer (`frontend/src/`)
+   - **Can**: Make HTTP requests to `/api/*` endpoints
+   - **Cannot**: Import backend code, access database, contain business logic
+   - **Pattern**: Components → API Service → HTTP → Backend
+   
+   Example correct pattern:
+   ```javascript
+   // frontend/src/services/characterService.js
+   export async function getCharacter(id) {
+     const res = await fetch(`/api/characters/${id}`);
+     return res.json();
+   }
+   
+   // frontend/src/components/CharacterDetail.jsx
+   import { getCharacter } from '../services/characterService';
+   ```
+   
+   ### API Routes Layer (`backend/src/routes/`)
+   - **Can**: Call service layer functions, validate input, format responses
+   - **Cannot**: Contain business logic, access database directly
+   - **Pattern**: Route → Service function → Return formatted response
+   
+   Example correct pattern:
+   ```javascript
+   // backend/src/routes/characters.js
+   router.get('/:id', async (req, res) => {
+     const character = await characterService.getCharacterWithDetails(req.params.id);
+     res.json({ success: true, data: character });
+   });
+   ```
+   
+   ### Services Layer (`backend/src/services/`)
+   - **Can**: Implement business logic, orchestrate database queries
+   - **Cannot**: Access HTTP request/response, know about routes
+   - **Pattern**: Pure business logic functions that call database layer
+   
+   ### Database Layer (`backend/src/database/`)
+   - **Can**: Execute queries, manage transactions
+   - **Cannot**: Contain business logic, know about services
+   - **Pattern**: Simple query functions, no logic
+   
+   ## Data Model Relationships
+   
+   ### Core Entities
+   - **Shows** — TV shows in the system
+   - **Characters** — Characters from shows
+   - **Episodes** — Episodes of shows
+   - **Quotes** — Memorable quotes from episodes
+   
+   ### Relationships
+   ```
+   Show (1) ←→ (Many) Characters
+   Show (1) ←→ (Many) Episodes
+   Episode (1) ←→ (Many) Quotes
+   Character (1) ←→ (Many) Quotes
+   Character (Many) ←→ (Many) Characters (related_characters, self-referential)
+   ```
+   
+   ### Critical Rules
+   1. **Characters belong to one show** — `characters.show_id` is required
+   2. **Episodes belong to one show** — `episodes.show_id` is required
+   3. **Quotes reference both character and episode** — Both foreign keys required
+   4. **Related characters must be from same show** — No cross-show relationships
+   
+   ## Common Feature Patterns
+   
+   ### Adding a "Detail Page" Feature
+   
+   When building detail pages (Character, Episode, Show), follow this flow:
+   
+   1. **Database layer**: Add query function
+      ```javascript
+      // database/queries.js
+      getCharacterWithDetails(id) {
+        // JOIN to get show, episodes, quotes
+      }
+      ```
+   
+   2. **Service layer**: Add business logic
+      ```javascript
+      // services/characterService.js
+      async getCharacterWithDetails(id) {
+        const char = await db.getCharacterWithDetails(id);
+        if (!char) throw new NotFoundError();
+        return char;
+      }
+      ```
+   
+   3. **API route**: Add endpoint
+      ```javascript
+      // routes/characters.js
+      router.get('/:id', async (req, res) => {
+        const char = await characterService.getCharacterWithDetails(req.params.id);
+        res.json({ success: true, data: char });
+      });
+      ```
+   
+   4. **Frontend service**: Add API call
+      ```javascript
+      // frontend/src/services/characterService.js
+      export async function getCharacter(id) {
+        const res = await fetch(`/api/characters/${id}`);
+        return res.json();
+      }
+      ```
+   
+   5. **Frontend component**: Use service
+      ```javascript
+      // frontend/src/pages/CharacterDetail.jsx
+      import { getCharacter } from '../services/characterService';
+      ```
+   
+   ## When This Skill Activates
+   
+   This skill automatically provides context when you:
+   - Mention building features that touch multiple layers
+   - Ask about data relationships ("How do characters relate to shows?")
+   - Discuss API endpoints or components
+   - Reference ARCHITECTURE.md patterns
+   
+   ## Examples
+   
+   **Good**: "Create an endpoint to get character with all their quotes and episodes"  
+   → Copilot knows: Create database query → service function → API route → frontend service
+   
+   **Good**: "Add favorites feature to Character Detail page"  
+   → Copilot knows: Touch all layers, add favorites table with character_id foreign key
+   
+   **Bad (that this prevents)**: "Add character data to this component"  
+   → Without skill: Might import database directly  
+   → With skill: Uses service layer correctly
+   ````
+
+2. **Test architectural understanding**
+   
+   Ask Copilot (with the skill loaded):
+   
+   ```
+   I need to add a "favorite quotes" feature where users can save quotes. 
+   What layers of the architecture do I need to modify?
+   ```
+   
+   Copilot should respond with the correct layered approach, referencing the skill.
+
+3. **Verify layering enforcement**
+   
+   Ask Copilot to generate code for a feature and verify it respects layer boundaries:
+   
+   ```
+   Create a new endpoint GET /api/characters/:id/quotes that returns 
+   all quotes for a character with episode information.
+   ```
+   
+   The generated code should:
+   - Create a database query function
+   - Create a service function
+   - Create an API route that calls the service
+   - NOT mix layers or skip the service layer
+
+4. **Check relationship understanding**
+   
+   Test that Copilot understands data relationships:
+   
+   ```
+   Can a character have quotes from episodes of different shows?
+   ```
+   
+   Copilot should say NO and explain why (characters belong to one show, quotes reference episodes of that show).
+
+#### ✅ Success Criteria
+
+- [ ] Created `skills/architectural-patterns.md` with FanHub architecture
+- [ ] Skill includes layer responsibilities and boundaries
+- [ ] Skill documents data model relationships
+- [ ] Skill provides feature implementation patterns
+- [ ] Copilot correctly identifies required layers for new features
+- [ ] Copilot generates code that respects layer boundaries
+- [ ] Copilot understands data relationship constraints
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/skills/architectural-patterns.md`](../../examples/completed-config/skills/architectural-patterns.md) for a reference example.
+
+#### ✨ The "After" — The Improved Experience
+
+**Before (Module 05)**: Copilot generates code that violates architecture, David catches in review  
+**After**: Copilot understands architecture upfront, generates layered code correctly
+
+**Architectural violations per feature**: From 3-5 to 0-1  
+**Code review time**: From 30 minutes to 10 minutes  
+**Rework required**: From 2-3 rounds to 1 round
+
+**Developer quote after using the skill:**
+> *"I asked Copilot to add the favorites feature. It outlined all four layers I needed to touch—database, service, API route, frontend—and generated code that followed the patterns from ARCHITECTURE.md. First try, no violations. David approved the PR in 10 minutes."*
+
+#### 📚 Official Docs
+
+- [Agent Skills: Activation Patterns](https://agentskills.io/docs/activation)
+- [VS Code: Domain-Specific Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills#domain-knowledge)
+
+#### 💭 David's Insight
+
+*"For 20 years, I've caught architectural violations in code review: 'This skips the service layer.' 'This creates a circular dependency.' 'This mixes business logic with data access.' The problem is developers don't see ARCHITECTURE.md when they're coding—they're focused on the feature. Now my architectural knowledge is encoded as a skill that activates when they mention features or layers. Copilot explains the architecture as it generates code. My expertise isn't just available in review—it's available at creation time. That's not just faster code—that's better-architected code from the start."*
+
+#### 🚀 Challenge Extension
+
+Extend the skill to include:
+- **Security boundaries** — What layers handle authentication/authorization
+- **Performance patterns** — Where caching happens, query optimization rules
+- **Testing strategy** — What to test at each layer (unit vs integration)
+
+---
+
 ### Exercise 5.3: Create Domain-Specific Skills — "What Character Detail v2 Will Need"
 
 > 🧵 **The Golden Thread**: When the agent builds Character Detail v2 in Module 07, it should follow FanHub's product standards. Rafael creates a skill that ensures features get error boundaries, loading states, and analytics automatically.

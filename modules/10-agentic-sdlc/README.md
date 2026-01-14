@@ -14,7 +14,7 @@ You've learned to customize Copilot with instructions, prompts, agents, skills, 
 **Agentic SDLC** changes that. With agents running across VS Code, GitHub.com, and the CLI simultaneously, you can build features in parallel.
 
 **Time**: ~90 minutes  
-**Personas**: Marcus (parallel orchestration), David (background tasks), Rafael (sprint planning)
+**Personas**: Marcus (parallel orchestration), David (architecture review), Rafael (sprint planning)
 
 ---
 
@@ -79,13 +79,16 @@ Sprint End ◄── All streams converge
 | 5.3 | Marcus | GitHub Copilot CLI | 20 min |
 | 5.4 | Team | The Convergence | 15 min |
 | 5.5 | Rafael | Sprint Orchestration | 25 min |
+| 5.5b | David | Parallel Architecture Review | 15 min |
 | 5.6 | Sarah | Checkpoints (Safety) | 10 min |
 
 ### Quick Links
 
 - [Exercise 5.1: VS Code Agent Mode](./EXERCISES.md#exercise-51-vs-code-agent-mode--the-feature-build) — Marcus builds search feature
+- [Exercise 5.2: GitHub Web Coding Agent](./EXERCISES.md#exercise-52-github-copilot-web--the-background-build) — David kicks off background work
 - [Exercise 5.3: Copilot CLI](./EXERCISES.md#exercise-53-github-copilot-cli--the-infrastructure-sprint) — Marcus's infrastructure sprint
 - [Exercise 5.5: Sprint Orchestration](./EXERCISES.md#exercise-55-sprint-orchestration--rafael-directs-the-symphony) — Rafael prioritizes and orchestrates
+- [Exercise 5.5b: Parallel Architecture Review](./EXERCISES.md#exercise-55b-parallel-architecture-review--davids-background-validation) — David validates architecture in parallel
 
 ---
 
@@ -94,6 +97,7 @@ Sprint End ◄── All streams converge
 | Your Role | Recommended Focus | Start Here |
 |-----------|------------------|------------|
 | **Developer** | Interactive development | [Marcus's Path](./personas/marcus.md) |
+| **Architect** | Parallel architecture review | [David's Path](./personas/david.md) |
 | **Product/Lead** | Sprint orchestration | [Rafael's Path](./personas/rafael.md) |
 | **DevOps** | Parallel infrastructure | [Marcus's Path](./personas/marcus.md) |
 

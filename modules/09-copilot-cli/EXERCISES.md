@@ -954,6 +954,157 @@ Ask the agent: *"Add a check for security vulnerabilities and create a weekly re
 
 ---
 
+### Exercise 9.8: Architecture Analysis from Terminal — "David's Quick Queries"
+
+#### 📖 The Story
+
+**David** (Staff Engineer, 20 years) is reviewing a large PR. He needs to understand file dependencies before diving into code review. Opening every file in VS Code feels heavyweight for what should be quick questions.
+
+*"I just want to know: which files import this module? Which components call this service? Is there any frontend code that touches the backend directly?"*
+
+Sarah shows him: *"The CLI can answer those questions in seconds. No file opening required."*
+
+**Supporting Cast**: Sarah uses these queries for issue triage—quickly understanding code relationships before assigning work.
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+David's traditional dependency analysis:
+- Open VS Code
+- Use "Find All References" (loads entire project)
+- Click through each reference manually
+- Lose track of the dependency chain
+- Give up and just start reading files
+- Still not sure if he's seen all usages
+
+**Time per analysis**: 10-15 minutes  
+**Confidence in completeness**: Low  
+**Mental overhead**: High—context switching between files
+
+#### 🎯 Objective
+
+Use CLI agent to quickly analyze code dependencies and architecture relationships without opening files.
+
+#### 📋 Steps
+
+1. **Start a CLI session** in the FanHub backend:
+
+```bash
+cd /workspaces/CopilotTraining/fanhub/backend
+copilot
+```
+
+2. **Trace file dependencies**:
+
+```
+Show me all files that import from src/database/queries.js
+```
+
+The agent will analyze imports and show the dependency tree.
+
+3. **Query service relationships**:
+
+```
+Which components or routes call functions from src/routes/characters.js?
+```
+
+4. **Check for layering violations**:
+
+```
+Are there any files in frontend/src that import from backend/src? 
+These would be layering violations.
+```
+
+5. **Analyze a specific function's usage**:
+
+```
+Where is the getCharacterById function called from? 
+Show me the call chain.
+```
+
+6. **Validate against architecture docs**:
+
+```
+Read docs/ARCHITECTURE.md and check if the current import 
+structure in src/routes matches the documented patterns.
+```
+
+7. **Generate a dependency report**:
+
+```
+Create a markdown report showing:
+1. Core modules and what depends on them
+2. Any circular dependencies
+3. Files with more than 5 imports (potential god files)
+```
+
+8. **Exit the session**:
+
+```
+exit
+```
+
+#### ✅ Success Criteria
+
+- [ ] Traced dependencies for at least one module
+- [ ] Identified which files import from a core module
+- [ ] Checked for layering violations
+- [ ] Analyzed function usage patterns
+- [ ] Generated dependency report
+- [ ] Completed architectural queries without opening VS Code
+
+#### ✨ The "After" — The Improved Experience
+
+David asks: *"What imports database/queries.js?"* The agent:
+1. Scans the codebase
+2. Reports all importers with line numbers
+3. Shows the dependency chain
+
+Total time: 30 seconds vs 10 minutes.
+
+**Time per analysis**: 30 seconds (vs 10-15 minutes)  
+**Confidence in completeness**: High—agent finds everything  
+**Mental overhead**: Minimal—stay in terminal, no context switching
+
+**Example output:**
+
+```markdown
+## Dependency Analysis: src/database/queries.js
+
+### Direct Importers (4 files):
+- src/routes/characters.js:3 — imports: getCharacterById, getAllCharacters
+- src/routes/episodes.js:3 — imports: getEpisodeById, searchEpisodes
+- src/routes/quotes.js:3 — imports: getRandomQuote
+- src/services/characterService.js:2 — imports: getCharacterById
+
+### Secondary Importers (2 files):
+- src/index.js:7 — via routes/characters
+- tests/characters.test.js:5 — via routes/characters
+
+### Layering Violations: 0 ✅
+### Circular Dependencies: 0 ✅
+### Files with >5 imports: 1 ⚠️
+- src/index.js (7 imports) — Consider splitting into modules
+```
+
+#### 📚 Official Docs
+
+- [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+- [About GitHub Copilot CLI agents](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
+
+#### 💭 David's Realization
+
+*"For years I've been opening files, tracing imports manually, building a mental map of dependencies. The CLI agent does it in seconds. I can validate architectural assumptions before a code review, not during it. My expertise is in knowing what questions to ask—the agent handles the grunt work of finding answers."*
+
+#### 🚀 Challenge Extension
+
+Create an "architectural pre-review" workflow:
+1. Ask the agent to analyze a PR's changed files
+2. For each changed file, show what depends on it
+3. Identify blast radius of the changes
+4. Generate a reviewer's summary
+
+---
+
 ## 🔗 Compounding Value
 
 ### What You Created in This Module

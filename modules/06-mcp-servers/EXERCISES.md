@@ -418,6 +418,169 @@ Watch Copilot catch: ❌ show_id doesn't exist, ❌ invalid status enum. All wit
 
 ---
 
+### Exercise 6.2: Validate Architecture Against Reality — "David Catches Drift"
+
+#### 📖 The Story
+
+**David** (Staff Engineer, 20 years) has a concern: *"ARCHITECTURE.md says characters have a `status` field with three valid values. But does the actual database schema match the documentation?"*
+
+He opens the SQLite database viewer and checks. *"Wait... the database has a `character_status` column, not `status`. And there are four values in use, not three. The documentation has drifted from reality."*
+
+This is a common architectural problem: Documentation describes the intended system, but the actual deployed system has evolved differently. Code gets merged, contractors make changes, and suddenly your architecture docs lie.
+
+*"With MCP,"* David realizes, *"I can query the actual database schema and compare it to ARCHITECTURE.md. Copilot can tell me where documentation and reality diverge."*
+
+**Supporting Cast**: Sarah learns to verify assumptions against running systems instead of trusting documentation.
+
+#### ❌ The "Before" — Documentation Drift
+
+**ARCHITECTURE.md says:**
+```markdown
+## Character Schema
+- `id`: INTEGER PRIMARY KEY
+- `name`: TEXT NOT NULL
+- `status`: TEXT CHECK(status IN ('alive', 'deceased', 'unknown'))
+- `show_id`: INTEGER NOT NULL
+```
+
+**Actual database schema (what you discover with MCP):**
+```sql
+CREATE TABLE characters (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  character_status TEXT,  -- ❌ Different column name!
+  status_note TEXT,        -- ❌ Undocumented field!
+  show_id INTEGER NOT NULL,
+  created_at TEXT          -- ❌ Undocumented field!
+);
+
+-- ❌ No CHECK constraint! Four values in use: 'alive', 'deceased', 'unknown', 'retired'
+```
+
+**The drift:**
+- Column name mismatch (`status` vs `character_status`)
+- Missing CHECK constraint
+- Undocumented fields (`status_note`, `created_at`)
+- Fourth status value in use (`retired`)
+
+**Impact**: Developers build features based on ARCHITECTURE.md, then discover the database doesn't match. Bug reports follow.
+
+#### 🎯 Objective
+
+Use MCP's SQLite server to validate that the actual database schema matches the documented architecture—and discover where they diverge.
+
+#### 📋 Steps
+
+1. **Query the actual schema**
+   
+   With SQLite MCP server enabled, ask Copilot:
+   
+   ```
+   Using the SQLite MCP server, show me the actual schema for the characters table. 
+   Include column names, types, and constraints.
+   ```
+   
+   Copilot will use the `sqlite` MCP tool to run:
+   ```sql
+   SELECT sql FROM sqlite_master WHERE type='table' AND name='characters';
+   ```
+
+2. **Compare to documentation**
+   
+   Ask Copilot:
+   
+   ```
+   Compare the actual characters table schema you just found with what 
+   docs/ARCHITECTURE.md says it should be. List all discrepancies.
+   ```
+   
+   Copilot will read ARCHITECTURE.md and report differences:
+   - Column name mismatch
+   - Missing constraints
+   - Undocumented fields
+   - Schema version drift
+
+3. **Query actual data patterns**
+   
+   Discover undocumented enum values:
+   
+   ```
+   What distinct values exist in the character_status column? 
+   Query the database to find out.
+   ```
+   
+   Copilot will run:
+   ```sql
+   SELECT DISTINCT character_status, COUNT(*) as count 
+   FROM characters 
+   GROUP BY character_status;
+   ```
+   
+   Result: `alive (15), deceased (8), unknown (3), retired (2)` — revealing the fourth undocumented value.
+
+4. **Check foreign key validity**
+   
+   Validate referential integrity:
+   
+   ```
+   Are there any characters with show_id values that don't exist in the shows table?
+   ```
+   
+   Copilot will use SQLite MCP to run a LEFT JOIN and find orphaned records.
+
+5. **Create architectural validation report**
+   
+   Ask Copilot to generate a report:
+   
+   ```
+   Create a markdown report in docs/schema-validation-report.md that documents:
+   1. Schema differences between ARCHITECTURE.md and actual database
+   2. Undocumented fields and their usage
+   3. Data integrity issues found
+   4. Recommended fixes
+   ```
+
+#### ✅ Success Criteria
+
+- [ ] Used SQLite MCP to query actual database schema
+- [ ] Compared actual schema to ARCHITECTURE.md documentation
+- [ ] Discovered column name discrepancies (`status` vs `character_status`)
+- [ ] Found undocumented fields (`status_note`, `created_at`)
+- [ ] Identified fourth status value (`retired`) not in docs
+- [ ] Validated foreign key relationships
+- [ ] Generated schema validation report
+
+#### ✨ The "After" — Verified Architecture
+
+**Before (Module 06)**: Documentation says one thing, database has another, bugs happen  
+**After**: David can verify architecture against running system in 2 minutes
+
+**Time to discover drift**: From "never" (until bugs appear) to 2 minutes  
+**Documentation accuracy**: From uncertain to verified  
+**Architectural confidence**: High—know the system matches docs
+
+**Developer quote:**
+> *"I was building a feature based on ARCHITECTURE.md. The `status` field was supposed to have three values. When I deployed, the database had `character_status` with four values. Two hours of debugging. With MCP, David caught this in 2 minutes by querying the actual schema."*
+
+#### 📚 Official Docs
+
+- [MCP: SQLite Server](https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite)
+- [VS Code: Using MCP Servers](https://code.visualstudio.com/docs/copilot/copilot-mcp-architecture)
+
+#### 💭 David's Discovery
+
+*"For 20 years, I've written architecture documents that drift from reality. Developers merge PRs, contractors make changes, and suddenly ARCHITECTURE.md lies. I used to catch drift in code review—after the wrong assumption was coded. Now I can verify architecture against the running system in 2 minutes. MCP turned Copilot from a code generator into an architectural auditor. It's not just generating code—it's validating that the code world matches the documented world."*
+
+#### 🚀 Challenge Extension
+
+Create a scheduled validation workflow:
+1. Write a script that queries schema via MCP
+2. Compares to ARCHITECTURE.md
+3. Opens a GitHub issue if drift is detected
+4. Runs weekly via GitHub Actions
+
+---
+
 ### Exercise 6.5: Integrating MCP Into Your Workflow — "The Complete Picture"
 
 #### 📖 The Story

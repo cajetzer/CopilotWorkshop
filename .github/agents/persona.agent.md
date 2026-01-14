@@ -10,14 +10,8 @@ Ensure each of the seven training personas has relevant, compelling, and actiona
 
 ### 1. Coverage Audit
 
-Check persona distribution across modules:
+Check persona should appear in all modules where their role is relevant. Identify gaps where personas are missing or underrepresented.
 
-- **Sarah** — Should appear in Modules 1, 2, 5, 7, 9 (skeptic → convinced arc)
-- **David** — Should appear in Modules 1, 3, 4, 6, 9 (expertise validation arc)
-- **Marcus** — Should appear in Modules 2, 4, 6, 8 (DevOps → build/debug/test automation arc)
-- **Priya** — Should appear in Modules 1, 3, 5, 7 (learning acceleration arc)
-- **Elena** — Should appear in Modules 2, 5, 7, 8 (testing integration arc)
-- **Rafael** — Should appear in Modules 3, 6, 8, 9 (product velocity arc)
 
 **Output:** Report showing:
 - Which personas are missing from expected modules

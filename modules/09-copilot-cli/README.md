@@ -38,7 +38,7 @@ By the end of this module, you will:
 - Create morning health check routines
 
 **Time**: ~75-90 minutes  
-**Primary Persona**: Marcus (DevOps Developer)
+**Primary Personas**: Marcus (DevOps Developer), David (Architect)
 
 ---
 
@@ -130,6 +130,17 @@ You can approve per-action or for the session.
 | [9.5](EXERCISES.md#exercise-95-build-debugging-session) | Build Debugging | 12 min | Fix broken dependencies interactively |
 | [9.6](EXERCISES.md#exercise-96-coverage-driven-development) | Coverage Improvement | 12 min | Drive coverage up with agent help |
 | [9.7](EXERCISES.md#exercise-97-morning-health-check-routine) | Daily Routine | 10 min | Automate your morning workflow |
+| [9.8](EXERCISES.md#exercise-98-architecture-analysis-from-terminal--davids-quick-queries) | Architecture Analysis | 12 min | David's quick dependency queries |
+
+---
+
+## 🧑‍💼 Choose Your Path
+
+| Your Role | Recommended Focus | Start Here |
+|-----------|------------------|------------|
+| **DevOps/Developer** | Build, test, debug workflows | [Marcus's Path](./personas/marcus.md) |
+| **Architect** | Dependency analysis, quick queries | [David's Path](./personas/david.md) |
+| **Senior Developer** | Issue triage, validation | [Sarah's Path](./personas/sarah.md) |
 
 ---
 

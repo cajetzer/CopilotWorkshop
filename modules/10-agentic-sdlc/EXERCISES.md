@@ -256,6 +256,8 @@ With VS Code Agent Mode:
 
 This is the perfect **GitHub Copilot Coding Agent** task.
 
+**Supporting Cast**: While David kicks off the background task, Marcus continues interactive search development in VS Code.
+
 #### ❌ The "Before" — What Frustration Looks Like
 
 Without parallel agents:
@@ -967,6 +969,169 @@ With checkpoints:
 #### 💭 Sarah's Verdict
 
 *"I was ready to dismiss agent mode as too risky. Checkpoints changed my mind. I can let the agent work on complex tasks, review at each step, and roll back if something goes wrong. It's autonomy with a safety net. That's what I needed to trust it."*
+
+---
+
+### Exercise 5.5b: Parallel Architecture Review — "David's Background Validation"
+
+#### 📖 The Story
+
+**David** realizes something powerful: while the team builds features in parallel across VS Code, GitHub.com, and CLI, he can run his architecture reviewer agent (from Module 7) in the background to validate architectural coherence across all changes.
+
+*"Everyone's building in parallel. Who's making sure all these changes fit together architecturally? That's my job—and now I have an agent for it."*
+
+**Supporting Cast**: Sarah appreciates that architectural validation happens automatically, not as a blocking review step.
+
+#### ❌ The "Before" — Architecture Review as Bottleneck
+
+Traditional architectural review:
+- Wait until all parallel work is complete
+- David reviews each PR sequentially
+- Catches layering violations after code is written
+- Requests changes, developers context-switch back
+- Slows down the entire parallel workflow
+
+**Architecture review timing**: At the end (blocking)  
+**Issues caught**: After effort invested  
+**Developer cost**: High (context switching to fix)
+
+#### 🎯 Objective
+
+Run the Architecture Reviewer agent from Module 7 in parallel with feature development, catching architectural issues as code is created—not after.
+
+#### 📋 Steps
+
+1. **Set up the architecture reviewer**
+   
+   Ensure your Architecture Reviewer agent from Module 7 is configured:
+   - Access to ARCHITECTURE.md
+   - Custom instructions for layering rules
+   - MCP connection to database (for schema validation)
+
+2. **Start architecture monitoring in VS Code**
+   
+   Open a second VS Code window (or a separate chat session). Start the Architecture Reviewer:
+   
+   ```
+   @architecture-reviewer Monitor the current development session.
+   
+   As files are created or modified in src/, validate:
+   1. New components are in correct layers per ARCHITECTURE.md
+   2. Imports don't violate layering rules (no frontend→backend)
+   3. New service functions follow our async/await patterns
+   4. Database queries go through the service layer
+   
+   Report any violations immediately.
+   ```
+
+3. **Continue parallel development**
+   
+   While the architecture reviewer runs:
+   - Marcus builds search feature in VS Code (Exercise 5.1)
+   - GitHub Web Agent creates analytics endpoints (Exercise 5.2)
+   - CLI handles infrastructure tasks (Exercise 5.3)
+   
+   The architecture reviewer validates each change as it happens.
+
+4. **Review architectural feedback in real-time**
+   
+   As the team works, David monitors architecture reviewer output:
+   
+   ```
+   Architecture Review Status:
+   
+   ✅ SearchBar.jsx — Correct layer (components/search/)
+   ✅ searchService.js — Proper async/await patterns
+   ⚠️ SearchResults.jsx — Imports directly from database/queries.js
+      → Violation: Frontend should not import database layer
+      → Fix: Import from searchService instead
+   ✅ analyticsController.js — Follows API patterns
+   ```
+
+5. **Provide immediate feedback**
+   
+   When the reviewer catches an issue:
+   
+   ```
+   @marcus The architecture reviewer caught a layering violation in 
+   SearchResults.jsx. It's importing from database/queries.js directly.
+   Switch to importing from searchService and the reviewer will revalidate.
+   ```
+   
+   The fix happens immediately—not after the PR is submitted.
+
+6. **Generate architectural summary**
+   
+   At sprint end, ask the reviewer:
+   
+   ```
+   Generate a summary of today's architectural changes:
+   - New components added and their layer placement
+   - Services created or modified
+   - Any patterns that deviated from ARCHITECTURE.md
+   - Recommendations for documentation updates
+   ```
+
+#### ✅ Success Criteria
+
+- [ ] Architecture reviewer running in parallel with development
+- [ ] At least one architectural issue caught in real-time
+- [ ] Issue fixed before PR submission (not during review)
+- [ ] Architectural summary generated at sprint end
+- [ ] Team understands continuous architectural validation
+
+#### ✨ The "After" — Architecture Review as Continuous Validation
+
+With parallel architecture review:
+- Violations caught as code is written, not after
+- Fixes happen in-context, not via PR review feedback
+- David provides architectural guidance without blocking
+- Documentation drift identified immediately
+- Sprint ends with architecturally coherent code
+
+**Architecture validation timing**: Continuous (non-blocking)  
+**Issues caught**: At creation time (minimal effort to fix)  
+**Developer cost**: Low (fix while context is fresh)
+
+**David's review summary:**
+
+```markdown
+## Architectural Review Summary — Sprint 2024-01-14
+
+### Changes Validated
+- 12 new components created (all in correct layers)
+- 3 new services added (following async patterns)
+- 1 database migration (schema documented)
+
+### Issues Caught & Fixed
+- 1 layering violation (SearchResults → database) — Fixed immediately
+- 1 service bypassing pattern (direct API call) — Refactored to use service
+
+### Documentation Updates Recommended
+- Add search service to ARCHITECTURE.md service layer diagram
+- Document analytics endpoints in API reference
+- Update component hierarchy with new search components
+
+### Architectural Health: ✅ Good
+All code follows documented patterns. No debt introduced.
+```
+
+#### 📚 Official Docs
+
+- [VS Code: Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
+- [Creating Custom Agents](https://code.visualstudio.com/docs/copilot/chat/copilot-custom-agents)
+
+#### 💭 David's Transformation
+
+*"For 20 years, architecture review was a blocking activity. I'd review PRs after the code was written, request changes, and developers would grumble about having to context-switch back. Now I run architectural validation in parallel with development. Issues are caught and fixed while the code is being written. I'm not a bottleneck anymore—I'm a continuous quality signal. My expertise isn't being replaced; it's being distributed across the entire development cycle."*
+
+#### 🚀 Challenge Extension
+
+Extend the architecture reviewer to:
+1. Automatically validate each PR before it can be merged
+2. Generate architecture decision records (ADRs) for significant changes
+3. Track architectural metrics over time (layer violations per sprint)
+4. Suggest architectural improvements based on code patterns
 
 ---
 

@@ -33,8 +33,8 @@ By the end of this module, you will:
 - Build domain-specific validation skills for the FanHub data model
 - Leverage community skills from existing repositories
 
-**Time**: ~90 minutes  
-**Featured Personas**: Elena (Quality Champion), Rafael (Product Visionary), Marcus (DevOps Developer)
+**Time**: ~115 minutes  
+**Featured Personas**: Elena (Testing), David (Architecture), Rafael (Product), Marcus (DevOps)
 
 ---
 
@@ -51,12 +51,16 @@ By the end of this module, you will:
 Data validation, testing skills  
 *~45 minutes*
 
+**[David's Path →](personas/david.md)**  
+Architectural patterns, data flow  
+*~25 minutes*
+
 **[Rafael's Path →](personas/rafael.md)**  
 Feature requirements, effort estimation  
 *~50 minutes*
 
 **[Marcus's Path →](personas/marcus.md)**  
-Application complexity understanding  
+Docker debugging, DevOps expertise  
 *~30 minutes*
 
 </td>
@@ -77,12 +81,13 @@ Best for: First-time learners, instructor-led sessions
 ### ⚡ Quick Navigator
 *Jump to what you need*
 
-| Exercise | Focus | Time |
-|----------|-------|------|
-| [5.1](EXERCISES.md#exercise-51-understand-skills-through-examples--exploring-the-ecosystem) | Explore Skills | 20m |
-| [5.2](EXERCISES.md#exercise-52-create-your-first-skill--tv-show-data-validation) | Data Validation | 25m |
-| [5.3](EXERCISES.md#exercise-53-create-domain-specific-skills--feature-requirements) | Feature Requirements | 25m |
-| [5.4](EXERCISES.md#exercise-54-effort-estimator-skill--planning-episode-detail-page) | Episode Detail Effort | 20m |
+| Exercise | Lead | Focus | Time |
+|----------|------|-------|------|
+| [5.1](EXERCISES.md#exercise-51-understand-skills-through-examples--exploring-the-ecosystem) | Elena | Explore Skills | 20m |
+| [5.2](EXERCISES.md#exercise-52-create-your-first-skill--tv-show-data-validation) | Marcus | Docker Debugging | 25m |
+| [5.2b](EXERCISES.md#exercise-52b-architectural-data-flow-skill--david-documents-system-boundaries) | David | Architecture | 25m |
+| [5.3](EXERCISES.md#exercise-53-create-domain-specific-skills--feature-requirements) | Rafael | Feature Requirements | 25m |
+| [5.4](EXERCISES.md#exercise-54-effort-estimator-skill--planning-episode-detail-page) | Rafael | Effort Estimation | 20m |
 
 </td>
 </tr>

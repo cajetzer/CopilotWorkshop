@@ -274,21 +274,21 @@ Generate tests for an existing component with your new testing instructions acti
 
 ---
 
-### Exercise 4.2: API Route Instructions — "The Quote of the Day Endpoint"
+### Exercise 4.2: API Route Instructions — "David Encodes 20 Years of REST Expertise"
 
-> 🧵 **The Golden Thread Continues**: Character Detail v2 will add a `/characters/:id/full` endpoint. Rafael also wants a "Quote of the Day" feature—and David wants the API routes to follow REST conventions from the start.
+> 🧵 **The Golden Thread Continues**: Character Detail v2 will add a `/characters/:id/full` endpoint. David wants all API routes to follow REST conventions from the start—not after code review.
 
 #### 📖 The Story
-
-**Rafael** (Product Manager, 10 years) is thinking ahead about Character Detail v2. *"What if we also had a 'Quote of the Day' on the homepage?"* he suggests. *"Random quote from any show, with a link to the character who said it. Great for engagement."*
 
 **David** (Staff Engineer, 20 years) opens `routes/quotes.js` to assess the current state. He frowns.
 
 *"Look at this..."* David points to the code. *"No consistent response format. No proper error codes. When a quote isn't found, it returns a 200 with an empty object instead of a 404."*
 
-*"Without specialized instructions,"* David explains, *"the agent will follow our general patterns but miss REST conventions. Different HTTP methods, proper status codes, consistent error responses—I've been reviewing routes for 20 years. Let's encode that knowledge."*
+**Rafael** (Product Manager) is thinking about new features. *"What if we also had a 'Quote of the Day' on the homepage?"* he suggests. *"Random quote from any show, with a link to the character who said it."*
 
-**Supporting Cast**: Marcus learns REST conventions by seeing David's patterns applied automatically.
+David sees an opportunity: *"Perfect test case. Without specialized instructions, the agent will follow our general patterns but miss REST conventions. Different HTTP methods, proper status codes, consistent error responses—I've been reviewing routes for 20 years. Let's encode that knowledge so every endpoint comes out right the first time."*
+
+**Supporting Cast**: Rafael provides product requirements; Marcus learns REST conventions by seeing David's patterns applied automatically.
 
 #### ❌ The "Before" — Inconsistent API Patterns
 
@@ -518,9 +518,9 @@ Create path-based instructions that provide REST API expertise for route files, 
 
 - [GitHub Docs: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions)
 
-#### 💭 David's Satisfaction
+#### 💭 David's Realization
 
-*"I've reviewed thousands of API routes in my career. 'Use 404 for not found, not 200 with empty object.' Now that knowledge is encoded. The Quote of the Day endpoint came out perfect on the first try—and Character Detail v2's endpoints will too."*
+*"I've reviewed thousands of API routes in my career. 'Use 404 for not found, not 200 with empty object. Consistent response format. Proper validation.' I used to type this feedback in every code review. Now that knowledge is encoded once, applied everywhere. The Quote of the Day endpoint came out perfect on the first try—and Character Detail v2's endpoints will too. My 20 years of experience isn't being replaced—it's being scaled."*
 
 #### 🚀 Challenge Extension
 

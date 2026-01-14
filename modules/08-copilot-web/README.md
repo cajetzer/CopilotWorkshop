@@ -34,7 +34,7 @@ By the end of this module, you will:
 - Use Copilot to analyze backlog patterns for data-informed prioritization
 
 **Time**: ~50-60 minutes  
-**Primary Persona**: Rafael (Product Manager)  
+**Primary Personas**: Rafael (Product Manager), David (Architect)  
 **GitHub Copilot Tier**: Enterprise (required for PR summaries and full chat)
 
 ---
@@ -89,7 +89,18 @@ Product managers often feel disconnected from technical delivery. Requirements g
 | [8.3](EXERCISES.md#exercise-83-user-documentation-updates--keep-users-informed) | User Documentation | 8 min | Update user docs using GitHub.com web editor |
 | [8.4](EXERCISES.md#exercise-84-stakeholder-communication--translate-tech-to-business) | Stakeholder Comms | 10 min | Explain technical complexity in business terms |
 | [8.5](EXERCISES.md#exercise-85-backlog-planning--data-driven-prioritization) | Backlog Planning | 10 min | Analyze issues for data-driven prioritization |
-| [8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) | Issue Creation | 5 min | Generate structured issues from chaos (Priya) |
+| [8.6](EXERCISES.md#exercise-86-architectural-pr-review--david-reviews-from-anywhere) | Architectural Review | 12 min | David reviews PRs from browser without VS Code |
+| [8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) | Issue Creation | 5 min | Generate structured issues from chaos (Sarah) |
+
+---
+
+## 🧑‍💼 Choose Your Path
+
+| Your Role | Recommended Focus | Start Here |
+|-----------|------------------|------------|
+| **Product Manager** | Requirements, validation, communication | [Exercise 8.1](EXERCISES.md#exercise-81-issue-refinement--from-vague-to-valuable) |
+| **Architect** | Architectural review from anywhere | [David's Path](./personas/david.md) |
+| **Senior Developer** | Issue triage at scale | [Exercise 8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) |
 
 ---
 

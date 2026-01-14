@@ -427,6 +427,8 @@ The agent can run your checklist faster than you can. But it can't:
 
 ## ➡️ Continue Your Journey
 
-**Next for David**: [Module 6: MCP Servers](../06-mcp-servers/README.md) — Connect agents to external data sources and enterprise systems.
+**Next for David**: [Module 8: Copilot Web](../../08-copilot-web/personas/david.md) — Review PRs from browser without VS Code.
 
-**Also relevant**: [Module 10: Agentic SDLC](../10-agentic-sdlc/README.md) — See how your review agents integrate into the full development lifecycle.
+**Also relevant**: 
+- [Module 6: MCP Servers](../../06-mcp-servers/personas/david.md) — Validate architecture against actual database schemas
+- [Module 10: Agentic SDLC](../../10-agentic-sdlc/personas/david.md) — Run parallel architecture review during development

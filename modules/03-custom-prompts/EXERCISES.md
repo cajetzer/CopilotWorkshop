@@ -407,7 +407,175 @@ Rafael's workflow transforms:
 
 ---
 
-### Exercise 3.3: Build the Episode Guide — "The Team Collaborates"
+### Exercise 3.2b: Architectural Review Prompt — "David Automates 20 Years of Feedback"
+
+#### 📖 The Story
+
+**David** (Staff Engineer, 20 years) just reviewed another pull request. Same feedback he's given hundreds of times:
+
+*"This component imports directly from the database layer—violates separation of concerns. Error handling returns implementation details to the client. No input validation. State management scattered across components instead of centralized."*
+
+He closes the PR review and sighs. *"I've been giving this feedback for two decades. Architecture patterns I learned the hard way. Can I encode that?"*
+
+Sarah overhears: *"What if you created a prompt that runs your architectural checklist? Before anyone opens a PR, they run `/architecture-review` and catch the issues you always catch?"*
+
+David's eyes light up. *"A 20-year code review in 30 seconds."*
+
+**Supporting Cast**: Marcus learns architectural patterns by running David's review before pushing code.
+
+#### ❌ The "Before" — Manual Review Fatigue
+
+David reviews 15-20 PRs per week. Each review takes 20-30 minutes because he's checking:
+- **Architectural layering** — Does data flow follow the documented architecture?
+- **Separation of concerns** — Are responsibilities properly isolated?
+- **Error handling patterns** — Do errors expose internals or provide user-safe messages?
+- **Security patterns** — Input validation, SQL injection risks, authentication checks
+- **Performance patterns** — Unnecessary re-renders, N+1 queries, unoptimized loops
+
+**Time spent per week**: 5-7 hours giving the same feedback  
+**Frustration**: High—these are preventable issues  
+**Developer experience**: Poor—feedback comes after they think they're done
+
+#### 🎯 Objective
+
+Create a reusable prompt that captures David's architectural review checklist—enabling developers to self-review before submitting code.
+
+#### 📋 Steps
+
+1. **Document the review checklist**
+   
+   Create `.github/prompts/architecture-review.prompt.md`:
+   
+   ````markdown
+   ---
+   description: Run David's architectural review checklist on code changes
+   ---
+   
+   # Architecture Review
+   
+   You are conducting an architectural review with 20 years of experience building enterprise systems. Review the currently open file or selected code for architectural issues.
+   
+   ## Reference Context
+   
+   Read and apply patterns from:
+   - `docs/ARCHITECTURE.md` - System architecture and data flow
+   - `.github/copilot-instructions.md` - Team standards
+   
+   ## Review Checklist
+   
+   ### 1. Architectural Layering
+   - Does this code respect the documented layer boundaries?
+   - Are there any direct imports that skip layers (e.g., UI → Database)?
+   - Is data flow unidirectional as documented?
+   
+   ### 2. Separation of Concerns
+   - Is each function/component doing one thing well?
+   - Are business logic, presentation, and data access properly separated?
+   - Are side effects isolated and explicit?
+   
+   ### 3. Error Handling
+   - Do error messages expose implementation details?
+   - Are errors caught at appropriate boundaries?
+   - Is error handling consistent with the codebase patterns?
+   
+   ### 4. Security Patterns
+   - Is user input validated before use?
+   - Are there SQL injection risks?
+   - Are authentication/authorization checks present where needed?
+   - Are secrets or sensitive data exposed in logs or errors?
+   
+   ### 5. Performance Considerations
+   - Are there unnecessary re-renders (React) or re-computations?
+   - Are there N+1 query patterns?
+   - Are loops optimized or could they be vectorized?
+   - Are expensive operations memoized/cached appropriately?
+   
+   ### 6. Code Quality
+   - Are functions/components reasonably sized?
+   - Is naming clear and consistent with codebase conventions?
+   - Are edge cases handled?
+   - Is there appropriate documentation for complex logic?
+   
+   ## Output Format
+   
+   Provide feedback in this structure:
+   
+   **✅ Strengths** — What's architecturally sound  
+   **⚠️ Issues** — Problems that should be fixed (with line numbers)  
+   **💡 Suggestions** — Improvements to consider  
+   **🎯 Priority** — What to fix first
+   
+   Be specific, reference line numbers, and explain WHY each issue matters architecturally.
+   ````
+
+2. **Test on the Episode List component**
+   
+   Open `frontend/src/pages/EpisodeList.jsx` (built by Sarah in Module 03) and run:
+   
+   ```
+   /architecture-review
+   ```
+   
+   David's checklist will catch:
+   - API calls in the component instead of a service layer
+   - No loading state handling
+   - No error boundary
+   - Unoptimized re-renders
+
+3. **Compare review quality**
+   
+   Before: "Looks good, ship it" (misses architectural issues)  
+   After: Detailed checklist with specific line numbers and patterns
+
+4. **Self-review workflow**
+   
+   Add to your workflow: Before opening a PR, run `/architecture-review` on changed files to catch issues David would catch.
+
+#### ✅ Success Criteria
+
+- [ ] Created `.github/prompts/architecture-review.prompt.md`
+- [ ] Prompt references `docs/ARCHITECTURE.md` for context
+- [ ] Ran review on Episode List component
+- [ ] Review caught layering violations (API calls in component)
+- [ ] Review caught missing error handling
+- [ ] Review provided specific line numbers and fixes
+- [ ] Team understands self-review workflow
+
+> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/architecture-review.prompt.md`](../../examples/completed-config/.github/prompts/architecture-review.prompt.md) for a reference example.
+
+#### ✨ The "After" — The Improved Experience
+
+**Before (Module 03)**: Developers submit code, wait for David's review, get feedback, fix, repeat  
+**After**: Developers run `/architecture-review` before submitting, catch issues themselves
+
+**Review time saved per PR**: 15-20 minutes (caught issues before David sees it)  
+**Developer confidence**: High—know the code follows patterns before submission  
+**Learning effect**: Developers understand WHY patterns matter, not just that David wants them
+
+**Quote from developer who ran it:**
+> *"I ran `/architecture-review` before submitting. It caught three issues David always catches. Fixed them in 5 minutes. Saved us both a review cycle."*
+
+#### 📚 Official Docs
+
+- [GitHub Docs: Copilot Prompts](https://docs.github.com/en/copilot/customizing-copilot/creating-custom-prompts)
+- [VS Code: Using Custom Prompts](https://code.visualstudio.com/docs/copilot/copilot-customization#_custom-prompts)
+
+#### 💭 David's Realization
+
+*"For 20 years, I've been the architectural bottleneck. Every PR waits for me to spot the same patterns. Now developers can run my checklist themselves—instantly. They learn faster, I review less, and code quality goes up. My expertise isn't being replaced—it's being distributed."*
+
+#### 🚀 Challenge Extension
+
+Create a second prompt: `security-review.prompt.md` that focuses specifically on:
+- Input validation
+- SQL injection risks
+- Authentication/authorization
+- Secret exposure
+- OWASP Top 10 patterns
+
+---
+
+### Exercise 3.4: Build the Episode Guide — "The Team Collaborates"
 
 > 🧵 **The Golden Thread Continues**: Remember the Character Detail page from Modules 00-02? You'll now capture that hard-won pattern as a reusable prompt—and watch what took 20 minutes of planning become a 3-minute generation.
 
@@ -610,7 +778,7 @@ Track how long each takes. The pattern should hold.
 
 ---
 
-### Exercise 3.4: One-Word Git Workflow — "Marcus's Ship-It Button"
+### Exercise 3.5: One-Word Git Workflow — "Marcus's Ship-It Button"
 
 #### 📖 The Story
 

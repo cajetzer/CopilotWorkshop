@@ -33,8 +33,8 @@ By the end of this module, you will:
 - Reference documentation in prompts for consistent context
 - Experience multi-modal workflows (VS Code + GitHub.com)
 
-**Time**: ~90 minutes (or follow your persona's focused path for less)  
-**Featured Personas**: Elena (QA), Rafael (Product), Marcus (DevOps)
+**Time**: ~110 minutes (or follow your persona's focused path for less)  
+**Featured Personas**: Elena (Testing), David (Architecture), Rafael (Product), Marcus (DevOps)
 
 ---
 
@@ -94,6 +94,7 @@ We'll use both modes in this module.
 Pick the path that matches your role and interests:
 
 - **[Elena's Path](personas/elena.md)** — Test generation and quality assurance (60 min)
+- **[David's Path](personas/david.md)** — Architectural review automation (20 min)
 - **[Rafael's Path](personas/rafael.md)** — Requirements translation and specifications (60 min)
 - **[Marcus's Path](personas/marcus.md)** — Backend API patterns and git workflow automation (60 min)
 
@@ -121,8 +122,9 @@ Jump directly to specific exercises:
 |----------|--------------|------|-------|
 | [3.1](EXERCISES.md#exercise-31-create-a-test-prompt-library--elenas-quality-toolkit) | Elena | 30 min | Test generation prompts |
 | [3.2](EXERCISES.md#exercise-32-spec-to-code-prompts--rafael-bridges-the-gap) | Rafael | 30 min | Requirements translation |
-| [3.3](EXERCISES.md#exercise-33-build-the-episode-guide--the-team-collaborates) | Team | 45 min | Episode Guide + **Golden Thread pattern** 🧵 |
-| [3.4](EXERCISES.md#exercise-34-one-word-git-workflow--marcuss-ship-it-button) | Marcus | 30 min | Git automation |
+| [3.2b](EXERCISES.md#exercise-32b-architectural-review-prompt--david-automates-20-years-of-feedback) | David | 20 min | Architecture review automation |
+| [3.4](EXERCISES.md#exercise-34-build-the-episode-guide--the-team-collaborates) | Team | 45 min | Episode Guide + **Golden Thread pattern** 🧵 |
+| [3.5](EXERCISES.md#exercise-35-one-word-git-workflow--marcuss-ship-it-button) | Marcus | 30 min | Git automation |
 
 ---
 

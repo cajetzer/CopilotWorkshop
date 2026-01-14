@@ -58,7 +58,7 @@ By the end of this module, you will:
 - Understand security considerations for MCP server trust
 
 **Time**: ~45 minutes  
-**Personas**: Elena (data validation), Marcus (infrastructure)
+**Personas**: Elena (data validation), David (architecture verification), Marcus (infrastructure)
 
 ---
 
@@ -105,11 +105,13 @@ VS Code prompts you to confirm trust before starting any MCP server.
 | Exercise | Persona | Focus | Time |
 |----------|---------|-------|------|
 | 6.1 | Elena | First database query — discover duplicates | 15 min |
+| 6.2 | David | Validate architecture against reality | 15 min |
 | 6.5 | Team | Integrating MCP into workflow | 20 min |
 
 ### Quick Links
 
 - [Exercise 6.1: Your First Database Query](./EXERCISES.md#exercise-61-your-first-database-query--elena-discovers-the-duplicate) — Elena gives Copilot database access
+- [Exercise 6.2: Validate Architecture Against Reality](./EXERCISES.md#exercise-62-validate-architecture-against-reality--david-catches-drift) — David discovers schema drift
 - [Exercise 6.5: Integrating MCP Into Workflow](./EXERCISES.md#exercise-65-integrating-mcp-into-your-workflow--the-complete-picture) — Complete picture
 
 ---
@@ -121,6 +123,7 @@ Different roles can focus on different aspects of MCP:
 | Your Role | Recommended Focus | Start Here |
 |-----------|------------------|------------|
 | **QA/Testing** | Data validation with DB access | [Elena's Path](./personas/elena.md) |
+| **Architecture** | Validate docs against reality | [David's Path](./personas/david.md) |
 | **Platform Engineer** | Infrastructure state awareness | [Marcus's Path](./personas/marcus.md) |
 
 ---

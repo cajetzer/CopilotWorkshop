@@ -31,7 +31,7 @@ By the end of this module, you will:
 - **Complete the Character Detail v2 prerequisites** with proper tests, deployment, and component patterns
 
 **Time**: ~90 minutes  
-**Personas**: Elena (QA), Sarah (Senior Developer), David (Architect), Marcus (DevOps)
+**Featured Personas**: Elena (Testing), David (API Architecture), Marcus (DevOps), Sarah (React Components)
 
 ---
 
@@ -48,13 +48,13 @@ By the end of this module, you will:
 Testing standards, QA automation  
 *~25 minutes*
 
-**[Marcus's Path →](personas/marcus.md)**  
-Infrastructure, DevOps security  
+**[David's Path →](personas/david.md)**  
+REST API conventions, architecture  
 *~25 minutes*
 
-**[Priya's Path →](personas/priya.md)**  
+**[Sarah's Path →](personas/sarah.md)**  
 React patterns, component standards  
-*~20 minutes*
+*~25 minutes*
 
 </td>
 <td width="33%" valign="top">
@@ -74,12 +74,12 @@ Best for: First-time learners, instructor-led sessions
 ### ⚡ Quick Navigator
 *Jump to what you need*
 
-| Exercise | Focus | Time |
-|----------|-------|------|
-| [4.1](EXERCISES.md#exercise-41-testing-instructions--the-character-detail-tests-need-help) | Testing | 20m |
-| [4.2](EXERCISES.md#exercise-42-api-route-instructions--the-quote-of-the-day-endpoint) | API Routes | 25m |
-| [4.3](EXERCISES.md#exercise-43-infrastructure-instructions--shipping-character-detail-v2) | DevOps | 25m |
-| [4.4](EXERCISES.md#exercise-44-react-component-instructions--the-episode-appearances-component) | React | 25m |
+| Exercise | Lead | Focus | Time |
+|----------|------|-------|------|
+| [4.1](EXERCISES.md#exercise-41-testing-instructions--the-character-detail-tests-need-help) | Elena | Testing | 20m |
+| [4.2](EXERCISES.md#exercise-42-api-route-instructions--david-encodes-20-years-of-rest-expertise) | David | API Routes | 25m |
+| [4.3](EXERCISES.md#exercise-43-infrastructure-instructions--shipping-character-detail-v2) | Marcus | DevOps | 25m |
+| [4.4](EXERCISES.md#exercise-44-react-component-instructions--the-episode-appearances-component) | Sarah | React | 25m |
 
 </td>
 </tr>

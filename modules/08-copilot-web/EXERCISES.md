@@ -766,6 +766,164 @@ Create a recurring backlog health check:
 
 ---
 
+### Exercise 8.6: Architectural PR Review — "David Reviews from Anywhere"
+
+**Time**: 12 minutes  
+**Primary Persona**: David (Staff Architect)  
+**Tier**: 💼 Enterprise (PR Summaries) / Business (manual review)
+
+#### 📖 The Story
+
+**David** (Staff Engineer, 20 years) is at an offsite meeting when he gets a Slack notification: "Character Detail v2 is ready for architectural review before merge."
+
+He doesn't have his laptop with VS Code. He has his phone and hotel WiFi. In the past, this would mean delaying the review until he's back—blocking the team for 24+ hours.
+
+*"Let me see if I can do a meaningful architectural review from just GitHub.com,"* David thinks, opening the PR on his phone.
+
+What follows surprises him: GitHub.com Copilot lets him validate architectural patterns, check layering violations, and provide substantive feedback—all without cloning the repo or opening an IDE.
+
+**Supporting Cast**: Sarah validates that David's browser-based review catches the same issues he'd catch locally.
+
+#### ❌ The "Before" — Architecture Reviews Block on Availability
+
+David's traditional architectural review workflow:
+- Receive PR notification while away from workstation
+- Reply "I'll review when I'm back tomorrow"
+- Team waits 24-48 hours for architectural approval
+- Developer context evaporates during the wait
+- Review happens, changes requested, another day lost
+- Feature ships 2-3 days late due to review bottleneck
+
+**Review turnaround**: 24-48 hours when traveling  
+**Team blocking time**: Full day(s)  
+**Developer context lost**: High (they've moved on)
+
+#### 🎯 Objective
+
+Perform a meaningful architectural review of a PR using only GitHub.com and Copilot—no VS Code, no local clone.
+
+#### 📋 Steps
+
+1. **Open the PR on GitHub.com**
+   - Navigate to Pull Requests
+   - Open Character Detail v2 PR (or any substantial PR)
+   - Note: This works on mobile browsers too
+
+2. **Generate/Review PR Summary (Enterprise)**
+   - Click "Generate summary" with Copilot icon
+   - Review the AI-generated overview of changes
+   
+   *Business tier alternative*: Read through "Files changed" tab manually
+
+3. **Ask Copilot architectural questions**
+   
+   In the PR, use Copilot chat to validate patterns:
+   ```
+   Review this PR from an architectural perspective:
+   
+   1. Are all new components placed in the correct layers according 
+      to our ARCHITECTURE.md patterns?
+   2. Are there any imports that violate our layering rules 
+      (e.g., frontend importing from backend, components importing from routes)?
+   3. Does the data flow follow our established patterns 
+      (API → Service → Database)?
+   4. Are there any new dependencies that might affect our architecture?
+   
+   Reference docs/ARCHITECTURE.md for our documented patterns.
+   ```
+
+4. **Validate against custom instructions**
+   
+   Ask Copilot:
+   ```
+   Check if this PR follows our custom instructions from:
+   - .github/copilot-instructions.md (project-wide patterns)
+   - Any file-specific instructions referenced in the changed files
+   
+   List any violations or concerns.
+   ```
+
+5. **Check for common architectural anti-patterns**
+   
+   ```
+   Look for these architectural concerns in the PR:
+   - God components (files > 200 lines doing too much)
+   - Prop drilling (passing props through 3+ component levels)
+   - Circular dependencies between modules
+   - Business logic in presentation components
+   - Direct database calls from routes (bypassing services)
+   ```
+
+6. **Provide actionable feedback**
+   
+   Based on Copilot's analysis, leave architectural review comments:
+   - Approve if patterns are followed
+   - Request changes with specific, actionable feedback
+   - Add inline comments on specific lines if needed
+
+#### ✅ Success Criteria
+
+- [ ] Reviewed PR without VS Code or local clone
+- [ ] Validated at least 3 architectural patterns against ARCHITECTURE.md
+- [ ] Checked for layering violations
+- [ ] Identified any anti-patterns (or confirmed none exist)
+- [ ] Left substantive review comments (not just "LGTM")
+- [ ] Review completed within 15 minutes from browser
+
+#### ✨ The "After" — Architecture Reviews Without Blocking
+
+With GitHub.com Copilot for architectural review:
+- **Review turnaround**: 15 minutes (vs 24-48 hours)
+- **Location dependency**: None—works from phone, tablet, any browser
+- **Team blocking time**: Minutes instead of days
+- **Review quality**: Maintained—Copilot validates against documented patterns
+
+**David's review comment:**
+
+```markdown
+## Architectural Review ✅
+
+Validated against `docs/ARCHITECTURE.md`:
+
+**Layering**:
+- ✅ New components placed in `components/character/` (correct layer)
+- ✅ Service layer properly separates API calls from presentation
+- ✅ No direct database imports from frontend
+
+**Patterns**:
+- ✅ Follows async/await patterns consistently
+- ✅ Error handling follows our established patterns
+- ⚠️ `CharacterTimeline.jsx` at 180 lines—approaching "god component" territory
+
+**Dependencies**:
+- ✅ No new external dependencies added
+- ✅ Uses existing internal modules appropriately
+
+**Recommendation**: Approve with minor suggestion to extract timeline 
+helpers into `characterTimelineHelpers.js` before it grows further.
+```
+
+#### 📚 Official Docs
+
+- [GitHub Copilot PR Summaries](https://docs.github.com/en/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)
+- [Reviewing Proposed Changes in a PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
+- [GitHub Mobile](https://github.com/mobile)
+
+#### 💭 David's Realization
+
+*"For 20 years, I assumed architectural review required deep IDE access—seeing the full codebase, running static analysis, tracing dependencies. But Copilot can do that analysis for me, against our documented patterns. I reviewed this PR from my phone in a hotel lobby. The team merged before dinner instead of waiting until I flew home. My expertise isn't replaced—it's made portable."*
+
+#### 🚀 Challenge Extension
+
+Create an "Architectural Review Checklist" prompt:
+1. Document your team's architectural patterns in ARCHITECTURE.md
+2. Create a standard prompt that validates PRs against those patterns
+3. Save it as a reusable template
+4. Use it for your next 5 architectural reviews
+5. Track: Does browser-based review catch the same issues as local review?
+
+---
+
 ### Exercise 8.8: From Logs to Issue — "Clarity from Chaos"
 
 **Time**: 5 minutes  
