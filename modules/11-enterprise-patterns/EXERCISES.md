@@ -184,7 +184,7 @@ See [examples/completed-config/docs/org-instructions-template.md](../../examples
 
 ### 💭 Rafael's Realization
 
-*"We just encoded two decades of organizational knowledge into a file. When Priya asks Copilot for help tomorrow, she gets Sarah's standards, David's patterns, and Marcus's DevOps expertise automatically. That's not replacing expertise—that's multiplying it."*
+*"We just encoded two decades of organizational knowledge into a file. When any developer asks Copilot for help tomorrow, they get Sarah's standards, David's patterns, and Marcus's DevOps expertise automatically. That's not replacing expertise—that's multiplying it."*
 
 ### 💭 Sarah's Reaction
 
@@ -872,7 +872,7 @@ Answer questions like:
 
 ---
 
-## Exercise 11.5: Onboarding Kit — "Marcus and Priya Enable the Next Team"
+## Exercise 11.5: Onboarding Kit — "Marcus Enables the Next Team"
 
 **Who should do this**: Anyone who wants to share learnings, developer experience teams  
 **Time**: 60-90 minutes  
@@ -882,15 +882,11 @@ Answer questions like:
 
 **Marcus** (DevOps Developer, 5 years) reflects on his transformation: *"Monday morning I was a DevOps person scared of application code. By Monday evening I was building React components confidently. That didn't happen by accident—it happened because of the system we built."*
 
-**Priya** (Recent Graduate, 1 year) has grown remarkably: *"I started intimidated, afraid to ask 'basic' questions. But the repository instructions answered them before I had to ask. The custom prompts showed me patterns. I want other junior developers to have that same experience."*
-
 **The New Request**: Another team in your organization, working on an inventory management system, heard about FanHub's success. Their lead reached out:
 
 *"We're starting a new project next week. We heard you went from zero to shipped in one day. Can you share what you learned?"*
 
-Marcus looks at Priya: *"We could spend an hour explaining everything we did. Or..."*
-
-Priya finishes his thought: *"Or we could package it so they can set themselves up in 30 minutes."*
+Marcus thinks: *"I could spend an hour explaining everything we did. Or... I could package it so they can set themselves up in 30 minutes. That's the DevOps way—automate the repeatable stuff."**
 
 ### ❌ The "Before" — What Frustration Looks Like
 
@@ -1030,11 +1026,7 @@ See [examples/completed-config/docs/TEAM-ONBOARDING.md](../../examples/completed
 
 ### 💭 Marcus's Transformation
 
-*"Monday morning I needed this kit—someone to just tell me 'do this, then this, then this.' By creating it for others, I realized how far I've come. The DevOps guy who was scared of React is now teaching development patterns to other teams. Copilot didn't just help me code; it helped me grow into someone who helps others code."*
-
-### 💭 Priya's Growth
-
-*"This is what I wish I'd had on my first day as a professional developer. Not 'figure it out yourself' but 'here's what we learned, now you can start from step 10 instead of step 1.' A year ago I was afraid to ask questions. Today I'm writing the documentation that answers them. We're not just shipping code—we're scaling knowledge."*
+*"Monday morning I needed this kit—someone to just tell me 'do this, then this, then this.' By creating it for others, I realized how far I've come. The DevOps guy who was scared of React is now teaching development patterns to other teams. Copilot didn't just help me code; it helped me grow into someone who helps others code. We're not just shipping code—we're scaling knowledge. That's what DevOps is really about."*
 
 ### 🚀 Challenge Extension
 

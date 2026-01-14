@@ -13,9 +13,7 @@ The TechCorp team has cloned the FanHub starter project and experienced **The St
 
 **David** (Staff Engineer) knows the problem: *"Before anyone writes another line of code, we need to document what we have. Otherwise Copilot is just guessing—and so are we."*
 
-**Sarah** (Senior Developer) has seen this movie before: *"See how the backend routes use three different async patterns? That's because the contractor had no standards. Let's fix that—and teach Copilot at the same time."*
-
-**Priya** (Junior Developer) watches quietly, intimidated by "architecture documents" and "coding standards"—that's senior developer stuff. But Sarah hands her a task, and something magical happens: Copilot's suggestions look like they were written by David himself.
+**Sarah** (Senior Developer) has seen this movie before: *"See how the backend routes use three different async patterns? That's because the contractor had no standards. Let's fix that—and teach Copilot at the same time."* She'll create the standards, then validate they actually save time by building a feature herself.
 
 **This module's mission**: Create the foundational documentation that tells Copilot (and future developers) how this team works. By the end, everyone will get consistent, high-quality suggestions aligned with your chosen patterns.
 
@@ -37,7 +35,7 @@ By the end of this module, you will:
 - Understand why "clarity is the new syntax" isn't just a slogan
 
 **Time**: ~90 minutes (or follow your persona's focused path for less)  
-**Featured Personas**: David (Architect), Sarah (Senior Developer), Priya (Junior Developer)
+**Featured Personas**: David (Architect), Sarah (Senior Developer)
 
 ---
 
@@ -98,11 +96,10 @@ This is why David's architecture documentation is step one—not step last.
 
 ### Option 1: Follow Your Persona
 
-**Focused, role-specific journeys** (~25-40 minutes each):
+**Focused, role-specific journeys**:
 
 - **[David's Path](personas/david.md)** (40 min) — Lead Exercise 1.1 (architecture), checkpoint 1.1b, collaborate on Exercise 1.4 (debug view)
-- **[Sarah's Path](personas/sarah.md)** (35 min) — Lead Exercise 1.2 (team standards), checkpoint 1.2b
-- **[Priya's Path](personas/priya.md)** (25 min) — Lead Exercise 1.3 (experience transformation), both checkpoints
+- **[Sarah's Path](personas/sarah.md)** (55 min) — Lead Exercise 1.2 (team standards), Exercise 1.3 (validate standards), both checkpoints
 
 ### Option 2: Experience the Full Story
 
@@ -116,8 +113,7 @@ This is why David's architecture documentation is step one—not step last.
 | [🧵 1.1b](EXERCISES.md#-checkpoint-11b-the-character-detail-challenge--after-architecture) | All | 5 min | Test architecture impact |
 | [1.2](EXERCISES.md#exercise-12-create-team-standards--sarah-builds-the-playbook) | Sarah | 30 min | Create copilot-instructions.md |
 | [🧵 1.2b](EXERCISES.md#-checkpoint-12b-the-character-detail-challenge--after-standards) | All | 5 min | Test standards impact |
-| [1.3](EXERCISES.md#exercise-13-experience-the-transformation--priya-sees-the-light) | Priya | 20 min | Build feature with new docs |
-| [1.4](EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai) | David | 15 min | Understand Copilot's context |
+| [1.3](EXERCISES.md#exercise-13-validate-standards-enforcement--sarah-tests-the-scale) | Sarah | 20 min | Validate standards with feature |
 | [1.4](EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai) | David | 15 min | Understand Copilot's context |
 
 ---

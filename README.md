@@ -59,7 +59,7 @@ Each module builds on the previous. Each customization compounds. By the end, yo
 
 ## 👥 Meet Your Team
 
-Throughout this training, you'll work alongside seven personas representing real developers at different career stages:
+Throughout this training, you'll work alongside six personas representing real developers at different career stages:
 
 - **Sarah** (15 years) — Skeptical senior who demands proof of value
 - **Marcus** (5 years) — DevOps dev improving application skills
@@ -152,7 +152,7 @@ Team creates file-scoped instructions using `applyTo` patterns, analyzed through
 
 **You'll learn**: Custom instructions, `applyTo` patterns, file-scoped context, codebase analysis  
 **The transformation**: Generic → Context-aware  
-**Featured**: Elena, Marcus, Priya
+**Featured**: Elena, Marcus, Rafael
 
 ### Module 5: Agent Skills (90 min)
 **Monday 3:00 PM**
@@ -188,7 +188,7 @@ Rafael validates Character Detail v2 delivery from his browser—no VS Code need
 
 **You'll learn**: Issue refinement with Copilot, PR validation from product lens, web editor documentation updates (github.com, not github.dev), stakeholder communication, backlog analysis  
 **The transformation**: Requirements writer in isolation → Connected product owner who validates continuously  
-**Featured**: Rafael (primary), Priya (Exercise 8.8 from logs to issue)
+**Featured**: Rafael (primary), Sarah (Exercise 8.8 rapid issue triage)
 
 ### Module 9: Copilot CLI (90 min)
 **Monday 6:00 PM**

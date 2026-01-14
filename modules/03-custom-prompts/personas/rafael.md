@@ -50,7 +50,7 @@ Result: 2 weeks dev + 1 week rework = 3 weeks wasted on miscommunication.
 ### Exercise 2.3: Build the Episode Guide 🤝 *Team collaboration*
 
 **Your role**: Define feature requirements using your new prompts  
-**Partners**: Marcus (backend), Priya (frontend), Elena (testing)  
+**Partners**: Marcus (backend), Sarah (frontend), Elena (testing)  
 **Time**: 45 minutes  
 **[View full exercise →](../EXERCISES.md#exercise-23-build-the-episode-guide--the-team-collaborates)**
 

@@ -1,6 +1,6 @@
 # Training Personas
 
-Throughout this training, you'll encounter seven personas who represent real archetypes of professionals at various career stages. These personas help surface realistic situations, concerns, and tradeoffs you might face when adopting GitHub Copilot.
+Throughout this training, you'll encounter six personas who represent real archetypes of professionals at various career stages. These personas help surface realistic situations, concerns, and tradeoffs you might face when adopting GitHub Copilot.
 
 Understanding these personas will help you:
 
@@ -20,22 +20,26 @@ Understanding these personas will help you:
 - Survived multiple technology hype cycles
 - Deep expertise in established languages (C#, Java)
 - Values proven approaches over trendy tools
+- Equally comfortable with architecture, standards enforcement, and hands-on implementation
 
 ### Goals
 
-- Verify that Copilot delivers real value, not just hype
+- Verify that Copilot delivers real value with concrete ROI metrics
 - Find ways to accelerate her work without compromising quality
-- Maintain her relevance while embracing new tools
+- Validate that AI can scale her 15 years of expertise across the team
+- Document patterns once and enforce them automatically
+- Maintain her relevance while embracing tools that prove their worth
 
 ### Fears
 
-- Wasting time on tools that don't deliver
-- Losing the craftsmanship aspect of coding
-- Being forced to change workflows that already work
+- Wasting time on tools that don't deliver measurable value
+- Losing the craftsmanship aspect of coding to over-automation
+- Being forced to change workflows that already work efficiently
+- Tools that promise magic but create more work than they save
 
 ### Voice in Exercises
 
-Skeptical but open-minded. Needs to be convinced with concrete demonstrations, not promises.
+Skeptical but open-minded. Needs to be convinced with concrete demonstrations and quantifiable metrics, not promises. Focuses on ROI, time saved, and consistency improvements. Validates through experimentation and evidence.
 
 ---
 
@@ -45,55 +49,28 @@ Skeptical but open-minded. Needs to be convinced with concrete demonstrations, n
 
 ### Background
 
-- Started career during the DevOps/container revolution
-- Comfortable with YAML, Docker, Kubernetes, CI/CD pipelines
-- Writing business logic feels slower than infrastructure work
+- Started career focused on build systems and local developer workflows
+- Expert with build tools, debuggers, test runners, and dev environment setup
+- Makes developers productive by removing friction from their daily workflows
 - Learns by doing, prefers practical examples
 
 ### Goals
 
-- Write application code as confidently as he writes infrastructure code
-- Become a more well-rounded developer
-- Move faster on the business logic that blocks his DevOps work
+- Accelerate build times and streamline debugging workflows
+- Automate repetitive local development tasks
+- Create testing workflows that developers actually use
+- Enable the team to work more efficiently through better tooling
 
 ### Fears
 
-- Being seen as "just an ops person"
-- Missing patterns that senior developers know intuitively
-- Falling behind on application development best practices
+- Building tools that developers work around instead of use
+- Local workflows breaking and blocking the entire team
+- Spending more time maintaining automation than it saves
+- Being seen as "just the build person" rather than a productivity multiplier
 
 ### Voice in Exercises
 
 Eager to learn, appreciates practical tips, responds well to "here's the workflow" guidance.
-
----
-
-## Priya — The Recent Graduate
-
-**Experience:** 1 year
-
-### Background
-
-- Coding bootcamp graduate, first enterprise job
-- Solid JavaScript fundamentals, but production code is overwhelming
-- Has seen async/await but never used it confidently
-- Afraid to ask "basic" questions
-
-### Goals
-
-- Learn quickly without appearing incompetent
-- Build confidence in understanding complex codebases
-- Find resources that explain concepts without judgment
-
-### Fears
-
-- Being exposed as not knowing enough
-- Asking too many questions and annoying teammates
-- Making mistakes that reveal her inexperience
-
-### Voice in Exercises
-
-Curious, relieved when things click, appreciates patient explanations and judgment-free learning.
 
 ---
 
@@ -194,11 +171,10 @@ Strategic, outcome-focused, always connecting work to user value. Appreciates wh
 In this workshop, these six personas work together to build FanHub—a TV show fan site—in a 9-10 hour sprint. Each persona has a specific role and transformation arc:
 
 | Persona | Primary Role | Key Transformation |
-|---------|-------------|------------------|-------------------|
-| **Sarah** | Sprint lead, skeptic | From "prove it" to "I'm convinced" |
+|---------|-------------|-------------------|
+| **Sarah** | Sprint lead, standards enforcement, implementation | From "prove it" to "I'm convinced" |
 | **David** | Architecture, code review | From "will AI replace me?" to "AI amplifies me" |
 | **Marcus** | DevOps & infrastructure | From infrastructure-only to full-stack confident |
-| **Priya** | Learning, UI implementation | From intimidated to empowered learner |
 | **Elena** | Testing, quality assurance | From AI-skeptical QA to AI-assisted QA |
 | **Rafael** | Product, specifications | From requirements writer to execution enabler |
 
@@ -209,10 +185,9 @@ In this workshop, these six personas work together to build FanHub—a TV show f
 **Monday 10:00 AM - 6:00 PM**: Through Modules 1-9, the team progressively adds customization—starting with plan mode thinking, then instructions, prompts, agents, custom instructions, Agent Skills, web workflows, CLI automation, and finally full integration. Each addition compounds the others. Module 9 concludes with shipping and reflection.
 
 **The Transformation**: By the end, each persona has grown:
-- Sarah realizes structured AI collaboration delivers real value
+- Sarah validates that AI scales her expertise through concrete ROI metrics—time saved, violations eliminated, review cycles reduced
 - David discovers AI amplifies his 20 years of architectural experience  
 - Marcus gains full-stack confidence and masters deployment automation through systematic AI workflows
-- Priya learns faster because AI explains as it generates
 - Elena integrates AI into quality assurance without sacrificing rigor
 - Rafael bridges requirements and implementation more effectively through domain skills
 - The whole team works more effectively together
@@ -230,7 +205,6 @@ As you work through this training, consider which persona resonates most with yo
 | Are skeptical of AI hype | Sarah |
 | Worry about AI replacing expertise | David |
 | Come from infrastructure/DevOps | Marcus |
-| Are newer to professional development | Priya |
 | Focus on testing and quality | Elena |
 | Bridge business and technical teams | Rafael |
 

@@ -113,7 +113,7 @@ It's tedious. And worse—when other team members ask for tests, they forget hal
 
 *"I want one prompt I can share with everyone,"* Elena says. *"Test generation that follows OUR standards, every time."*
 
-**Supporting Cast**: Priya learns test patterns by using Elena's prompts.
+**Supporting Cast**: Sarah and Marcus learn test patterns by using Elena's prompts.
 
 #### ❌ The "Before" — What Frustration Looks Like
 
@@ -461,7 +461,7 @@ Build the Episode Guide feature AND create a reusable `create-detail-page.prompt
    - Follow our API response format from copilot-instructions.md
    ```
 
-4. **Priya builds the Episode List page**
+4. **Sarah builds the Episode List page**
    
    Ask Copilot:
    ```
@@ -596,7 +596,7 @@ The team now has:
 
 **Marcus**: *"I understood the business requirement because Rafael's prompt explained it. I'm not just coding—I'm solving problems."*
 
-**Priya**: *"The Episode Detail page looks just like the Character Detail page I struggled with in Module 00. But this time it took 3 minutes, not 3 hours."*
+**Sarah**: *"The Episode Detail page follows the same patterns as Character Detail—exactly as documented. That consistency is what code review is all about. 3 minutes instead of multiple review rounds."*
 
 **Rafael**: *"We need Show Detail and Quote Detail pages too. With this prompt, that's 6 more minutes of work, not 6 more hours."*
 
@@ -622,7 +622,7 @@ Track how long each takes. The pattern should hold.
 
 Marcus's automation instincts kick in. *"What if we had a one-word command that just... ships it? Handles branches, commits, pushes, creates the PR—all in one?"*
 
-**Supporting Cast**: Priya (learning git workflows) benefits from Marcus's automation patterns.
+**Supporting Cast**: Sarah and other team members benefit from Marcus's automation patterns.
 
 #### ❌ The "Before" — What Frustration Looks Like
 

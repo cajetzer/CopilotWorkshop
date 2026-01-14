@@ -25,9 +25,8 @@ When creating exercises, examples, or narratives, use the training personas to m
 
 The personas include:
 
-- **Sarah** — The Skeptical Senior (15 years) — needs concrete demonstrations, not promises
-- **Marcus** — The DevOps Developer (5 years) — eager to learn application development patterns
-- **Priya** — The Recent Graduate (1 year) — appreciates patient, judgment-free explanations
+- **Sarah** — The Skeptical Senior (15 years) — needs concrete ROI demonstrations with quantifiable metrics
+- **Marcus** — The DevOps Developer (5 years) — focused on local dev experience: builds, debugging, testing
 - **David** — The Seasoned Architect (20 years) — needs to see AI augments rather than replaces expertise
 - **Elena** — The Quality Champion (8 years) — insists on understanding what's being tested and why
 - **Rafael** — The Product Visionary (10 years) — connects technical work to business value
@@ -84,9 +83,8 @@ Example framing:
 
 ### 5. Balance Technical Depth with Accessibility
 
-- **For Priya-style content:** Explain concepts thoroughly, avoid jargon, celebrate learning
-- **For Marcus-style content:** Focus on practical workflows, automation of build/debug/test, connect to DevOps concepts he knows
-- **For Sarah-style content:** Get to the point, show ROI, respect her time
+- **For Sarah-style content:** Focus on ROI with concrete metrics (time saved, review cycles reduced, violations eliminated); get to the point; always quantify improvements; validation-focused, never learning-based
+- **For Marcus-style content:** Focus on practical workflows, automation of build/debug/test, streamlining local dev experience, removing friction from daily developer tasks
 - **For David-style content:** Technical depth, architectural implications, respect for complexity
 - **For Elena-style content:** Emphasize test coverage, edge cases, and quality validation; show how AI-generated tests need human review for completeness
 - **For Rafael-style content:** Connect technical work to business value, prioritization, and stakeholder communication; bridge the gap between requirements and implementation
@@ -534,7 +532,7 @@ From your **architectural perspective**, evaluate:
 1. **In exercises**, include a "Supporting Cast" section:
    ```markdown
    **Supporting Cast**: 
-   - **Marcus** handles the deployment configuration
+   - **Marcus** sets up the local build and test automation
    - **Elena** reviews the test coverage
    ```
 
@@ -726,9 +724,8 @@ Before finalizing any module or exercise:
 
 ### Persona Validation
 - [ ] Would David feel his expertise is respected?
-- [ ] Would Priya feel safe asking questions?
-- [ ] Would Sarah feel her time was well spent?
-- [ ] Would Marcus feel more confident with application code?
+- [ ] Would Sarah feel the ROI is measurable and concrete?
+- [ ] Would Marcus feel empowered to improve developer workflows?
 - [ ] Would Elena feel confident that test quality isn't sacrificed for speed?
 - [ ] Would Rafael feel enabled to make better prioritization decisions?
 
@@ -744,6 +741,80 @@ This training exists to help developers at all levels embrace AI-assisted develo
 4. **Celebrate human judgment** — AI is a tool; wisdom is human
 5. **Build confidence progressively** — From skepticism to capability
 
-When in doubt, ask: "Would this make David feel valued, Priya feel safe, Sarah feel respected, Marcus feel empowered, Elena feel confident in quality, Rafael feel enabled to deliver value?"
+When in doubt, ask: "Would this make David feel valued, Sarah feel the ROI is measurable, Marcus feel empowered to improve workflows, Elena feel confident in quality, Rafael feel enabled to deliver value?"
 
 If yes, you're on the right track.
+
+---
+
+## Sarah Voice Guidelines
+
+When writing content for Sarah or adapting content from other personas into Sarah's voice, follow these specific guidelines:
+
+### Core Principles
+
+1. **Outcome-based, never learning-based**
+   - ❌ "Sarah learns how X works"
+   - ✅ "Sarah validates that X delivers 40% time savings"
+
+2. **ROI-measured, always quantified**
+   - Every transformation must include concrete metrics
+   - Time saved (minutes/hours)
+   - Review cycles reduced (from X to Y)
+   - Consistency improvement (percentage or count)
+   - Pattern violations eliminated
+
+3. **Evidence-driven, skeptical but open**
+   - Starts with "I was skeptical because..."
+   - Tests hypothesis with concrete experiment
+   - Validates with data
+   - Concludes with "This is different—here's proof"
+
+### Voice Translation Examples
+
+**From learning-focused voice:**
+> "I used to think senior developers had some magic knowledge I was missing. Turns out, they just have patterns—and now I have them too."
+
+**To Sarah's validation voice:**
+> "I've spent years giving the same code review feedback over and over. Now I've codified those patterns once, and Copilot enforces them for me. That's not hype—that's leverage."
+
+---
+
+**From learning voice:**
+> "My learning became team knowledge."
+
+**To Sarah's validation voice:**
+> "Standards documented once = standards enforced automatically. 15 hours per sprint saved on review cycles."
+
+### Prohibited Phrases for Sarah
+
+- "Sarah learns [technical concept]"
+- "Sarah discovers how to..."
+- "Sarah gains confidence in..."
+- "Sarah feels empowered..."
+- Any abstract benefit without metrics
+- Any naive/uncertain tone
+
+### Required Metric Types
+
+Every Sarah exercise must include at least 3 of these:
+
+- **Time saved**: "45 minutes → 5 minutes per review"
+- **Review cycles**: "3 rounds → 1 round"
+- **Consistency rate**: "60% pattern adherence → 95%"
+- **Violations caught**: "8 violations per PR → 0"
+- **Team scaling**: "Sarah reviewing 100% → Sarah reviewing 20%"
+- **ROI calculation**: "15 hours saved per sprint = 780 hours per year"
+
+### Transformation Quote Pattern
+
+Sarah's transformation quotes should follow this structure:
+
+1. **Acknowledge skepticism**: "I was skeptical because [past experience with hype]"
+2. **Describe test**: "So I tested it by [concrete experiment]"
+3. **Present evidence**: "Result: [specific metric improvement]"
+4. **Validate adoption**: "That's not hype—that's [concrete business value]"
+
+### Example Sarah Transformation Quote
+
+> "I was skeptical because I've seen too many 'revolutionary' tools that waste more time than they save. So I tested it: documented our React review standards once, then measured how many violations made it through. Before: 8 violations per PR, 3 review rounds, 45 minutes each. After: 0 violations, 1 review round, 5 minutes. That's not hype—that's 2 hours saved per feature, every feature, every sprint."

@@ -31,7 +31,7 @@ By the end of this module, you will:
 - **Complete the Character Detail v2 prerequisites** with proper tests, deployment, and component patterns
 
 **Time**: ~90 minutes  
-**Personas**: Elena (QA), David (Architect), Marcus (DevOps), Priya (Junior)
+**Personas**: Elena (QA), Sarah (Senior Developer), David (Architect), Marcus (DevOps)
 
 ---
 
@@ -174,7 +174,7 @@ Just like a senior developer changes their approach based on what they're workin
 ├── testing.instructions.md          # Elena's QA expertise
 ├── api-routes.instructions.md       # David's REST patterns  
 ├── infrastructure.instructions.md   # Marcus's DevOps knowledge
-└── react-components.instructions.md # Priya's React standards
+└── react-components.instructions.md # Sarah's React review standards
 ```
 
 **How instructions will combine with Character Detail v2:**
@@ -204,7 +204,7 @@ Custom instructions capture **institutional knowledge**:
 - Elena's years of QA experience → `testing.instructions.md`
 - David's architectural patterns → `api-routes.instructions.md`
 - Marcus's security practices → `infrastructure.instructions.md`
-- Priya's React learning → `react-components.instructions.md`
+- Sarah's React review standards → `react-components.instructions.md`
 
 This knowledge doesn't leave when people do. It's **codified and shared**.
 

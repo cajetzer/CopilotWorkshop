@@ -526,40 +526,38 @@ Use the same Character Detail prompt and evaluate pattern consistency.
 
 ---
 
-### Exercise 1.3: Experience the Transformation — "Priya Sees the Light"
+### Exercise 1.3: Validate Standards Enforcement — "Sarah Tests the Scale"
 
 **⏱️ Time**: ~20 minutes
 
 #### 📖 The Story
 
-**Priya** (Junior Developer, 1 year) has been quietly watching David and Sarah work. She's intimidated by architecture documents and coding standards—that's senior developer stuff.
+**Sarah** (Senior Developer, 15 years) has spent countless hours giving the same code review feedback: "Use async/await," "Add error handling," "Follow our naming conventions." She's documented these patterns in copilot-instructions.md, but does it actually work?
 
-But then Sarah hands her a task: *"Add a new feature to display character quotes. Use Copilot, and tell us how it goes."*
+Time to test the hypothesis: Can documented standards eliminate the repetitive parts of code review?
 
-Priya opens her editor, types a prompt, and something magical happens: Copilot's suggestions look like they were written by David himself. Same patterns. Same error handling. Same naming conventions.
-
-*"Wait,"* she thinks. *"Is this what it feels like to have years of experience?"*
+Sarah assigns herself a task: *"Add a new feature to display character quotes. Use Copilot exactly as any team member would, and measure if the first-pass code matches our standards."*
 
 **Supporting Cast**:
 - **David** created the architecture that guides the AI
-- **Marcus** defined the patterns that Priya now benefits from
-- **Sarah** provides the safe space for Priya to experiment and learn
+- **Marcus** benefits from these standards when writing application code
+- **Elena** will use these patterns for test generation later
 
-#### ❌ The "Before" — What Priya Used to Experience
+#### ❌ The "Before" — What Manual Review Used to Cost
 
-Before the team created standards:
-- Every Copilot suggestion felt like a coin flip
-- She'd accept code, then get feedback in reviews that it was "wrong"
-- She never knew which pattern was "correct"
-- Asking felt embarrassing—*shouldn't I already know this?*
+Before documented standards:
+- Every PR required 30-45 minutes of Sarah's review time
+- Same feedback repeated: pattern violations, style inconsistencies
+- 3-4 review rounds per feature (code → feedback → fix → repeat)
+- 8+ violations per PR on average
 
-**Time wasted per feature**: 2+ hours (code + rewrites after review)  
-**Confidence level**: Low (constant uncertainty about "doing it right")  
-**Learning curve**: Steep (patterns weren't explicit)
+**Time cost per feature**: 45 minutes initial review + 15 min per re-review = 90+ minutes total  
+**Consistency level**: 60% (3 different async patterns in production code)  
+**Team friction**: High (debates about "the right way" every sprint)
 
 #### 🎯 Objective
 
-Use the team's new documentation and standards to build a feature with confident Copilot assistance.
+Build a feature using Copilot with documented standards and measure if first-pass code passes review.
 
 #### 📋 Steps
 
@@ -576,17 +574,18 @@ Use the team's new documentation and standards to build a feature with confident
    limit and offset query parameters.
    ```
 
-3. **Observe the suggestion**
+3. **Review against your standards checklist**
    
-   Notice how the generated code:
-   - Uses async/await (from your instructions)
-   - Includes proper error handling (from your instructions)
-   - Returns consistent JSON structure (from your instructions)
-   - Uses parameterized queries (from your instructions)
+   Check the generated code against copilot-instructions.md:
+   - ✅ Uses async/await (not callbacks or `.then()` chains)?
+   - ✅ Includes try/catch with consistent error structure?
+   - ✅ Returns JSON in documented format?
+   - ✅ Uses parameterized queries (security)?
+   - ✅ Follows naming conventions?
 
-4. **Apply and review**
+4. **Count violations**
    
-   Accept the suggestion, then verify it matches your team's patterns.
+   How many standards were violated? Compare to your "before" baseline of 8+.
 
 5. **Try a frontend component**
    
@@ -597,13 +596,13 @@ Use the team's new documentation and standards to build a feature with confident
    loading and error states, and support pagination.
    ```
 
-6. **Verify consistency**
+6. **Verify frontend standards**
    
-   The component should:
-   - Be a functional component (not class)
-   - Use styled-components (per your instructions)
-   - Have a .jsx extension
-   - Follow your naming conventions
+   Check against your documented React standards:
+   - ✅ Functional component (not class)?
+   - ✅ Uses styled-components (per your instructions)?
+   - ✅ Has .jsx extension?
+   - ✅ Follows naming conventions?
 
 #### ✅ Success Criteria
 
@@ -613,40 +612,45 @@ Use the team's new documentation and standards to build a feature with confident
 - [ ] Frontend component uses functional + hooks pattern
 - [ ] Styling uses styled-components
 - [ ] File naming follows conventions
+- [ ] **Total violations: 0-2** (vs 8+ before standards)
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — ROI Validation
 
-Priya realizes something profound: The AI isn't giving her random suggestions anymore. It's giving her suggestions that match exactly what her senior teammates would write.
+Sarah reviews the generated code with her standards checklist. Result:
 
-**The compounding effect:**
-- David's architecture doc → Copilot understands the codebase
-- Sarah's instructions → Copilot follows team patterns
-- Priya's code → Automatically looks like senior developer code
+**Violations found**: 0  
+**Review time needed**: 5 minutes (quick logic verification)  
+**Review rounds**: 1 (vs 3-4 before)  
+**Pattern consistency**: 95%+ (one standard approach)
 
-**Time saved per feature**: 90 minutes (first-try quality code)  
-**Code review rounds**: From 3-4 to 1  
-**Confidence gained**: Immeasurable—Priya now trusts her work
+**Time saved per feature**: 40 minutes (45 min → 5 min review)  
+**Time saved per sprint** (5 features): 200 minutes = 3.3 hours  
+**Time saved per year** (26 sprints): 86 hours = 2+ weeks of work
+
+**The validation:**
+Standards documented once = standards enforced automatically. This isn't hype—it's measurable leverage.
 
 #### 📚 Official Docs
 
 - [VS Code: Copilot Chat](https://code.visualstudio.com/docs/copilot/copilot-chat)
-- [GitHub Docs: Best Practices for Prompts](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot)
+- [GitHub Docs: Repository Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 
 #### 📌 Practices Used
 
 | Practice | How It Applied |
 |----------|----------------|
-| 🔍 **Clarity as a Foundation** | Clear prompts described WHAT you wanted |
-| 🎯 **Intent Over Implementation** | You described the feature, not the code |
-| 🎯 **Context is Everything** | Team docs + instructions = consistent results |
+| 🔍 **Clarity as a Foundation** | Clear standards → clear generation |
+| 🎯 **Intent Over Implementation** | Described the feature, AI handled the pattern |
+| 🎯 **Context is Everything** | Team docs + instructions = consistency |
+| 📚 **Documentation as Leverage** | Codified once, enforced everywhere |
 
-*Notice: All five practices compound. Documentation enabled context. Context enabled clarity. The result: junior developer code that looks senior.*
+*Notice: Documentation isn't overhead—it's scale. Sarah's expertise now applies to every Copilot interaction without her reviewing every line.*
 
-#### 💭 Priya's Confidence
+#### 💭 Sarah's Validation
 
-*"I used to think senior developers had some magic knowledge I was missing. Turns out, they just have patterns—and now I have them too. Copilot isn't replacing my learning; it's accelerating it."*
+*"I was skeptical because I've seen too many 'revolutionary' tools that waste more time than they save. So I tested it: documented our patterns once, then measured violations. Before: 8+ violations per PR, 3 review rounds, 45 minutes each. After: 0 violations, 1 review round, 5 minutes. That's not hype—that's 2 hours saved per feature, every feature, every sprint."*
 
-> 💡 **Priya's Perspective**: [See Priya's full journey →](personas/priya.md) for learning acceleration metrics and next module preview
+> 💡 **Sarah's Perspective**: [See Sarah's full journey →](personas/sarah.md) for ROI metrics and workflow optimization strategies
 
 #### 🚀 Challenge Extension
 
@@ -657,7 +661,9 @@ Priya realizes something profound: The AI isn't giving her random suggestions an
 4. An error handler
 5. A utility function
 
-Review all 5 for consistency. Do they all follow the same patterns? If not, what's missing from your copilot-instructions.md?
+Review all 5 for consistency and count total violations. If consistency is <90%, what's missing from your copilot-instructions.md?
+
+**Bonus ROI Calculation**: Track your actual review time for the next 5 PRs and compare to your pre-standards baseline.
 
 ---
 

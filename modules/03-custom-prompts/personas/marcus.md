@@ -36,7 +36,7 @@ You've built infrastructure without always understanding the business context. N
 ### Exercise 2.3: Build the Episode Guide ⭐ *You implement the backend*
 
 **Your role**: Build the API routes based on Rafael's implementation plan  
-**Partners**: Rafael (specs), Priya (frontend), Elena (tests)  
+**Partners**: Rafael (specs), Sarah (frontend), Elena (tests)  
 **Time**: 20 minutes (within 45min exercise)  
 **[View full exercise →](../EXERCISES.md#exercise-23-build-the-episode-guide--the-team-collaborates)**
 

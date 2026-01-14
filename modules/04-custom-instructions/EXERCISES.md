@@ -788,61 +788,49 @@ Create a `docker-compose.yml` for local development that includes the backend, f
 
 ---
 
-### Exercise 4.4: React Component Instructions — "The Episode Appearances Component"
+### Exercise 4.4: React Component Standards — "Sarah Scales Code Review Feedback"
 
-> 🧵 **The Golden Thread Continues**: Character Detail v2 will show episode appearances—and Priya wants those components to be consistent. She builds the `EpisodeAppearances` component properly with React instructions.
+> 🧵 **The Golden Thread Continues**: Character Detail v2 will show episode appearances—and Sarah wants those components to follow review standards from the start. She creates React instructions that enforce her expertise automatically.
 
 #### 📖 The Story
 
-**Priya** (Junior Developer, 1 year) is thinking ahead. The Character Detail v2 feature will show a character's episode appearances, and users will want to click on an episode to see details. She's going to build the `EpisodeAppearances` component.
+**Sarah** (Senior Developer, 15 years) is reviewing yet another React component PR. Same feedback as always: "Use functional components," "Add TypeScript types," "Handle loading states properly," "Don't use inline styles."
 
-First, she reviews the existing components in the codebase.
+She's been writing these same review comments for years. Every junior developer makes the same mistakes. Every PR becomes a teaching moment she's already taught a dozen times.
 
-*"Some components handle loading states, some don't,"* Priya notices. *"Some have TypeScript types, some use `any`. Without consistent patterns, the agent will generate inconsistent components for Character Detail v2."*
+The Character Detail v2 feature is coming up—it'll need an `EpisodeAppearances` component. Sarah decides to try something different: *"What if I document my React review checklist once, and Copilot uses it to generate compliant components from the start?"*
 
-**David** (Staff Engineer, 20 years) sees an opportunity: *"You've been learning React best practices, Priya. What if you captured those patterns in instructions? Then every component the agent generates—including for Character Detail v2—follows the same standards."*
+**David** (Staff Engineer, 20 years) encourages this: *"Your React expertise is valuable. Custom instructions let you scale it across every component the team builds—without you reviewing every line."*
 
-Priya realizes: the patterns she's learned aren't just for her code. They can help the whole team—and the AI.
+Sarah realizes: Her review feedback isn't just corrections—it's patterns that can be codified.
 
-**Supporting Cast**: Elena reviews Priya's component for testing patterns compatibility.
+**Supporting Cast**: 
+- **Elena** appreciates that components following Sarah's standards are easier to test
+- **Marcus** benefits when deploying properly structured components
 
-#### ❌ The "Before" — What the Agent Would Generate
+#### ❌ The "Before" — What Manual Review Costs
 
-Without React-specific instructions, an agent would generate:
+Before React-specific instructions, Sarah's review process:
+- 20 minutes per React component (not counting business logic)
+- Same feedback every PR: patterns, types, states, styling
+- 2-3 review rounds just for component structure
+- 5-8 pattern violations per component on average
 
-```jsx
-// Inconsistent patterns (what we want to prevent)
-const CharacterDetail = ({ id }) => {  // No TypeScript types
-  const [data, setData] = useState();  // No initial state type
-  const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    fetchCharacter(id).then(setData);  // No error handling!
-  }, []);  // Missing dependency
-  
-  if (loading) return <div>Loading...</div>;  // Basic, no spinner
-  
-  return (
-    <div style={{ padding: '20px' }}>  {/* Inline styles */}
-      <h1>{data.name}</h1>
-      {/* What if data.episodes is undefined? */}
-      {data.episodes.map(ep => <div key={ep.id}>{ep.title}</div>)}
-    </div>
-  );
-};
-```
+**Example review feedback (repeated constantly):**
+- "Use functional components, not class"
+- "Add TypeScript interfaces—don't use `any`"
+- "Handle loading, error, and empty states"
+- "Use styled-components, not inline styles"
+- "Complete your useEffect dependencies"
 
-**The problems we're preventing:**
-- No TypeScript interfaces
-- Missing error handling
-- Incomplete useEffect dependencies
-- Inline styles instead of styled-components
-- No empty state handling
-- No loading component (just text)
+**Time cost per component**: 20 minutes  
+**Review rounds for structure**: 2-3  
+**Violations per component**: 5-8  
+**Frustration**: High (repeating herself constantly)
 
 #### 🎯 Objective
 
-Create instructions that provide React/TypeScript expertise for component files, then use them to build the `EpisodeAppearances` component properly—which will be used in Character Detail v2.
+Codify React review feedback into custom instructions, then validate by generating the `EpisodeAppearances` component for Character Detail v2.
 
 #### 📋 Steps
 
@@ -1034,30 +1022,43 @@ Create instructions that provide React/TypeScript expertise for component files,
 
 > 📂 **Compare Your Work**: See [`examples/completed-config/.github/instructions/react-components.instructions.md`](../../examples/completed-config/.github/instructions/react-components.instructions.md) for a reference example of React component instructions.
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — ROI Validation
 
-**Before (without instructions)**: Agent would generate components with inconsistent patterns  
-**After**: Every component follows Priya's learned best practices automatically
+**Before (without React instructions):**
+- 20 minutes reviewing React patterns per component
+- 5-8 violations per component
+- 2-3 review rounds for structure
+- Same feedback repeated every PR
 
-**Consistency gain**: All components handle loading/error/empty states  
-**Code review time**: Components pass review on first try
+**After (with react-components.instructions.md):**
+- 5 minutes reviewing business logic only
+- 0-1 violations (structure is correct from the start)
+- 1 review round
+- No repeated feedback—patterns enforced automatically
 
-**The Golden Thread payoff**: When Character Detail v2 is built in Module 07, every component will be consistent from the start.
+**Time saved per component**: 15 minutes (20 min → 5 min)  
+**Time saved per sprint** (10 components): 2.5 hours  
+**Time saved per year** (26 sprints): 65 hours = 1.5+ weeks
+
+**The validation**: Sarah's React expertise now scales across every component the team builds—without her reviewing every line.
+
+**The Golden Thread payoff**: When Character Detail v2 is built in Module 07, every component will pass Sarah's review on first try.
 
 #### 📚 Official Docs
 
 - [GitHub Docs: Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions)
+- [VS Code: File-Scoped Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization#_create-file-scoped-instructions)
 - [React Documentation](https://react.dev/)
 
-#### 💭 Priya's Growth
+#### 💭 Sarah's Validation
 
-*"A year ago I didn't know these patterns. Now they're encoded in our repo, helping the whole team—including the AI. My learning became team knowledge."*
+*"I've spent years giving the same React review feedback. 'Use functional components.' 'Add proper types.' 'Handle loading states.' Now I've documented those patterns once, and Copilot enforces them automatically. Every component the team generates follows my review standards—without me reviewing every line. That's not automation for automation's sake—that's my expertise scaled."*
 
-**David's validation**: *"Priya, this is exactly what senior developers do. You didn't just learn patterns—you scaled them across the team. That's leadership."*
+**David's perspective**: *"Sarah's React review checklist is now institutional knowledge. It doesn't leave when she does—it's codified."*
 
 #### 🚀 Challenge Extension
 
-Look at the existing components in the codebase. Do they follow your new React instructions? What would you change to make them consistent?
+Look at the existing components in the codebase. How many would violate your new React instructions? Calculate the review time you'll save going forward.
 
 ---
 
@@ -1072,7 +1073,7 @@ Look at the existing components in the codebase. Do they follow your new React i
 ├── testing.instructions.md          # Elena's QA expertise
 ├── api-routes.instructions.md       # David's REST patterns  
 ├── infrastructure.instructions.md   # Marcus's DevOps knowledge
-└── react-components.instructions.md # Priya's React standards
+└── react-components.instructions.md # Sarah's React review standards
 ```
 
 **How instructions will combine with Character Detail v2:**
@@ -1104,7 +1105,7 @@ Custom instructions capture **institutional knowledge**:
 - Elena's years of QA experience → `testing.instructions.md`
 - David's architectural patterns → `api-routes.instructions.md`
 - Marcus's security practices → `infrastructure.instructions.md`
-- Priya's React learning → `react-components.instructions.md`
+- Sarah's React review expertise → `react-components.instructions.md`
 
 This knowledge doesn't leave when people do. It's **codified and shared**.
 

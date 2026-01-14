@@ -1183,8 +1183,6 @@ The FanHub team has accomplished everything they planned—and more:
 - ✅ Search with autocomplete
 - ✅ Analytics dashboard
 
-*"We actually did it,"* Priya says, surprised.
-
 *"We did MORE than we planned,"* Marcus realizes.
 
 ### Quick Production Checklist
@@ -1270,15 +1268,11 @@ Each persona learned something different:
 
 **David** (20 years): *"I worried AI would make my experience obsolete. Instead, it made my experience more valuable. I focus on design and judgment. The mechanical work handles itself."*
 
-**Priya** (1 year): *"I learned so much! Not just about code, but about HOW to think about code. When Copilot generated something, I had to decide if it was right. That forced me to understand it."*
-
-**Sarah** (15 years): *"Okay, I'm convinced. We built more in one day than I expected. But the customization mattered—we used AI thoughtfully, not just blindly."*
+**Sarah** (15 years): *"I was skeptical, but we built more in one day than I expected. And we did it with measurable quality improvements—not just speed. The customization mattered—we used AI thoughtfully, not blindly. That's what made the difference."*
 
 **Marcus** (5 years): *"The agents blew my mind. I finally feel confident with application code. The patterns showed me things I never saw in infrastructure work."*
 
 **Elena** (8 years): *"Test generation was good, but I still had to think about what to test. That's fine—that's my job. The AI wrote the tests, I designed the strategy."*
-
-**Marcus** (12 years): *"The deployment docs almost wrote themselves. Running agents in parallel changed everything—I'm orchestrating, not just coding."*
 
 **Rafael** (10 years): *"The real win was the prompt library—now we have repeatable ways to translate specs into code. We ship faster AND better."*
 

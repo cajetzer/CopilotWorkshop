@@ -55,6 +55,60 @@ With copilot-instructions.md in place:
 
 ---
 
+### Exercise 1.3: Validate Standards Enforcement ⭐ *You lead this one*
+
+**Your role**: Test if documented standards actually eliminate review overhead  
+**Time**: 20 minutes  
+**[View full exercise →](../EXERCISES.md#exercise-13-validate-standards-enforcement--sarah-tests-the-scale)**
+
+**What you'll create:**
+- Character quotes endpoint (backend route) + QuotesList component (frontend)
+- Measurable proof that standards scale your expertise
+
+**Your "before" pain:**
+Without documented standards (your baseline from Module 00):
+- 45 minutes per initial code review
+- 8+ pattern violations per PR
+- 3-4 review rounds (code → feedback → fix → repeat)
+- Same feedback repeated every single PR
+
+**Time cost per feature**: 90+ minutes total review time  
+**Team friction**: High (constant debates about "the right way")
+
+**Your "after" win:**
+With copilot-instructions.md enforcing patterns:
+- Copilot generates code that matches your standards on first try
+- 0 violations (vs 8+ before)
+- 5 minutes of review time (logic only, not style)
+- 1 review round (vs 3-4 before)
+
+**Time saved per feature**: 40 minutes (45 min → 5 min)  
+**Time saved per sprint** (5 features): 3.3 hours  
+**Time saved per year** (26 sprints): 86 hours = 2+ weeks of work
+
+**Your validation moment:**
+> *"I was skeptical because I've seen too many 'revolutionary' tools that waste more time than they save. So I tested it: documented our patterns once, then measured violations. Before: 8+ violations per PR, 3 review rounds, 45 minutes each. After: 0 violations, 1 review round, 5 minutes. That's not hype—that's 2 hours saved per feature, every feature, every sprint."*
+
+---
+
+### 🧵 Your Checkpoint 1.1b: Character Detail Challenge
+
+**After David creates ARCHITECTURE.md**, revisit the Character Detail challenge from Module 00:
+
+```
+@workspace Add a character detail page
+```
+
+#### From Your Standards Perspective, Evaluate:
+
+- [ ] Does generated code fit the documented architecture?
+- [ ] Are components placed in correct folders?
+- [ ] Do file paths follow the project structure?
+
+**What improved**: File placement, component organization, structural understanding
+
+---
+
 ### 🧵 Your Checkpoint 1.2b: Character Detail Challenge
 
 **After creating copilot-instructions.md**, revisit the Character Detail challenge:
@@ -156,10 +210,12 @@ As a senior developer, you're the consistency guardian. But traditional enforcem
 
 | Metric | Before copilot-instructions | After copilot-instructions |
 |--------|----------------------------|---------------------------|
-| **Code review time per feature** | 45-60 minutes | 15-30 minutes |
-| **Style-related review comments** | 8-12 per PR | 0-2 per PR |
+| **Code review time per feature** | 45-60 minutes | 5-15 minutes |
+| **Style-related violations per PR** | 8-12 per PR | 0-2 per PR |
 | **Pattern consistency across codebase** | 60% (3 different styles) | 95%+ (1 standard) |
-| **Time explaining patterns to new devs** | 5+ hours over first month | 1 hour (they learn from AI) |
+| **Review rounds per feature** | 3-4 rounds | 1 round |
+| **Time saved per sprint** (5 features) | — | 3.3 hours |
+| **Time saved per year** (26 sprints) | — | 86 hours (2+ weeks) |
 
 ---
 
@@ -168,7 +224,6 @@ As a senior developer, you're the consistency guardian. But traditional enforcem
 ### Within This Module
 - [View all exercises](../EXERCISES.md) for full team story
 - [David's path](david.md) to see architecture documentation perspective
-- [Priya's path](priya.md) to see how standards help learning
 
 ### Next Module
 Your next appearance: **[Module 9: Copilot CLI](../../09-copilot-cli/personas/sarah.md)**

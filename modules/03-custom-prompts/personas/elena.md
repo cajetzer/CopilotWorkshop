@@ -36,7 +36,7 @@ Every test request requires you to:
 - Enforce naming conventions
 - Check for accessibility tests
 
-When Priya asks for tests, she forgets to mock the API. When Marcus asks, he skips error cases. You're the quality bottleneck.
+When someone asks for tests without guidance, they forget to mock the API or skip error cases. You're the quality bottleneck.
 
 **Your "after" win:**
 - Type `/create-component-tests CharacterCard.jsx`
@@ -51,7 +51,7 @@ When Priya asks for tests, she forgets to mock the API. When Marcus asks, he ski
 ### Exercise 2.3: Build the Episode Guide 🤝 *Team collaboration*
 
 **Your role**: Generate comprehensive tests for the feature  
-**Partners**: Rafael (requirements), Marcus (backend), Priya (frontend)  
+**Partners**: Rafael (requirements), Marcus (backend), Sarah (frontend)  
 **Time**: 15 minutes (within the 45min exercise)  
 **[View full exercise →](../EXERCISES.md#exercise-23-build-the-episode-guide--the-team-collaborates)**
 

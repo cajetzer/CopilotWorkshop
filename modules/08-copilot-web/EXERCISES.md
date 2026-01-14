@@ -769,33 +769,33 @@ Create a recurring backlog health check:
 ### Exercise 8.8: From Logs to Issue — "Clarity from Chaos"
 
 **Time**: 5 minutes  
-**Primary Persona**: Priya (Recent Graduate)  
+**Primary Persona**: Sarah (Senior Developer)  
 **Tier**: 💼 Business / Enterprise
 
 #### 📖 The Story
 
-**Priya** received a bug report with messy logs and a vague description:
+**Sarah** received yet another vague bug report from a stakeholder:
 
 > "the thing is broken again. here's what I saw: [300 lines of logs pasted]"
 
-Instead of spending 20 minutes trying to parse the logs and structure an issue, Priya uses Copilot to generate clarity from chaos.
+She's seen this pattern hundreds of times: messy logs, unclear description, requires 20+ minutes to triage and structure. With Copilot, she can transform chaos into actionable issues in minutes—scalable triage expertise.
 
-#### ❌ The "Before" — What Frustration Looks Like
+#### ❌ The "Before" — What Manual Triage Costs
 
-Priya's old bug report workflow:
+Sarah's traditional bug report workflow:
 - Receive vague report with wall of logs
-- Spend 15 minutes reading logs, eyes glazing over
-- Try to identify the actual error
-- Write up an issue that's still pretty vague
-- Get asked clarifying questions by the team
-- Feel embarrassed about the quality
+- Spend 15-20 minutes parsing logs, finding the actual error
+- Write structured issue with reproduction steps
+- Add labels and route to correct team
+- Sometimes miss key details, requiring follow-up questions
 
-**Time to structured issue**: 25+ minutes  
-**Confidence in issue quality**: Low
+**Time per issue**: 20-25 minutes  
+**Triage throughput**: 2-3 issues per hour  
+**Quality**: Varies (when rushed, details get missed)
 
 #### 🎯 Objective
 
-Generate a high-quality issue from unstructured inputs using Copilot.
+Use Copilot to accelerate issue triage and maintain consistent quality at scale.
 
 #### 📋 Steps
 
@@ -833,21 +833,25 @@ Generate a high-quality issue from unstructured inputs using Copilot.
 - [ ] Labels applied
 - [ ] Team could reproduce without asking questions
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — ROI Validation
 
-With Copilot-assisted issue creation:
-- **Time to structured issue**: 5 minutes (vs 25+ minutes)
-- **Issue quality**: High—clear, actionable
-- **Team response**: Immediate triage, no clarification needed
+With Copilot-assisted issue triage:
+- **Time per issue**: 5 minutes (vs 20-25 minutes)
+- **Triage throughput**: 10-12 issues per hour (vs 2-3)
+- **Quality**: Consistent (AI doesn't get fatigued or rushed)
+- **Time saved per issue**: 15-20 minutes
+
+**Per sprint** (10 bug reports): 2.5-3 hours saved  
+**Per year** (26 sprints): 65-78 hours = 1.5+ weeks
 
 #### 📚 Official Docs
 
 - [GitHub Issues](https://docs.github.com/en/issues)
 - [GitHub Copilot on GitHub.com](https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-on-githubcom)
 
-#### 💭 Priya's Realization
+#### 💭 Sarah's Validation
 
-*"Turning chaos into a clean issue made triage so much faster. Now I understand why senior devs insist on well-structured issues—it's not about being picky, it's about enabling fast action. And Copilot helps me get there without feeling overwhelmed."*
+*"Issue triage used to be a bottleneck—20 minutes per bug report adds up fast. Now I can process 4x more issues in the same time without sacrificing quality. That's not just convenient—that's measurable workflow improvement. My expertise in writing clear issues now scales through AI."*
 
 ---
 

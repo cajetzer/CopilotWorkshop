@@ -81,7 +81,7 @@ With ARCHITECTURE.md in place:
 ### Exercise 1.4: Peek Behind the Curtain 🤝 *Team collaboration*
 
 **Your role**: Investigate how Copilot processes context and documentation  
-**Partners**: Sarah and Priya benefit from your investigative findings  
+**Partners**: Sarah and Marcus benefit from your investigative findings  
 **Time**: 15 minutes  
 **[View full exercise →](../EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai)**
 
@@ -186,7 +186,6 @@ As a staff engineer, your job is to ensure architectural coherence. But traditio
 ### Within This Module
 - [View all exercises](../EXERCISES.md) for full team story
 - [Sarah's path](sarah.md) to see standards creation perspective
-- [Priya's path](priya.md) to see how documentation helps learning
 
 ### Next Module
 Your next appearance: **[Module 2: Agent Plan Mode](../../02-agent-plan-mode/README.md)**
