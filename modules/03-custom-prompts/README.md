@@ -97,6 +97,7 @@ Pick the path that matches your role and interests:
 - **[David's Path](personas/david.md)** — Architectural review automation (20 min)
 - **[Rafael's Path](personas/rafael.md)** — Requirements translation and specifications (60 min)
 - **[Marcus's Path](personas/marcus.md)** — Backend API patterns and git workflow automation (60 min)
+- **[Sarah's Path](personas/sarah.md)** — Validating pattern efficiency and ROI metrics (30 min)
 
 Each persona path includes:
 - Your focused exercises

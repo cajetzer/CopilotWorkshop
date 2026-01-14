@@ -99,6 +99,7 @@ Sprint End ◄── All streams converge
 | **Developer** | Interactive development | [Marcus's Path](./personas/marcus.md) |
 | **Architect** | Parallel architecture review | [David's Path](./personas/david.md) |
 | **Product/Lead** | Sprint orchestration | [Rafael's Path](./personas/rafael.md) |
+| **Senior/Safety** | Checkpoints & safety nets | [Sarah's Path](./personas/sarah.md) |
 | **DevOps** | Parallel infrastructure | [Marcus's Path](./personas/marcus.md) |
 
 ---

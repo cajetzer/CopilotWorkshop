@@ -164,11 +164,9 @@ As a senior developer who reviews code, you've accumulated React expertise throu
 - [Elena's path](elena.md) to see testing standards perspective
 
 ### Next Module
-Your next appearance: **[Module 9: Copilot CLI](../../09-copilot-cli/personas/sarah.md)**
+Your next appearance: **[Module 5: Agent Skills](../../05-agent-skills/personas/sarah.md)**
 
-**What's next for you**: You'll discover command-line workflows that batch-process tasks, generate consistent commit messages, and automate code reviews. The efficiency gains you've seen in the editor now extend to terminal workflows.
-
-**Why it matters**: Module 4 taught you to scale review feedback through instructions. Module 9 extends that to your entire workflow—from terminal commands to commit messages to PR descriptions.
+**What's next for you**: You'll co-create the Build Pipeline Analyzer skill with Marcus, encoding your CI/CD debugging expertise into a reusable pattern that scales across the team.
 
 ---
 

@@ -92,6 +92,8 @@ Product managers often feel disconnected from technical delivery. Requirements g
 | [8.6](EXERCISES.md#exercise-86-architectural-pr-review--david-reviews-from-anywhere) | Architectural Review | 12 min | David reviews PRs from browser without VS Code |
 | [8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) | Issue Creation | 5 min | Generate structured issues from chaos (Sarah) |
 
+> 💡 **[Sarah's Path](personas/sarah.md)** — Focus on Exercise 8.8 for scalable issue triage (15 min)
+
 ---
 
 ## 🧑‍💼 Choose Your Path

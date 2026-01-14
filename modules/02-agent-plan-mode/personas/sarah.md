@@ -220,8 +220,6 @@ This is the kind of tooling you can advocate for: systematic, measurable, and fo
 - [Marcus's path](marcus.md) to see systematic investigation in action
 
 ### Next Module
-Your next appearance: **[Module 09: CLI & Automation](../../09-copilot-cli/personas/sarah.md)**
+Your next appearance: **[Module 3: Custom Prompts](../../03-custom-prompts/personas/sarah.md)**
 
-In Module 09, you'll return as the team ships the FanHub project. With your focus on ROI and measurable value, you'll validate the entire sprint's transformation—from chaos in Module 00 to systematic success by end of day.
-
-**Preview**: *"We shipped a production-ready application in 9 hours. That's not luck—that's systematic AI collaboration."*
+In Module 03, you'll validate that reusable prompts deliver measurable efficiency—tracking time savings as the team captures patterns in prompt files.

@@ -58,6 +58,10 @@ Architecture reviewer, executable checklists
 Agent workflows, autonomous implementation  
 *~30 minutes*
 
+**[Sarah's Path →](personas/sarah.md)**  
+Validating the payoff, skeptic to advocate  
+*~20 minutes*
+
 **[Marcus's Path →](personas/marcus.md)**  
 DevOps reviewer, infrastructure agents  
 *~25 minutes*

@@ -63,6 +63,10 @@ Feature requirements, effort estimation
 Docker debugging, DevOps expertise  
 *~30 minutes*
 
+**[Sarah's Path →](personas/sarah.md)**  
+Build Pipeline Analyzer, scaling expertise  
+*~30 minutes*
+
 </td>
 <td width="33%" valign="top">
 

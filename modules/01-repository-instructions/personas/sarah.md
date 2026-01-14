@@ -225,8 +225,22 @@ As a senior developer, you're the consistency guardian. But traditional enforcem
 - [View all exercises](../EXERCISES.md) for full team story
 - [David's path](david.md) to see architecture documentation perspective
 
+### Your Complete Journey
+| Module | Focus | Link |
+|--------|-------|------|
+| **01** | Repository Instructions | You are here |
+| **02** | Plan Mode | [sarah.md](../../02-agent-plan-mode/personas/sarah.md) |
+| **03** | Custom Prompts | [sarah.md](../../03-custom-prompts/personas/sarah.md) |
+| **04** | Custom Instructions | [sarah.md](../../04-custom-instructions/personas/sarah.md) |
+| **05** | Agent Skills | [sarah.md](../../05-agent-skills/personas/sarah.md) |
+| **07** | Custom Agents | [sarah.md](../../07-custom-agents/personas/sarah.md) |
+| **08** | Copilot Web | [sarah.md](../../08-copilot-web/personas/sarah.md) |
+| **09** | Copilot CLI | [sarah.md](../../09-copilot-cli/personas/sarah.md) |
+| **10** | Agentic SDLC | [sarah.md](../../10-agentic-sdlc/personas/sarah.md) |
+| **11** | Enterprise Patterns | [sarah.md](../../11-enterprise-patterns/personas/sarah.md) |
+
 ### Next Module
-Your next appearance: **[Module 9: Copilot CLI](../../09-copilot-cli/personas/sarah.md)**
+Your next appearance: **[Module 2: Plan Mode](../../02-agent-plan-mode/personas/sarah.md)**
 
 **What's next for you**: You'll discover command-line workflows that let you batch-process tasks, generate consistent commit messages, and automate code reviews. The efficiency gains you've seen in the editor now extend to terminal workflows.
 
