@@ -7,13 +7,23 @@
 
 ---
 
-## 📖 The Story So Far
+## 📖 The Story
 
 The TechCorp team has cloned the FanHub starter project and experienced **The Struggle**. Everyone got different suggestions from Copilot because there are no documented patterns—the AI is as confused as a new hire with no onboarding docs.
 
-Now it's time to transform this chaos into consistency.
+**David** (Staff Engineer) knows the problem: *"Before anyone writes another line of code, we need to document what we have. Otherwise Copilot is just guessing—and so are we."*
+
+**Sarah** (Senior Developer) has seen this movie before: *"See how the backend routes use three different async patterns? That's because the contractor had no standards. Let's fix that—and teach Copilot at the same time."*
+
+**Priya** (Junior Developer) watches quietly, intimidated by "architecture documents" and "coding standards"—that's senior developer stuff. But Sarah hands her a task, and something magical happens: Copilot's suggestions look like they were written by David himself.
 
 **This module's mission**: Create the foundational documentation that tells Copilot (and future developers) how this team works. By the end, everyone will get consistent, high-quality suggestions aligned with your chosen patterns.
+
+---
+
+⚠️ **Prerequisites**: 
+- Complete [Module 00: Orientation](../00-orientation/README.md)
+- Copy [`examples/completed-config/docs/character-detail-challenge.md`](../../examples/completed-config/docs/character-detail-challenge.md) to `fanhub/docs/` to track your Golden Thread progress
 
 ---
 
@@ -26,8 +36,8 @@ By the end of this module, you will:
 - Experience the dramatic improvement in suggestion quality
 - Understand why "clarity is the new syntax" isn't just a slogan
 
-**Time**: ~90 minutes  
-**Personas**: David (Architect), Sarah (Senior Developer), Priya (Junior Developer)
+**Time**: ~90 minutes (or follow your persona's focused path for less)  
+**Featured Personas**: David (Architect), Sarah (Senior Developer), Priya (Junior Developer)
 
 ---
 
@@ -38,6 +48,18 @@ Traditional thinking: *"Documentation is something you write AFTER the code work
 AI-native thinking: *"Documentation is the FIRST thing you create—it's the context that makes everything else better."*
 
 This isn't about bureaucracy. It's about leverage. Every hour David spends documenting architecture saves the team (and Copilot) hundreds of hours of confusion.
+
+---
+
+💡 **Understanding `@workspace`**
+
+Throughout this module, you'll use `@workspace` in your Copilot prompts. This powerful context operator:
+- Gives Copilot access to your entire project structure
+- Enables analysis across multiple files simultaneously
+- Allows AI to understand relationships between components
+- Makes documentation generation accurate and project-specific
+
+Think of `@workspace` as giving Copilot the same bird's-eye view you have as a developer. Instead of seeing one file, it sees the whole system.
 
 ---
 
@@ -59,8 +81,6 @@ GitHub Copilot can read a special file at `.github/copilot-instructions.md` in y
 - Things that change frequently
 - Secrets or credentials (never!)
 
-> 📂 **Reference Example**: See [`examples/completed-config/.github/copilot-instructions.md`](../../examples/completed-config/.github/copilot-instructions.md) for a sample of what your instructions file might look like.
-
 ### Context Through Documentation
 
 Copilot suggestions improve dramatically when:
@@ -70,13 +90,67 @@ Copilot suggestions improve dramatically when:
 
 This is why David's architecture documentation is step one—not step last.
 
-> 📂 **Reference Example**: See [`examples/completed-config/docs/ARCHITECTURE.md`](../../examples/completed-config/docs/ARCHITECTURE.md) for a sample architecture document.
+> 📂 **Reference Examples**: The [`examples/completed-config/`](../../examples/completed-config/) folder contains sample files showing what your completed work might look like.
 
 ---
 
-## 🔨 Exercises
+## 🎯 Choose Your Path
 
-### Exercise 1.1: Document the Architecture — "David Maps the Territory"
+### Option 1: Follow Your Persona
+
+**Focused, role-specific journeys** (~25-40 minutes each):
+
+- **[David's Path](personas/david.md)** (40 min) — Lead Exercise 1.1 (architecture), checkpoint 1.1b, collaborate on Exercise 1.4 (debug view)
+- **[Sarah's Path](personas/sarah.md)** (35 min) — Lead Exercise 1.2 (team standards), checkpoint 1.2b
+- **[Priya's Path](personas/priya.md)** (25 min) — Lead Exercise 1.3 (experience transformation), both checkpoints
+
+### Option 2: Experience the Full Story
+
+**[Complete EXERCISES.md](EXERCISES.md)** — All exercises with full team narrative (~90 minutes)
+
+### Option 3: Quick Navigator
+
+| Exercise | Lead Persona | Time | Topic |
+|----------|--------------|------|-------|
+| [1.1](EXERCISES.md#exercise-11-document-the-architecture--david-maps-the-territory) | David | 15 min | Create ARCHITECTURE.md |
+| [🧵 1.1b](EXERCISES.md#-checkpoint-11b-the-character-detail-challenge--after-architecture) | All | 5 min | Test architecture impact |
+| [1.2](EXERCISES.md#exercise-12-create-team-standards--sarah-builds-the-playbook) | Sarah | 30 min | Create copilot-instructions.md |
+| [🧵 1.2b](EXERCISES.md#-checkpoint-12b-the-character-detail-challenge--after-standards) | All | 5 min | Test standards impact |
+| [1.3](EXERCISES.md#exercise-13-experience-the-transformation--priya-sees-the-light) | Priya | 20 min | Build feature with new docs |
+| [1.4](EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai) | David | 15 min | Understand Copilot's context |
+| [1.4](EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai) | David | 15 min | Understand Copilot's context |
+
+---
+
+## 📚 Official Documentation
+
+- [VS Code: Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
+- [VS Code: Copilot Chat Context](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-context)
+- [GitHub Docs: Repository Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- [GitHub Docs: Prompt Engineering](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot)
+
+---
+
+## ➡️ Next Up
+
+**[Module 2: Agent Plan Mode](../02-agent-plan-mode/README.md)** — Monday 11:30 AM
+
+Now that Copilot knows our patterns, let's teach it to think through problems before coding. David will discover AI planning for architectural decisions, Marcus will debug complex deployment issues, and the whole team will see how "plan first, code second" transforms their workflow.
+
+> *"The AI knows our standards now. But can it think through complex problems like we do?"*  
+> — David, ready to test Copilot's reasoning capabilities
+
+---
+
+## ✅ Module Checklist
+
+Before moving to Module 2, verify:
+
+- [ ] `fanhub/docs/ARCHITECTURE.md` exists and is accurate
+- [ ] `fanhub/.github/copilot-instructions.md` exists with team patterns
+- [ ] Team agrees on the standards (no "but I prefer..." objections)
+- [ ] Tested that Copilot suggestions now follow your patterns
+- [ ] Everyone understands WHY this matters (not just how)
 
 #### 📖 The Story
 
