@@ -31,7 +31,6 @@ The personas include:
 - **David** — The Seasoned Architect (20 years) — needs to see AI augments rather than replaces expertise
 - **Elena** — The Quality Champion (8 years) — insists on understanding what's being tested and why
 - **Rafael** — The Product Visionary (10 years) — connects technical work to business value
-- **Jordan** — The DevOps Expert (12 years) — automation-first, insists on understanding the "why"
 
 ---
 
@@ -86,12 +85,12 @@ Example framing:
 ### 5. Balance Technical Depth with Accessibility
 
 - **For Priya-style content:** Explain concepts thoroughly, avoid jargon, celebrate learning
-- **For Marcus-style content:** Focus on practical workflows, connect to DevOps concepts he knows
+- **For Marcus-style content:** Focus on practical workflows, automation of build/debug/test, connect to DevOps concepts he knows
 - **For Sarah-style content:** Get to the point, show ROI, respect her time
 - **For David-style content:** Technical depth, architectural implications, respect for complexity
 - **For Elena-style content:** Emphasize test coverage, edge cases, and quality validation; show how AI-generated tests need human review for completeness
 - **For Rafael-style content:** Connect technical work to business value, prioritization, and stakeholder communication; bridge the gap between requirements and implementation
-- **For Jordan-style content:** Focus on automation, CI/CD pipelines, and infrastructure as code; emphasize security review and understanding deployment implications
+
 
 ### 6. Link to Official Documentation
 
@@ -732,7 +731,6 @@ Before finalizing any module or exercise:
 - [ ] Would Marcus feel more confident with application code?
 - [ ] Would Elena feel confident that test quality isn't sacrificed for speed?
 - [ ] Would Rafael feel enabled to make better prioritization decisions?
-- [ ] Would Jordan feel his automation expertise is enhanced, not bypassed?
 
 ---
 
@@ -746,6 +744,6 @@ This training exists to help developers at all levels embrace AI-assisted develo
 4. **Celebrate human judgment** — AI is a tool; wisdom is human
 5. **Build confidence progressively** — From skepticism to capability
 
-When in doubt, ask: "Would this make David feel valued, Priya feel safe, Sarah feel respected, Marcus feel empowered, Elena feel confident in quality, Rafael feel enabled to deliver value, and Jordan feel his automation expertise is enhanced?"
+When in doubt, ask: "Would this make David feel valued, Priya feel safe, Sarah feel respected, Marcus feel empowered, Elena feel confident in quality, Rafael feel enabled to deliver value?"
 
 If yes, you're on the right track.

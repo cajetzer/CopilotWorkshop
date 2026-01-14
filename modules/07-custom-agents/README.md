@@ -58,7 +58,7 @@ Architecture reviewer, executable checklists
 Agent workflows, autonomous implementation  
 *~30 minutes*
 
-**[Marcus's Path →](personas/jordan.md)**  
+**[Marcus's Path →](personas/marcus.md)**  
 DevOps reviewer, infrastructure agents  
 *~25 minutes*
 

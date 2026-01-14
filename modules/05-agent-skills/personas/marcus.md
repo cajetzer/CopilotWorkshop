@@ -94,7 +94,7 @@ Copilot (using your skill): *"react-router-dom@6 requires React 18+. Update thes
 
 **Your role**: Diagnose CI/CD failures systematically  
 **Time**: ~30 minutes  
-**[View full exercise →](../EXERCISES.md#exercise-54a-build-pipeline-analyzer-skill--jordan-and-marcus-debug-cicd-failures)**
+**[View full exercise →](../EXERCISES.md#exercise-54a-build-pipeline-analyzer-skill--marcus-and-sarah-debug-cicd-failures)**
 
 **What you'll create:**
 - `.github/skills/build-pipeline-analyzer/SKILL.md` — CI failure triage guide
@@ -305,7 +305,7 @@ Your Module 5 skills compound into future modules:
 - [View all exercises](../EXERCISES.md) to see Elena and Rafael's full paths
 - [Elena's path](elena.md) to see testing expertise encoded
 - [Rafael's path](rafael.md) to see product knowledge systematized
-- [Marcus's path](jordan.md) to see your CI/CD collaboration partner
+- [Marcus's path](marcus.md) to see your CI/CD collaboration partner
 
 ### Next Module
 Your next appearance: **[Module 7: Custom Agents](../../07-custom-agents/README.md)**

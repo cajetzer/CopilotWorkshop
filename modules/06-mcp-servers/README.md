@@ -121,7 +121,7 @@ Different roles can focus on different aspects of MCP:
 | Your Role | Recommended Focus | Start Here |
 |-----------|------------------|------------|
 | **QA/Testing** | Data validation with DB access | [Elena's Path](./personas/elena.md) |
-| **Platform Engineer** | Infrastructure state awareness | [Marcus's Path](./personas/jordan.md) |
+| **Platform Engineer** | Infrastructure state awareness | [Marcus's Path](./personas/marcus.md) |
 
 ---
 

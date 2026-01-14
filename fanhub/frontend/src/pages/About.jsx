@@ -175,11 +175,6 @@ const About = () => {
               <h3>Elena</h3>
               <p>QA Engineer</p>
             </div>
-            <div className="team-member">
-              <div className="team-avatar">J</div>
-              <h3>Jordan</h3>
-              <p>Platform Engineer</p>
-            </div>
           </div>
         </div>
 

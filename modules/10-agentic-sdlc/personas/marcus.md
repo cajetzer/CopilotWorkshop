@@ -126,7 +126,7 @@ Build a full-stack search feature using VS Code Agent Mode while other agents ha
 
 *"The key is knowing when to use which interface. Search needed me in the loop—watching, testing, adjusting. Agent Mode is perfect for that.*
 
-*But the real insight is parallel execution. While I built search interactively, David's analytics ran autonomously in the browser, and Jordan handled infrastructure in the CLI. Three features for the time of one.*
+*But the real insight is parallel execution. While I built search interactively, David's analytics ran autonomously in the browser, and Marcus handled infrastructure in the CLI. Three features for the time of one.*
 
 *I finally feel confident with application code. The interactive loop shows me patterns I never saw in infrastructure work—and I can test immediately to make sure I understand."*
 

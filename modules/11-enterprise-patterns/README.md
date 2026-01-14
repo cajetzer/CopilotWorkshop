@@ -112,7 +112,7 @@ The exercises in this module are **independent**—complete the ones most releva
 
 ### For Architects & Platform Engineers (Enterprise)
 
-**[Exercise 11.3: Copilot Knowledge Bases](EXERCISES.md#exercise-113-copilot-knowledge-bases--jordan-and-david-build-the-shared-context)**  
+**[Exercise 11.3: Copilot Knowledge Bases](EXERCISES.md#exercise-113-copilot-knowledge-bases--marcus-and-david-build-the-shared-context)**  
 📊 **Who**: Platform teams, architects  
 ⏱️ **Time**: 30-45 min  
 🎯 **Goal**: Index multiple repos so Copilot Chat can reference cross-repo context  
@@ -121,7 +121,7 @@ The exercises in this module are **independent**—complete the ones most releva
 
 ### For Engineering Leaders
 
-**[Exercise 11.4: Metrics Dashboard](EXERCISES.md#exercise-114-metrics-dashboard--jordan-and-sarah-measure-success)**  
+**[Exercise 11.4: Metrics Dashboard](EXERCISES.md#exercise-114-metrics-dashboard--marcus-and-sarah-measure-success)**  
 📊 **Who**: Engineering managers, platform teams  
 ⏱️ **Time**: 45-60 min  
 🎯 **Goal**: Access and interpret Copilot metrics, measure organizational impact  

@@ -67,7 +67,6 @@ Throughout this training, you'll work alongside seven personas representing real
 - **David** (20 years) — Seasoned architect concerned about relevance
 - **Elena** (8 years) — Quality champion ensuring comprehensive testing
 - **Rafael** (10 years) — Product visionary bridging business and tech
-- **Jordan** (12 years) — Platform engineer automation-first mindset
 
 **Full personas**: [PERSONAS.md](modules/00-orientation/PERSONAS.md)
 
@@ -153,7 +152,7 @@ Team creates file-scoped instructions using `applyTo` patterns, analyzed through
 
 **You'll learn**: Custom instructions, `applyTo` patterns, file-scoped context, codebase analysis  
 **The transformation**: Generic → Context-aware  
-**Featured**: Elena, Marcus, Jordan, Priya
+**Featured**: Elena, Marcus, Priya
 
 ### Module 5: Agent Skills (90 min)
 **Monday 3:00 PM**
@@ -167,11 +166,11 @@ Elena and Rafael teach Copilot FanHub's domain expertise through Agent Skills. E
 ### Module 6: MCP Servers (75 min)
 **Monday 4:00 PM**
 
-Elena's data validator can't verify against real data—it knows the RULES but can't check the DATABASE. Jordan shows the team how MCP (Model Context Protocol) connects Copilot to external systems. Connect to SQLite for data validation, GitHub for deployment awareness. Now the agent can access real data.
+Elena's data validator can't verify against real data—it knows the RULES but can't check the DATABASE. Marcus shows the team how MCP (Model Context Protocol) connects Copilot to external systems. Connect to SQLite for data validation, GitHub for deployment awareness. Now the agent can access real data.
 
 **You'll learn**: MCP architecture, server configuration, database connectivity, security governance  
 **The transformation**: Knowledge only → Knowledge + action  
-**Featured**: Jordan, Elena, David
+**Featured**: Marcus, Elena, David
 
 ### Module 7: Custom Agents — THE PAYOFF (90 min)
 **Monday 5:00 PM**
@@ -180,7 +179,7 @@ Elena's data validator can't verify against real data—it knows the RULES but c
 
 **You'll learn**: Custom agents, agent design through planning, background agents, seeing the full customization payoff  
 **The transformation**: Sequential → Autonomous excellence  
-**Featured**: David, Marcus, Jordan
+**Featured**: David, Marcus
 
 ### Module 8: GitHub.com Copilot for Product Management (50-60 min)
 **Monday 3:30 PM**
@@ -194,16 +193,16 @@ Rafael validates Character Detail v2 delivery from his browser—no VS Code need
 ### Module 9: Copilot CLI (90 min)
 **Monday 6:00 PM**
 
-Jordan introduces systematic CLI automation with GitHub Copilot CLI. Plan terminal workflow automation. Create scripted development processes and infrastructure automation.
+Marcus introduces systematic CLI automation with GitHub Copilot CLI. Plan terminal workflow automation. Create scripted development processes and infrastructure automation.
 
 **You'll learn**: CLI automation, programmatic workflows, terminal AI assistance, systematic scripting  
 **The transformation**: Manual terminal work → Automated AI-assisted CLI  
-**Featured**: Jordan, Marcus
+**Featured**: Marcus
 
 ### Module 10: Agentic SDLC + Ship (90-120 min)
 **Monday 7:00 PM**
 
-The team orchestrates all their AI tools across VS Code, Web, and CLI. Plan the complete development lifecycle. While Marcus builds search interactively in VS Code, David kicks off analytics endpoints via GitHub's Coding Agent, and Jordan handles infrastructure in the CLI—all simultaneously. The module concludes with shipping and reflecting on what worked.
+The team orchestrates all their AI tools across VS Code, Web, and CLI. Plan the complete development lifecycle. While Marcus builds search interactively in VS Code, David kicks off analytics endpoints via GitHub's Coding Agent, handles infrastructure in the CLI—all simultaneously. The module concludes with shipping and reflecting on what worked.
 
 **You'll learn**: Multi-interface agent orchestration, parallel development workflows, complete AI integration  
 **The transformation**: Sequential → Parallel → Complete system → Ship it  
@@ -216,7 +215,7 @@ Sarah calls an early meeting: "We built something that works. Now we need to mak
 
 **You'll learn**: Organization instructions, code review standards, Copilot Spaces, metrics and ROI tracking, team onboarding  
 **The transformation**: Individual success → Organizational capability  
-**Featured**: All personas (scaling focus: Sarah, Rafael, Jordan)
+**Featured**: All personas (scaling focus: Sarah, Rafael, Marcus)
 
 ---
 

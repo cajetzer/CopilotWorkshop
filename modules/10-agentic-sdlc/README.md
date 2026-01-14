@@ -95,7 +95,7 @@ Sprint End ◄── All streams converge
 |-----------|------------------|------------|
 | **Developer** | Interactive development | [Marcus's Path](./personas/marcus.md) |
 | **Product/Lead** | Sprint orchestration | [Rafael's Path](./personas/rafael.md) |
-| **DevOps** | Parallel infrastructure | [Marcus's Path](./personas/jordan.md) |
+| **DevOps** | Parallel infrastructure | [Marcus's Path](./personas/marcus.md) |
 
 ---
 
