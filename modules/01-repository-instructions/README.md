@@ -35,7 +35,7 @@ By the end of this module, you will:
 - Understand why "clarity is the new syntax" isn't just a slogan
 
 **Time**: ~90 minutes (or follow your persona's focused path for less)  
-**Featured Personas**: David (Architect), Sarah (Senior Developer)
+**Featured Personas**: David (Architect), Sarah (Senior Developer), Marcus (DevOps)
 
 ---
 
@@ -100,6 +100,7 @@ This is why David's architecture documentation is step one—not step last.
 
 - **[David's Path](personas/david.md)** (40 min) — Lead Exercise 1.1 (architecture), checkpoint 1.1b, collaborate on Exercise 1.4 (debug view)
 - **[Sarah's Path](personas/sarah.md)** (55 min) — Lead Exercise 1.2 (team standards), Exercise 1.3 (validate standards), both checkpoints
+- **[Marcus's Path](personas/marcus.md)** (25 min) — Lead Exercise 1.2c (developer workflow), enable self-service setup
 
 ### Option 2: Experience the Full Story
 
@@ -112,6 +113,7 @@ This is why David's architecture documentation is step one—not step last.
 | [1.1](EXERCISES.md#exercise-11-document-the-architecture--david-maps-the-territory) | David | 15 min | Create ARCHITECTURE.md |
 | [🧵 1.1b](EXERCISES.md#-checkpoint-11b-the-character-detail-challenge--after-architecture) | All | 5 min | Test architecture impact |
 | [1.2](EXERCISES.md#exercise-12-create-team-standards--sarah-builds-the-playbook) | Sarah | 30 min | Create copilot-instructions.md |
+| [1.2c](EXERCISES.md#exercise-12c-developer-workflow-documentation--marcus-stops-answering-the-same-questions) | Marcus | 25 min | Developer workflow docs |
 | [🧵 1.2b](EXERCISES.md#-checkpoint-12b-the-character-detail-challenge--after-standards) | All | 5 min | Test standards impact |
 | [1.3](EXERCISES.md#exercise-13-validate-standards-enforcement--sarah-tests-the-scale) | Sarah | 20 min | Validate standards with feature |
 | [1.4](EXERCISES.md#exercise-14-peek-behind-the-curtain--david-debugs-the-ai) | David | 15 min | Understand Copilot's context |

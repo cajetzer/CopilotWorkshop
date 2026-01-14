@@ -52,6 +52,10 @@ Testing standards, QA automation
 REST API conventions, architecture  
 *~25 minutes*
 
+**[Marcus's Path →](personas/marcus.md)**  
+Infrastructure security, Docker/DevOps  
+*~25 minutes*
+
 **[Sarah's Path →](personas/sarah.md)**  
 React patterns, component standards  
 *~25 minutes*

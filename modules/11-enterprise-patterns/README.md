@@ -119,6 +119,10 @@ The exercises in this module are **independent**—complete the ones most releva
 🏢 **Tier**: Enterprise only  
 🌟 **Value**: Ask questions spanning multiple repos, get answers from full system context
 
+**[Marcus's Path →](personas/marcus.md)** — Metrics + Onboarding focus  
+⏱️ **Time**: 45-90 min  
+🎯 **Goal**: Build observability for Copilot adoption + scalable team enablement
+
 ### For Engineering Leaders
 
 **[Exercise 11.4: Metrics Dashboard](EXERCISES.md#exercise-114-metrics-dashboard--marcus-and-sarah-measure-success)**  

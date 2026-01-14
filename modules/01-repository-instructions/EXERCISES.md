@@ -469,6 +469,229 @@ Add more specific testing guidance based on the feedback.
 
 ---
 
+### Exercise 1.2c: Developer Workflow Documentation — "Marcus Stops Answering the Same Questions"
+
+**⏱️ Time**: ~25 minutes
+
+#### 📖 The Story
+
+**Marcus** (DevOps Developer, 5 years) just finished helping Priya get her development environment running. It took 45 minutes—the same 45 minutes he's spent with every new hire.
+
+*"How do I run this locally?"* Priya asked. *"What's the Docker Compose command? What environment variables do I need?"*
+
+These are the same questions Marcus has answered a dozen times. Meanwhile, when Priya asked Copilot *"How do I run this project?"*, she got a generic answer that didn't match FanHub's actual setup.
+
+*"David's documenting architecture. Sarah's documenting code patterns. I need to document how to actually RUN this thing,"* Marcus realizes. *"Then Copilot can answer the setup questions, and I can focus on real DevOps work."*
+
+**Supporting Cast**:
+- **Priya** benefits immediately—accurate setup guidance without waiting for Marcus
+- **David** appreciates that the full developer experience is now documented
+- **Sarah** integrates Marcus's workflow docs into the team standards
+
+#### ❌ The "Before" — What Frustration Looks Like
+
+Ask Copilot about running the project right now:
+
+```
+@workspace How do I run this project locally? What commands do I need?
+```
+
+**Copilot's response will be:**
+- Generic ("typically you run npm install and npm start...")
+- Missing Docker context (doesn't know about docker-compose)
+- No environment variable guidance
+- Doesn't mention the database setup
+
+Then ask about a common issue:
+
+```
+@workspace The backend won't connect to the database. What should I check?
+```
+
+**Copilot guesses** instead of giving you the specific FanHub troubleshooting steps.
+
+**Time Marcus spends on setup questions**: 2-3 hours/month  
+**New developer time to productivity**: 45+ minutes  
+**Copilot accuracy for setup questions**: ~20% (generic guesses)
+
+#### 🎯 Objective
+
+Add developer workflow documentation that teaches Copilot your actual development environment, build processes, and common troubleshooting steps.
+
+#### 📋 Steps
+
+1. **Experience the "before" state**
+   
+   Ask Copilot these questions and note the quality of answers:
+   
+   ```
+   @workspace How do I run this project locally?
+   ```
+   
+   ```
+   @workspace What's the difference between the npm scripts in this project?
+   ```
+   
+   ```
+   @workspace The database connection is failing. How do I troubleshoot?
+   ```
+
+2. **Generate developer workflow documentation**
+   
+   Ask Copilot to analyze the actual project setup:
+   
+   ```
+   @workspace Analyze the development setup for this project and create a 
+   "Development Workflow" section I can add to copilot-instructions.md.
+   
+   Include:
+   
+   1. Prerequisites - what needs to be installed (Node.js version, Docker, etc.)
+   
+   2. Getting Started - step-by-step commands to run the project locally
+   
+   3. NPM Scripts - explain what each script in package.json does
+   
+   4. Docker Setup - how the docker-compose.yml works, what services it runs
+   
+   5. Environment Variables - what's needed, where they go, example values
+   
+   6. Common Issues - typical problems new developers hit and how to solve them
+   
+   Look at the actual package.json, docker-compose.yml, and project structure.
+   Be specific to THIS project, not generic advice.
+   ```
+
+3. **Review and refine**
+   
+   Check the generated documentation:
+   - Does it match your actual workflow?
+   - Are the npm scripts accurately described?
+   - Is the Docker setup correct?
+   - Are common issues covered?
+   
+   Refine with follow-ups:
+   ```
+   Add a section about how to run just the backend without Docker
+   ```
+   
+   Or:
+   ```
+   Include troubleshooting for the "ECONNREFUSED" database error
+   ```
+
+4. **Add to copilot-instructions.md**
+   
+   Open `fanhub/.github/copilot-instructions.md` and add the Developer Workflow section.
+   
+   **Example structure:**
+   
+   ```markdown
+   ## Development Workflow
+   
+   ### Prerequisites
+   - Node.js 20+ 
+   - Docker and Docker Compose
+   - npm 9+
+   
+   ### Getting Started
+   ```bash
+   # Clone and install
+   git clone <repo>
+   cd fanhub
+   npm install
+   
+   # Start with Docker (recommended)
+   docker-compose up -d
+   
+   # Or run without Docker
+   cd backend && npm run dev
+   cd frontend && npm start
+   ```
+   
+   ### NPM Scripts
+   - `npm run dev` - Start development server with hot reload
+   - `npm test` - Run test suite
+   - `npm run build` - Production build
+   
+   ### Common Issues
+   
+   **Database connection refused**
+   - Check if Docker containers are running: `docker-compose ps`
+   - Verify environment variables in `.env`
+   - Try restarting: `docker-compose down && docker-compose up -d`
+   ```
+
+5. **Test the improvement**
+   
+   Ask the same questions from step 1:
+   
+   ```
+   @workspace How do I run this project locally?
+   ```
+   
+   The answer should now be specific to FanHub, mentioning Docker Compose, the correct npm scripts, and your actual workflow.
+
+#### ✅ Success Criteria
+
+- [ ] Created Developer Workflow section in copilot-instructions.md
+- [ ] Documented prerequisites and getting started steps
+- [ ] Explained npm scripts specific to this project
+- [ ] Included Docker setup instructions
+- [ ] Added common issues and troubleshooting
+- [ ] Tested that Copilot now gives project-specific setup guidance
+
+#### ✨ The "After" — The Improved Experience
+
+**Before**: New developers wait for Marcus. Copilot gives generic advice.
+
+**After**: Copilot knows the exact development workflow:
+- Correct prerequisites (Node 20+, Docker)
+- Actual npm scripts and their purposes
+- Docker Compose specifics for this project
+- Troubleshooting for common issues
+
+**Time Marcus spends on setup questions**: 15 minutes/month (edge cases only)  
+**New developer time to productivity**: 10 minutes  
+**Copilot accuracy for setup questions**: ~90% (project-specific)
+
+**Time saved per new developer**: 35 minutes  
+**Time saved per month** (Marcus): 2+ hours  
+**Team independence**: Developers self-serve setup questions
+
+#### 📚 Official Docs
+
+- [GitHub Docs: Repository Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+
+#### 📌 Practices Used
+
+| Practice | How It Applied |
+|----------|----------------|
+| 📚 **Documentation as Leverage** | Your workflow docs train AI on actual setup |
+| 🔍 **Clarity as a Foundation** | Explicit steps eliminate guessing |
+| 🎯 **Context is Everything** | Project-specific > generic advice |
+| 🎯 **Self-Service Enablement** | New devs don't wait for tribal knowledge |
+
+#### 💭 Marcus's Realization
+
+*"I used to be the human FAQ for 'how do I run this project.' Every new developer, every contractor, everyone asked me. Now Copilot knows our Docker setup, our npm scripts, our environment patterns. Priya asked it how to run the backend and got the exact right answer—no Slack message to me required. I'm not the bottleneck anymore. I'm the one who made the bottleneck disappear."*
+
+> 💡 **Marcus's Perspective**: [See Marcus's full journey →](personas/marcus.md) for DevOps documentation patterns and next module preview
+
+#### 🚀 Challenge Extension
+
+**Cross-Persona Test**: Have Priya (or someone new to the project) try to set up the development environment using ONLY Copilot and your documentation.
+
+Track:
+- How many questions did they need to ask Marcus?
+- How long did it take to get running?
+- What was missing from the documentation?
+
+Use their feedback to improve the workflow docs.
+
+---
+
 ### 🧵 Checkpoint 1.2b: Character Detail Challenge — After Standards
 
 **🧵 Optional Tracking**: Use this checkpoint to measure how copilot-instructions.md improves pattern consistency.
@@ -785,17 +1008,24 @@ With debug visibility:
 ## 🔗 Compounding Value
 
 **What we created in this module:**
-- `docs/ARCHITECTURE.md` — Project context (Exercise 1.1)
-- `.github/copilot-instructions.md` — Team patterns (Exercise 1.2)
+- `docs/ARCHITECTURE.md` — Project context (Exercise 1.1, David)
+- `.github/copilot-instructions.md` — Team patterns (Exercise 1.2, Sarah) + Developer workflow (Exercise 1.2c, Marcus)
+
+**The Documentation Trio:**
+- **David** documented *what the system is* (architecture)
+- **Sarah** documented *how we write code* (patterns and standards)
+- **Marcus** documented *how to run it* (developer workflow)
+
+Together, they've given Copilot—and every new developer—a complete onboarding experience.
 
 **How this helps in future modules:**
 
 | Module | How Today's Work Helps |
 |--------|----------------------|
-| Module 2 | Custom prompts can reference ARCHITECTURE.md |
-| Module 3 | Custom agents know your patterns |
-| Module 4 | Custom instructions build on repository instructions |
-| Module 5 | All customizations compound, ship, and reflect |
+| Module 2 | Plan mode uses ARCHITECTURE.md for context; Marcus debugs test failures |
+| Module 3 | Custom prompts reference your patterns |
+| Module 4 | Marcus's workflow docs evolve into infrastructure.instructions.md |
+| Module 5 | Agent skills build on the documented foundation |
 
 Every minute invested here saves hours later.
 
@@ -823,10 +1053,12 @@ Every minute invested here saves hours later.
 
 Before moving to Module 2, verify:
 
-- [ ] `fanhub/docs/ARCHITECTURE.md` exists and is accurate
-- [ ] `fanhub/.github/copilot-instructions.md` exists with team patterns
+- [ ] `fanhub/docs/ARCHITECTURE.md` exists and is accurate (David)
+- [ ] `fanhub/.github/copilot-instructions.md` exists with team patterns (Sarah)
+- [ ] Developer workflow section added with npm scripts, Docker setup, common issues (Marcus)
 - [ ] Team agrees on the standards (no "but I prefer..." objections)
 - [ ] Tested that Copilot suggestions now follow your patterns
+- [ ] New developers can get the project running using only Copilot + docs
 - [ ] Everyone understands WHY this matters (not just how)
 
 ---

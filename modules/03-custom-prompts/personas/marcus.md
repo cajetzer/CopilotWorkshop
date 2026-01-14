@@ -154,9 +154,10 @@ As a DevOps developer, you've focused on infrastructure. But modern DevOps means
 ### Next Module
 Your next appearance: **[Module 4: Custom Instructions](../../04-custom-instructions/personas/marcus.md)**
 
-**What's next for you**: You'll see how agents can automate DevOps tasks and application development. Your comfort zone (automation) meets application code.
+**What's next for you**: The contractor's Dockerfile is a security nightmare—runs as root, uses `latest` tags, no health checks. You'll encode your 5 years of DevOps security expertise into infrastructure instructions that apply automatically to all Dockerfiles, workflows, and deployment configs.
 
-**Why it matters**: Module 3 helped you understand application patterns. Module 4 helps you automate them.
+**Preview**:
+> *"I could fix this Dockerfile manually—I've done it hundreds of times. But someone would break it again. Now my security patterns are encoded. The agent will follow them. New team members will follow them automatically. I'm not the security bottleneck anymore—I'm the security multiplier."*
 
 ---
 

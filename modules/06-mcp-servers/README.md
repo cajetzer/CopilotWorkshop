@@ -106,12 +106,14 @@ VS Code prompts you to confirm trust before starting any MCP server.
 |----------|---------|-------|------|
 | 6.1 | Elena | First database query — discover duplicates | 15 min |
 | 6.2 | David | Validate architecture against reality | 15 min |
+| 6.3-6.4 | Marcus | Infrastructure MCP strategy | 20 min |
 | 6.5 | Team | Integrating MCP into workflow | 20 min |
 
 ### Quick Links
 
 - [Exercise 6.1: Your First Database Query](./EXERCISES.md#exercise-61-your-first-database-query--elena-discovers-the-duplicate) — Elena gives Copilot database access
 - [Exercise 6.2: Validate Architecture Against Reality](./EXERCISES.md#exercise-62-validate-architecture-against-reality--david-catches-drift) — David discovers schema drift
+- [Exercise 6.3-6.4: Infrastructure MCP Strategy](./personas/marcus.md) — Marcus designs infrastructure state awareness
 - [Exercise 6.5: Integrating MCP Into Workflow](./EXERCISES.md#exercise-65-integrating-mcp-into-your-workflow--the-complete-picture) — Complete picture
 
 ---
