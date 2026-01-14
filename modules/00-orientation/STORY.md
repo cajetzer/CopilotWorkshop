@@ -23,6 +23,7 @@ A contractor abandoned a half-built TV show fan site. The code works, barely. Th
 - Mixed frontend patterns (class components, functional, various styling approaches)
 - Zero documentation, no tests, no standards
 - Placeholder content everywhere
+- Actual bugs in starter code (Episodes.js cache doesn't include seasonId, data dupe for 'Jesse Pinkman')
 
 **Why this setup works:**
 - Reflects real-world inherited codebases
@@ -77,43 +78,6 @@ Each character represents a real archetype that learners recognize—either in t
 | **Rafael** | 10 years | Product Manager | Requirements writer | Execution enabler |
 | **Jordan** | 12 years | Platform Engineer | Manual ops | Automated excellence |
 
-### Character Design Template
-
-For each character, define:
-
-```markdown
-## [Name] — The [Archetype Title]
-
-**Experience**: [X] years
-**Role**: [Job title and team function]
-
-### Background
-- [2-3 sentences establishing professional history]
-- [What they're known for on the team]
-- [Their relationship with technology/change]
-
-### Goals (What they want)
-- [Primary professional goal]
-- [Secondary goal related to the workshop topic]
-- [Personal growth goal]
-
-### Fears (What keeps them up at night)
-- [Primary fear related to the workshop topic]
-- [Secondary fear about their career/relevance]
-- [Fear about team dynamics or perception]
-
-### Voice in Exercises
-[One paragraph describing how they speak, what they notice, how they react]
-
-### Transformation Arc
-- **Start**: [Initial state/belief]
-- **Middle**: [Key realization or turning point]
-- **End**: [New state/belief]
-```
-
-*(See [PERSONAS.md](PERSONAS.md) for full character profiles)*
-
----
 
 ## 📅 The Timeline
 
@@ -241,74 +205,7 @@ Priya represents anyone feeling overwhelmed:
 
 ---
 
-## 🔧 Adapting This Story Framework
 
-### For Different Technical Topics
-
-Replace FanHub with a project relevant to your topic:
-
-| Workshop Topic | Project Idea | Domain |
-|---------------|--------------|--------|
-| API Development | Recipe sharing platform | Cooking |
-| Data Engineering | Music analytics dashboard | Entertainment |
-| DevOps | Deployment automation | Infrastructure |
-| Mobile Development | Local events app | Community |
-| Security | Vulnerability scanner | Security |
-
-### For Different Audiences
-
-Adjust character experience levels:
-
-| Audience | Character Mix |
-|----------|---------------|
-| Beginners | More Priyas, supportive seniors |
-| Senior developers | More Davids and Sarahs, address replacement fears |
-| Mixed teams | Full cast, emphasize collaboration |
-| Specialists | Focus on 2-3 relevant personas |
-
-### For Different Durations
-
-Scale the timeline:
-
-| Duration | Approach |
-|----------|----------|
-| 2-hour workshop | Pick 2-3 modules, compressed story |
-| Full day (8 hours) | Standard FanHub format |
-| Multi-day course | Expand to multi-sprint story |
-| Self-paced (weeks) | Add inter-module reflection |
-
----
-
-## ✅ Story Quality Checklist
-
-Before finalizing your story-driven workshop:
-
-### Character Authenticity
-- [ ] Do characters feel like real professionals?
-- [ ] Are their fears legitimate, not strawmen?
-- [ ] Do their transformations feel earned?
-- [ ] Would learners recognize these archetypes?
-
-### Narrative Flow
-- [ ] Is the inciting incident compelling?
-- [ ] Does urgency feel real but not artificial?
-- [ ] Do early modules deliver visible wins?
-- [ ] Does complexity build gradually?
-- [ ] Is the ending satisfying?
-
-### Emotional Resonance
-- [ ] Are learner concerns validated?
-- [ ] Are fears addressed, not dismissed?
-- [ ] Are wins celebrated appropriately?
-- [ ] Does the story respect all experience levels?
-
-### Practical Value
-- [ ] Does the project reflect real-world scenarios?
-- [ ] Are exercises connected to the narrative?
-- [ ] Can learners apply lessons to their own work?
-- [ ] Is the transformation measurable?
-
----
 
 ## 📚 Additional Resources
 

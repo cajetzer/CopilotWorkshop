@@ -1,5 +1,5 @@
 
-name: Prepare Issue for Copilot Assignment
+name: Auto-Assign Issues to Copilot
 on:
   issues:
     types: [opened, assigned]
@@ -8,74 +8,110 @@ permissions:
   issues: write
 
 jobs:
-  prepare-for-copilot:
+  assign-to-copilot:
     if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     steps:
-      - name: Add label and reminder comment
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const issue_number = context.issue.number;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-
-            // Add "copilot-ready" label
-            await github.rest.issues.addLabels({
-              owner,
-              repo,
-              issue_number,
-              labels: ['copilot-ready']
-            });
-
-            // Add a comment with clear instructions
-            const comment = `🤖 **Ready for Copilot Assignment**
+      - name: Assign issue to Copilot
+        run: |
+          issue_number="${{ github.event.issue.number }}"
+          
+          echo "Attempting to assign issue #$issue_number to Copilot..."
+          
+          # Check if Copilot is available in this repository
+          copilot_query='query {
+            repository(owner: "${{ github.repository_owner }}", name: "${{ github.event.repository.name }}") {
+              suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+                nodes {
+                  login
+                  __typename
+                  ... on Bot {
+                    id
+                  }
+                }
+              }
+            }
+          }'
+          
+          copilot_response=$(gh api graphql -f query="$copilot_query")
+          copilot_id=$(echo "$copilot_response" | jq -r '.data.repository.suggestedActors.nodes[] | select(.login == "copilot-swe-agent") | .id')
+          
+          if [[ -n "$copilot_id" && "$copilot_id" != "null" ]]; then
+            echo "✅ Found Copilot agent ID: $copilot_id"
             
-            This issue has been automatically prepared for the GitHub Copilot coding agent.
+            # Get the issue GraphQL ID
+            issue_query='query {
+              repository(owner: "${{ github.repository_owner }}", name: "${{ github.event.repository.name }}") {
+                issue(number: '$issue_number') {
+                  id
+                  title
+                }
+              }
+            }'
             
-            **To assign to Copilot:** Click the "Assign to Copilot" button in the sidebar →
+            issue_response=$(gh api graphql -f query="$issue_query")
+            issue_id=$(echo "$issue_response" | jq -r '.data.repository.issue.id')
             
-            ---
-            
-            *Note: GitHub Copilot assignment is currently a UI-only feature and cannot be automated via API.*`;
+            if [[ -n "$issue_id" && "$issue_id" != "null" ]]; then
+              echo "✅ Found issue ID: $issue_id"
+              
+              # Assign the issue to Copilot using GraphQL mutation
+              assign_mutation='mutation {
+                replaceActorsForAssignable(input: {assignableId: "'$issue_id'", actorIds: ["'$copilot_id'"]}) {
+                  assignable {
+                    ... on Issue {
+                      id
+                      title
+                      assignees(first: 10) {
+                        nodes {
+                          login
+                        }
+                      }
+                    }
+                  }
+                }
+              }'
+              
+              assign_response=$(gh api graphql -f query="$assign_mutation")
+              
+              # Check if assignment was successful
+              assignees=$(echo "$assign_response" | jq -r '.data.replaceActorsForAssignable.assignable.assignees.nodes[].login')
+              if echo "$assignees" | grep -q "copilot"; then
+                echo "✅ Successfully assigned issue #$issue_number to Copilot"
+              else
+                echo "❌ Failed to assign issue to Copilot"
+                echo "Response: $assign_response"
+                exit 1
+              fi
+            else
+              echo "❌ Could not find issue GraphQL ID"
+              exit 1
+            fi
+          else
+            echo "❌ Copilot coding agent not available in this repository"
+            echo "Available actors: $(echo "$copilot_response" | jq -r '.data.repository.suggestedActors.nodes[].login')"
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number,
-              body: comment
-            });
-
-            console.log(`✅ Added label and reminder comment to issue #${issue_number}`)
-
-  remove-label-when-assigned:
+  add-confirmation-comment:
     if: github.event.action == 'assigned'
     runs-on: ubuntu-latest
     steps:
-      - name: Remove copilot-ready label
+      - name: Add confirmation comment
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issue_number = context.issue.number;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-
-            try {
-              // Remove the copilot-ready label since issue is now assigned
-              await github.rest.issues.removeLabel({
-                owner,
-                repo,
+            const assignee = context.payload.assignee.login;
+            
+            if (assignee.includes('copilot')) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
                 issue_number,
-                name: 'copilot-ready'
+                body: `✅ Issue successfully assigned to ${assignee}`
               });
-              console.log(`✅ Removed 'copilot-ready' label from issue #${issue_number} - now assigned`);
-            } catch (error) {
-              // Label might not exist, which is fine
-              if (error.status === 404) {
-                console.log(`Label 'copilot-ready' not found on issue #${issue_number} - no action needed`);
-              } else {
-                throw error;
-              }
             }
