@@ -17,9 +17,22 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issue_number = context.issue.number;
-            await github.rest.issues.addAssignees({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number,
-              assignees: ['@copilot'] // Copilot coding agent handle
-            });
+
+            try {
+              // Assign the issue to GitHub Copilot coding agent
+              // The correct username format is 'github-copilot[bot]'
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number,
+                assignees: ['github-copilot[bot]']
+              });
+
+              const msg = `Successfully assigned issue #${issue_number}`;
+              console.log(msg + ' to github-copilot[bot]');
+            } catch (error) {
+              const errMsg = `Failed to assign issue #${issue_number}`;
+              console.error(errMsg + ':', error.message);
+              // Don't fail the workflow if assignment fails
+              // This allows manual assignment as a fallback
+            }
