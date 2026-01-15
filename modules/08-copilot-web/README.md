@@ -90,6 +90,7 @@ Product managers often feel disconnected from technical delivery. Requirements g
 | [8.4](EXERCISES.md#exercise-84-stakeholder-communication--translate-tech-to-business) | Stakeholder Comms | 10 min | Explain technical complexity in business terms |
 | [8.5](EXERCISES.md#exercise-85-backlog-planning--data-driven-prioritization) | Backlog Planning | 10 min | Analyze issues for data-driven prioritization |
 | [8.6](EXERCISES.md#exercise-86-architectural-pr-review--david-reviews-from-anywhere) | Architectural Review | 12 min | David reviews PRs from browser without VS Code |
+| [8.7](EXERCISES.md#exercise-87-code-review-without-a-license--scaling-quality-across-the-org) | Unlicensed Code Review | 15 min | Enable code review for org members without seats |
 | [8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) | Issue Creation | 5 min | Generate structured issues from chaos (Sarah) |
 
 > 💡 **[Sarah's Path](personas/sarah.md)** — Focus on Exercise 8.8 for scalable issue triage (15 min)

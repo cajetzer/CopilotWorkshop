@@ -20,6 +20,9 @@ But first, you need to see the problem. You need to _feel_ the frustration of wo
   - [Download VS Code](https://code.visualstudio.com/download)
   - [Install GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
   - [Install GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+- **VS Code 1.107+** recommended for background agents and Agent HQ features
+  - Check version: Help → About (or `code --version` in terminal)
+  - [VS Code Updates](https://code.visualstudio.com/updates)
 - **Docker Desktop** installed and running (for the FanHub starter app)
   - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - **Node.js 18+** installed
@@ -27,6 +30,22 @@ But first, you need to see the problem. You need to _feel_ the frustration of wo
 - A **GitHub account** with Copilot access (Individual, Business, or Enterprise)
   - [Get GitHub Copilot](https://github.com/features/copilot)
 - **Read the [Training Personas](PERSONAS.md)** — Meet the team you'll be working with
+
+---
+
+## 🤖 Auto Model Selection
+
+GitHub Copilot automatically selects the best available model based on your subscription, availability, and organizational policies. This means:
+
+- **You don't need to choose a model** — Copilot optimizes for you
+- **Pro+ subscribers get 10% discount** on premium requests when using Auto
+- **Enterprises can set model policies** — your organization may restrict certain models
+
+Throughout this workshop, we use the default "Auto" setting. If you see different model names in responses (GPT-4.1, Claude Sonnet, etc.), that's Auto at work.
+
+> 💡 **Sarah's Take**: *"I was skeptical about 'auto' anything—usually means 'works until it doesn't.' But this actually saves us money. 10% discount on premium requests adds up when you have 50 developers."*
+
+---
 
 ## Estimated Time
 

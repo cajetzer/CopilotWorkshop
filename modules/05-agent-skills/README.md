@@ -130,22 +130,42 @@ Skills use a three-level loading system:
 
 ### Where Skills Live
 
+Skills follow a hierarchy—more specific scopes override broader ones:
+
+| Scope | Location | Visibility | Use Case |
+|-------|----------|------------|----------|
+| **Project** | `.github/skills/` | Everyone on project | Team domain knowledge |
+| **User** | `~/.copilot/skills/` | Only you, all projects | Personal productivity patterns |
+| **Organization** | Org settings (Enterprise) | All org repos | Company-wide standards |
+
 **Project Skills** (repository-specific):
 - `.github/skills/` in your repository
 - Shared with everyone working on the project
 - Version controlled with your code
 
 **Personal Skills** (across all projects):
-- `~/.github/skills/` in your home directory
+- `~/.copilot/skills/` in your home directory
 - Available in all your projects
-- Your personal toolkit
+- Your personal toolkit (coding style, preferred patterns)
+- Great for shortcuts and personal productivity hacks
+
+**Organization Skills** (Enterprise):
+- Configured in organization settings
+- Applied across all repositories in the org
+- Managed by platform teams
+- See Module 11 for enterprise skill library patterns
+
+> 💡 **Tip**: Start with project skills. Once you find patterns you use across multiple projects, promote them to personal skills.
 
 ### Community Skills
 
-You don't have to build every skill from scratch:
+Agent Skills are now **generally available** and supported across GitHub Copilot, Copilot CLI, and VS Code. You don't have to build every skill from scratch:
 
 - **Anthropic's Skills Repository**: [github.com/anthropics/skills](https://github.com/anthropics/skills)
 - **GitHub's Awesome Copilot Collection**: [github.com/github/awesome-copilot](https://github.com/github/awesome-copilot)
+- **Agent Skills Standard**: [agentskills.io](https://agentskills.io)
+
+Skills from these repositories work with any tool supporting the agent skills standard—not just GitHub Copilot.
 
 ---
 

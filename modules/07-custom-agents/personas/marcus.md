@@ -179,6 +179,21 @@ This tests whether you can describe a complex requirement and let the agent hand
 
 ---
 
+## 🚀 Your Highlight: Exercise 7.3 — Background Agents & Agent HQ
+
+This is YOUR exercise. You've been the infrastructure person, the "run things in parallel" thinker. Now you get to apply that mindset to AI agents.
+
+**What you'll master**:
+- Launching multiple agents simultaneously
+- Using Agent HQ as your orchestration dashboard
+- The Git worktree isolation model (your DevOps brain will love this)
+- The "Continue In" pattern for handing off work
+
+**Your transformation moment**:
+> *"I've spent years making build pipelines parallel. Now I'm making AI work parallel. Same mindset, completely new capability."*
+
+---
+
 ## 🎯 Marcus's Module Summary
 
 ### Your Transformation

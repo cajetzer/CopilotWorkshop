@@ -1253,6 +1253,100 @@ Understand how cloud agents enable enterprise-scale AI processing with governanc
 
 ---
 
+## 📊 Exercise 5.8: Agent HQ Orchestration — "The Symphony Conductor"
+
+**Time**: 15 minutes  
+**Primary Persona**: Rafael (Product Manager), Marcus (DevOps)  
+**Tier**: All tiers (VS Code 1.107+)
+
+#### 📖 The Story
+
+**Rafael** is watching the sprint unfold. Marcus has three background agents running. David kicked off a GitHub web agent. Elena is using CLI for test generation.
+
+*"I have no idea what's happening,"* Rafael admits. *"Are we on track? What's done? What's stuck?"*
+
+**Marcus** opens Agent HQ: *"Here's your dashboard. Every agent, every status, one view."*
+
+Rafael's project manager brain lights up: *"This is the sprint board for AI agents."*
+
+#### 🎯 Objective
+
+Use Agent HQ to orchestrate and monitor multiple parallel agent workflows, providing visibility into the sprint's AI-assisted work.
+
+#### 📋 Steps
+
+1. **Open Agent HQ**
+   
+   Access via Command Palette (Ctrl+Shift+P / Cmd+Shift+P):
+   ```
+   Copilot: Open Agent HQ
+   ```
+
+2. **Review the dashboard**
+   
+   Identify the key information available:
+   - Which agents are currently running
+   - Which agents have completed
+   - Which agents are stuck or waiting for input
+   - File modification lists for each agent
+   - Estimated completion status
+
+3. **Triage stuck agents**
+   
+   If an agent seems stuck or taking too long:
+   - Click the agent to see its full conversation
+   - Review what it's attempting
+   - Provide clarifying guidance or cancel if off-track
+
+4. **Prioritize completions**
+   
+   Consider:
+   - Which agent's output is blocking others?
+   - Can you merge completed work while others run?
+   - Do any agents need your immediate attention?
+
+5. **Document the session**
+   
+   For completed agents:
+   - Archive important sessions for future reference
+   - Note learnings for similar future tasks
+   - Share session summaries with the team
+
+#### ✅ Success Criteria
+
+- [ ] Opened Agent HQ and understood the dashboard layout
+- [ ] Identified status of all running agents
+- [ ] Interacted with at least one agent to provide guidance
+- [ ] Archived a completed session for future reference
+- [ ] Understand how Agent HQ enables parallel orchestration
+
+#### ✨ The "After" — Visibility Into AI Work
+
+With Agent HQ:
+- **Before**: Multiple chat windows, no overview, constant context switching
+- **After**: Single dashboard, all agent status visible, efficient triage
+
+**Management comparison:**
+
+| Traditional Sprint Board | Agent HQ |
+|-------------------------|----------|
+| Shows human task status | Shows agent task status |
+| Updated manually | Updated automatically |
+| "In Progress" is ambiguous | See actual agent activity |
+| Blocked requires Slack check | See blockers immediately |
+
+#### 💭 Rafael's Realization
+
+*"This is sprint management for the AI age. I'm not asking 'when will you be done?'—I can see it. I'm not wondering 'what are you working on?'—it's right there. The transparency I've always wanted from developers, I now have from agents."*
+
+#### 📚 Official Docs
+
+- [Agent HQ Documentation](https://code.visualstudio.com/docs/copilot/agents/agent-hq)
+- [Managing Agent Sessions](https://code.visualstudio.com/docs/copilot/agents/sessions)
+- [VS Code 1.107 Release Notes](https://code.visualstudio.com/updates/v1_107)
+
+---
+
 ## 🧠 Mindful Moment: Orchestrating Agents
 
 The shift from "AI assistant" to "agentic SDLC" requires new skills:

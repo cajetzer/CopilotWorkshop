@@ -173,6 +173,8 @@ Transform a vague feature request into a well-structured GitHub Issue with clear
    - Apply appropriate labels (feature, enhancement, etc.)
    - Leave unassigned or assign to yourself for triage
 
+> 💡 **New Behavior**: When you assign an issue to Copilot, you're automatically added as an assignee too. This means `assignee:@me` filters will show all issues where you're involved with Copilot—making it easy to track AI-assisted work.
+
 #### ✅ Success Criteria
 
 - [ ] Issue has a clear, specific title (not the vague original)
@@ -921,6 +923,125 @@ Create an "Architectural Review Checklist" prompt:
 3. Save it as a reusable template
 4. Use it for your next 5 architectural reviews
 5. Track: Does browser-based review catch the same issues as local review?
+
+---
+
+### Exercise 8.7: Code Review Without a License — "Scaling Quality Across the Org"
+
+**Time**: 15 minutes  
+**Primary Persona**: Elena (QA Lead), Sarah (Senior Developer)  
+**Tier**: 💼 Business / 🏢 Enterprise
+
+#### 📖 The Story
+
+**Elena** has a problem. Her QA team includes three contractors who don't have Copilot licenses. They're excellent reviewers, but they can't use Copilot's code review features.
+
+*"I've been asking for three more Copilot seats for months,"* Elena explains. *"Finance keeps pushing back—they don't want to add headcount costs."*
+
+**Sarah** has been reading the December 2025 changelog: *"Wait—there's a new option. Organization members can use Copilot code review even without a license. The org pays via premium requests instead of per-seat licensing."*
+
+*"Usage-based instead of seat-based?"* Elena's eyes light up. *"Finance loves usage-based. They can see exactly what we're paying for."*
+
+#### ❌ The "Before" — License Bottleneck
+
+| Person | Has License? | Can Use Code Review? |
+|--------|-------------|---------------------|
+| Elena | ✅ Yes | ✅ Yes |
+| QA Contractor 1 | ❌ No | ❌ No |
+| QA Contractor 2 | ❌ No | ❌ No |
+| QA Contractor 3 | ❌ No | ❌ No |
+
+**Result**: Only Elena could use AI-assisted code review. Bottleneck.
+
+#### 🎯 Objective
+
+Understand how unlicensed organization members can use Copilot code review, and when this approach makes sense vs. adding seats.
+
+#### 📋 Steps
+
+**Part A: Understanding the Model**
+
+1. **Review the options**:
+
+   | Model | Cost Structure | Best For |
+   |-------|---------------|----------|
+   | Per Seat | Fixed monthly per user | Daily users, developers |
+   | Premium Requests | Pay per use | Occasional users, contractors |
+
+2. **When unlicensed code review makes sense**:
+   - Contractors who only review, don't write code
+   - Part-time team members with low usage
+   - Cross-team reviewers who occasionally help
+   - Testing the value before committing to seats
+
+3. **When seats make more sense**:
+   - Daily users (developers)
+   - Full-time QA with regular review duties
+   - High-volume users (premium requests would cost more than seat)
+
+**Part B: How It Works**
+
+4. **Requirements**:
+   - Organization must have Copilot Business or Enterprise
+   - User must be a member of the organization
+   - Admin must opt-in to allow unlicensed code review
+
+5. **The user experience**:
+   - Unlicensed org members see Copilot code review options in PRs
+   - Usage counts against organization's premium request pool
+   - No installation or license assignment needed
+
+**Part C: Cost Analysis Exercise**
+
+6. **Calculate the tradeoff** for your scenario:
+
+   ```
+   Copilot seat cost: ~$19/month/user
+   Premium request cost: ~$0.04/request (varies by model)
+   
+   Break-even calculation:
+   $19 / $0.04 = ~475 requests/month
+   
+   If user makes < 475 code review requests/month → Premium requests cheaper
+   If user makes > 475 code review requests/month → Seat cheaper
+   ```
+
+7. **Discuss with your team**:
+   - Who in your org would benefit from unlicensed access?
+   - What's their expected monthly usage?
+   - Does usage-based or seat-based make more sense?
+
+#### ✅ Success Criteria
+
+- [ ] Understand the two cost models (seat vs. premium request)
+- [ ] Can identify which team members fit each model
+- [ ] Know the admin requirements to enable unlicensed access
+- [ ] Can calculate approximate cost tradeoffs
+
+#### ✨ The "After" — Flexible Access
+
+| Person | Has License? | Can Use Code Review? | Cost Model |
+|--------|-------------|---------------------|------------|
+| Elena | ✅ Yes | ✅ Yes | Seat |
+| QA Contractor 1 | ❌ No | ✅ Yes | Premium requests |
+| QA Contractor 2 | ❌ No | ✅ Yes | Premium requests |
+| QA Contractor 3 | ❌ No | ✅ Yes | Premium requests |
+
+**Result**: Everyone can use code review. Finance is happy with usage-based costs for contractors.
+
+#### 💭 Elena's Realization
+
+*"This is perfect for our contractors. They review maybe 15 PRs a week—nowhere near enough to justify a full seat. But now they get AI-assisted review, the org pays per use, and I'm not the bottleneck anymore. Quality scales without bureaucracy."*
+
+#### 💭 Sarah's Validation
+
+*"Finally, a licensing model that matches how people actually work. Our occasional users aren't subsidizing heavy users, and heavy users aren't paying premium-request rates. Everyone pays for what they use."*
+
+#### 📚 Official Docs
+
+- [Copilot Code Review for Unlicensed Members](https://docs.github.com/copilot/code-review)
+- [GitHub Changelog: December 2025](https://github.blog/changelog/2025-12-17-copilot-code-review-now-available-for-organization-members-without-a-license/)
+- [Managing Copilot in Your Organization](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization)
 
 ---
 

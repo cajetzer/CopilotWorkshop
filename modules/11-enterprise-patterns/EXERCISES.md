@@ -1051,6 +1051,258 @@ Each path uses the same core setup but emphasizes different aspects.
 
 ---
 
+## Exercise 11.6: Organizational Skill Libraries — "Domain Knowledge at Scale"
+
+**Who should do this**: Platform teams, architects, engineering leadership  
+**Time**: 45-60 minutes  
+**Tier**: 💼 Business / 🏢 Enterprise
+
+### 📖 The Story
+
+The FanHub team created powerful Agent Skills in Module 5—TV show data validation, feature requirements, effort estimation. But they're just one team in an organization with eight teams.
+
+**David** sees the opportunity: *"Our TV show validation skill has patterns that apply to any media data. Our feature requirements skill is basically our product framework. These shouldn't live in one repo."*
+
+**Sarah** agrees: *"We documented our expertise once. Now we need to make it organizational standard—without becoming the support team for every other team."*
+
+The goal: Create an organizational skill library that other teams can use without FanHub becoming a bottleneck.
+
+### 🎯 Objective
+
+Design an organizational skill library strategy that scales domain expertise across teams while maintaining quality and reducing support burden.
+
+### 📋 Steps
+
+**Part A: Skill Audit**
+
+1. **Review your project skills** (`.github/skills/`):
+   - Which are project-specific vs. generalizable?
+   - Which encode domain expertise vs. coding patterns?
+   - Which have the highest reuse potential?
+
+2. **Categorize skills**:
+
+   | Skill | Reuse Potential | Notes |
+   |-------|-----------------|-------|
+   | tv-show-data-validator | Generalizable → media-data-validator | High (all media teams) |
+   | feature-requirements | Generalizable | High (all product teams) |
+   | effort-estimator | Generalizable | High (all planning) |
+   | api-endpoint-design | Generalizable | High (all API teams) |
+
+**Part B: Organizational Skill Repository**
+
+3. **Design the skill library structure**:
+
+   ```
+   org-copilot-skills/
+   ├── README.md                    # Catalog and usage guide
+   ├── CONTRIBUTING.md              # How to add/update skills
+   ├── domain/
+   │   ├── media-data-validator/
+   │   │   └── SKILL.md
+   │   ├── financial-data-validator/
+   │   │   └── SKILL.md
+   │   └── healthcare-compliance/
+   │       └── SKILL.md
+   ├── patterns/
+   │   ├── api-design/
+   │   │   └── SKILL.md
+   │   ├── error-handling/
+   │   │   └── SKILL.md
+   │   └── testing-patterns/
+   │       └── SKILL.md
+   └── product/
+       ├── feature-requirements/
+       │   └── SKILL.md
+       └── effort-estimator/
+           └── SKILL.md
+   ```
+
+4. **Create governance model**:
+   - Who can add skills? (PR approval process)
+   - Who maintains existing skills? (Ownership model)
+   - How are skills versioned? (Semantic versioning)
+   - How do teams discover skills? (Catalog/search)
+
+**Part C: Distribution Strategy**
+
+5. **Choose distribution approach**:
+
+   | Approach | Pros | Cons |
+   |----------|------|------|
+   | **Git submodule** | Version controlled, easy updates | Submodule complexity |
+   | **Copy to repos** | Simple, no dependencies | Manual updates |
+   | **Package registry** | Professional | Infrastructure needed |
+
+6. **Document adoption path**:
+   - How do teams enable org skills?
+   - How do they override for project-specific needs?
+   - How do they request new skills?
+
+### ✅ Success Criteria
+
+- [ ] Categorized skills by reuse potential
+- [ ] Designed organizational skill library structure
+- [ ] Defined governance model (who adds, who maintains)
+- [ ] Chose distribution strategy
+- [ ] Documented adoption path for other teams
+
+### 💭 David's Realization
+
+*"Yesterday I worried my expertise was becoming obsolete. Today I'm packaging that expertise for 50 developers I'll never meet. They get my 20 years of API design knowledge automatically loaded when they work on endpoints. That's not replacement—that's legacy."*
+
+### 💭 Sarah's Validation (ROI Metrics)
+
+*"We spent 4 hours creating these skills in Module 5. If each skill saves 15 minutes per developer per week, and we have 50 developers:*
+
+- *Weekly savings: 50 developers × 15 min × 4 skills = 50 hours*
+- *Monthly savings: 200 hours*
+- *Annual savings: 2,400 hours*
+- *ROI: 4 hours invested → 2,400 hours saved = 600x return*
+
+*That's not hype. That's math."*
+
+### 📚 Official Docs
+
+- [Agent Skills Documentation](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+- [Managing Copilot Policies](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-copilot-policies)
+
+---
+
+## Exercise 11.7: Model Governance & Cost Management — "Scaling Responsibly"
+
+**Who should do this**: Engineering leaders, platform teams, finance stakeholders  
+**Time**: 30-45 minutes  
+**Tier**: 💼 Business / 🏢 Enterprise
+
+### 📖 The Story
+
+**Marcus** pulls up the Copilot usage dashboard. *"We're burning through premium requests faster than expected. Some teams are using GPT-5-max for everything, including simple autocomplete."*
+
+**Sarah** sees the pattern: *"We need governance. Not to restrict—to optimize. The right model for the right task."*
+
+**Rafael** adds the business perspective: *"Finance is asking why our AI costs tripled last quarter. I need to explain this isn't waste—but I also need to show we're being smart about it."*
+
+### 🎯 Objective
+
+Design a model governance strategy that optimizes costs while maintaining productivity, with clear policies and reporting.
+
+### 📋 Steps
+
+**Part A: Understand Auto Model Selection**
+
+1. **How it works**:
+   - Copilot automatically routes requests to available models
+   - Selection considers: task complexity, user subscription, org policies
+   - Enterprise can restrict which models are available
+
+2. **Model tier understanding**:
+
+   | Tier | Characteristics | Cost Impact |
+   |------|-----------------|-------------|
+   | Standard | Fast, efficient for routine tasks | Included in subscription |
+   | Premium | Advanced reasoning, complex tasks | Uses premium request pool |
+   | Max | Cutting-edge capabilities | Higher premium cost |
+
+**Part B: Define Governance Policies**
+
+3. **Create model usage guidelines**:
+
+   ```markdown
+   ## Model Usage Guidelines
+   
+   ### Use Standard Models For:
+   - Code completion and suggestions
+   - Simple refactoring
+   - Documentation generation
+   - Basic Q&A about code
+   
+   ### Use Premium Models For:
+   - Complex architectural decisions
+   - Multi-file refactoring
+   - Agent-mode tasks
+   - Security-sensitive code review
+   
+   ### Use Max Models For:
+   - Critical production debugging
+   - Complex system design
+   - When standard/premium aren't sufficient
+   ```
+
+4. **Set organizational policies**:
+   - Navigate to Organization Settings → Copilot
+   - Configure which models are available
+   - Set premium request limits per team/user
+   - Enable cost alerts and notifications
+
+**Part C: Cost Tracking and Reporting**
+
+5. **Establish monitoring**:
+   - Track premium request usage by team
+   - Monitor cost trends over time
+   - Identify high-usage patterns
+   - Compare productivity gains vs. costs
+
+6. **Create cost justification template**:
+
+   ```markdown
+   ## Q4 Copilot Cost Report
+   
+   ### Investment
+   - Total premium requests: X
+   - Estimated cost: $Y
+   
+   ### Value Delivered
+   - Developer time saved: Z hours
+   - Equivalent salary cost: $W
+   - ROI ratio: W/Y = N:1
+   
+   ### Optimization Actions
+   - Identified 15% of requests as over-provisioned
+   - Updated guidelines to reduce premium usage for routine tasks
+   - Projected Q1 savings: 20%
+   ```
+
+**Part D: Flexible Licensing Strategy**
+
+7. **Analyze user patterns**:
+   - Who are your heavy users? (Full seats)
+   - Who are occasional users? (Premium requests)
+   - Who only needs code review? (Unlicensed access)
+
+8. **Design hybrid licensing**:
+
+   | User Type | License Model | Est. Cost |
+   |-----------|---------------|-----------|
+   | Full-time developers | Per-seat | $19/month |
+   | Contractors (review only) | Premium requests | ~$5-10/month |
+   | Part-time contributors | Premium requests | ~$3-8/month |
+
+### ✅ Success Criteria
+
+- [ ] Understand auto model selection and tiers
+- [ ] Created model usage guidelines for your org
+- [ ] Configured organizational policies (or documented requirements)
+- [ ] Established cost tracking and reporting process
+- [ ] Designed hybrid licensing strategy
+- [ ] Can justify AI investment to finance stakeholders
+
+### 💭 Sarah's Validation
+
+*"We're not just spending money on AI—we're investing strategically. Standard models for routine work, premium for complex tasks, and we can prove the ROI. Finance gets the visibility they need, and developers get the tools that actually help."*
+
+### 💭 Marcus's DevOps Perspective
+
+*"This is just like cloud cost optimization. You don't run everything on the biggest instance—you right-size. Same with AI models. Right-size the model to the task, and costs become predictable."*
+
+### 📚 Official Docs
+
+- [GitHub Copilot Usage Metrics](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)
+- [Managing Copilot Policies](https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-copilot-policies)
+- [Copilot Billing](https://docs.github.com/en/billing/managing-billing-for-github-copilot)
+
+---
+
 ## ✨ Congratulations!
 
 You've explored the enterprise scaling patterns for GitHub Copilot. Choose the exercises most relevant to your role and organizational goals. Remember:
@@ -1060,5 +1312,7 @@ You've explored the enterprise scaling patterns for GitHub Copilot. Choose the e
 - **Knowledge Bases** (11.3) — For Enterprise customers with multi-repo systems
 - **Metrics Dashboard** (11.4) — For leaders justifying investment
 - **Onboarding Kit** (11.5) — For sharing learnings across teams
+- **Organizational Skill Libraries** (11.6) — For scaling domain expertise across the org
+- **Model Governance** (11.7) — For optimizing costs and managing AI responsibly
 
 Return to [README.md](README.md) to explore the key concepts and transformation stories!

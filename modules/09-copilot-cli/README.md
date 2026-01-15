@@ -115,6 +115,19 @@ The agent will ask permission before:
 
 You can approve per-action or for the session.
 
+### CLI + Agent Skills
+
+The Copilot CLI now supports Agent Skills. Skills you've defined in your project (`.github/skills/`) or personal directory (`~/.copilot/skills/`) are available in CLI conversations.
+
+This means your domain-specific skills—like the TV show data validator—work in terminal workflows too:
+
+```bash
+gh copilot suggest "validate the character data I'm about to import"
+# CLI loads tv-show-data-validator skill automatically
+```
+
+> 💡 **Marcus's Take**: *"Same skills, different interface. I defined our Docker debugging skill once in Module 5, and now it helps me in the terminal too. Zero extra setup."*
+
 ---
 
 ## 🔨 Exercises

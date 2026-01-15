@@ -50,7 +50,23 @@ By the end of this module, you will:
 | Terminal/DevOps tasks | Copilot CLI | Agentic terminal capabilities |
 | Quick questions | Any | All handle explanations well |
 
-### The Parallel Workflow
+### Agent HQ: The Orchestration Dashboard
+
+With VS Code 1.107+, **Agent HQ** becomes your central command for parallel development:
+
+| Capability | What It Does |
+|------------|--------------|
+| **Status Overview** | See all running agents at a glance |
+| **Progress Tracking** | Monitor what each agent is working on |
+| **Interaction** | Jump into any agent's conversation |
+| **Session History** | Archive and reference past agent work |
+| **Handoff Control** | Move tasks between local/background/cloud |
+
+**Access**: Command Palette → "Copilot: Open Agent HQ"
+
+This transforms the parallel workflow from "multiple terminal windows" to a true orchestration dashboard.
+
+### The Parallel Workflow (with Agent HQ)
 
 ```
 Sprint Start

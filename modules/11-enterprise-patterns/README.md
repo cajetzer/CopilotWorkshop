@@ -67,6 +67,44 @@ David reflects: *"Yesterday I worried AI might make my expertise obsolete. Today
 **Best for**: Company-wide coding standards, security requirements, framework preferences  
 **Available**: 💼 Business / 🏢 Enterprise (organization settings), 🆓 Free (documentation approach)
 
+### Organizational Skill Libraries (Enterprise)
+
+**What**: Centrally managed Agent Skills that apply across all repositories.  
+**Where**: Organization settings + shared skill repositories  
+**Best for**: Domain knowledge, compliance rules, company-specific patterns  
+**Available**: 💼 Business / 🏢 Enterprise
+
+With Agent Skills now GA, enterprises can create skill libraries that:
+- Encode domain expertise once, apply everywhere
+- Version control organizational knowledge
+- Update skills centrally, propagate automatically
+- Reduce "how do we do X here?" questions
+
+### Model Governance & Auto Selection
+
+**What**: Policies controlling which AI models can be used and when.  
+**Where**: Organization settings in GitHub  
+**Best for**: Compliance, cost control, capability management  
+**Available**: 💼 Business / 🏢 Enterprise
+
+Auto model selection respects organizational policies:
+- Restrict certain models for security/compliance
+- Set cost controls on premium requests
+- Route different task types to different models
+- Audit model usage across the organization
+
+### Flexible Licensing Strategies
+
+**What**: Mix of seat-based and usage-based licensing for different user types.  
+**Where**: Organization billing settings  
+**Best for**: Organizations with mixed usage patterns  
+**Available**: 💼 Business / 🏢 Enterprise
+
+New options include:
+- Full seats for heavy users (developers)
+- Premium-request access for occasional users (contractors, reviewers)
+- Code review access for unlicensed org members
+
 ### Copilot Knowledge Bases
 
 **What**: Index multiple repositories to provide Copilot Chat with cross-repo context.  

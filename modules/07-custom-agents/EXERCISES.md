@@ -419,106 +419,157 @@ David's code review workflow transforms:
 
 ---
 
-### Exercise 7.3: Background Agents — "The Refactor Task"
+### Exercise 7.3: Background Agents & Agent HQ — "The Parallel Powerhouse"
 
 #### 📖 The Story
 
-The team identifies a large technical debt item: The FanHub frontend mixes four different styling approaches (styled-components, CSS modules, inline styles, and style tags). They need to standardize on styled-components.
+**Marcus** has been watching the team work with agents all day. Every time someone starts a complex task, they're stuck waiting for the agent to finish.
 
-*"That's dozens of files,"* Priya calculates. *"It'll take days."*
+*"I've got three things I want Copilot to do,"* he says. *"Update all our API documentation, generate comprehensive test fixtures, and refactor the error handling. But I can't do them sequentially—we're out of time."*
 
-David has an idea: *"What if we let an agent work on it in the background while we do other things?"*
+**David** has an idea: *"What if they didn't have to be sequential? Background agents let you run multiple tasks in parallel."*
 
-**Note**: Background agents require Copilot Business or Enterprise.
+*"And Agent HQ,"* Sarah adds, *"lets you see all of them at once. It's like having a team of junior developers, each working on their own branch."*
+
+#### ❌ The "Before" — Sequential Agent Work
+
+```
+Task A: Update API docs (15 min) ─────────────────────────────►
+                                   Task B: Test fixtures (20 min) ─────────────────────────────►
+                                                                    Task C: Error refactor (15 min) ──────────────►
+Total: 50 minutes (sequential)
+```
+
+Marcus could only do one thing at a time, waiting for each agent to complete.
 
 #### 🎯 Objective
 
-Use a background agent for a large-scale refactoring task.
+Use background agents and Agent HQ to run multiple agent tasks in parallel, reducing total wait time and enabling you to continue working on other tasks.
 
 #### 📋 Steps
 
-1. **Define the refactoring task clearly**
-   
-   Create a detailed spec for the refactor:
-   
+**Part A: Launch a Background Agent**
+
+1. **Open Copilot Chat** and start a new agent conversation
+
+2. **Give it a substantial task**:
    ```
-   @workspace I need to standardize all frontend styling to use styled-components.
+   @workspace Update all JSDoc comments in the backend routes.
    
-   Current state:
-   - Some components use styled-components (Header.jsx, CharacterCard.jsx)
-   - Some use inline styles (Footer.js, EpisodeList.js)
-   - Some use CSS modules (QuoteDisplay.jsx)
-   - About.jsx uses embedded style tags
-   
-   Target state:
-   - All components use styled-components
-   - CSS module files deleted
-   - Consistent naming for styled components (use Container, Wrapper, etc.)
-   - All component files use .jsx extension
-   
-   Requirements:
-   - Convert one component at a time
-   - Preserve exact visual appearance
-   - Update imports as needed
-   - Run the app after each conversion to verify
-   
-   Start with Footer.js as a test, then proceed with others.
+   For each route file:
+   - Add or update function-level JSDoc
+   - Include @param and @returns annotations
+   - Add example request/response in comments
+   - Follow our documentation standards from copilot-instructions.md
    ```
 
-2. **Launch as background task** (if available)
-   
-   With Copilot Enterprise:
-   - Click the "Run in background" option
-   - Agent works autonomously
-   - You receive updates on progress
-   - Review results when complete
+3. **Click "Continue in Background"** (or use Command Palette: "Copilot: Continue in Background")
 
-3. **Alternative: Iterative agent workflow** (all tiers)
-   
-   If background agents aren't available, use iterative agent mode:
-   
-   ```
-   @agent Convert Footer.js from inline styles to styled-components.
-   Keep the exact same visual appearance. Update the file extension to .jsx.
-   Run the app to verify nothing broke.
-   ```
-   
-   Then repeat for each component.
+4. **Notice what happens**:
+   - A new Git worktree is created for the agent
+   - The agent continues working independently
+   - You can close the chat and keep coding
 
-4. **Review the results**
+**Part B: Launch Additional Background Agents**
+
+5. **Open a new Copilot Chat** (Ctrl+Shift+I)
+
+6. **Start another task**:
+   ```
+   @workspace Generate comprehensive test fixtures for all database models.
    
-   For each converted component, check:
-   - Visual appearance unchanged
-   - Styled components follow naming conventions
-   - No style-related warnings or errors
+   Create fixture files with:
+   - Valid data samples for each model
+   - Edge case examples (empty strings, null values, max lengths)
+   - Related entity fixtures that reference each other correctly
+   ```
+
+7. **Send to background** again
+
+8. **Start a third task** (or more if you want):
+   ```
+   @workspace Standardize error handling across all API routes.
+   
+   Ensure all routes:
+   - Use try/catch with consistent error response format
+   - Log errors appropriately
+   - Return proper HTTP status codes
+   - Follow our error handling patterns from copilot-instructions.md
+   ```
+
+**Part C: Monitor with Agent HQ**
+
+9. **Open Agent HQ**: Command Palette → "Copilot: Open Agent HQ"
+
+10. **Observe the dashboard**:
+    - See all running agents
+    - Check what each agent is working on
+    - View file modification lists
+    - See estimated completion
+
+11. **Interact with agents**:
+    - Click an agent to see its full conversation
+    - Provide additional guidance if needed
+    - Cancel agents that went off track
+
+**Part D: Review and Merge Results**
+
+12. **When agents complete**, review their changes:
+    - Each agent worked in its own worktree
+    - Changes are isolated until you merge
+    - Review diffs before merging
+
+13. **Archive completed sessions**:
+    - Agent HQ keeps history of completed work
+    - Reference past sessions for similar future tasks
 
 #### ✅ Success Criteria
 
-- [ ] Understood background agent capabilities
-- [ ] Created a clear refactoring specification
-- [ ] Converted at least one component (Footer.js)
-- [ ] Verified visual appearance preserved
-- [ ] Understood when to use background vs interactive agents
+- [ ] Successfully launched at least 2 background agents
+- [ ] Opened Agent HQ and viewed running agents
+- [ ] Continued working on something else while agents ran
+- [ ] Reviewed agent output after completion
+- [ ] Understood the Git worktree isolation model
 
-#### ✨ The "After" — The Improved Experience
+#### ✨ The "After" — Parallel Agent Work
 
-Large refactors with agents:
+```
+Task A: Update API docs ──────────────────►
+Task B: Test fixtures ────────────────────────►   } Parallel!
+Task C: Error refactor ───────────────────►
+                                              │
+                                              ▼
+                                    Total: ~20 minutes
+                                    (slowest task + integration)
+```
 
-**Before**: Multi-day manual effort, risk of inconsistency  
-**After**: Define spec, let agent work, review results
+**Time saved**: 30 minutes (60% reduction)  
+**Parallel capacity**: Limited only by your machine's resources  
+**Context switching**: Zero—you kept coding while agents worked
 
-**Developer role**: Strategic direction and quality review, not mechanical conversion
+#### 💭 Marcus's Realization
+
+*"This is what I've been waiting for. I'm not babysitting agents anymore—I'm orchestrating them. Three tasks that would have taken an hour? Done in 20 minutes, and I got other work done while they ran. This is the DevOps mindset applied to AI."*
+
+#### 🚀 Challenge Extension
+
+**The "Continue In" Pattern**:
+1. Start a complex task in local agent mode
+2. Realize it's going to take a while
+3. Use "Continue in Background" to free up your chat
+4. Or use "Continue in Cloud" (Enterprise) to free up your laptop entirely
+5. Check back via Agent HQ when convenient
+
+**Session Management**:
+- Archive important sessions for future reference
+- Use archived sessions as templates for similar tasks
+- Share session summaries with the team
 
 #### 📚 Official Docs
 
-- [VS Code: Background Agents](https://code.visualstudio.com/docs/copilot/copilot-edits#_background-agent)
-- [GitHub Docs: Copilot Enterprise](https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-enterprise)
-
-#### 💭 Team Reflection
-
-**David**: *"This is appropriate use of AI—tedious, mechanical work where the pattern is clear but the volume is high."*
-
-**Priya**: *"I was dreading this refactor. Now I'm learning styled-components by reviewing what the agent produces."*
+- [VS Code Background Agents](https://code.visualstudio.com/docs/copilot/agents/background-agents)
+- [Agent HQ Guide](https://code.visualstudio.com/docs/copilot/agents/agent-hq)
+- [VS Code 1.107 Release Notes](https://code.visualstudio.com/updates/v1_107)
 
 ---
 

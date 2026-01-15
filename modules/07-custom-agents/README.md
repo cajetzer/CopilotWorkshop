@@ -92,7 +92,7 @@ Best for: First-time learners, instructor-led sessions
 |----------|-------|------|
 | [7.1](EXERCISES.md#exercise-71-character-detail-v2--the-golden-thread-payoff) | Golden Thread PAYOFF | 25m |
 | [7.2](EXERCISES.md#exercise-72-create-a-custom-agent--davids-architecture-reviewer) | Custom Agents | 20m |
-| [7.3](EXERCISES.md#exercise-73-background-agents--the-refactor-task) | Background Agents | 15m |
+| [7.3](EXERCISES.md#exercise-73-background-agents--agent-hq) | Background Agents & Agent HQ | 25m |
 
 </td>
 </tr>
@@ -127,6 +127,32 @@ You can create specialized agents that:
 - Have specific instructions and context
 - Use designated tools and capabilities
 - Focus on particular domains (testing, security, DevOps)
+
+### Background Agents & Agent HQ
+
+VS Code 1.107+ introduces powerful new agent capabilities:
+
+**Background Agents**:
+- Run in isolated workspaces using Git worktrees
+- Continue working even when chat window is closed
+- Perfect for long-running tasks (refactoring, test generation, documentation)
+
+**Agent HQ**:
+- Central dashboard for managing multiple agents
+- View status, outputs, and progress of all running agents
+- Archive completed sessions for future reference
+- Access via Command Palette: "Copilot: Open Agent HQ"
+
+**"Continue In" Pattern**:
+- Start a task locally, then hand it off to background or cloud
+- Move complex work off your laptop while you continue coding
+- Cloud agents run on GitHub's infrastructure (Enterprise)
+
+| Agent Type | Runs On | Best For |
+|------------|---------|----------|
+| **Local** | Your VS Code | Interactive work, quick tasks |
+| **Background** | Your machine (worktree) | Long tasks while you work on other things |
+| **Cloud** | GitHub infrastructure | Very long tasks, laptop can close |
 
 ### The Payoff Formula
 
