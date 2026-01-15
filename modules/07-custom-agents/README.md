@@ -37,7 +37,7 @@ By the end of this module, you will:
 - Watch an agent build a complete feature autonomously
 
 **Time**: ~60 minutes  
-**Personas**: David (Architect), Marcus (Platform Engineer), Sarah (Senior Developer), Elena (QA)
+**Personas**: David (Architect), Marcus (Platform Engineer), Sarah (Senior Developer), Elena (QA), Rafael (Product Validation)
 
 ---
 
@@ -65,6 +65,10 @@ Validating the payoff, skeptic to advocate
 **[Elena's Path →](personas/elena.md)**  
 QA validation of agent-generated tests  
 *~35 minutes*
+
+**[Rafael's Path →](personas/rafael.md)**  
+Product validation of agent features  
+*~30 minutes*
 
 </td>
 <td width="33%" valign="top">

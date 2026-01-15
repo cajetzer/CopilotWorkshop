@@ -58,7 +58,7 @@ By the end of this module, you will:
 - Understand security considerations for MCP server trust
 
 **Time**: ~45 minutes  
-**Personas**: Elena (data validation), David (architecture verification), Marcus (infrastructure)
+**Personas**: Elena (data validation), David (architecture verification), Marcus (infrastructure), Rafael (product intelligence)
 
 ---
 
@@ -127,6 +127,7 @@ Different roles can focus on different aspects of MCP:
 | **QA/Testing** | Data validation with DB access | [Elena's Path](./personas/elena.md) |
 | **Architecture** | Validate docs against reality | [David's Path](./personas/david.md) |
 | **Platform Engineer** | Infrastructure state awareness | [Marcus's Path](./personas/marcus.md) |
+| **Product Manager** | Data-informed product decisions | [Rafael's Path](./personas/rafael.md) |
 
 ---
 

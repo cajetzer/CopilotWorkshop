@@ -31,7 +31,7 @@ By the end of this module, you will:
 - **Complete the Character Detail v2 prerequisites** with proper tests, deployment, and component patterns
 
 **Time**: ~90 minutes  
-**Featured Personas**: Elena (Testing), David (API Architecture), Marcus (DevOps), Sarah (React Components)
+**Featured Personas**: Elena (Testing), David (API Architecture), Marcus (DevOps), Sarah (React Components), Rafael (Product Standards)
 
 ---
 
@@ -58,6 +58,10 @@ Infrastructure security, Docker/DevOps
 
 **[Sarah's Path →](personas/sarah.md)**  
 React patterns, component standards  
+*~25 minutes*
+
+**[Rafael's Path →](personas/rafael.md)**  
+Product standards automation  
 *~25 minutes*
 
 </td>

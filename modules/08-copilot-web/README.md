@@ -34,7 +34,7 @@ By the end of this module, you will:
 - Use Copilot to analyze backlog patterns for data-informed prioritization
 
 **Time**: ~50-60 minutes  
-**Primary Personas**: Rafael (Product Manager), David (Architect), Elena (QA)  
+**Primary Personas**: Rafael (Product Manager), David (Architect), Elena (QA), Sarah (Senior Developer)  
 **GitHub Copilot Tier**: Enterprise (required for PR summaries and full chat)
 
 ---
@@ -100,9 +100,9 @@ Product managers often feel disconnected from technical delivery. Requirements g
 
 | Your Role | Recommended Focus | Start Here |
 |-----------|------------------|------------|
-| **Product Manager** | Requirements, validation, communication | [Exercise 8.1](EXERCISES.md#exercise-81-issue-refinement--from-vague-to-valuable) |
+| **Product Manager** | Requirements, validation, communication | [Rafael's Path](./personas/rafael.md) |
 | **Architect** | Architectural review from anywhere | [David's Path](./personas/david.md) |
-| **Senior Developer** | Issue triage at scale | [Exercise 8.8](EXERCISES.md#exercise-88-from-logs-to-issue--clarity-from-chaos) |
+| **Senior Developer** | Issue triage at scale | [Sarah's Path](./personas/sarah.md) |
 
 ---
 

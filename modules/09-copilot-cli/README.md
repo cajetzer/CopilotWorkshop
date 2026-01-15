@@ -38,7 +38,7 @@ By the end of this module, you will:
 - Create morning health check routines
 
 **Time**: ~75-90 minutes  
-**Primary Personas**: Marcus (DevOps Developer), David (Architect), Elena (QA)
+**Primary Personas**: Marcus (DevOps Developer), David (Architect), Elena (QA), Rafael (Product Manager)
 
 ---
 
@@ -141,6 +141,7 @@ You can approve per-action or for the session.
 | **DevOps/Developer** | Build, test, debug workflows | [Marcus's Path](./personas/marcus.md) |
 | **Architect** | Dependency analysis, quick queries | [David's Path](./personas/david.md) |
 | **Senior Developer** | Issue triage, validation | [Sarah's Path](./personas/sarah.md) |
+| **Product Manager** | Sprint status, backlog queries | [Rafael's Path](./personas/rafael.md) |
 
 ---
 

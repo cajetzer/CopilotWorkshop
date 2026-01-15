@@ -95,11 +95,15 @@ The exercises in this module are **independent**—complete the ones most releva
 ### For Organization Owners & Platform Teams
 
 **[Exercise 11.1: Organization Instructions](EXERCISES.md#exercise-111-organization-instructions--rafael-and-sarah-set-the-standard)**  
-📊 **Who**: Org owners, engineering leadership  
+📊 **Who**: Org owners, engineering leadership, product leaders  
 ⏱️ **Time**: 30-45 min  
 🎯 **Goal**: Create org-wide standards that apply automatically across all repos  
 💼 **Tier**: Business/Enterprise (org features) | Free (documentation)  
 🌟 **Value**: Every developer gets correct framework/patterns without asking
+
+**[Rafael's Path →](personas/rafael.md)** — Product standards at scale  
+⏱️ **Time**: 30 min  
+🎯 **Goal**: Scale product standards organization-wide
 
 ### For Code Reviewers & QA Leads
 
