@@ -16,62 +16,57 @@ But first, you need to see the problem. You need to _feel_ the frustration of wo
 
 ## Prerequisites
 
-- **VS Code** with **GitHub Copilot** and **GitHub Copilot Chat** enabled
-  - [Download VS Code](https://code.visualstudio.com/download)
-  - [Install GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
-  - [Install GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
-- **VS Code 1.107+** recommended for background agents and Agent HQ features
-  - Check version: Help → About (or `code --version` in terminal)
-  - [VS Code Updates](https://code.visualstudio.com/updates)
-- **Docker Desktop** installed and running (for the FanHub starter app)
-  - [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- **Node.js 18+** installed
-  - [Download Node.js](https://nodejs.org/)
-- A **GitHub account** with Copilot access (Individual, Business, or Enterprise)
-  - [Get GitHub Copilot](https://github.com/features/copilot)
-- **Read the [Training Personas](PERSONAS.md)** — Meet the team you'll be working with
+### Option 1: GitHub Codespaces (Recommended)
+
+**Zero setup required!** Click "Code" → "Create codespace on main" in this repository.
+
+Your environment includes:
+- ✅ VS Code in the browser (or connect from desktop VS Code)
+- ✅ GitHub Copilot & Chat pre-installed and activated
+- ✅ Mermaid diagram rendering for architecture visuals  
+- ✅ All FanHub development tools (Node.js, Docker, ESLint, Prettier)
+- ✅ Ports automatically forwarded for the app
+- ✅ Works from any device—even tablets!
+
+**Build time:** 2-3 minutes first launch, instant thereafter
+
+📖 [Learn more about the dev container setup](../../.devcontainer/README.md)
 
 ---
 
-## 🤖 Auto Model Selection
+### Option 2: Local Dev Container
 
-GitHub Copilot automatically selects the best available model based on your subscription, availability, and organizational policies. This means:
+**Near-zero setup** using VS Code with Docker:
 
-- **You don't need to choose a model** — Copilot optimizes for you
-- **Pro+ subscribers get 10% discount** on premium requests when using Auto
-- **Enterprises can set model policies** — your organization may restrict certain models
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. Install [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+3. Clone this repo and open in VS Code
+4. Click "Reopen in Container" when prompted
 
-Throughout this workshop, we use the default "Auto" setting. If you see different model names in responses (GPT-4.1, Claude Sonnet, etc.), that's Auto at work.
-
-> 💡 **Sarah's Take**: *"I was skeptical about 'auto' anything—usually means 'works until it doesn't.' But this actually saves us money. 10% discount on premium requests adds up when you have 50 developers."*
+Same consistent environment as Codespaces, but running locally.
 
 ---
+
+### Option 3: Manual Installation
+
+If you prefer to set up everything yourself:
+
+| Requirement | Details |
+|-------------|---------|
+| **VS Code 1.107+** | [Download](https://code.visualstudio.com/download) · Check version: Help → About |
+| **GitHub Copilot** | [Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) + [Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) extensions |
+| **Docker Desktop** | [Download](https://www.docker.com/products/docker-desktop/) (for FanHub app) |
+| **Node.js 18+** | [Download](https://nodejs.org/) |
+| **GitHub Account** | With [Copilot access](https://github.com/features/copilot) (Individual, Business, or Enterprise) |
+| **Read First** | [Training Personas](PERSONAS.md) — Meet the team you'll be working with |
+
+---
+
+
 
 ## Estimated Time
 
 60 minutes
-
----
-
-## 🎯 Learning Objectives
-
-By the end of this module, you will:
-
-- Understand **The AI-Assisted Mindset** (four principles that guide your thinking):
-  - Clarity Beats Cleverness
-  - Intent Over Implementation
-  - Documentation Is Leverage
-  - Human Judgment Is Non-Negotiable
-- Understand **The Five Practices** (where you invest your effort):
-  - Clarity as a Foundation
-  - Documentation as Leverage
-  - Intent Over Implementation
-  - Context is Everything
-  - Iterate and Refine
-- Meet the FanHub project and choose your show theme
-- Set up the starter application and verify it runs
-- Experience Copilot struggling with an unconfigured codebase (the "before" state)
-- Set measurable success criteria for your learning journey
 
 ---
 
@@ -185,91 +180,130 @@ This enables:
 
 ---
 
-## The AI-Assisted Mindset: Four Principles
+## Five Principles of AI-Assisted Development
 
-These principles shape how you *think* about AI-assisted development. They're always true, regardless of which tool you're using or what you're building.
+> These principles are the foundation of everything that follows. They shape how you think, communicate with AI, and build better software faster.
 
-### 1. 🔍 Clarity Beats Cleverness
-
-The best code is code anyone can understand. If you can't explain it clearly to a human, you can't explain it to AI. Clever solutions that only you understand become liabilities—both for your team and for AI collaboration.
-
-### 2. 🎯 Intent Over Implementation
-
-Describe WHAT you want (outcomes, constraints, business logic), not HOW to build it (loops, conditionals, data structures). Your expertise is knowing what to build and why. Let AI handle the syntax.
-
-### 3. 📚 Documentation Is Leverage
-
-Write once, benefit infinitely. Documentation helps humans AND AI. Every piece of context you document pays dividends on every AI interaction—forever.
-
-### 4. ⚖️ Human Judgment Is Non-Negotiable
-
-AI proposes; you decide. Your expertise catches what AI misses—security holes, scalability issues, edge cases, business logic. The goal isn't to remove human judgment—it's to focus it where it matters most.
+<table>
+<tr>
+<th width="5%">#</th>
+<th width="30%">Principle</th>
+<th width="65%">What It Means</th>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>🔍 <strong>Clarity Over Cleverness</strong></td>
+<td>Clear thinking enables effective AI collaboration. If you can't explain it clearly to a human, you can't explain it to AI.</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>🎯 <strong>Intent Over Implementation</strong></td>
+<td>Describe <em>WHAT</em> you want (outcomes, constraints), not <em>HOW</em> to build it (loops, syntax). Your expertise is knowing what to build.</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>📚 <strong>Documentation as Leverage</strong></td>
+<td>Write once, benefit infinitely. Documentation helps humans <em>AND</em> AI. Every piece of context you document pays dividends forever.</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>🧩 <strong>Context is Everything</strong></td>
+<td>AI doesn't read your mind—it reads your context. Quality of suggestions matches quality of context you provide.</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>⚖️ <strong>Validate, Don't Automate</strong></td>
+<td>AI proposes; you decide. Your expertise catches what AI misses. Treat AI as a collaborator requiring code review.</td>
+</tr>
+</table>
 
 ---
 
-## The Five Practices: Where You Invest
+### 1. 🔍 Clarity Over Cleverness
 
-The principles tell you how to think. These practices tell you *where to invest your effort*. Master these, and AI becomes a force multiplier. Ignore them, and you'll fight the tools instead of using them.
+**Clear thinking enables effective AI collaboration**
 
-### 1. 🔍 Clarity as a Foundation
+The best code is code anyone can understand. If you can't explain it clearly to a human, you can't explain it to AI.
 
-> **Clear thinking enables effective AI collaboration.**
+**Example:**
 
-Clarity isn't just about clean code—it's about clear thinking. When you articulate your intent precisely, AI can help effectively. When you're vague, AI guesses (badly).
+| ❌ Vague | ✅ Clear |
+|----------|----------|
+| *"Make the character page better"* | *"Add a character biography section using the same card styling as CharacterCard.jsx"* |
+| **Result:** AI guesses, fails | **Result:** AI succeeds immediately |
 
-**In Practice:**
-- Vague prompt: *"Make the character page better"* → AI guesses, fails
-- Clear prompt: *"Add a character biography section using the same card styling as CharacterCard.jsx"* → AI succeeds
+**Your investment:** Practice articulating what you want before typing. The thinking is the hard part—AI handles the rest.
 
-**The Investment:** Practice articulating what you want before you start typing. The thinking is the hard part—AI handles the rest.
+---
 
-### 2. 📚 Documentation as Leverage
+### 2. 🎯 Intent Over Implementation  
 
-> **Write once, benefit infinitely—for humans AND AI.**
+**Describe WHAT you want, not HOW to build it**
 
-Documentation isn't overhead—it's a force multiplier. When you document architecture, standards, and patterns, you're not just helping future developers. You're training AI to understand YOUR codebase.
+Your expertise is knowing what to build and why. Let AI handle the syntax, loops, and boilerplate.
 
-**In Practice:**
-- Without docs: Each team member's Copilot gives different suggestions
-- With docs: Everyone's Copilot follows the same architecture and patterns
+**Example:**
 
-**The Investment:** Spend time documenting architecture, patterns, and standards. Same investment as before, but now with double the payoff.
+| ❌ Implementation-Focused | ✅ Intent-Focused |
+|--------------------------|-------------------|
+| *"Create a function that queries the database with a WHERE clause and LIKE operator"* | *"Create a search feature that finds characters by name, show, or episode appearances"* |
+| **Result:** You dictate syntax details | **Result:** AI chooses best implementation |
 
-### 3. 🎯 Intent Over Implementation
+**Your investment:** Learn to express requirements and constraints clearly. Stay at the design level where your expertise matters most.
 
-> **Stay at the design level where your expertise matters most.**
+---
 
-Your expertise is knowing what to build and why. AI's strength is knowing how to write the code. Play to both strengths.
+### 3. 📚 Documentation as Leverage
 
-**In Practice:**
-- Implementation-focused: *"Create a function that queries the database with a WHERE clause and LIKE operator"*
-- Intent-focused: *"Create a search feature that finds characters by name, show, or episode appearances"*
+**Write once, benefit infinitely—for humans AND AI**
 
-**The Investment:** Learn to express requirements, constraints, and business logic clearly. Let AI worry about the syntax you used to memorize.
+Every piece of context you document pays dividends on every AI interaction—forever.
 
-### 4. 🎯 Context is Everything
+**Example:**
 
-> **The right context produces the right results.**
+| ❌ Without Documentation | ✅ With Documentation |
+|-------------------------|----------------------|
+| Each team member's Copilot gives different suggestions | Everyone's Copilot follows the same architecture and patterns |
+| Standards exist only in senior developers' heads | Standards are documented once, enforced automatically |
 
-AI doesn't read your mind—it reads your context. The quality of suggestions is directly proportional to the quality of context you provide.
+**Your investment:** Document architecture, patterns, and standards. Same effort as before, but now with double the payoff.
 
-**In Practice:**
-- Without context: Generic suggestions that don't fit your codebase
-- With context: Suggestions that follow your architecture, patterns, and domain
+---
 
-**The Investment:** Learn what context to provide when—instructions for persistent patterns, `@workspace` for project awareness, `#file` for targeted focus, images for visual design.
+### 4. 🧩 Context is Everything
 
-### 5. 🔄 Iterate and Refine
+**AI doesn't read your mind—it reads your context**
 
-> **Conversation beats one-shot commands.**
+The quality of suggestions is directly proportional to the quality of context you provide.
 
-AI collaboration is a dialogue, not a transaction. The best results come from generating, reviewing, refining, and building on what AI produces.
+**Example:**
 
-**In Practice:**
-- One-shot: *"Create a user service"* → Accept whatever comes out
-- Iterative: *"Create a user service"* → Review → *"Add input validation"* → Review → Ship
+| ❌ Without Context | ✅ With Context |
+|-------------------|-----------------|
+| Generic suggestions that don't fit your codebase | Suggestions that follow your architecture, patterns, and domain |
+| Every prompt requires extensive explanation | AI already understands your project standards |
 
-**The Investment:** Treat AI as a collaborator, not a vending machine. Review output critically, ask follow-ups, and refine until it's right.
+**Your investment:** Learn what context to provide when:
+- **Instructions** for persistent patterns
+- **`@workspace`** for project awareness  
+- **`#file`** for targeted focus
+- **Images** for visual design
+
+---
+
+### 5. ⚖️ Validate, Don't Automate
+
+**AI proposes; you decide with expert judgment**
+
+Your expertise catches what AI misses—security holes, scalability issues, edge cases, business logic. Treat AI as a collaborator requiring code review, not a vending machine.
+
+**Example:**
+
+| ❌ Novice Approach | ✅ Expert Approach |
+|-------------------|-------------------|
+| *"Create a user service"*<br>→ Accept whatever comes out | *"Create a user service"*<br>→ Review critically<br>→ *"Add input validation"*<br>→ Review again<br>→ Ship |
+
+**Your investment:** Always review AI output with the same rigor you'd apply to a junior developer's code. The goal isn't to remove human judgment—it's to focus it where it matters most.
 
 ---
 
@@ -336,31 +370,6 @@ Do you want this applied AUTOMATICALLY?
 
 ---
 
-## 🔨 Exercise 0: The Character Detail Challenge — "The Struggle"
-
-### 📖 The Setup
-
-It's Monday, 9:30 AM. You've just looked at the FanHub starter code. It's time to experience what happens when you try to build with AI that doesn't understand your codebase.
-
-This exercise is intentionally frustrating. You need to feel the "before" state to appreciate the transformation.
-
-> 🧵 **The Golden Thread**: You'll revisit this exact challenge in **Module 01** (after adding documentation) and **Module 02** (using plan mode). Track your metrics carefully—the improvement will be dramatic and measurable.
-
-### 🎯 Objective
-
-Try to add a simple feature using Copilot WITHOUT any configuration or documentation. Experience the struggle. Document the problems.
-
-### ❌ The "Before" — What Frustration Looks Like
-
-You're about to experience:
-- ✗ Generic suggestions that don't match your architecture
-- ✗ Inconsistent code styles (because the codebase is inconsistent)
-- ✗ Show-generic content ("John Doe" instead of your show's characters)
-- ✗ Uncertainty about which patterns to follow
-- ✗ Multiple attempts to get what you want
-
-**This is on purpose.** You need to see the problem to appreciate the solution.
-
 ### 📋 Steps
 
 **1. Clone the FanHub starter app** (we'll create this in Phase 2)
@@ -398,106 +407,41 @@ Pick your favorite show. Some ideas:
 
 This will be YOUR FanHub throughout the training.
 
-**4. Try to add a character detail page**
+---
 
-Open `fanhub/frontend/pages/` and create a new file `CharacterDetail.jsx` (or `.tsx` if using TypeScript).
+## 🔨 Exercises
 
-Ask Copilot Chat:
+| # | Exercise | Lead | Support | Time | Topic |
+|---|----------|------|---------|------|-------|
+| [0.1](exercise-0.1.md) | Master Context Variables | All ⭐ | All 🤝 | 10 min | Learn to provide the right context to Copilot using `#file`, `@workspace`, `#codebase`, `#fetch`, and images. |
+| [0.2](exercise-0.2.md) | Experience "The Struggle" | All ⭐ | All 🤝 | 10 min | Experience what happens when you build with AI that doesn't understand your codebase.  |
 
-```
-Add a character detail page that shows:
-- Character name
-- Photo
-- Biography
-- List of episodes they appear in
-```
-
-**Watch what happens:**
-- Does it match your show? Or is it generic?
-- Does it follow existing component patterns? Or create new ones?
-- Does it use the right API endpoints? Or make assumptions?
-- Does the styling match the rest of the app?
-
-**5. Document the struggle (Critical for Later Comparison)**
-
-Create `docs/character-detail-challenge.md` and track your metrics:
-
-```markdown
-# The Character Detail Challenge — Progress Tracker
-
-This document tracks the same challenge across three modules to demonstrate
-how configuration and planning improve AI collaboration.
-
-## Attempt 1: Module 00 — No Configuration (The Struggle)
-
-**Date/Time:** [When you attempted this]
-
-**Prompt used:**
-Add a character detail page that shows:
-- Character name
-- Photo  
-- Biography
-- List of episodes they appear in
-
-### Metrics
-
-| Metric | Value |
-|--------|-------|
-| **Time to working code** | ___ minutes |
-| **Number of prompt attempts** | ___ |
-| **Code matched existing patterns?** | Yes / No / Partially |
-| **Used correct API structure?** | Yes / No / Partially |
-| **Styling consistent?** | Yes / No / Partially |
-| **Confidence level (1-10)** | ___ |
-
-### Problems Encountered
-- [Problem 1: e.g., generic character names]
-- [Problem 2: e.g., didn't match existing API structure]
-- [Problem 3: e.g., inconsistent styling]
-- [Problem 4: e.g., had to ask 3 times]
-
-### Persona Reactions
-- **Marcus:** "Why is it suggesting REST when we're using GraphQL?"
-- **Priya:** "I'm not sure if this is right..."
-- **Sarah:** "This is what I was afraid of."
+**Total Time**: ~20 minutes
 
 ---
 
-## Attempt 2: Module 01a — After ARCHITECTURE.md
-*[You'll complete this in Module 01]*
+### ❌ The "Before" — What Frustration Looks Like
+
+You've experienced:
+- ✗ Generic suggestions that don't match your architecture
+- ✗ Inconsistent code styles (because the codebase is inconsistent)
+- ✗ Show-generic content ("John Doe" instead of your show's characters)
+- ✗ Uncertainty about which patterns to follow
+- ✗ Multiple attempts to get what you want
+
+**This is on purpose.** You need to see the problem to appreciate the solution.
 
 ---
-
-## Attempt 2: Module 01b — After copilot-instructions.md  
-*[You'll complete this in Module 01]*
-
----
-
-## Attempt 3: Module 02 — With Plan Mode
-*[You'll complete this in Module 02]*
-
----
-
-## Summary Comparison
-*[Complete after Module 02]*
-
-| Metric | Mod 00 | Mod 01a | Mod 01b | Mod 02 |
-|--------|--------|---------|---------|--------|
-| Time to working code | | | | |
-| Prompt attempts | | | | |
-| Pattern consistency | | | | |
-| Confidence (1-10) | | | | |
-```
 
 ### ✅ Success Criteria
 
 - [ ] FanHub app is running locally
 - [ ] You've chosen your show theme
 - [ ] You attempted the Character Detail Challenge with Copilot
-- [ ] Created `docs/character-detail-challenge.md` with Attempt 1 metrics
-- [ ] Documented specific problems encountered
 - [ ] Felt the frustration (this is important!)
 - [ ] Ready to revisit this challenge in Module 01 and 02
+
+---
 
 ### 🧠 Mindful Moment: Before
 
@@ -515,86 +459,6 @@ Add a character detail page that shows:
 - [Getting Started with Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
 - [Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat)
 
-### ✨ The "After" — What's Coming
-
-In Module 1, you'll configure Copilot with:
-- Architecture documentation (`docs/ARCHITECTURE.md`)
-- Team coding standards (`.github/copilot-instructions.md`)
-- Your show's specific context
-
-**Then you'll revisit the Character Detail Challenge** and track your improvement:
-
-| After... | Expected Improvement |
-|----------|---------------------|
-| ARCHITECTURE.md | Structure improves, but patterns still inconsistent |
-| copilot-instructions.md | Consistent patterns, faster results |
-| Plan Mode (Module 02) | First-try success with comprehensive solution |
-
-The same prompt. Dramatically different results:
-- ✓ Show-specific content (your characters, not "John Doe")
-- ✓ Follows your architecture (uses correct API patterns)
-- ✓ Matches your standards (consistent styling and structure)
-- ✓ Works on the first try (especially with plan mode)
-
-**But first, you need to experience the struggle.**
-
----
-
-## 🔨 Exercise 0.1: Set Your Success Metrics
-
-### 📖 The Story
-
-**David** has a question that's been nagging him: "If AI can write code, what makes me valuable?"
-
-Then he realizes: juniors with AI write syntax. He writes solutions. His 20 years of experience lets him:
-- Know which patterns fit which problems
-- Spot the race condition in line 47
-- Understand why generated code will fail under load
-- Make architectural tradeoffs
-
-His expertise isn't obsolete—it needs to be expressed differently.
-
-### 🎯 Objective
-
-Define how YOU will measure success with AI-assisted development.
-
-**2. Reflect on what matters**
-
-Some example metrics to consider:
-
-| Old Metric                     | New Metric                                  |
-|-------------------------------|---------------------------------------------|
-| Lines of code per day         | Features shipped per week                   |
-| Memorized API signatures      | Clarity of intent in prompts                |
-| Being the only expert         | Knowledge scaled across the team            |
-| Code that only I understand   | Code anyone can maintain                    |
-| Fast typing                   | Fast design thinking                        |
-
-**3. Share with Copilot** (optional)
-
-Ask Copilot Chat:
-
-```
-@workspace Based on these goals [....], 
-suggest specific ways I can measure progress as I work through 
-the FanHub project in this training.
-```
-
-Review Copilot's suggestions. Which make sense? Which don't?
-
-### ✅ Success Criteria
-
-- [ ] Identified which persona you resonate with most
-- [ ] (Optional) Got Copilot's suggestions and evaluated them critically
-
-### 🧠 Mindful Moment: Setting Intention
-
-**David realizes:** "I spent 20 years learning to write code. Now I need to learn to express what I know clearly. That's not a step backward—it's the next level."
-
-**Priya realizes:** "I don't need to know everything. I need to know what questions to ask and how to evaluate the answers."
-
-**Sarah decides:** "I'll measure this by time-to-production and code quality, not by 'cool AI tricks.' Show me the value."
-
 ---
 
 ## 🧠 Key Takeaways
@@ -605,18 +469,12 @@ Review Copilot's suggestions. Which make sense? Which don't?
 - Knowledge hoarding → Knowledge scaling
 - Fast typing → Fast thinking
 
-**The AI-Assisted Mindset (Four Principles):**
-1. 🔍 **Clarity Beats Cleverness** — Understandable trumps clever
-2. 🎯 **Intent Over Implementation** — Describe WHAT, not HOW
-3. 📚 **Documentation Is Leverage** — Write once, benefit infinitely
-4. ⚖️ **Human Judgment Is Non-Negotiable** — AI proposes, you decide
-
-**The Five Practices (Where You Invest):**
-1. 🔍 **Clarity as a Foundation** — Clear thinking enables effective AI collaboration
-2. 📚 **Documentation as Leverage** — Write once, benefit infinitely (for humans AND AI)
-3. 🎯 **Intent Over Implementation** — Stay at the design level where your expertise matters
-4. 🎯 **Context is Everything** — The right context produces the right results
-5. 🔄 **Iterate and Refine** — Conversation beats one-shot commands
+**Five Principles of AI-Assisted Development:**
+1. 🔍 **Clarity Over Cleverness** — Clear thinking enables effective AI collaboration
+2. 🎯 **Intent Over Implementation** — Describe WHAT you want, not HOW to build it
+3. 📚 **Documentation as Leverage** — Write once, benefit infinitely (for humans AND AI)
+4. 🎯 **Context is Everything** — Quality of suggestions matches quality of context provided
+5. ⚖️ **Validate, Don't Automate** — AI proposes, you decide; always review critically
 
 **What You Experienced:**
 - The FanHub challenge (build a production app in 8 hours)

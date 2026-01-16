@@ -1,218 +1,191 @@
 # Module 10: Agentic SDLC + Ship
 
-## ⏰ Monday 7:00 PM — Parallel Development Power
+## ⏰ — Background Agent Power
 
-> *"We've learned to use agents one at a time. Now let's see what happens when we run them everywhere at once."*  
-> — Marcus, ready to unleash the full potential of multi-interface agents
-
----
-
-## 📖 Overview
-
-You've learned to customize Copilot with instructions, prompts, agents, skills, and MCP servers. But so far, you've been working sequentially—one task at a time, one interface at a time.
-
-**Agentic SDLC** changes that. With agents running across VS Code, GitHub.com, and the CLI simultaneously, you can build features in parallel.
-
-**Time**: ~90 minutes  
-**Personas**: Marcus (parallel orchestration), David (architecture review), Rafael (sprint planning), Elena (parallel QA)
+> *"We've mastered interactive agents and CLI automation. Now let's see what happens when agents work completely autonomously in the background—while we focus on the next task."*  
+> — Marcus, ready to unleash background agent orchestration
 
 ---
 
-## 🎯 Learning Objectives
+## 📖 Story So Far
 
-By the end of this module, you will:
+In **Module 8**, the team discovered GitHub Copilot Web workflows for automated PR creation and code reviews running in the background while continuing local development.
 
-- Run multiple agents simultaneously across different interfaces
-- Use VS Code Agent Mode for complex, interactive development
-- Use GitHub Copilot Web (Coding Agent) for background PR workflows
-- Use `copilot` CLI for terminal-based automation
-- Orchestrate parallel development workflows
-- Use checkpoints to safely review and roll back changes
+In **Module 9**, they mastered CLI automation with `gh copilot` commands for terminal-based workflows, infrastructure management, and deployment automation.
+
+Throughout Modules 1-9, they built a comprehensive customization system with repository instructions, custom prompts, agents, skills, and MCP servers that work across all interfaces.
+
+Now, in **Module 10**, they discover the final piece: background agents that run completely autonomously using Git worktrees for isolation, custom agent personas for specialized work, and seamless hand-off workflows from planning to execution.
+
+💡 **Integration Note:** This module combines custom agents from Module 4 with CLI capabilities from Module 9, enabling autonomous background execution of specialized tasks while you continue other work.
+
+---
+
+⚠️ **Prerequisites**: 
+- Complete [Module 00: Orientation](../00-orientation/README.md)
+- Have working FanHub project from previous modules
+- VS Code 1.108+ with background agents enabled
+- Custom agents configured from Module 4
+- GitHub Copilot CLI from Module 9
+
+---
+
+## 🧠 Mindful Moment: From Sequential to Autonomous
+
+**Traditional thinking:** *"Development is interactive—I write code, test it, fix it, repeat. Even with agents, I need to guide every step."*
+
+**AI-native thinking:** *"Development is autonomous—agents handle well-defined work independently while I focus on planning, architecture, and integration. True parallelism without supervision."*
+
+This isn't just about running multiple agents—it's about agents that work completely independently in isolated environments, handling complex tasks from start to finish while you move on to the next challenge.
+
+---
+
+## 💭 Why This Matters
+
+**Sarah (Skeptical Senior):** Validates that autonomous agents deliver measurable ROI: 3 hours of supervised work becomes 45 minutes of planning + autonomous execution, with Git worktree isolation eliminating rollback risks entirely—zero time lost to experimental failures.
+
+**David (Seasoned Architect):** Demonstrates how architectural expertise scales through autonomous review agents: background agents apply 20 years of patterns during development, catching violations in real-time without blocking the development flow.
+
+**Marcus (DevOps Developer):** Removes supervision bottlenecks through truly parallel work: plan a feature, hand it off to background execution, immediately start infrastructure work—reducing context switching from 6 transitions to 1 per sprint.
+
+**Elena (Quality Champion):** Maintains quality standards through autonomous validation: background agents run comprehensive testing scenarios in isolated worktrees while she designs the next test strategy—quality work happens in parallel, not sequentially.
+
+**Rafael (Product Visionary):** Bridges planning and execution through seamless hand-offs: detailed feature plans become autonomous implementation without losing context or requiring re-explanation—ideas flow directly to working code.
+
+---
+
+💡 **Understanding Background Agents**
+
+**Background agents** are CLI-based agents that run completely autonomously on your local machine without requiring supervision or interaction. Unlike interactive agents that need your guidance, background agents handle well-defined tasks from start to finish.
+
+Key capabilities that make background agents powerful:
+- **Git worktree isolation** — Agents work in separate folders, preventing conflicts with your active work
+- **Custom agent personas** — Your defined agents (from Module 4) can run autonomously in background
+- **Hand-off workflows** — Seamlessly transition from interactive planning to autonomous execution
+- **Session management** — Monitor and control multiple background agents from VS Code's unified interface
+
+The breakthrough is autonomous execution: you define what needs to be done, then agents handle all implementation details independently.
 
 ---
 
 ## 📚 Key Concepts
 
-### The Three Agent Interfaces
+### Background Agent Types
 
-| Interface | Best For | Runs In |
-|-----------|----------|---------|
-| **VS Code Agent Mode** | Complex, interactive development | Foreground |
-| **GitHub Web (Coding Agent)** | Well-defined autonomous tasks | Background |
-| **GitHub Copilot CLI** | Terminal/infrastructure work | Terminal |
+**Copilot CLI Background Agents**
+- **Purpose**: Autonomous execution of well-defined development tasks
+- **Value**: Complete implementation without supervision or interruption
+- **Result**: Finished features ready for review while you work on other tasks
+- **Best for**: Feature implementation from clear specifications, refactoring with defined patterns
 
-### Interface Selection Guide
+**Custom Agent Background Execution**
+- **Purpose**: Specialized autonomous work using your defined agent personas
+- **Value**: Domain expertise applied automatically during development
+- **Result**: Consistent application of standards and patterns without manual oversight
+- **Best for**: Code reviews, architecture validation, specialized analysis
 
-| Need | Best Interface | Why |
-|------|----------------|-----|
-| Complex feature with iteration | VS Code Agent Mode | Interactive feedback loop |
-| Well-defined task, run autonomously | GitHub Web Coding Agent | Creates PR in background |
-| Terminal/DevOps tasks | Copilot CLI | Agentic terminal capabilities |
-| Quick questions | Any | All handle explanations well |
+### Git Worktree Isolation
 
-### Agent HQ: The Orchestration Dashboard
+Background agents can use Git worktrees to create completely isolated environments:
+- **Conflict Prevention**: Agents make changes in separate folders, never affecting your active work
+- **Safe Experimentation**: Try multiple implementation approaches without risk
+- **Easy Integration**: Review and merge agent work when ready, or discard if not needed
 
-With VS Code 1.107+, **Agent HQ** becomes your central command for parallel development:
+### Hand-off Workflows
 
-| Capability | What It Does |
-|------------|--------------|
-| **Status Overview** | See all running agents at a glance |
-| **Progress Tracking** | Monitor what each agent is working on |
-| **Interaction** | Jump into any agent's conversation |
-| **Session History** | Archive and reference past agent work |
-| **Handoff Control** | Move tasks between local/background/cloud |
+The most powerful pattern is planning interactively, then executing autonomously:
+1. **Plan phase**: Use interactive agents to clarify requirements and approach
+2. **Hand-off**: Transition the complete context to background agent execution
+3. **Autonomous work**: Agent implements independently while you start next task
+4. **Integration**: Review and merge completed work when ready
 
-**Access**: Command Palette → "Copilot: Open Agent HQ"
-
-This transforms the parallel workflow from "multiple terminal windows" to a true orchestration dashboard.
-
-### The Parallel Workflow (with Agent HQ)
-
-```
-Sprint Start
-    │
-    ├─── VS Code Agent Mode ─────────── (Interactive, you + agent)
-    │
-    ├─── GitHub Web Agent ────────────── (Background, autonomous)
-    │
-    └─── Copilot CLI ─────────────────── (Terminal, scripted)
-    │
-Sprint End ◄── All streams converge
-```
+> 📂 **Reference Examples**: The [`examples/completed-config/`](../../examples/completed-config/) folder contains sample files showing background agent integration:
+> - [Custom agents for background use](../../examples/completed-config/.github/agents/)
+> - [Worktree management scripts](../../examples/completed-config/scripts/)
 
 ---
 
-## 🔨 Exercises
+## What You'll Learn
 
-> 📂 **Full exercise content**: [EXERCISES.md](./EXERCISES.md)
+**Background agents** enable truly autonomous development through isolated execution environments and seamless hand-off workflows. You'll transition from supervised agent interaction to autonomous agent execution, measuring the productivity gains from unsupervised parallel work.
 
-### Exercise Overview
-
-| Exercise | Persona | Focus | Time |
-|----------|---------|-------|------|
-| 5.1 | Marcus | VS Code Agent Mode | 20 min |
-| 5.2 | David | GitHub Web Coding Agent | 20 min |
-| 5.3 | Marcus | GitHub Copilot CLI | 20 min |
-| 5.4 | Team | The Convergence | 15 min |
-| 5.5 | Rafael | Sprint Orchestration | 25 min |
-| 5.5b | David | Parallel Architecture Review | 15 min |
-| 5.6 | Sarah | Checkpoints (Safety) | 10 min |
-
-### Quick Links
-
-- [Exercise 5.1: VS Code Agent Mode](./EXERCISES.md#exercise-51-vs-code-agent-mode--the-feature-build) — Marcus builds search feature
-- [Exercise 5.2: GitHub Web Coding Agent](./EXERCISES.md#exercise-52-github-copilot-web--the-background-build) — David kicks off background work
-- [Exercise 5.3: Copilot CLI](./EXERCISES.md#exercise-53-github-copilot-cli--the-infrastructure-sprint) — Marcus's infrastructure sprint
-- [Exercise 5.5: Sprint Orchestration](./EXERCISES.md#exercise-55-sprint-orchestration--rafael-directs-the-symphony) — Rafael prioritizes and orchestrates
-- [Exercise 5.5b: Parallel Architecture Review](./EXERCISES.md#exercise-55b-parallel-architecture-review--davids-background-validation) — David validates architecture in parallel
+**Time:** ~60 minutes | **Exercises:** 3
 
 ---
 
-## 🧑‍💼 Choose Your Path
+## 📋 Exercise Planning
 
-| Your Role | Recommended Focus | Start Here |
-|-----------|------------------|------------|
-| **Developer** | Interactive development | [Marcus's Path](./personas/marcus.md) |
-| **Architect** | Parallel architecture review | [David's Path](./personas/david.md) |
-| **Product/Lead** | Sprint orchestration | [Rafael's Path](./personas/rafael.md) |
-| **Senior/Safety** | Checkpoints & safety nets | [Sarah's Path](./personas/sarah.md) |
-| **QA** | Parallel testing workflows | [Elena's Path](./personas/elena.md) |
-| **DevOps** | Parallel infrastructure | [Marcus's Path](./personas/marcus.md) |
+The exercises below demonstrate autonomous background agent capabilities that weren't covered in previous modules. Each exercise shows measurable improvements through unsupervised execution.
 
----
-
-## 🧠 Key Takeaways
-
-### What Changed
-
-| Traditional Development | Agentic SDLC |
-|------------------------|--------------|
-| One task at a time | Multiple tasks in parallel |
-| Developer writes code | Developer orchestrates agents |
-| Sequential workflow | Parallel workflow |
-| Bottleneck: typing speed | Bottleneck: orchestration skill |
-
-### The Productivity Math
-
-```
-Sequential: Task A (30 min) + Task B (30 min) + Task C (30 min) = 90 min
-Parallel:   Max(Task A, Task B, Task C) + Integration (10 min) = 40 min
-Speedup:    2.25x
-```
-
-### The New Skills
-
-1. **Task decomposition** — Breaking work into parallelizable chunks
-2. **Interface selection** — Choosing the right agent for each task
-3. **Context preparation** — Setting up agents for success
-4. **Integration** — Merging parallel work streams
-5. **Quality review** — Validating agent output before shipping
+| # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
+|---|----------|------|---------|---------|----------|-------------|-----------|
+| [10.1](exercise-10.1.md) | Plan-to-Background Handoff | Rafael | Marcus, David | Planning blocks implementation: 45 min planning + 60 min supervised coding | Plan agent → background agent hand-off for autonomous execution | 105→45 min total, 0 supervision needed | Complete feature from plan |
+| [10.2](exercise-10.2.md) | Isolated Worktree Experiments | Marcus | Elena | Experimental features risk main branch: 90 min rollback, merge conflicts | Background agents in Git worktrees for risk-free experimentation | 90→5 min rollback, 0 conflicts | Multiple implementation variants |
+| [10.3](exercise-10.3.md) | Autonomous Architecture Review | David | Sarah | Manual code reviews: 30 min per review, inconsistent application | Custom review agent running autonomous background analysis | 30→2 min per review, 100% consistent standards | Real-time architecture compliance |
 
 ---
 
-## 📚 Quick Reference
+## 📚 What This Feature Does
 
-### Interface Selection
+**Background Agents:** Autonomous AI execution in isolated environments with custom personas, Git worktree isolation, and seamless hand-off from interactive planning to unsupervised implementation.
 
-| Task Type | Interface | Why |
-|-----------|-----------|-----|
-| Search feature | VS Code Agent | Needs iteration |
-| Analytics endpoints | GitHub Web Agent | Well-defined, autonomous |
-| Test fixtures | Copilot CLI | Terminal scripting |
-| Database migrations | Copilot CLI | Infrastructure |
-| Bug fix with investigation | VS Code Agent | Needs human judgment |
-| Documentation update | GitHub Web Agent | Straightforward |
+**When to use it:** When you have well-defined tasks that can be executed independently—feature implementation from specifications, experimental variations, or specialized analysis—allowing you to start the next task while agents work autonomously.
 
-### Official Documentation
+**What you'll build:** 
+- **Autonomous execution workflows** — Agents that work independently from planning to completion
+- **Isolated experimentation system** — Git worktrees for risk-free agent experimentation
+- **Custom agent automation** — Your specialized agents running unsupervised background tasks
 
-- [VS Code: Copilot Agent Mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
-- [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent)
-- [GitHub Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli)
+**Official Documentation:**
+- 📖 [VS Code: Background Agents](https://code.visualstudio.com/docs/copilot/agents/background-agents) — Autonomous agent execution and worktree isolation
+- 📖 [VS Code: Custom Agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) — Creating specialized agent personas for background work
+- 📖 [VS Code: Git Worktrees](https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees) — Isolated development environments
 
----
-
-## 🎉 Workshop Complete!
-
-### What You Learned Across All Modules
-
-| Module | Concept | Key Artifact |
-|--------|---------|--------------|
-| 1 | Repository Instructions | `copilot-instructions.md` |
-| 2 | Agent Plan Mode | Structured thinking |
-| 3 | Custom Prompts | `.github/prompts/` |
-| 4 | Custom Agents | `.github/agents/` |
-| 5 | Custom Instructions | `.github/instructions/` |
-| 6 | Agent Skills | `.github/skills/` |
-| 7 | MCP Servers | `.vscode/mcp.json` |
-| 8 | Copilot Web | GitHub.com workflows |
-| 9 | Copilot CLI | Terminal automation |
-| 10 | Agentic SDLC | Parallel orchestration |
-
-### The Transformation
-
-**Before**: Value came from knowing syntax  
-**After**: Value comes from clarity of thought
-
-Developers who thrive with AI:
-- Express intent clearly
-- Document patterns consistently
-- Review output critically
-- Design systems thoughtfully
+> 💡 **Important for this module:** Git worktree isolation is essential because it allows agents to work completely independently without any risk to your main workspace. This enables true autonomous execution that previous modules couldn't achieve.
 
 ---
 
-## ➡️ What's Next?
+## ➡️ Next Module
 
-### Apply to Your Real Projects
+**[Module 11: Enterprise Patterns](../11-enterprise-patterns/README.md)** — Organization-wide adoption patterns, governance frameworks, and scaling autonomous agent workflows across development teams.
 
-1. **Start with `copilot-instructions.md`** — The highest-leverage change
-2. **Build your prompt library** — Capture what works
-3. **Share with your team** — Patterns scale through documentation
-4. **Keep experimenting** — AI tools evolve; stay curious
+> *"We've proven agents can work autonomously for individual tasks. Now how do we scale this across an entire engineering organization without losing control?"*  
+> — Sarah, ready to validate enterprise-scale autonomous AI adoption
 
-### Continue Learning
+---
 
-- [Module 11: Enterprise Patterns](../11-enterprise-patterns/README.md) — Organization-wide adoption
-- [Module 0: Orientation](../00-orientation/README.md) — Review personas and philosophy
+## 📌 Practices Used
 
-*Now go build something amazing—with AI as your partner, not your replacement.*
+| Practice | How It Applied in This Module |
+|----------|-------------------------------|
+| 📚 **Autonomous Execution** | Demonstrated agents working independently from planning through completion without supervision |
+| 🎯 **Worktree Isolation** | Used Git worktrees to enable risk-free experimentation and prevent conflicts with active work |
+| 🔄 **Hand-off Workflows** | Established seamless transitions from interactive planning to autonomous background execution |
+
+---
+
+## 🎭 Behind the Scenes
+
+*For those who want to understand the deeper mechanics:*
+
+### Autonomous Agent Context Management
+
+Background agents maintain context differently from interactive agents:
+
+1. **Initial Context**: Complete conversation history and repository state at hand-off time
+2. **Isolated Execution**: Agents work in separate Git worktrees with full repository access
+3. **Progress Tracking**: VS Code monitors agent progress without requiring interaction
+4. **Completion Handling**: Agents signal completion and present results for integration
+
+### The Supervision Mathematics
+
+Traditional supervised development creates constant context switching:
+- Plan (15 min) + Code with guidance (60 min) + Review (15 min) = 90 minutes + supervision overhead
+
+Background agent autonomy eliminates supervision:
+- Plan (15 min) + Hand-off (2 min) + Autonomous execution (parallel) + Review (5 min) = 22 minutes active time
+- Productivity gain: 4x active time reduction through autonomous execution
+
+**Key Takeaway:** The bottleneck shifts from supervision time to planning clarity—the better you specify what needs to be done, the more effectively agents can work independently while you focus on the next challenge.
+
+---

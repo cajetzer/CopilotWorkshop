@@ -107,7 +107,28 @@ Every module connects back to these core ideas:
 
 ---
 
-## 📚 Workshop Structure
+## � Getting Started
+
+### Recommended: Use GitHub Codespaces (Zero Setup!)
+
+The fastest way to start this training:
+
+1. Click the **"Code"** button above → **"Create codespace on main"**
+2. Wait 2-3 minutes for your environment to build
+3. Start learning! Everything is pre-configured:
+   - ✅ GitHub Copilot & Copilot Chat installed
+   - ✅ Mermaid diagram support for architecture visuals
+   - ✅ All development tools for FanHub
+   - ✅ Ports pre-configured and forwarded
+   - ✅ Docker-in-Docker for running the app
+
+**Why Codespaces?** Zero installation, consistent environment, works from any device (even tablets!), and the dev container ensures everyone has the same experience.
+
+📖 **Alternative:** [Local setup with Dev Containers](.devcontainer/README.md) or [manual installation](modules/00-orientation/README.md#prerequisites)
+
+---
+
+## �📚 Workshop Structure
 
 **Total Time**: 10-12 hours (self-paced)  
 **Format**: 10 progressive modules + orientation + supporting materials  

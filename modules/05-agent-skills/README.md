@@ -1,240 +1,365 @@
 # Module 5: Agent Skills
 
-## ⏰ Monday 3:30 PM — Teaching Copilot Your Domain
+## ⏰ — The Capability Gap
 
-> *"We've created custom instructions for tests, API routes, and components. But what about business rules that aren't file-specific? How do I teach Copilot our domain knowledge—not just code patterns, but FanHub's data model?"*  
-> — Elena, thinking ahead to Character Detail v2
-
----
-
-## 🧵 The Golden Thread: From Code Patterns to Domain Knowledge
-
-In **Module 04**, the team created custom instructions that activate based on file patterns. Tests get Elena's QA expertise. Dockerfiles get Marcus's security patterns. React components get Priya's standards.
-
-But some knowledge isn't file-specific:
-- *"Related characters should never have duplicates from the same show"*
-- *"Quotes must reference valid episodes"*
-- *"Character biographies should not exceed 2000 characters"*
-
-These aren't code pattern problems—they're **domain knowledge** problems. When the agent builds Character Detail v2 in Module 07, it needs to understand FanHub's data model.
-
-**This module's mission**: Create Agent Skills that encode FanHub's business rules—the TV show data model, feature requirements, and product standards that Copilot needs to truly understand your domain. When you mention "character data" or "episode validation" in a conversation, these skills will activate automatically.
+> *"Instructions tell Copilot how to behave, but they don't teach it how to do things it doesn't know how to do. I need custom capabilities—like validating against our TV show API schema or checking our specific deployment requirements."*  
+> — David, discovering agent skills
 
 ---
 
-## 🎯 Learning Objectives
+## 📖 Story So Far
 
-By the end of this module, you will:
+In **Module 1**, the team created **`.github/copilot-instructions.md`**—repository-wide standards that apply to all Copilot interactions. This established baseline coding guidelines.
 
-- Understand what Agent Skills are and how they differ from instructions and prompts
-- Create custom skills with YAML frontmatter and markdown instructions
-- Include scripts and resources within skill directories
-- See how Copilot automatically loads skills when relevant
-- Build domain-specific validation skills for the FanHub data model
-- Leverage community skills from existing repositories
+In **Module 2**, they used **plan mode** to research complex features before implementing, using `@workspace` to gather context from multiple files and catch architectural issues during planning.
 
-**Time**: ~115 minutes  
-**Featured Personas**: Elena (Testing), David (Architecture), Rafael (Product), Marcus (DevOps)
+In **Module 3**, they created **prompt files** (`.prompt.md`)—invokable functions for specific tasks like `/test-suite` and `/react-review`, eliminating the need to retype complex prompts.
+
+In **Module 4**, they added **custom instructions** (`.instructions.md`)—path-based guidance that automatically applies based on what you're editing. Frontend files get UI patterns, backend files get API standards, test files get testing conventions—all automatic.
+
+Now, in **Module 5**, they face a new challenge: **teaching Copilot specialized capabilities it doesn't have built-in**. David needs to validate code against FanHub's TV show API schema. Elena wants to generate tests using the team's custom test template. Marcus needs deployment scripts that check FanHub's specific infrastructure requirements. Instructions can tell Copilot *how* to work, but they can't teach it *new tasks* that require specialized knowledge, scripts, or workflows.
+
+💡 **Integration Note:** This module builds on Module 4's `.instructions.md` files by adding **agent skills** (`.github/skills/`)—folders containing instructions, scripts, examples, and resources that teach Copilot specialized capabilities. Instructions = behavior guidelines. Skills = new capabilities.
 
 ---
 
-## 🧭 Choose Your Path
+⚠️ **Prerequisites**: 
+- Complete [Module 00: Orientation](../00-orientation/README.md)
+- Complete [Module 01: Repository Instructions](../01-repository-instructions/README.md)
+- Complete [Module 04: Custom Instructions](../04-custom-instructions/README.md)
+- Setting enabled: `chat.useAgentSkills` (required for Agent Skills support in VS Code)
 
-<table>
-<tr>
-<td width="33%" valign="top">
+---
 
-### 🎭 By Persona
-*Focused on your role*
+## 🧠 Mindful Moment: From Instructions to Capabilities
 
-**[Elena's Path →](personas/elena.md)**  
-Data validation, testing skills  
-*~45 minutes*
+**Traditional thinking:** *"I'll write detailed instructions and hope Copilot figures out how to apply them correctly."*
 
-**[David's Path →](personas/david.md)**  
-Architectural patterns, data flow  
-*~25 minutes*
+**AI-native thinking:** *"I'll create a skill—instructions + scripts + examples + resources—that teaches Copilot a complete, repeatable workflow for specialized tasks."*
 
-**[Rafael's Path →](personas/rafael.md)**  
-Feature requirements, effort estimation  
-*~50 minutes*
+This isn't about replacing instructions—it's about **teaching new capabilities**. Instructions tell Copilot how to format code or which patterns to follow. Skills teach Copilot how to validate API schemas, generate deployment scripts, debug workflows, or perform any specialized task that requires more than just coding guidelines. The result: Copilot becomes a specialist in your domain-specific workflows.
 
-**[Marcus's Path →](personas/marcus.md)**  
-Docker debugging, DevOps expertise  
-*~30 minutes*
+---
 
-**[Sarah's Path →](personas/sarah.md)**  
-Build Pipeline Analyzer, scaling expertise  
-*~30 minutes*
+## 💭 Why This Matters
 
-</td>
-<td width="33%" valign="top">
+**Sarah (Skeptical Senior):** *"Created `.github/skills/api-endpoint-design/` with our REST API standards, OpenAPI schema generator, and example endpoints. Before: spent 12 minutes per new endpoint explaining 'use this response format, follow these error codes, validate with this schema.' After: Copilot generates spec-compliant endpoints in 2 minutes using the skill's template and validator script. 12→2 minutes × 8 new endpoints per sprint = 80 minutes saved. More importantly: 100% schema compliance, 0 documentation mismatches. Documented once, enforced automatically through a specialized capability."*
 
-### 📖 Full Story
-*Complete narrative*
+**David (Seasoned Architect):** *"My `.github/skills/feature-requirements/` skill includes architecture decision record (ADR) templates, system diagram examples, and requirement validation checklist. Before: spent 45 minutes writing requirements that developers still misunderstood because context was missing. After: skill generates complete feature specs in 8 minutes with all ADR sections, references to existing patterns from examples/, and validation against our checklist. My 20 years of 'what makes a good spec' codified into a capability. 45→8 minutes, 0 clarification rounds vs. previous 2-3."*
 
-**[EXERCISES.md →](EXERCISES.md)**  
-All exercises in story order  
-*~90 minutes*
+**Marcus (DevOps Developer):** *"Created `.github/skills/build-pipeline-analyzer/` with debugging scripts and log pattern examples. Before: build failures took 30 minutes to debug—15 minutes reproducing locally, 15 tracing dependencies. After: skill reads logs, runs diagnostic script, identifies root cause in 2 minutes. 30→2 minutes × 5 failures per sprint = 140 minutes (2.3 hours) saved. The skill taught Copilot how to debug our specific pipeline, not just generic CI/CD."*
 
-Best for: First-time learners, instructor-led sessions
+**Elena (Quality Champion):** *"My `.github/skills/bug-reproduction-test-generator/` skill includes test templates, mocking patterns, and example reproduction steps. Before: writing bug reproduction tests took 25 minutes—understanding the issue, setting up mocks, writing assertions. After: skill generates reproduction test in 4 minutes using templates and examples from skills/. 25→4 minutes × 6 bugs per sprint = 126 minutes saved. But bigger impact: reproduction tests are now 40% more thorough because the skill includes edge cases from examples/ that I used to forget."*
 
-</td>
-<td width="33%" valign="top">
+**Rafael (Product Visionary):** *"Created `.github/skills/effort-estimator/` with estimation rubric, complexity factors worksheet, and historical reference examples. Before: effort estimation took 90 minutes of manual analysis—reviewing similar features, calculating complexity, documenting assumptions. After: skill analyzes codebase, references historical examples, generates estimate report in 15 minutes. 90→15 minutes per feature estimation. When I walk into planning, I have data-driven estimates with complexity breakdown and risk factors. Stakeholders see 'this is 3 sprints if we build everything, 1 sprint for MVP' with evidence."*
 
-### ⚡ Quick Navigator
-*Jump to what you need*
+---
 
-| Exercise | Lead | Focus | Time |
-|----------|------|-------|------|
-| [5.1](EXERCISES.md#exercise-51-understand-skills-through-examples--exploring-the-ecosystem) | Elena | Explore Skills | 20m |
-| [5.2](EXERCISES.md#exercise-52-create-your-first-skill--tv-show-data-validation) | Marcus | Docker Debugging | 25m |
-| [5.2b](EXERCISES.md#exercise-52b-architectural-data-flow-skill--david-documents-system-boundaries) | David | Architecture | 25m |
-| [5.3](EXERCISES.md#exercise-53-create-domain-specific-skills--feature-requirements) | Rafael | Feature Requirements | 25m |
-| [5.4](EXERCISES.md#exercise-54-effort-estimator-skill--planning-episode-detail-page) | Rafael | Effort Estimation | 20m |
+💡 **Understanding Agent Skills**
 
-</td>
-</tr>
-</table>
+**Agent Skills** are folders of instructions, scripts, examples, and resources that teach Copilot specialized capabilities. Each skill is stored in its own directory with a `SKILL.md` file that defines the skill's behavior.
+
+**Key characteristics:**
+- **Complete workflows** — Not just instructions, but scripts, templates, and examples that enable specialized tasks
+- **Progressive loading** — Copilot reads skill descriptions first, loads full instructions only when relevant, accesses resources on-demand
+- **Portable standard** — Works across VS Code, Copilot CLI, and Copilot coding agent (open standard at agentskills.io)
+- **Automatic activation** — Copilot decides when to use skills based on your prompt matching the skill's description
+- **Composable** — Multiple skills can work together to handle complex multi-step workflows
+
+**Three-level loading system:**
+1. **Discovery** — Copilot always knows which skills are available (reads `name` and `description` from YAML frontmatter)
+2. **Instructions** — When your request matches a skill's description, Copilot loads the `SKILL.md` body
+3. **Resources** — Copilot accesses additional files (scripts, examples, templates) only as needed
+
+**Two skill scopes:**
+- **Project skills:** `.github/skills/` (recommended) or `.claude/skills/` (legacy) — team-shared, version-controlled
+- **Personal skills:** `~/.copilot/skills/` (recommended) or `~/.claude/skills/` (legacy) — individual preferences
+
+**How they differ from what you've learned:**
+
+| Feature | copilot-instructions.md (Module 1) | .instructions.md (Module 4) | Agent Skills (Module 5) |
+|---------|-----------------------------------|----------------------------|-------------------------|
+| **Scope** | Repository-wide coding standards | Path-based context rules | Specialized task capabilities |
+| **Activation** | Always active for all files | Auto-applied when editing matching files | Auto-loaded when task matches description |
+| **Content** | Instructions only | Instructions only | Instructions + scripts + examples + resources |
+| **Purpose** | How to write code | Context-specific guidelines | How to perform specialized workflows |
+| **Example** | "Use functional React components" | "Frontend files follow UI patterns" | "Debug GitHub Actions using log analyzer script" |
+| **Portability** | VS Code + GitHub.com | VS Code + GitHub.com | VS Code + Copilot CLI + coding agent |
 
 ---
 
 ## 📚 Key Concepts
 
-### What Are Agent Skills?
+### Skill Directory Structure
 
-**Agent Skills** are folders containing:
-- `SKILL.md` file with instructions (YAML frontmatter + markdown)
-- Optional scripts, examples, and resources
-- Domain-specific knowledge Copilot loads when relevant
+Each skill is a folder containing at minimum a `SKILL.md` file. Optionally include scripts, examples, templates, or other resources.
 
-Skills are part of an [open standard](https://agentskills.io) supported by GitHub Copilot, Claude, Cursor, and other AI coding tools.
-
-### When to Use What: A Decision Guide
-
-| I want Copilot to... | Use | Example |
-|---------------------|-----|---------|
-| **Know our project basics** | Repo Instructions | "This is a React/Node app, use these patterns" |
-| **Apply rules to specific files** | Custom Instructions | "For test files, use Jest with these conventions" |
-| **Run a specific task I trigger** | Prompts | "Generate a React component with tests" |
-| **Act as a specialist persona** | Agents | "Be a security reviewer with read-only access" |
-| **Know our domain automatically** | Skills | "Validate TV show data against our schema" |
-
-### How Copilot Loads Skills (Progressive Disclosure)
-
-Skills use a three-level loading system:
-
-1. **Level 1: Discovery** — Copilot always knows which skills exist by reading `name` and `description`
-2. **Level 2: Instructions** — When your request matches a skill, Copilot loads the full `SKILL.md`
-3. **Level 3: Resources** — Scripts and examples load only when Copilot references them
-
-### Where Skills Live
-
-Skills follow a hierarchy—more specific scopes override broader ones:
-
-| Scope | Location | Visibility | Use Case |
-|-------|----------|------------|----------|
-| **Project** | `.github/skills/` | Everyone on project | Team domain knowledge |
-| **User** | `~/.copilot/skills/` | Only you, all projects | Personal productivity patterns |
-| **Organization** | Org settings (Enterprise) | All org repos | Company-wide standards |
-
-**Project Skills** (repository-specific):
-- `.github/skills/` in your repository
-- Shared with everyone working on the project
-- Version controlled with your code
-
-**Personal Skills** (across all projects):
-- `~/.copilot/skills/` in your home directory
-- Available in all your projects
-- Your personal toolkit (coding style, preferred patterns)
-- Great for shortcuts and personal productivity hacks
-
-**Organization Skills** (Enterprise):
-- Configured in organization settings
-- Applied across all repositories in the org
-- Managed by platform teams
-- See Module 11 for enterprise skill library patterns
-
-> 💡 **Tip**: Start with project skills. Once you find patterns you use across multiple projects, promote them to personal skills.
-
-### Community Skills
-
-Agent Skills are now **generally available** and supported across GitHub Copilot, Copilot CLI, and VS Code. You don't have to build every skill from scratch:
-
-- **Anthropic's Skills Repository**: [github.com/anthropics/skills](https://github.com/anthropics/skills)
-- **GitHub's Awesome Copilot Collection**: [github.com/github/awesome-copilot](https://github.com/github/awesome-copilot)
-- **Agent Skills Standard**: [agentskills.io](https://agentskills.io)
-
-Skills from these repositories work with any tool supporting the agent skills standard—not just GitHub Copilot.
-
----
-
-## 🧠 Mindful Moment: The Right Tool for the Job
-
-| Tool | Best For | Example |
-|------|----------|---------|
-| **Instructions** | General standards applied everywhere | "Use async/await, not promises" |
-| **Prompts** | Reusable templates for common tasks | "Generate test suite for component" |
-| **Agents** | Autonomous multi-step workflows | "Review architecture and suggest improvements" |
-| **Skills** | Specialized domain knowledge | "Validate TV show data follows our schema" |
-
-Skills are perfect for domain-specific expertise that's too detailed for instructions but needs to be applied systematically.
-
----
-
-## 🔗 Compounding Value
-
-**What we create in this module:**
-
+**Basic structure:**
 ```
 .github/skills/
-├── bug-reproduction-test-generator/  # Elena's testing expertise
-│   └── SKILL.md
-├── feature-requirements/             # Rafael's product standards
-│   └── SKILL.md
-└── effort-estimator/                 # Rafael's prioritization tool
-    └── SKILL.md
+  webapp-testing/
+    SKILL.md                   # Required: skill definition
+    test-template.js           # Optional: script to reference
+    examples/                  # Optional: example files
+      api-test-example.js
+      ui-test-example.js
 ```
 
-> 📂 **Compare Your Work**: See [`examples/completed-config/skills/`](../../examples/completed-config/skills/) for reference implementations of all skills.
+**FanHub example:**
+```
+.github/skills/
+  api-endpoint-design/
+    SKILL.md                   # How to design FanHub API endpoints
+    openapi-schema.yaml        # TV show API schema
+    example-endpoints/
+      get-character.js         # Example GET endpoint
+      post-episode.js          # Example POST endpoint
+  bug-reproduction-test-generator/
+    SKILL.md                   # How to write bug reproduction tests
+    test-template.js           # Jest template with mocking setup
+    examples/
+      concurrent-bug-test.js   # Example: testing race conditions
+```
 
-**How skills integrate with previous modules:**
+### SKILL.md File Format
 
-- **Module 1** (Instructions): Skills add domain-specific knowledge on top of general standards
-- **Module 3** (Prompts): Skills are auto-loaded; prompts are manually invoked
-- **Module 4** (Custom Instructions): Skills are topic-focused; instructions are file-focused
+**Complete structure:**
+```markdown
+---
+name: skill-name
+description: Description of what the skill does and when to use it
+---
 
-**How skills prepare for Module 07:**
+# Skill Instructions
 
-When the agent builds Character Detail v2, both your **custom instructions** (Module 04) and your **agent skills** (Module 05) will combine. The agent will get:
-- File-specific patterns for tests, routes, components
-- Domain-specific knowledge about TV show data validation
+Your detailed instructions, guidelines, and examples go here...
+
+## When to Use This Skill
+
+[Describe the scenarios where this skill is relevant]
+
+## Step-by-Step Process
+
+1. [First step with specific actions]
+2. [Second step with specific actions]
+3. [Third step with specific actions]
+
+## Examples
+
+[Show examples of expected input and output]
+
+## References
+
+You can reference files in this skill directory:
+- [Example script](./example-script.js)
+- [Template file](./template.md)
+```
+
+**YAML frontmatter fields:**
+
+| Field | Required | Description | Max Length |
+|-------|----------|-------------|------------|
+| `name` | Yes | Unique identifier, lowercase with hyphens (e.g., `webapp-testing`) | 64 chars |
+| `description` | Yes | What the skill does AND when to use it (both capabilities and use cases help Copilot decide when to load) | 1024 chars |
+| `license` | No | License that applies to this skill | N/A |
+
+**Body sections (recommended structure):**
+- **What the skill accomplishes** — Clear capability statement
+- **When to use the skill** — Specific scenarios and triggers
+- **Step-by-step procedures** — Detailed workflow to follow
+- **Examples** — Expected input and output patterns
+- **References** — Links to included scripts or resources using relative paths
+
+### Progressive Disclosure and Context Efficiency
+
+Agent Skills use a three-level loading system to keep context efficient:
+
+**Level 1: Skill Discovery (Always loaded)**
+- Copilot reads `name` and `description` from all skills' YAML frontmatter
+- Lightweight metadata helps Copilot decide which skills are relevant
+- You can install many skills without consuming context
+
+**Level 2: Instructions Loading (Loaded when relevant)**
+- When your request matches a skill's description, Copilot loads the `SKILL.md` body
+- Only then do the detailed instructions become available
+- Non-relevant skills stay unloaded
+
+**Level 3: Resource Access (Loaded on-demand)**
+- Copilot accesses additional files (scripts, examples, templates) only as needed
+- Resources don't load until Copilot references them
+- Keeps context focused on what's actually being used
+
+**Example workflow:**
+
+1. You ask: "Generate API endpoint for fetching character details"
+2. Copilot scans skill descriptions, finds match: `api-endpoint-design` skill
+3. Copilot loads `api-endpoint-design/SKILL.md` instructions
+4. Instructions reference `[example endpoint](./example-endpoints/get-character.js)`
+5. Copilot loads `get-character.js` only when needed
+6. Other skill resources remain unloaded
+
+**Why this matters:** You can have 20+ skills installed. Only 1-2 load per task. Context stays efficient.
+
+### Referencing Resources Within Skills
+
+Use relative paths to reference files within your skill directory:
+
+**Markdown links:**
+```markdown
+Follow the pattern in [this example](./example-file.js)
+Use this [template script](./templates/test-template.js)
+See [example outputs](./examples/) for reference
+```
+
+**Copilot will:**
+- Read referenced files when needed
+- Include their content in context
+- Follow patterns shown in examples
+- Use templates as starting points
+
+**Example from bug-reproduction-test-generator skill:**
+```markdown
+Generate a reproduction test following [this template](./test-template.js).
+Reference [concurrent bug example](./examples/concurrent-bug-test.js) for 
+race condition patterns.
+```
+
+### Skills vs. Custom Instructions
+
+**Use Agent Skills when you want to:**
+- Create reusable capabilities that work across VS Code, Copilot CLI, and coding agent
+- Include scripts, examples, or templates alongside instructions
+- Teach specialized workflows (testing strategies, debugging processes, deployment procedures)
+- Share capabilities with the wider AI community (open standard)
+- Define complete, multi-step workflows that require resources
+
+**Use Custom Instructions when you want to:**
+- Define project-specific coding standards (how to format code)
+- Set language or framework conventions (which patterns to use)
+- Specify code review or commit message guidelines
+- Apply rules based on file types using glob patterns (`applyTo`)
+
+**Key difference:** Instructions guide behavior; skills teach capabilities.
+
+> 📂 **Reference Examples**: The [`examples/completed-config/skills/`](../../examples/completed-config/skills/) folder contains sample agent skills showing complete implementations with scripts and examples.
 
 ---
 
-## ✅ Module Checklist
+## What You'll Learn
 
-Before moving to Module 6, verify:
+**Agent Skills** teach Copilot specialized capabilities through folders containing instructions, scripts, examples, and resources. You'll create skills for API endpoint design, bug reproduction test generation, and deployment validation. You'll learn progressive disclosure (efficient context loading), resource referencing (linking scripts and templates), and cross-platform portability (works in VS Code, CLI, and coding agent). You'll measure time saved on specialized workflows and accuracy improvements from domain-specific templates.
 
-- [ ] Understand how skills differ from instructions and prompts
-- [ ] Explored at least one community skill repository
-- [ ] Created at least one custom skill for your domain
-- [ ] Tested that Copilot auto-loads skills when relevant
-- [ ] Have a plan for your team's skills library
+**Time:** ~30 minutes | **Exercises:** 3
 
 ---
 
-## 📚 Official Documentation
+## 📋 Exercise Planning
 
-- [VS Code: Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-- [Agent Skills Open Standard](https://agentskills.io)
-- [Anthropic Skills Repository](https://github.com/anthropics/skills)
-- [GitHub Awesome Copilot Collection](https://github.com/github/awesome-copilot)
+The exercises below demonstrate how agent skills teach Copilot specialized capabilities beyond basic coding guidelines. Each exercise shows measurable improvements in workflow efficiency and output quality for domain-specific tasks.
+
+**Implementation:** Use `@exercise-author` to generate each exercise file from these specifications.
+
+| # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
+|---|----------|------|---------|---------|----------|-------------|-----------|
+| [5.1](exercise-5.1.md) | API Endpoint Design Skill | Sarah | David | New API endpoints: 12 min/endpoint explaining standards, schema mismatches require 8 min rework | Create `api-endpoint-design` skill with OpenAPI schema, example endpoints, validation checklist | 12→2 min/endpoint, 0 schema mismatches, 80 min/sprint saved | `.github/skills/api-endpoint-design/SKILL.md`, `openapi-schema.yaml`, `example-endpoints/` |
+| [5.2](exercise-5.2.md) | Bug Reproduction Test Generator | Elena | Marcus | Writing bug reproduction tests: 25 min/bug, inconsistent mocking patterns, forget edge cases 40% of time | Create `bug-reproduction-test-generator` skill with test template, mocking examples, edge case checklist | 25→4 min/bug, 100% edge case coverage, 126 min/sprint saved | `.github/skills/bug-reproduction-test-generator/SKILL.md`, `test-template.js`, `examples/` |
+| [5.3](exercise-5.3.md) | Build Pipeline Analyzer | Marcus | Elena, Sarah | Debugging build failures: 30 min/failure (15 min reproduce, 15 min trace), 5 failures/sprint | Create `build-pipeline-analyzer` skill with diagnostic script, log pattern examples, troubleshooting workflow | 30→2 min/failure, 140 min/sprint saved, instant root cause identification | `.github/skills/build-pipeline-analyzer/SKILL.md`, `analyze-logs.sh`, `log-patterns/` |
 
 ---
 
-## ➡️ Next Up
+## 📚 What This Feature Does
 
-**[Module 6: MCP Servers](../06-mcp-servers/README.md)** (Monday 4:30 PM)
+**Agent Skills:** Folders of instructions, scripts, examples, and resources that teach Copilot specialized capabilities for domain-specific workflows. Based on the open standard at agentskills.io, skills work across VS Code, Copilot CLI, and Copilot coding agent.
 
-Skills encode knowledge, but what if Copilot could query your actual database to validate data? MCP (Model Context Protocol) connects Copilot to external systems—databases, APIs, and deployment infrastructure. In Module 07, the agent will have access to EVERYTHING.
+**When to use it:** When you need to teach Copilot a complete workflow that requires more than just coding guidelines—API validation against custom schemas, test generation using specific templates, debugging with specialized scripts, or any task that combines instructions with executable resources.
+
+**What you'll build:** 
+- **API Endpoint Design Skill** — Complete workflow for creating REST endpoints that validate against FanHub's TV show API schema, with OpenAPI spec and example endpoints
+- **Bug Reproduction Test Generator** — Test creation workflow using Jest templates, mocking patterns, and edge case examples from past bugs
+- **Build Pipeline Analyzer** — Debugging workflow with log analysis script, common failure patterns, and troubleshooting decision tree
+
+> 💡 **Key distinction:** Unlike instructions (behavior guidelines) or prompts (specific task invocations), skills are **complete capabilities**—instructions + executable scripts + example resources. They teach Copilot *how to do something it doesn't know how to do*, not just how to format or follow patterns.
+
+**Official Documentation:**
+- 📖 [Use Agent Skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills) — Complete guide to creating and using agent skills
+- 📖 [About Agent Skills (GitHub Docs)](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) — Understanding skills across Copilot products
+- 📖 [Agent Skills Standard](https://agentskills.io/) — Open standard specification and portability details
+
+> 💡 **Important for this module:** Enable the `chat.useAgentSkills` setting in VS Code to use Agent Skills. Skills use progressive disclosure—Copilot always knows which skills are available (level 1: discovery), loads full instructions only when relevant (level 2), and accesses scripts/examples on-demand (level 3). This means you can install many skills without consuming context until they're actually needed.
+
+---
+
+## ➡️ Next Module
+
+**[Module 6: MCP Servers](../06-mcp-servers/README.md)** — Agent skills teach Copilot specialized workflows, but what if you need to connect Copilot to external services—databases, APIs, cloud platforms? MCP servers provide runtime integration with live data sources.
+
+> *"Skills taught Copilot how to validate against our API schema. But the schema is static. What if I need Copilot to query our actual PostgreSQL database or call our live TV show API to validate real data?"*  
+> — Marcus, about to discover MCP servers
+
+---
+
+## 📌 Practices Used
+
+| Practice | How It Applied in This Module |
+|----------|-------------------------------|
+| 📚 **Progressive Disclosure** | Skills load in three levels: discovery (metadata) → instructions (SKILL.md body) → resources (scripts/examples on-demand) |
+| 🎯 **Capability Teaching** | Skills teach *how to perform workflows*, not just *how to format code*—complete processes with executable components |
+| 🔄 **Composable Workflows** | Multiple skills can activate for complex tasks; each handles specialized aspect of overall workflow |
+| 🌐 **Cross-Platform Portability** | Skills work across VS Code, Copilot CLI, and coding agent using open standard at agentskills.io |
+
+---
+
+## 🎭 Behind the Scenes
+
+*For those who want to understand the deeper mechanics:*
+
+### How Copilot Decides Which Skills to Use
+
+When you make a request in Copilot Chat:
+
+1. **Scan Phase**: Copilot reads the `description` field from all available skills' YAML frontmatter
+2. **Relevance Matching**: Compares your prompt to skill descriptions using semantic similarity
+3. **Skill Selection**: Loads the `SKILL.md` body for skills with high relevance scores
+4. **Instruction Following**: Uses loaded instructions to guide response generation
+5. **Resource Access**: References scripts/examples from skill directory only when instructions mention them
+
+**Example:**
+- Prompt: "Generate API endpoint for fetching episode details"
+- Matched skill: `api-endpoint-design` (description includes "design REST API endpoints")
+- Loaded: `api-endpoint-design/SKILL.md` instructions
+- Referenced: `example-endpoints/get-episode.js` (because SKILL.md mentions it)
+- Not loaded: `bug-reproduction-test-generator` skill (not relevant to this task)
+
+### Context Window Efficiency
+
+**Without progressive disclosure:**
+- 10 skills × 2KB each = 20KB always in context
+- Tokens consumed even when skills aren't used
+- Reduces space for actual code and responses
+
+**With progressive disclosure:**
+- Level 1: 10 skills × 100 bytes metadata = 1KB (discovery)
+- Level 2: 1-2 relevant skills × 2KB = 2-4KB (instructions)
+- Level 3: 1-2 resource files × 1KB = 1-2KB (examples)
+- **Total:** 4-7KB vs. 20KB (65-80% context saved)
+
+**Key Takeaway:** You can install dozens of skills. Only what's relevant loads. Context stays efficient.
+
+### Skill Naming Best Practices
+
+**Good skill names:**
+- Descriptive and action-oriented
+- Use hyphens for spaces (lowercase)
+- Match the primary capability
+
+**Examples:**
+- ✅ `api-endpoint-design` — Clear what it does
+- ✅ `bug-reproduction-test-generator` — Specific workflow
+- ✅ `github-actions-failure-debugging` — Targeted capability
+- ❌ `helper` — Too vague
+- ❌ `skill1` — No semantic meaning
+- ❌ `API_Design` — Wrong format (use hyphens, lowercase)
+
+**Why it matters:** Skill names appear in VS Code UI and help you (and teammates) understand what skills do at a glance.
+
+---

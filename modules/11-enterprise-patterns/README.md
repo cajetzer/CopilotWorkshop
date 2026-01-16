@@ -1,6 +1,6 @@
 # Module 11: Enterprise Patterns
 
-## ⏰ Tuesday 9:00 AM — Scaling Success
+## ⏰ — Scaling Success
 
 > *"We built something that works for one team. How do we make it organizational standard without forcing every team to reinvent the wheel?"*  
 > — Sarah, the day after shipping FanHub

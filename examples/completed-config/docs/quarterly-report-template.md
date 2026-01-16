@@ -6,17 +6,6 @@
 
 ---
 
-## Report Information
-
-| Field | Value |
-|-------|-------|
-| **Quarter** | Q[X] [YEAR] |
-| **Report Date** | [DATE] |
-| **Prepared By** | [NAME/TEAM] |
-| **Distribution** | [STAKEHOLDER LIST] |
-
----
-
 ## Executive Summary
 
 ### Key Metrics at a Glance
@@ -27,15 +16,6 @@
 | Acceptance Rate | [X%] | [X%] | [+/-X%] |
 | Lines Accepted | [X] | [X] | [+/-X%] |
 | Chat Interactions | [X] | [X] | [+/-X%] |
-
-### Highlights
-- [Key achievement 1]
-- [Key achievement 2]
-- [Key achievement 3]
-
-### Challenges
-- [Challenge 1 and mitigation]
-- [Challenge 2 and mitigation]
 
 ---
 

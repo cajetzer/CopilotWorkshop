@@ -1,163 +1,276 @@
 # Module 3: Custom Prompts
 
-## ⏰ Monday 12:00 PM — Building Reusable Tools
+## ⏰ — The Repetition Problem
 
-> *"Every time I write the same prompt explaining how we test, I think: there has to be a better way."*  
-> — Elena, watching the team manually re-type similar prompts for the fifth time
-
----
-
-## 📖 The Story
-
-Module 1 gave the team **foundations**: David documented the architecture, Sarah created team standards in `copilot-instructions.md`. Module 2 introduced **structured thinking**: The team used plan mode to build the Character Detail page—transforming a frustrating 45-minute struggle into a systematic 20-minute success.
-
-Now Sarah notices something: Everyone keeps writing the same kinds of prompts over and over.
-
-- Elena explains testing requirements each time she asks for tests
-- Rafael describes the same acceptance criteria format for every feature
-- Marcus types the same "create an endpoint" instructions repeatedly
-- And soon they'll need Episode Detail, Show Detail, Quote Detail pages...
-
-*"What if we could save these prompts and share them?"* Sarah asks. *"Like functions, but for AI instructions. The Character Detail page took real planning—what if we captured that pattern so we never have to plan it again?"*
-
-**This module's mission**: Create a prompt library that turns repetitive work into reusable tools. The ultimate goal: encode the Character Detail pattern so every future detail page takes 3 minutes instead of 20.
+> *"I've typed this same prompt five times today: 'Generate tests following our standards.' There has to be a better way."*  
+> — Elena, copying and pasting her carefully-crafted test generation prompt for the fifth time
 
 ---
 
-## 🎯 Learning Objectives
+## 📖 Story So Far
 
-By the end of this module, you will:
+In **Module 1**, the team established their foundation: **ARCHITECTURE.md** gave Copilot structural understanding, and **.github/copilot-instructions.md** standardized patterns across the team. Now Copilot understands their tech stack and coding conventions.
 
-- Create reusable prompt files (`.github/prompts/`)
-- Use variables to make prompts flexible
-- Reference documentation in prompts for consistent context
-- Experience multi-modal workflows (VS Code + GitHub.com)
+In **Module 2**, they learned to use **plan mode** to research complex multi-file features before implementing them. Planning time dropped from 35 minutes to 7 minutes, and architectural conflicts were caught during planning instead of PR review.
 
-**Time**: ~110 minutes (or follow your persona's focused path for less)  
-**Featured Personas**: Elena (Testing), David (Architecture), Rafael (Product), Marcus (DevOps)
+Now, in **Module 3**, they face a new challenge: **repetitive, specialized prompts** that require specific context, references, and instructions. Elena types the same test generation prompt repeatedly. Sarah keeps referencing React standards manually. David has a code review checklist he rewrites for every PR. How do you save and reuse prompts that work, without copying and pasting or losing context?
+
+💡 **Integration Note:** This module builds on the ARCHITECTURE.md and copilot-instructions.md from Module 1 by creating reusable prompt files that reference those foundational documents, ensuring consistency every time you invoke a standardized task.
 
 ---
 
-## 🧠 Mindful Moment: Prompts Are Functions
+⚠️ **Prerequisites**: 
+- Complete [Module 00: Orientation](../00-orientation/README.md)
+- Complete [Module 01: Repository Instructions](../01-repository-instructions/README.md)
+- ARCHITECTURE.md and .github/copilot-instructions.md files created
 
-Think about how code evolved:
-- **1950s**: Repeat the same assembly instructions everywhere
-- **1960s**: Functions let you write once, call many times
-- **2020s**: Prompts are the new functions—but most people are still copy-pasting
+---
 
-The teams that win with AI are building **prompt libraries**, not typing the same instructions repeatedly.
+## 🧠 Mindful Moment: From Ad-Hoc to Reusable
+
+**Traditional thinking:** *"I'll just type the prompt again—it's only a minute."*
+
+**AI-native thinking:** *"Document this prompt once, invoke it in 2 keystrokes, ensure the team uses the same standards."*
+
+This isn't just about saving typing time. It's about **standardizing practices**. When your best prompts are saved as prompt files, junior developers get the same quality results as seniors. Code reviews reference the same checklist. Test generation follows the same patterns. Knowledge scales across the entire team.
+
+---
+
+## 💭 Why This Matters
+
+**Sarah (Skeptical Senior):** *"I documented my React component review standards once as a prompt file. Before: typed 8-line prompt manually, 3 minutes to get context right, different wording each time = inconsistent results. After: `/react-review` in chat, 5 seconds, identical standards every time. Saved 3 minutes × 12 reviews per week = 36 minutes. More importantly: 0 violations now make it through because the function never forgets a check."*
+
+**David (Seasoned Architect):** *"My architecture review prompt references ARCHITECTURE.md, checks for 7 specific patterns, and validates against our tech stack. I used to reconstruct this mentally for each PR—took 10 minutes, occasionally missed items. Now `/arch-review` executes the same comprehensive analysis in 15 seconds. That's my 20 years of architectural wisdom, codified and repeatable. AI amplifies expertise when you document what you know."*
+
+**Marcus (DevOps Developer):** *"Created `/debug-build` prompt that checks our build pipeline patterns, Docker configs, and dependency versions. Before: spent 15 minutes per build failure manually checking common issues. After: invoke the prompt, get structured analysis in 30 seconds. 15→0.5 minutes per failure × 5 failures per sprint = 72 minutes saved. Prompt files turned tribal knowledge into team knowledge."*
+
+**Elena (Quality Champion):** *"My `/test-suite` prompt generates comprehensive test coverage: unit tests, integration tests, edge cases—all following our testing standards. Before: 45 minutes to write tests manually, occasionally missed edge cases. After: 2 minutes to generate, 8 minutes to review and enhance. 45→10 minutes per feature × 8 features per sprint = 280 minutes (4.6 hours) saved. Quality improved because prompts never forget the edge cases I taught them."*
+
+**Rafael (Product Visionary):** *"Created `/feature-estimate` prompt that analyzes requirements against our codebase and generates effort estimates with dependencies. Before: 2-hour planning meeting to scope features. After: 5-minute prompt analysis gives me preliminary breakdown for stakeholder discussions. Walk into meetings with data: 'This is 2 days for backend, 3 for frontend, 1 for testing—6 days total.' Estimation accuracy improved 40% because prompts check actual code patterns, not gut feel."*
+
+---
+
+💡 **Understanding Prompt Files**
+
+**Prompt files** are Markdown files with a `.prompt.md` extension that define reusable prompts for common development tasks. Unlike custom instructions that apply to all requests, prompt files are **triggered on-demand** for specific tasks.
+
+Think of them as **functions you can invoke**: code review checklists, test generation templates, architecture analysis procedures—any specialized prompt you use repeatedly. Like functions, they accept inputs (variables), execute once, and return results.
+
+**Key characteristics:**
+- **On-demand execution** — Type `/` in chat followed by the prompt name to invoke
+- **Structured with YAML frontmatter** — Configure agent, model, tools, and description
+- **Reference your docs** — Use Markdown links to include ARCHITECTURE.md, standards, patterns
+- **Scoped to workspace or user** — Workspace prompts live in `.github/prompts/`, user prompts sync across all projects
+- **Composable with variables** — Reference `${file}`, `${selection}`, `${workspaceFolder}`, or custom input variables
+
+**Two scopes available:**
+- **Workspace prompt files:** Stored in `.github/prompts/` — team-wide, project-specific functions
+- **User prompt files:** Stored in your VS Code profile — personal functions that work across all projects
 
 ---
 
 ## 📚 Key Concepts
 
-### Custom Prompt Files
+### Prompt File Structure
 
-GitHub Copilot can use prompt files stored in `.github/prompts/`. These files:
-- Are written in Markdown
-- Can include variables (`{{variable_name}}`)
-- Can reference other files
-- Are shareable across the team
+Every prompt file has two parts: **header (YAML frontmatter)** and **body (prompt instructions)**.
 
-**How to use them:**
-1. Create `.github/prompts/my-prompt.prompt.md`
-2. In Copilot Chat, type `/` and select your prompt
-3. Fill in any variables
-4. Execute with full context
+**Header (Optional but Recommended):**
+```yaml
+---
+name: react-review          # Command name after /
+description: 'Review React component for standards compliance'
+agent: 'ask'                # ask, edit, agent, or custom agent name
+model: 'GPT-4o'            # Specific model to use
+tools: ['githubRepo']       # Available tools for this prompt
+---
+```
 
-> 📂 **Reference Examples**: See [`examples/completed-config/.github/prompts/`](../../examples/completed-config/.github/prompts/) for sample prompt files including test generators, spec-to-implementation, and the Golden Thread detail page pattern.
+**Body (The Actual Prompt):**
+```markdown
+Review this React component against our standards in [.github/copilot-instructions.md](../.github/copilot-instructions.md).
 
-### Chat Participants
+Check for:
+* Proper TypeScript types
+* Error boundary implementation
+* Accessibility attributes
+* Performance optimization patterns
 
-Copilot Chat has specialized "participants" you can invoke:
-- `@workspace` — Understands your entire project
-- `@vscode` — Knows about VS Code features and settings
-- `@terminal` — Can run and explain terminal commands
+Reference file: ${file}
+```
 
-Combine these with prompt files for powerful workflows.
+**Key Fields:**
+- **name**: What you type after `/` in chat (e.g., `/react-review`)
+- **description**: Appears in autocomplete list
+- **agent**: Which agent runs the prompt (`ask` for analysis, `edit` for changes, `agent` for multi-step)
+- **model**: Force a specific model (GPT-4o, Claude Sonnet 4, etc.)
+- **tools**: Limit or specify which tools the agent can use
+- **argument-hint**: Placeholder text showing users how to invoke the prompt
 
-### Multi-Modal: VS Code + GitHub.com
+### Variables and Context
 
-Copilot isn't just in your editor. On GitHub.com:
-- **PR Reviews**: Ask Copilot to review your code changes
-- **Issue Analysis**: Get implementation suggestions from issue descriptions
-- **Code Search**: Natural language queries across repositories
+Prompt files become powerful when they reference **dynamic context**:
 
-We'll use both modes in this module.
+**Built-in variables:**
+- `${workspaceFolder}` — Root path of your workspace
+- `${file}` — Currently open file path
+- `${selection}` — Selected text in the editor
+- `${selectedText}` — Alias for selection
+
+**Input variables:**
+- `${input:componentName}` — Prompts user for a value
+- `${input:featureName:default}` — Input with placeholder text
+
+**Example:**
+```markdown
+Generate a React component named ${input:componentName} 
+following patterns in [components/](${workspaceFolder}/src/components/)
+```
+
+### Referencing Documentation
+
+The real power is **linking to your standards** so prompts always have current context:
+
+```markdown
+---
+name: test-suite
+description: 'Generate comprehensive test suite'
+agent: 'agent'
+tools: ['codebase']
+---
+
+Generate test suite for ${file} following:
+* Testing standards: [copilot-instructions.md](../.github/copilot-instructions.md)
+* Architecture patterns: [ARCHITECTURE.md](../../docs/ARCHITECTURE.md)
+* Example tests: [__tests__/README.md](../../backend/__tests__/README.md)
+
+Include:
+- Unit tests for all public functions
+- Integration tests for API endpoints
+- Edge cases from our QA checklist
+```
+
+**Why this matters:** When copilot-instructions.md changes, all prompts automatically reference the latest version. No copying, no version drift, no inconsistency.
+
+### Workspace vs. User Prompts
+
+**Choose workspace prompts when:**
+- ✅ Team-wide standardized functions (code review, test generation)
+- ✅ Project-specific patterns (React component scaffolding, API endpoint design)
+- ✅ Reference local files (ARCHITECTURE.md, team standards)
+- ✅ Version controlled and shared via Git
+
+**Location:** `.github/prompts/*.prompt.md`
+
+**Choose user prompts when:**
+- ✅ Personal functions that work across all projects (commit message formatting)
+- ✅ Language-agnostic patterns (refactoring, documentation generation)
+- ✅ Sync across all your machines via Settings Sync
+- ✅ Not tied to specific project structure
+
+**Location:** VS Code profile folder (synced automatically)
+
+> 📂 **Reference Examples**: The [`examples/completed-config/`](../../examples/completed-config/) folder shows implemented prompt files in action.
 
 ---
 
-## 🎯 Choose Your Path
+## What You'll Learn
 
-### Option 1: Follow Your Persona
+**Custom prompt files** turn your best prompts into reusable functions that standardize team practices and save repetitive typing. You'll create workspace prompts for code review and test generation, configure YAML frontmatter to control agent behavior, and measure time saved through prompt reuse. You'll document specialized functions once and invoke them in seconds.
 
-Pick the path that matches your role and interests:
-
-- **[Elena's Path](personas/elena.md)** — Test generation and quality assurance (60 min)
-- **[David's Path](personas/david.md)** — Architectural review automation (20 min)
-- **[Rafael's Path](personas/rafael.md)** — Requirements translation and specifications (60 min)
-- **[Marcus's Path](personas/marcus.md)** — Backend API patterns and git workflow automation (60 min)
-- **[Sarah's Path](personas/sarah.md)** — Validating pattern efficiency and ROI metrics (30 min)
-
-Each persona path includes:
-- Your focused exercises
-- Collaboration points with other personas
-- Your specific transformation arc
-
-### Option 2: Experience the Full Story
-
-Work through all exercises in narrative order to experience the full team journey:
-
-**[View All Exercises →](EXERCISES.md)**
-
-This path includes:
-- Complete team collaboration narrative
-- All four persona perspectives
-- Full module content (~90 minutes)
-
-### Option 3: Quick Navigator
-
-Jump directly to specific exercises:
-
-| Exercise | Lead Persona | Time | Topic |
-|----------|--------------|------|-------|
-| [3.1](EXERCISES.md#exercise-31-create-a-test-prompt-library--elenas-quality-toolkit) | Elena | 30 min | Test generation prompts |
-| [3.2](EXERCISES.md#exercise-32-spec-to-code-prompts--rafael-bridges-the-gap) | Rafael | 30 min | Requirements translation |
-| [3.2b](EXERCISES.md#exercise-32b-architectural-review-prompt--david-automates-20-years-of-feedback) | David | 20 min | Architecture review automation |
-| [3.4](EXERCISES.md#exercise-34-build-the-episode-guide--the-team-collaborates) | Team | 45 min | Episode Guide + **Golden Thread pattern** 🧵 |
-| [3.5](EXERCISES.md#exercise-35-one-word-git-workflow--marcuss-ship-it-button) | Marcus | 30 min | Git automation |
+**Time:** ~20 minutes | **Exercises:** 3
 
 ---
 
-## 📚 Official Documentation
+## 📋 Exercise Planning
 
-- [VS Code: Reusable Prompts](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files)
-- [VS Code: Chat Participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants)
-- [GitHub Docs: Custom Prompts](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-prompts-for-github-copilot)
-- [GitHub Docs: Copilot in PRs](https://docs.github.com/en/copilot/using-github-copilot/using-copilot-in-github)
+The exercises below demonstrate how prompt files transform repetitive tasks into standardized, invokable functions. Each exercise shows measurable time savings and consistency improvements.
 
----
-
-## ➡️ Next Up
-
-**[Module 4: Custom Instructions](../04-custom-instructions/README.md)** (Monday 2:00 PM)
-
-The team has patterns, documentation, and prompts. Now it's time to let Copilot work autonomously. David will create an Architecture Reviewer agent, Marcus will build DevOps automation, and we'll explore how agents can run in the background while you work on other things.
+| # | Exercise | Lead | Support | Problem | Solution | Key Metrics | Artifacts |
+|---|----------|------|---------|---------|----------|-------------|-----------|
+| [3.1](exercise-3.1.md) | Creating Your First Prompt File | Elena | Marcus | Test generation prompt typed 5×/day: 3 min each, inconsistent standards | Create `.github/prompts/test-suite.prompt.md` for standardized test generation | 3→0.1 min per invocation, 5 invocations/day = 14.5 min/day saved | `.github/prompts/test-suite.prompt.md` |
+| [3.2](exercise-3.2.md) | Referencing Standards and Docs | Sarah | David | React review prompt manually types standards: 8 lines, 3 min setup, missed checks | Create `/react-review` prompt that links to copilot-instructions.md | 8→1 lines, 3→0.1 min setup, 0 missed checks | `.github/prompts/react-review.prompt.md` |
+| [3.3](exercise-3.3.md) | Variable-Driven Prompts | Marcus | Rafael, Elena | Build debugging prompt requires manual context: 5 min to gather logs, env vars, config | Create `/debug-build` with variables for current file and selection | 5→0.5 min context gathering, 10× faster debugging | `.github/prompts/debug-build.prompt.md` |
 
 ---
 
-## ✅ Module Checklist
+## 📚 What This Feature Does
 
-Before moving forward, verify:
+**Custom Prompt Files:** Markdown files (`.prompt.md`) that define reusable, invokable functions for common development tasks. Like functions in code, they accept inputs (variables), execute with specific context, and return consistent results. Store them in `.github/prompts/` (workspace-wide) or your VS Code profile (personal, synced across machines).
 
-- [ ] `.github/prompts/` directory exists with at least 6 prompts
-- [ ] Created `create-detail-page.prompt.md` (the Golden Thread pattern) 🧵
-- [ ] Prompts use variables for flexibility
-- [ ] Prompts reference existing documentation
-- [ ] Successfully invoked prompts from Copilot Chat
-- [ ] Generated Episode Detail page using the detail page prompt
-- [ ] Updated `character-detail-challenge.md` with Module 03 metrics
-- [ ] Tested PR summary generation on GitHub.com
+**When to use it:** When you find yourself typing the same detailed prompt repeatedly—code reviews, test generation, architecture analysis, scaffolding components, debugging tasks, or any specialized work requiring specific context and standards.
 
-> 📂 **Compare Your Work**: See [`examples/completed-config/.github/prompts/`](../../examples/completed-config/.github/prompts/) to compare your prompts against the reference examples.
+**What you'll build:** 
+- **Test generation prompt** — Standardized test suite creation following team patterns, invoked via `/test-suite`
+- **Code review prompt** — Automated React standards validation referencing copilot-instructions.md, invoked via `/react-review`
+- **Build debugging prompt** — Structured build failure analysis using context variables, invoked via `/debug-build`
 
+> 💡 **Think of prompts as functions:** They're invoked by name, accept parameters (variables), execute once, and return results. Custom agents (Module 7) are more like workflows—multi-step processes that maintain state and iterate over time.
+
+**Official Documentation:
+- 📖 [Prompt Files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files) — Complete guide to creating and using prompt files
+- 📖 [Workspace Context Reference](https://code.visualstudio.com/api/references/workspace-context) — Variables available in prompt files
+- 📖 [Awesome Copilot Repository](https://github.com/stars/aaravnavani/lists/copilot-customization) — Community-contributed prompt examples
+
+> 💡 **Important for this module:** Prompt files reference your documentation using **relative Markdown links**. This ensures prompts always have current context from ARCHITECTURE.md and copilot-instructions.md without manual copying. When your standards evolve, prompts automatically reference the latest version.
+
+---
+
+## ➡️ Next Module
+
+**[Module 4: Custom Instructions](../04-custom-instructions/README.md)** — While prompt files handle specific tasks, custom instructions apply context to every Copilot interaction, shaping how AI understands your role, codebase, and preferences.
+
+> *"I love the prompt files, but I'm still explaining the same context in every chat session. Can I make Copilot remember who I am and what I care about?"*  
+> — David, about to discover how custom instructions work
+
+---
+
+## 📌 Practices Used
+
+| Practice | How It Applied in This Module |
+|----------|-------------------------------|
+| 📚 **Documentation as Leverage** | Prompt files reference ARCHITECTURE.md and copilot-instructions.md—standards documented once, enforced automatically through prompts |
+| 🎯 **Outcome-Focused Prompts** | Each prompt specifies what to produce (test suite, review analysis) and success criteria (standards compliance, edge case coverage) |
+| 🔄 **Iterative Refinement** | Prompt files evolve with your team—add checks when issues surface, improve based on what works |
+| 🧩 **Composable Functions** | Prompts build on foundation from Module 1—they reference your architecture and standards to deliver consistent results |
+
+---
+
+## 🎭 Behind the Scenes
+
+*For those who want to understand the deeper mechanics:*
+
+### How Copilot Processes Prompt Files
+
+When you invoke a prompt file via `/prompt-name`:
+
+1. **File Discovery**: VS Code looks in `.github/prompts/` (workspace) and your profile folder (user prompts)
+2. **YAML Parsing**: Reads frontmatter to determine agent, model, tools, and configuration
+3. **Variable Substitution**: Replaces `${file}`, `${selection}`, `${input:*}` with actual values
+4. **Link Resolution**: Resolves relative Markdown links to include referenced documentation
+5. **Context Assembly**: Combines prompt body + referenced files + current context (open files, selection)
+6. **Agent Invocation**: Routes assembled prompt to specified agent (ask, edit, agent, custom)
+7. **Tool Availability**: Makes specified tools accessible during execution
+
+**Key Takeaway:** Prompt files are **context orchestrators**. They don't just save typing—they ensure the right context (your standards, architecture, patterns) is always included, consistently.
+
+### Variable Resolution Order
+
+VS Code resolves variables in this sequence:
+
+1. **Workspace variables** — `${workspaceFolder}`, `${workspaceFolderBasename}` (read from environment)
+2. **File context variables** — `${file}`, `${fileBasename}` (read from active editor)
+3. **Selection variables** — `${selection}`, `${selectedText}` (read from current selection)
+4. **Input variables** — `${input:name}` (prompts user for value when invoked)
+
+**Input variables enable interactive prompts:**
+```markdown
+Generate API endpoint for ${input:resourceName:user} 
+with operations: ${input:operations:CRUD}
+```
+
+When invoked, user is prompted to provide values before execution begins.
+
+**Key Takeaway:** Use built-in variables for context (what file, what's selected), use input variables for parameters (component name, feature scope). This makes prompts both consistent and flexible.
+
+---
