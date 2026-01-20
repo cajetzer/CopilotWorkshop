@@ -36,20 +36,6 @@ This isn't just about saving typing time. It's about **standardizing practices**
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** *"I documented my React component review standards once as a prompt file. Before: typed 8-line prompt manually, 3 minutes to get context right, different wording each time = inconsistent results. After: `/react-review` in chat, 5 seconds, identical standards every time. Saved 3 minutes × 12 reviews per week = 36 minutes. More importantly: 0 violations now make it through because the function never forgets a check."*
-
-**David (Seasoned Architect):** *"My architecture review prompt references ARCHITECTURE.md, checks for 7 specific patterns, and validates against our tech stack. I used to reconstruct this mentally for each PR—took 10 minutes, occasionally missed items. Now `/arch-review` executes the same comprehensive analysis in 15 seconds. That's my 20 years of architectural wisdom, codified and repeatable. AI amplifies expertise when you document what you know."*
-
-**Marcus (DevOps Developer):** *"Created `/debug-build` prompt that checks our build pipeline patterns, Docker configs, and dependency versions. Before: spent 15 minutes per build failure manually checking common issues. After: invoke the prompt, get structured analysis in 30 seconds. 15→0.5 minutes per failure × 5 failures per sprint = 72 minutes saved. Prompt files turned tribal knowledge into team knowledge."*
-
-**Elena (Quality Champion):** *"My `/test-suite` prompt generates comprehensive test coverage: unit tests, integration tests, edge cases—all following our testing standards. Before: 45 minutes to write tests manually, occasionally missed edge cases. After: 2 minutes to generate, 8 minutes to review and enhance. 45→10 minutes per feature × 8 features per sprint = 280 minutes (4.6 hours) saved. Quality improved because prompts never forget the edge cases I taught them."*
-
-**Rafael (Product Visionary):** *"Created `/feature-estimate` prompt that analyzes requirements against our codebase and generates effort estimates with dependencies. Before: 2-hour planning meeting to scope features. After: 5-minute prompt analysis gives me preliminary breakdown for stakeholder discussions. Walk into meetings with data: 'This is 2 days for backend, 3 for frontend, 1 for testing—6 days total.' Estimation accuracy improved 40% because prompts check actual code patterns, not gut feel."*
-
----
-
 💡 **Understanding Prompt Files**
 
 **Prompt files** are Markdown files with a `.prompt.md` extension that define reusable prompts for common development tasks. Unlike custom instructions that apply to all requests, prompt files are **triggered on-demand** for specific tasks.
