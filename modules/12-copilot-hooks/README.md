@@ -42,20 +42,6 @@ This isn't about distrusting AI—it's about **governance at scale**. Just as yo
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** Validates that hooks eliminate 100% of destructive command risks while maintaining audit trails. Before: 2 security violations per sprint caught in manual review (30 minutes each). After: 0 violations reach execution, logged automatically. ROI: 1 hour saved per sprint + compliance satisfied.
-
-**David (Seasoned Architect):** Hooks enforce architectural boundaries programmatically. Before: Junior devs (with AI assistance) could modify `src/core/` files without review, requiring 3 cleanup cycles. After: Pre-tool hook denies edits outside approved directories, logs violations for coaching. Architecture stays intact.
-
-**Marcus (DevOps Developer):** Automates compliance logging that used to take 20 minutes of manual extraction per audit. Hooks capture every session, prompt, and tool execution in structured JSON. Audit reporting went from "manually reconstruct from git history" to "query the log files."
-
-**Elena (Quality Champion):** Validates every code change runs lint checks before Copilot commits. Before: 12 style violations per sprint caught in CI (requiring rework rounds). After: Pre-tool hook runs linter before edits are applied—failures never reach the codebase. Quality gates moved left.
-
-**Rafael (Product Visionary):** Demonstrates to stakeholders that AI acceleration includes compliance controls. Hooks provide evidence that "we're moving fast but with proper governance"—essential for regulated industries. Board presentation went from defensive to confident.
-
----
-
 💡 **Understanding Hooks**
 
 **Hooks** are custom shell commands that execute at key points in Copilot agent sessions. Think of them as **lifecycle events** with programmable handlers:
