@@ -41,20 +41,6 @@ This isn't about replacing instructions—it's about **teaching new capabilities
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** *"Created `.github/skills/api-endpoint-design/` with our REST API standards, OpenAPI schema generator, and example endpoints. Before: spent 12 minutes per new endpoint explaining 'use this response format, follow these error codes, validate with this schema.' After: Copilot generates spec-compliant endpoints in 2 minutes using the skill's template and validator script. 12→2 minutes × 8 new endpoints per sprint = 80 minutes saved. More importantly: 100% schema compliance, 0 documentation mismatches. Documented once, enforced automatically through a specialized capability."*
-
-**David (Seasoned Architect):** *"My `.github/skills/feature-requirements/` skill includes architecture decision record (ADR) templates, system diagram examples, and requirement validation checklist. Before: spent 45 minutes writing requirements that developers still misunderstood because context was missing. After: skill generates complete feature specs in 8 minutes with all ADR sections, references to existing patterns from examples/, and validation against our checklist. My 20 years of 'what makes a good spec' codified into a capability. 45→8 minutes, 0 clarification rounds vs. previous 2-3."*
-
-**Marcus (DevOps Developer):** *"Created `.github/skills/build-pipeline-analyzer/` with debugging scripts and log pattern examples. Before: build failures took 30 minutes to debug—15 minutes reproducing locally, 15 tracing dependencies. After: skill reads logs, runs diagnostic script, identifies root cause in 2 minutes. 30→2 minutes × 5 failures per sprint = 140 minutes (2.3 hours) saved. The skill taught Copilot how to debug our specific pipeline, not just generic CI/CD."*
-
-**Elena (Quality Champion):** *"My `.github/skills/bug-reproduction-test-generator/` skill includes test templates, mocking patterns, and example reproduction steps. Before: writing bug reproduction tests took 25 minutes—understanding the issue, setting up mocks, writing assertions. After: skill generates reproduction test in 4 minutes using templates and examples from skills/. 25→4 minutes × 6 bugs per sprint = 126 minutes saved. But bigger impact: reproduction tests are now 40% more thorough because the skill includes edge cases from examples/ that I used to forget."*
-
-**Rafael (Product Visionary):** *"Created `.github/skills/effort-estimator/` with estimation rubric, complexity factors worksheet, and historical reference examples. Before: effort estimation took 90 minutes of manual analysis—reviewing similar features, calculating complexity, documenting assumptions. After: skill analyzes codebase, references historical examples, generates estimate report in 15 minutes. 90→15 minutes per feature estimation. When I walk into planning, I have data-driven estimates with complexity breakdown and risk factors. Stakeholders see 'this is 3 sprints if we build everything, 1 sprint for MVP' with evidence."*
-
----
-
 💡 **Understanding Agent Skills**
 
 **Agent Skills** are folders of instructions, scripts, examples, and resources that teach Copilot specialized capabilities. Each skill is stored in its own directory with a `SKILL.md` file that defines the skill's behavior.
