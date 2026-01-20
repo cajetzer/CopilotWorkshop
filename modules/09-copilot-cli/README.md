@@ -37,20 +37,6 @@ This isn't just about running AI commands in a terminal—it's about creating sc
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** Validates that AI delivers measurable ROI in infrastructure workflows—reducing deployment debug time from 45→8 minutes, eliminating 12 manual steps per release, and enabling standardized operations across teams with documented metrics.
-
-**David (Seasoned Architect):** Amplifies his system design expertise by rapidly analyzing infrastructure dependencies, generating architectural diagrams from running systems, and validating deployment patterns against 20 years of production experience.
-
-**Marcus (DevOps Developer):** Removes critical workflow friction by automating Docker troubleshooting, streamlining CI/CD pipeline debugging, and creating self-documenting infrastructure operations that eliminate the 3-5 hour investigation cycles when builds fail.
-
-**Elena (Quality Champion):** Accelerates infrastructure testing by generating comprehensive test scenarios for deployment pipelines, automatically validating container configurations, and creating reproducible test environments in minutes instead of hours.
-
-**Rafael (Product Visionary):** Enables faster stakeholder communication by generating clear deployment status reports, automatically creating release documentation, and translating infrastructure complexity into business-focused delivery timelines.
-
----
-
 ## 💡 **Understanding Copilot CLI Modes**
 
 **GitHub Copilot CLI** operates in two distinct modes that serve different automation needs:
