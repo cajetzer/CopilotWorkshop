@@ -66,20 +66,6 @@ This isn't just about convenience. Custom agents transform Copilot from a genera
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** Created `@review-enforcer` agent bundling Module 4's React standards instructions with read-only tools and the API design skill from Module 5. Before: spent 3-5 minutes per PR switching between "here's the standards file," manually running analysis, remembering not to edit during review. After: `@review-enforcer` loads standards, runs analysis, provides feedback—0 accidental edits, 0 context setup. 5→0 minutes setup × 12 PRs/sprint = 60 minutes saved. More importantly: consistent review quality because the agent always uses the same tools and standards.
-
-**David (Seasoned Architect):** Built `@architect` agent with architecture skills, read-only tools, and GitHub MCP access. Before: architectural reviews required 8 minutes of setup—opening ADR templates, loading system diagrams, checking related PRs. After: `@architect` auto-loads everything, suggests architectural patterns from skills, validates against existing patterns via GitHub MCP. 8→0 minutes setup × 6 architecture reviews/sprint = 48 minutes saved. Agent ensures I never accidentally modify code during planning—separation of concerns enforced by tooling.
-
-**Marcus (DevOps Developer):** Created `@devops` agent bundling deployment skills, database MCP from Module 6, and infrastructure analysis tools. Before: debugging deployments took 12 minutes of setup—loading config files, connecting to DB, opening deployment scripts. After: `@devops` gives instant access to everything with infrastructure-focused instructions. 12→2 minutes, catches 4 config issues per deployment automatically. The agent knows deployment context that generic Copilot doesn't.
-
-**Elena (Quality Champion):** Built `@test-gen` agent with test generation skills from Module 5, read-only code access, and test-focused instructions. Before: test creation setup took 5 minutes—loading test templates, opening related code, remembering testing patterns. After: `@test-gen` auto-loads templates, analyzes code for test cases, suggests edge cases from examples. 5→0 minutes setup × 15 test suites/sprint = 75 minutes saved. Edge case coverage improved 35% because the agent always references comprehensive test examples.
-
-**Rafael (Product Visionary):** Created `@product-analyzer` agent accessible via github.copilot.com combining effort estimation skill, GitHub MCP for issue analysis, and product-focused instructions. Before: feature analysis required 15 minutes opening repos, reviewing backlogs, estimating effort. After: web-based agent analyzes requirements, queries GitHub issues, generates effort estimates—all from the web interface during stakeholder calls. Can demo feasibility analysis live in meetings without opening VS Code. 15→3 minutes, stakeholder confidence increased because data is immediate.
-
----
-
 ## 💡 Understanding Custom Agents
 
 **Custom agents** are role-based Copilot configurations that bundle instructions, available tools, skills, MCP servers, and behavioral constraints into switchable personas. Each agent defines a complete working mode for specific tasks.
