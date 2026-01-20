@@ -40,20 +40,6 @@ This isn't just about running multiple agents—it's about agents that work comp
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** Validates that autonomous agents deliver measurable ROI: 3 hours of supervised work becomes 45 minutes of planning + autonomous execution, with Git worktree isolation eliminating rollback risks entirely—zero time lost to experimental failures.
-
-**David (Seasoned Architect):** Demonstrates how architectural expertise scales through autonomous review agents: background agents apply 20 years of patterns during development, catching violations in real-time without blocking the development flow.
-
-**Marcus (DevOps Developer):** Removes supervision bottlenecks through truly parallel work: plan a feature, hand it off to background execution, immediately start infrastructure work—reducing context switching from 6 transitions to 1 per sprint.
-
-**Elena (Quality Champion):** Maintains quality standards through autonomous validation: background agents run comprehensive testing scenarios in isolated worktrees while she designs the next test strategy—quality work happens in parallel, not sequentially.
-
-**Rafael (Product Visionary):** Bridges planning and execution through seamless hand-offs: detailed feature plans become autonomous implementation without losing context or requiring re-explanation—ideas flow directly to working code.
-
----
-
 💡 **Understanding Background Agents**
 
 **Background agents** are CLI-based agents that run completely autonomously on your local machine without requiring supervision or interaction. Unlike interactive agents that need your guidance, background agents handle well-defined tasks from start to finish.
