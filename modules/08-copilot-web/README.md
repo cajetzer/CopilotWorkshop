@@ -44,20 +44,6 @@ This isn't about replacing VS Code—developers still code there. It's about **r
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** *"Use `@review-enforcer` agent from my phone during standup to approve 3 PRs in 8 minutes total. Before: team waited 2-4 hours until I returned to desk, PRs blocked deployment. After: 0 blocking time, team velocity increased 15% from eliminating review bottlenecks. ROI: 16 hours of team time unblocked per week. That's not convenience—that's removing myself as a single point of failure."*
-
-**David (Seasoned Architect):** *"Prototype architectural patterns in GitHub Spark during design meetings. Before: 90 minutes after meetings documenting decisions in diagrams and ADRs. After: stakeholders see live, interactive prototype during the call, we iterate together, decisions are documented in real-time. My 20 years of pattern knowledge becomes immediately demonstrable, not just theoretical. Decisions made in the moment, not days later via email."*
-
-**Marcus (DevOps Developer):** *"File infrastructure issues from monitoring alert screenshots—drag image into github.com/copilot, 90 seconds later have detailed issue with labels, runbook references, and assigned owner. Before: 10 minutes manually transcribing alert details. After: 10→1.5 min per alert × 12 alerts/week = 102 minutes saved. More importantly: alerts become issues immediately, not 'when I have time to write it up.' Incident response velocity doubles."*
-
-**Elena (Quality Champion):** *"Triage bug reports from web UI during standup using mobile. Before: bugs sat in backlog unassigned for 4-6 hours while I finished sprint work. After: assess severity, assign owner, add reproduction hints—all from phone during standup meeting. 0 delay between bug report and team action. Mean time to fix reduced 35% because triaging happens immediately, not 'later when I'm at my desk.'"*
-
-**Rafael (Product Visionary):** *"Generated effort estimate for 'Watchlist' feature in 3 minutes during exec call using `effort-estimator` skill on github.com/copilot. Exec asked 'Can we ship this in Q2?'—answered immediately with data: '8 hours frontend, 5 hours backend, 2 hours DB = 2 sprint days, yes we can fit it.' Before: 'Let me research and get back to you' (90 min analysis, decision delayed 2 hours, momentum lost). After: decisions made in real-time, roadmap updated before call ends. This is what product velocity looks like."*
-
----
-
 ## What You'll Learn
 
 **GitHub Copilot on the Web** brings your IDE customizations (instructions, skills, agents) to browser-based workflows. You'll use Copilot at github.com/copilot for product management tasks—filing issues from screenshots, reviewing PRs on mobile, generating effort estimates during meetings, creating documentation from code, and comparing AI models for decisions. You'll measure productivity gains from eliminating IDE context-switching and team velocity improvements from mobile PR reviews.
