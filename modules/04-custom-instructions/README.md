@@ -38,20 +38,6 @@ This isn't about replacing repository-wide instructions—it's about **layering 
 
 ---
 
-## 💭 Why This Matters
-
-**Sarah (Skeptical Senior):** *"I created `.github/instructions/frontend.instructions.md` that only applies to React components. Before: Copilot suggested backend patterns in frontend code, requiring 3 minutes per file to correct. After: frontend files automatically get React-specific guidance—proper hooks, component structure, state management. 3→0 minutes correcting context mismatches × 15 frontend files per sprint = 45 minutes saved. More importantly: 0 backend patterns leak into UI code."*
-
-**David (Seasoned Architect):** *"My `.github/instructions/api.instructions.md` applies only to `/backend/src/routes/**` files. It enforces REST conventions, error handling patterns, and authentication checks that don't make sense for frontend code. Before: spent 8 minutes per API file explaining 'this is backend, use these patterns.' After: API files automatically follow API standards, frontend files follow frontend standards. My 20 years of architectural separation, enforced automatically through path matching."*
-
-**Marcus (DevOps Developer):** *"Created `.github/instructions/docker.instructions.md` with `applyTo: '**/{Dockerfile,docker-compose.yml}'`. Now Copilot suggests multi-stage builds, proper base images, and security scanning only when editing Docker files—not when I'm writing application code. Before: 5 minutes per Dockerfile correcting irrelevant suggestions. After: 0 minutes, perfect Docker-specific context every time."*
-
-**Elena (Quality Champion):** *"My `.github/instructions/tests.instructions.md` applies to `**/__tests__/**` files. Enforces: descriptive test names, edge case coverage, proper mocking patterns. Before: wrote tests, realized Copilot suggestions missed our testing conventions, spent 10 minutes refactoring. After: test files automatically follow testing standards from the first suggestion. 10→0 minutes per test file × 12 test files per sprint = 120 minutes (2 hours) saved."*
-
-**Rafael (Product Visionary):** *"Created `.github/instructions/docs.instructions.md` for `**/docs/**/*.md` files. Enforces: user-focused language, example-driven content, business value statements. Before: documentation felt too technical, spent 15 minutes per doc making it stakeholder-friendly. After: Copilot generates stakeholder-ready documentation automatically. When I'm in code files, it's technical; when I'm in docs, it's business-focused. Context switching without mental effort."*
-
----
-
 💡 **Understanding .instructions.md Files**
 
 **`.instructions.md` files** are path-based custom instructions that conditionally apply based on glob patterns. Unlike the repository-wide `copilot-instructions.md`, these target specific file types, directories, or naming patterns.
