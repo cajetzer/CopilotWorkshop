@@ -14,6 +14,8 @@ Creating architecture diagrams manually requires understanding the entire system
 
 This exercise uses Copilot CLI to generate infrastructure documentation automatically from the actual running system—creating diagrams, deployment procedures, and architecture overviews that stay synchronized with reality.
 
+> 💡 **Plan Mode for Documentation:** This exercise uses **interactive mode** with Plan Mode capabilities. When generating documentation, Copilot can ask clarifying questions like "Should I include development setup or focus on production deployment?" or "Do you want security considerations documented?" This collaborative approach ensures the documentation serves its intended audience—Rafael's stakeholder presentations, Sarah's onboarding guides, or Marcus's operational runbooks.
+
 #### 🔄 The Transformation
 
 | Before ❌ | After ✨ |
@@ -66,6 +68,12 @@ Create automated infrastructure documentation workflows using Copilot CLI that g
    - Identifies service relationships from `depends_on` and network configs
    - Creates visual diagram showing complete system architecture
    - Includes port mappings and data flow
+   
+   **Automatic Context Management:** As you continue working in the CLI session, notice that Copilot maintains relevant context about your infrastructure. If the conversation gets long (approaching token limits), Copilot will automatically compress earlier parts of the conversation while preserving key information. This means:
+   - No manual context cleanup needed
+   - Sessions don't break when reaching token limits
+   - Important context is retained automatically
+   - You can work continuously without interruptions
    
    The Mermaid diagram can be rendered in GitHub, VS Code, or converted to PNG/SVG for presentations.
 
