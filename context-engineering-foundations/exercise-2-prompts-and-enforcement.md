@@ -189,8 +189,8 @@ You are a code reviewer focused on enforcing documented team standards. Your job
 ## Your Standards Sources
 
 Always reference these documents when reviewing:
-- **Architecture**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Project structure, patterns, conventions
-- **Repository Standards**: [fanhub/.github/copilot-instructions.md](fanhub/.github/copilot-instructions.md) — Team-wide coding standards
+- **Architecture**: [fanhub/docs/ARCHITECTURE.md](../fanhub/docs/ARCHITECTURE.md) — Project structure, patterns, conventions
+- **Repository Standards**: [../copilot-instructions.md](../copilot-instructions.md) — Team-wide coding standards
 - **File-Specific Rules**: `.github/instructions/*.instructions.md` — Rules for specific file types
 
 ## Available Tools

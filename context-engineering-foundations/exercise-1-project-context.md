@@ -125,7 +125,7 @@ Repository instructions apply to **all chat requests** in your workspace. This i
 Use Copilot Chat to analyze your codebase and create the instructions file:
 
 ```
-@workspace:fanhub Analyze this project and create fanhub/.github/copilot-instructions.md 
+@workspace:fanhub Analyze this project and create .github/copilot-instructions.md 
 that includes:
 
 1. **Project Context** - How to reference our architecture docs
@@ -136,7 +136,7 @@ that includes:
 Base this on patterns you see consistently in the codebase. Keep it under 100 lines.
 Focus on standards that would help maintain consistency across the team.
 
-Save to fanhub/.github/copilot-instructions.md
+Save to .github/copilot-instructions.md
 ```
 **Note** This prompt uses a scoped `@workspace:fanhub` to target the specific project folder, even if your workspace contains multiple projects.
 
