@@ -155,16 +155,17 @@ Update my code to follow the latest patterns #fetch https://react.dev/reference/
 The real power comes from **combining** context primitives:
 
 ```
-@workspace Analyze how the login flow is organized. 
-Add login functionality to #file:src/pages/login.js 
-following the authentication patterns in #codebase
-and the API specs from #fetch https://our-api-docs.com/auth
+@workspace How is the character data flow organized?
+
+Add a new "favorites" feature to #file:Characters.jsx 
+that follows the patterns in #codebase 
+and uses the React state management from #fetch https://react.dev/learn/managing-state
 ```
 
 This single prompt uses:
 - `@workspace` — Workspace structure understanding
-- `#codebase` — Search for authentication patterns
-- `#file` — Target specific file
+- `#file` — Target a specific existing file
+- `#codebase` — Search for existing patterns to follow
 - `#fetch` — Reference external documentation
 
 ---
